@@ -95,6 +95,10 @@
         <!-- Right Side: Palette and Profile Area -->
         <div class="palette-overlay" id="palette-overlay" onclick="togglePalette()"></div>
         <aside class="palette-section" id="palette-section">
+            <!-- Mobile Close Button -->
+            <div class="mobile-close-palette" onclick="togglePalette()" style="display:none; position:absolute; top:10px; right:10px; font-size:24px; cursor:pointer; color:#dc3545; z-index:1100;">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
             <div class="profile-area">
                 <div style="background: #e9ecef; width: 100px; height: 110px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="assets/candidate.png" alt="Candidate" style="width: 100%; height: 100%; object-fit: cover;">
@@ -214,9 +218,30 @@
     <!-- Scripts -->
     <script>
         function togglePalette() {
-            document.getElementById('palette-section').classList.toggle('active');
-            document.getElementById('palette-overlay').classList.toggle('active');
+            const palette = document.getElementById('palette-section');
+            const overlay = document.getElementById('palette-overlay');
+            const isActive = palette.classList.contains('active');
+            
+            palette.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Back button handling for mobile
+            if (!isActive) {
+                history.pushState({ paletteOpen: true }, "");
+            } else if (history.state && history.state.paletteOpen) {
+                history.back();
+            }
         }
+
+        // Intercept back button to close palette
+        window.onpopstate = function(event) {
+            const palette = document.getElementById('palette-section');
+            const overlay = document.getElementById('palette-overlay');
+            if (palette.classList.contains('active')) {
+                palette.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        };
 
         // Draggable Calculator Logic
         const calcModal = document.getElementById('calculator-modal');
