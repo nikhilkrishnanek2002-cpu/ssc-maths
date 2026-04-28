@@ -3,33 +3,507 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduquity SSC CGL Mock Simulator</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Font Awesome for icons -->
+    <title>SSC CGL Exam Simulator</title>
+    <link rel="stylesheet" href="css/modern_theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Exam-specific overrides */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .exam-header {
+            background: linear-gradient(135deg, #0d0f14 0%, #1a1234 50%, #0d1a0f 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .header-left h2 {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #f5a623, #4f8ef7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .timer {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .exam-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            padding: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .question-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .tab-btn:hover {
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .q-number {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .positive-mark {
+            color: var(--accent3);
+        }
+
+        .negative-mark {
+            color: var(--accent4);
+        }
+
+        .question-content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .option:hover {
+            border-color: var(--accent);
+            background: rgba(245,166,35,0.05);
+        }
+
+        .option.selected {
+            border-color: var(--accent3);
+            background: rgba(46,204,113,0.1);
+        }
+
+        .option-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--muted);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-radio {
+            background: var(--accent3);
+            border-color: var(--accent3);
+        }
+
+        .solution-box {
+            background: rgba(46,204,113,0.08);
+            border: 1px solid rgba(46,204,113,0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            color: var(--text);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #f7d26a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-info {
+            background: var(--accent2);
+            color: #fff;
+        }
+
+        .btn-danger {
+            background: var(--accent4);
+            color: #fff;
+        }
+
+        /* Palette Section */
+        .palette-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .profile-area {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: var(--border);
+        }
+
+        .profile-info p {
+            font-size: 12px;
+            margin: 2px 0;
+        }
+
+        .status-legend {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .legend-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .badge {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .badge.answered {
+            background: var(--accent3);
+            color: #000;
+        }
+
+        .badge.not-answered {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .badge.not-visited {
+            background: var(--muted);
+            color: #000;
+        }
+
+        .badge.review {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .badge.review-answered {
+            background: var(--accent2);
+            color: #fff;
+        }
+
+        .question-palette-header {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .question-palette-header h3 {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .q-btn {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .q-btn:hover {
+            border-color: var(--accent);
+        }
+
+        .q-btn.answered {
+            background: var(--accent3);
+            border-color: var(--accent3);
+            color: #000;
+        }
+
+        .q-btn.visited {
+            border-color: var(--muted);
+        }
+
+        .q-btn.review {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
+
+        .submit-area {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--accent);
+            color: #000;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #f7d26a;
+            transform: translateY(-2px);
+        }
+
+        /* Calculator Modal */
+        .calculator-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            z-index: 300;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .calculator-modal.hidden {
+            display: none;
+        }
+
+        .calc-header {
+            background: var(--border);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+        }
+
+        .close-calc {
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .calc-display {
+            background: rgba(79,142,247,0.1);
+            color: #7bb3ff;
+            padding: 16px;
+            text-align: right;
+            font-size: 24px;
+            font-family: 'DM Mono', monospace;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .calc-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 12px;
+            gap: 8px;
+        }
+
+        .calc-btn {
+            padding: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: var(--border);
+        }
+
+        .calc-btn.operator {
+            background: rgba(245,166,35,0.15);
+            color: var(--accent);
+            border-color: rgba(245,166,35,0.3);
+        }
+
+        .double-width {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 1024px) {
+            .exam-container {
+                grid-template-columns: 1fr;
+            }
+
+            .palette-section {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Top Navigation Bar (Mimicking Exam Interface) -->
-    <header class="exam-header">
+
+    <!-- Exam Header -->
+    <div class="exam-header">
         <div class="header-left">
-            <h2>SSC CGL TIER-I</h2>
+            <h2>SSC CGL TIER-I Exam</h2>
         </div>
         <div class="header-right">
             <div class="timer">
                 <i class="fa-regular fa-clock"></i> Time Left: <span id="time-left">60:00</span>
             </div>
             <div class="practice-toggle">
-                <label class="switch">
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                     <input type="checkbox" id="practice-mode-toggle" onchange="togglePracticeMode()">
-                    <span class="slider round"></span>
+                    <span style="font-size: 12px;">Practice Mode</span>
                 </label>
-                <span>Practice Mode</span>
             </div>
-            <div class="calculator-toggle" onclick="toggleCalculator()">
+            <div class="calculator-toggle" onclick="toggleCalculator()" style="cursor: pointer; color: var(--muted);">
                 <i class="fa-solid fa-calculator"></i> Calculator
             </div>
         </div>
-    </header>
+    </div>
 
     <!-- Main Exam Container -->
     <main class="exam-container">
@@ -44,7 +518,7 @@
             </div>
             
             <div class="question-header">
-                <span class="q-number">Question No. <span id="current-q-num">1</span></span>
+                <span class="q-number">Question No. <span id="current-q-num">1</span> of 25</span>
                 <span class="marks-info"><span class="positive-mark">+2.00</span> | <span class="negative-mark">-0.50</span></span>
             </div>
 
@@ -56,14 +530,14 @@
                 <!-- Options will be injected here via JS -->
             </div>
 
-            <div id="solution-box" class="solution-box hidden">
+            <div id="solution-box" class="solution-box" style="display: none;">
                 <!-- Detailed explanation will be injected here -->
             </div>
 
             <div class="action-buttons">
                 <button class="btn btn-secondary" onclick="markForReview()">Mark for Review & Next</button>
-                <button class="btn btn-danger" onclick="clearResponse()">Clear Response</button>
-                <button class="btn btn-info hidden" id="btn-view-solution" onclick="showSolution()">View Solution</button>
+                <button class="btn btn-secondary" onclick="clearResponse()">Clear Response</button>
+                <button class="btn btn-info" id="btn-view-solution" onclick="showSolution()" style="display: none;">View Solution</button>
                 <button class="btn btn-primary" onclick="saveAndNext()">Save & Next</button>
             </div>
         </section>
@@ -71,10 +545,10 @@
         <!-- Right Side: Palette and Profile Area -->
         <aside class="palette-section">
             <div class="profile-area">
-                <img src="https://via.placeholder.com/60" alt="Candidate" class="profile-pic">
+                <img src="https://via.placeholder.com/50" alt="Candidate" class="profile-pic">
                 <div class="profile-info">
-                    <p><strong>Candidate Name:</strong> SSC Aspirant</p>
-                    <p><strong>Exam:</strong> SSC CGL Tier-I</p>
+                    <p><strong>SSC Aspirant</strong></p>
+                    <p>SSC CGL Tier-I</p>
                 </div>
             </div>
 
@@ -83,7 +557,7 @@
                 <div class="legend-item"><span class="badge not-answered">0</span> Not Answered</div>
                 <div class="legend-item"><span class="badge not-visited">25</span> Not Visited</div>
                 <div class="legend-item"><span class="badge review">0</span> Marked for Review</div>
-                <div class="legend-item"><span class="badge review-answered">0</span> Answered & Marked for Review</div>
+                <div class="legend-item"><span class="badge review-answered">0</span> Answered & Marked</div>
             </div>
 
             <div class="question-palette-header">
@@ -95,7 +569,7 @@
             </div>
 
             <div class="submit-area">
-                <button class="btn btn-submit" onclick="submitExam()">Submit Exam</button>
+                <button class="btn-submit" onclick="submitExam()">Submit Exam</button>
             </div>
         </aside>
 

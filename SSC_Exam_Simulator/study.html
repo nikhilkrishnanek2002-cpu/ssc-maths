@@ -3,70 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Platform - SSC CGL Master</title>
-    <link rel="stylesheet" href="css/study_style.css">
+    <title>SSC Exam Simulator - Study Master</title>
+    <link rel="stylesheet" href="css/modern_theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Sidebar Navigation -->
-    <aside class="study-sidebar">
-        <div class="sidebar-header">
-            <a href="index.html" title="Back to Dashboard"><i class="fa-solid fa-arrow-left"></i></a>
-            <h2>My Notebook</h2>
-        </div>
-        
-        <!-- Progress Tracker -->
-        <div class="progress-container" style="padding: 10px 20px; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
-                <strong>Syllabus Mastery</strong>
-                <span id="progress-text">0%</span>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-badge">SSC CGL Complete Preparation</div>
+        <h1>Study Master Platform</h1>
+        <p>57 comprehensive topics with 650+ worked examples, 165+ speed hacks & complete exam coverage</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-num">57</div>
+                <div class="stat-label">Topics</div>
             </div>
-            <div style="width: 100%; background: #e2e8f0; border-radius: 5px; height: 8px;">
-                <div id="progress-bar-fill" style="width: 0%; background: #10b981; height: 100%; border-radius: 5px; transition: width 0.3s ease;"></div>
+            <div class="stat">
+                <div class="stat-num">650+</div>
+                <div class="stat-label">Examples</div>
             </div>
-        </div>
-        
-        <div class="search-container" style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
-            <input type="text" id="search-bar" placeholder="Search topics (e.g., Geometry)..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Nunito', sans-serif;">
-        </div>
-
-        <div class="subject-filters" style="padding: 10px 20px; display: flex; gap: 5px; flex-wrap: wrap; border-bottom: 1px solid #e2e8f0;">
-            <button class="subj-btn active" data-subj="all" onclick="filterBySubject('all')">All</button>
-            <button class="subj-btn" data-subj="math" onclick="filterBySubject('math')">Math</button>
-            <button class="subj-btn" data-subj="reasoning" onclick="filterBySubject('reasoning')">Reasoning</button>
-            <button class="subj-btn" data-subj="english" onclick="filterBySubject('english')">English</button>
-            <button class="subj-btn" data-subj="gk" onclick="filterBySubject('gk')">GK</button>
-            <button class="subj-btn" data-subj="computer" onclick="filterBySubject('computer')">Computer</button>
-        </div>
-
-        <div class="nav-menu" id="nav-menu">
-            <!-- Dynamically populated by StudyEngine.js -->
-        </div>
-    </aside>
-
-    <!-- Main Content Area (The Notebook Paper) -->
-    <main class="study-content">
-        <!-- Top Toolbar -->
-        <div class="study-toolbar">
-            <button id="topic-test-btn" class="toolbar-btn primary-btn"><i class="fa-solid fa-stopwatch"></i> Take Topic Test</button>
-        </div>
-
-        <div class="notebook-page" id="notebook-page">
-            <!-- Content gets injected here via StudyEngine.js -->
-            <div class="page-header">
-                <h1 class="page-title">Loading...</h1>
+            <div class="stat">
+                <div class="stat-num">165+</div>
+                <div class="stat-label">Speed Hacks</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">5</div>
+                <div class="stat-label">Subjects</div>
             </div>
         </div>
-    </main>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-wrapper">
+        <div class="nav">
+            <button class="nav-btn active" onclick="filterBySubject('all')">All Topics</button>
+            <button class="nav-btn" onclick="filterBySubject('math')">📐 Mathematics</button>
+            <button class="nav-btn" onclick="filterBySubject('english')">📚 English</button>
+            <button class="nav-btn" onclick="filterBySubject('reasoning')">🧠 Reasoning</button>
+            <button class="nav-btn" onclick="filterBySubject('gk')">🌍 GK</button>
+            <button class="nav-btn" onclick="filterBySubject('computer')">💻 Computer</button>
+            <button class="nav-btn" style="margin-left: auto;" onclick="goHome()"><i class="fas fa-home"></i> Home</button>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Search & Filter Section -->
+        <div style="margin-bottom: 32px;">
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
+                <input type="text" id="search-bar" placeholder="Search topics (e.g., Quadratic Equations)..." 
+                       style="flex: 1; min-width: 250px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'DM Sans', sans-serif;" 
+                       onkeyup="searchTopics(this.value)">
+                <button class="btn" onclick="startQuiz()">
+                    <i class="fas fa-play"></i> Start Quiz
+                </button>
+            </div>
+            <div id="active-filters" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+
+        <!-- Topics Grid -->
+        <div id="topics-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 40px;">
+            <!-- Topics loaded here by JavaScript -->
+        </div>
+
+        <!-- Topic Detail View -->
+        <div id="topic-detail" style="display: none;">
+            <button class="btn btn-secondary" onclick="closeTopic()">← Back to Topics</button>
+            <div id="topic-content" style="margin-top: 24px;">
+                <!-- Topic details loaded here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Data Banks -->
     <script src="js/data/math_theorems.js"></script>
-    <script src="js/data/reasoning_tricks.js"></script>
     <script src="js/data/english_rules.js"></script>
-    <script src="js/data/gk_tips.js"></script>
+    <script src="js/data/english_vocabulary_comprehensive.js"></script>
+    <script src="js/data/reasoning_tricks.js"></script>
+    <script src="js/data/gk_bank.js"></script>
+    <script src="js/data/gk_comprehensive_expanded.js"></script>
     <script src="js/data/computer_knowledge.js"></script>
     <script src="js/data/statistics_advanced.js"></script>
-    <script src="js/components/StudyEngine.js"></script>
+
+    <script>
+        // Merged study data
+        const allStudyData = {
+            ...mathData,
+            ...englishData,
+            ...englishVocabularyData,
+            ...reasoningData,
+            ...GKBank,
+            ...gkDataExpanded,
+            ...computerData
+        };
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentTopic = null;
+
+        // Get subject from topic key
+        function getSubject(key) {
+            if (key.startsWith('math_')) return 'math';
+            if (key.startsWith('english_')) return 'english';
+            if (key.startsWith('reasoning_')) return 'reasoning';
+            if (key.startsWith('gk_')) return 'gk';
+            if (key.startsWith('comp_')) return 'computer';
+            return 'other';
+        }
+
+        // Filter by subject
+        function filterBySubject(subject) {
+            currentFilter = subject;
+            currentSearch = '';
+            document.getElementById('search-bar').value = '';
+            
+            // Update active button
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            displayTopics();
+        }
+
+        // Search topics
+        function searchTopics(query) {
+            currentSearch = query.toLowerCase();
+            displayTopics();
+        }
+
+        // Display topics
+        function displayTopics() {
+            const grid = document.getElementById('topics-grid');
+            grid.innerHTML = '';
+            let count = 0;
+
+            for (const [key, topic] of Object.entries(allStudyData)) {
+                const subject = getSubject(key);
+                const matches = currentFilter === 'all' || subject === currentFilter;
+                const searchMatch = currentSearch === '' || 
+                    topic.title.toLowerCase().includes(currentSearch) ||
+                    (topic.subtitle && topic.subtitle.toLowerCase().includes(currentSearch)) ||
+                    topic.category.toLowerCase().includes(currentSearch);
+
+                if (matches && searchMatch) {
+                    const colorClass = ['gold', 'blue', 'green', 'red', 'purple'][count % 5];
+                    const icons = { gold: '⭐', blue: '📘', green: '✨', red: '🚀', purple: '💡' };
+                    
+                    const card = document.createElement('div');
+                    card.className = `card ${colorClass}`;
+                    card.innerHTML = `
+                        <div class="card-title">
+                            <span class="icon">${icons[colorClass]}</span>
+                            <span>${topic.title}</span>
+                        </div>
+                        <div style="color: var(--muted); font-size: 12px; margin-bottom: 12px;">${topic.subtitle || topic.category}</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                            <span class="tag tag-${colorClass}">
+                                ${topic.blocks ? topic.blocks.length : 0} blocks
+                            </span>
+                            ${topic.blocks && topic.blocks.some(b => b.examples && b.examples.length > 0) ? `
+                                <span class="tag tag-${colorClass}">Examples</span>
+                            ` : ''}
+                            ${topic.blocks && topic.blocks.some(b => b.shortcut) ? `
+                                <span class="tag tag-${colorClass}">⚡ Hacks</span>
+                            ` : ''}
+                        </div>
+                        <button class="btn" style="width: 100%;" onclick="viewTopic('${key}')">
+                            View Details
+                        </button>
+                    `;
+                    grid.appendChild(card);
+                    count++;
+                }
+            }
+
+            if (count === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+                        <h3>No topics found</h3>
+                        <p style="color: var(--muted);">Try a different search or filter</p>
+                    </div>
+                `;
+            }
+        }
+
+        // View topic detail
+        function viewTopic(key) {
+            currentTopic = key;
+            const topic = allStudyData[key];
+            
+            document.getElementById('topics-grid').style.display = 'none';
+            document.getElementById('topic-detail').style.display = 'block';
+            
+            let content = `
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 8px;">${topic.title}</h2>
+                <p style="color: var(--muted); font-size: 15px; margin-bottom: 24px;">${topic.subtitle || topic.category}</p>
+                <div class="divider"></div>
+            `;
+
+            if (topic.blocks && Array.isArray(topic.blocks)) {
+                topic.blocks.forEach((block, idx) => {
+                    const colors = ['gold', 'blue', 'green', 'red', 'purple'];
+                    const color = colors[idx % 5];
+                    
+                    content += `
+                        <div class="card ${color}">
+                            <h3>${block.title}</h3>
+                            <p>${block.text}</p>
+                    `;
+
+                    if (block.examples && block.examples.length > 0) {
+                        content += `<div style="margin-top: 12px;"><strong style="color: var(--accent3);">Examples:</strong><ul style="margin-top: 8px;">`;
+                        block.examples.forEach(ex => {
+                            content += `<li>${ex}</li>`;
+                        });
+                        content += `</ul></div>`;
+                    }
+
+                    if (block.shortcut) {
+                        content += `<div class="shortcut" style="margin-top: 12px;"><strong>⚡ Speed Hack:</strong> ${block.shortcut}</div>`;
+                    }
+
+                    content += `</div>`;
+                });
+            }
+
+            document.getElementById('topic-content').innerHTML = content;
+            window.scrollTo(0, 0);
+        }
+
+        // Close topic view
+        function closeTopic() {
+            currentTopic = null;
+            document.getElementById('topics-grid').style.display = 'grid';
+            document.getElementById('topic-detail').style.display = 'none';
+            displayTopics();
+            window.scrollTo(0, 0);
+        }
+
+        // Start quiz
+        function startQuiz() {
+            window.location.href = 'exam.html';
+        }
+
+        // Go home
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Initialize
+        displayTopics();
+    </script>
 </body>
 </html>

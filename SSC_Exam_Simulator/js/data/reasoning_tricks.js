@@ -446,5 +446,286 @@ const reasoningData = {
                 shortcut: "A valid course of action must be PRACTICAL, LOGICAL, and directly SOLVE the problem without creating a bigger problem."
             }
         ]
+    },
+    reasoning_blood_relations: {
+        category: "Reasoning: Analytical",
+        title: "Blood Relations: Comprehensive Deep Dive",
+        subtitle: "Family Trees and Complex Relationships",
+        blocks: [
+            {
+                title: "1. Basic Relationships",
+                text: "Fundamental family connections.",
+                examples: [
+                    "My mother's son = ME (or my brother)",
+                    "My father's daughter = ME (or my sister)",
+                    "My mother's mother = My grandmother (maternal)",
+                    "My father's father = My grandfather (paternal)",
+                    "My mother's brother = My uncle (maternal)",
+                    "My father's sister = My aunt (paternal)",
+                    "My mother's brother's son = My cousin",
+                    "My father's brother's daughter = My cousin"
+                ],
+                shortcut: "Gender confusion is the key trap. 'My mother's son' is either YOU (if you're male) or YOUR BROTHER."
+            },
+            {
+                title: "2. Generation Logic",
+                text: "Counting generations up or down.",
+                examples: [
+                    "Your generation = 0",
+                    "Your parents' generation = -1 (one up)",
+                    "Your grandparents' generation = -2 (two up)",
+                    "Your children's generation = +1 (one down)",
+                    "Your grandchildren's generation = +2 (two down)"
+                ],
+                shortcut: "Count the generational distance. Same generation = cousins/siblings. One generation apart = parent/child. Two apart = grandparent/grandchild."
+            },
+            {
+                title: "3. Complex Relationship Solving",
+                text: "Multi-step connections.",
+                examples: [
+                    "If A is B's brother and C is B's mother, then what is A to C? A = C's son.",
+                    "If A is B's mother and B is C's sister, then what is A to C? A = C's mother.",
+                    "Always trace backwards step-by-step. Don't jump to conclusions.",
+                    "Method: Start with the known person, trace backwards through relationships to find the answer."
+                ],
+                shortcut: "Trace the path from Person 1 to Person 2 through the connecting people. Each step = one generation or lateral connection."
+            },
+            {
+                title: "4. Code Decoding in Relations",
+                text: "When relationships are given with symbols or codes.",
+                examples: [
+                    "A + B = A is B's mother.",
+                    "A - B = A is B's father.",
+                    "A × B = A is B's brother.",
+                    "A ÷ B = A is B's sister.",
+                    "Example: P ÷ Q - R means: P is Q's sister, Q is R's father. So P is R's aunt."
+                ],
+                shortcut: "Decode step-by-step from left to right. Don't try to process the whole thing at once."
+            },
+            {
+                title: "5. Gender Determination",
+                text: "Figuring out whether someone is male or female.",
+                examples: [
+                    "If X is a male, and X is Y's son, then Y is X's mother (Y is female).",
+                    "If X is Y's sister, then X is female and Y can be male or female.",
+                    "If X is Y's wife, then X is female and Y is male.",
+                    "Always use the definitives (husband/wife, son/daughter) to anchor gender."
+                ],
+                shortcut: "Use gendered words (husband, wife, son, daughter, brother, sister) to confirm. Words like 'parent', 'sibling', 'child' are neutral."
+            }
+        ]
+    },
+    reasoning_coding_decoding: {
+        category: "Reasoning: Analytical",
+        title: "Coding-Decoding: Comprehensive Deep Dive",
+        subtitle: "Cipher Patterns, Substitution, Word Manipulation",
+        blocks: [
+            {
+                title: "1. Letter Shift Coding",
+                text: "Each letter is replaced by another letter a fixed distance away.",
+                examples: [
+                    "If A = B, B = C, C = D (shift +1): CODE -> DPEF.",
+                    "If Z = A, Y = B (shift +1 with wrap): ZOO -> APP.",
+                    "Reverse alphabet: A↔Z, B↔Y, C↔X. CAT -> ZSG.",
+                    "Method: Identify the shift pattern. Apply reverse shift to decode."
+                ],
+                shortcut: "Check the first example pair to identify the shift value. If A→C, shift is +2. If A→Z, shift is -1 (or +25 with wrap)."
+            },
+            {
+                title: "2. Position-Based Coding",
+                text: "Letters are coded based on their position in alphabet.",
+                examples: [
+                    "A=1, B=2, C=3...Z=26. CAT = 3-1-20.",
+                    "Reverse: A=26, B=25, C=24...Z=1. CAT = 24-26-7.",
+                    "Position in word matters: First letter, Second letter, etc.",
+                    "Method: Convert to numbers, identify pattern, convert back."
+                ],
+                shortcut: "If you see numbers in options, it's definitely position-based coding."
+            },
+            {
+                title: "3. Word Reversal & Rearrangement",
+                text: "Words are rearranged in specific ways.",
+                examples: [
+                    "Simple reversal: CAT -> TAC.",
+                    "Alternate letters: ABCDEF -> ACEFBDF (odd positions, then even).",
+                    "Alternate letters reverse: ABCDEF -> FBDECA (reverse of even, reverse of odd).",
+                    "Method: Identify how the pattern rearranges letters. Apply to decode."
+                ],
+                shortcut: "If the same letters appear but in different order, it's a rearrangement cipher."
+            },
+            {
+                title: "4. Keyboard-Based Coding",
+                text: "Letters are replaced by adjacent keyboard keys.",
+                examples: [
+                    "QWERTY keyboard: A → Q or S. S → A or D. Z → X or S.",
+                    "Method: Identify which neighbor (left/right/up/down) is being used consistently."
+                ],
+                shortcut: "Keyboard coding is less common in SSC but appears occasionally. Identify the direction first."
+            },
+            {
+                title: "5. Worked Coding Examples",
+                text: "Complete solved examples.",
+                examples: [
+                    "If MOTHER is coded as RTMYBO, decode SISTER. Solution: M→R (shift -5), O→T (shift -5), T→M (shift -5)...Pattern is -5. So S→N, I→D, S→N, T→O, E→Z, R→M. SISTER = NDNOZM.",
+                    "If TRAIN is coded as 20-18-1-9-14, code PLANE. Solution: Position values. TRAIN = (20)(18)(1)(9)(14). PLANE = (16)(12)(1)(14)(5).",
+                    "If LION is coded as MNPQ, code TIGER. Solution: Each letter +1. L→M, I→N, O→P, N→O. So T→U, I→J, G→H, E→F, R→S. TIGER = UJHFS."
+                ],
+                shortcut: "Always identify the PATTERN first using the given example. Then apply it consistently to the unknown word."
+            }
+        ]
+    },
+    reasoning_directions_clock: {
+        category: "Reasoning: Spatial",
+        title: "Directions & Clock: Deep Dive",
+        subtitle: "Compass Directions, Angles, Relative Positions",
+        blocks: [
+            {
+                title: "1. Basic Directions",
+                text: "Compass directions and their angles.",
+                examples: [
+                    "North = 0° (or 360°)",
+                    "East = 90°",
+                    "South = 180°",
+                    "West = 270°",
+                    "Northeast (NE) = 45°",
+                    "Southeast (SE) = 135°",
+                    "Southwest (SW) = 225°",
+                    "Northwest (NW) = 315°"
+                ],
+                shortcut: "Clockwise from North: N (0°) → E (90°) → S (180°) → W (270°) → N (360°)."
+            },
+            {
+                title: "2. Relative Directions",
+                text: "Understanding left and right turns.",
+                examples: [
+                    "If facing North: Right = East, Left = West, Back = South.",
+                    "If facing East: Right = South, Left = North, Back = West.",
+                    "If facing South: Right = West, Left = East, Back = North.",
+                    "If facing West: Right = North, Left = South, Back = East."
+                ],
+                shortcut: "Memorize: 'Never Eat Sour Watermelon' = N-E-S-W (clockwise). Turning right = clockwise, turning left = counter-clockwise."
+            },
+            {
+                title: "3. Clock Angle Problems",
+                text: "Finding angles between clock hands.",
+                examples: [
+                    "Hour hand: Moves 360°/12 hours = 30° per hour = 0.5° per minute.",
+                    "Minute hand: Moves 360°/60 minutes = 6° per minute.",
+                    "Angle between hands at 3:00 = 90°.",
+                    "Angle between hands at 6:00 = 180°.",
+                    "General formula: Angle = |11M - 60H| / 2 (where H = hours, M = minutes)."
+                ],
+                shortcut: "At H o'clock: Angle = 30H (if H < 6, angle = 30H; if H > 6, angle = 360 - 30H)."
+            },
+            {
+                title: "4. Direction-Based Distance Problems",
+                text: "Movement in directions to find final position.",
+                examples: [
+                    "Start facing North. Move 5km East, then 3km South, then 2km West. Final position: 3km East and 3km South from start. Distance from start = √(3²+3²) = √18 ≈ 4.24 km.",
+                    "Method: Draw a grid. Mark movements. Calculate resultant displacement."
+                ],
+                shortcut: "Use vector addition. Break movement into North-South (vertical) and East-West (horizontal) components. Resultant = √(Vertical² + Horizontal²)."
+            },
+            {
+                title: "5. Reflection & Mirror Image",
+                text: "Understanding mirror images and reflections.",
+                examples: [
+                    "Vertical mirror: Right ↔ Left, but Up-Down unchanged.",
+                    "Horizontal mirror: Up ↔ Down, but Left-Right unchanged.",
+                    "Point reflection (180° rotation): Both coordinates flip."
+                ],
+                shortcut: "In mirror image: 'b' looks like 'd', 'p' looks like 'q', '5' looks like '5' (symmetrical)."
+            }
+        ]
+    },
+    reasoning_cubes_dice: {
+        category: "Reasoning: Spatial",
+        title: "Cubes & Dice: Comprehensive Deep Dive",
+        subtitle: "Unfolding, Folding, 3D Visualization",
+        blocks: [
+            {
+                title: "1. Cube Unfolding Rules",
+                text: "How a cube looks when unfolded into 2D.",
+                examples: [
+                    "A cube has 6 faces, 12 edges, 8 vertices.",
+                    "Opposite faces: If unfolded, faces that are 2 edges apart are opposite.",
+                    "When two unfolding patterns are given: Identify which face corresponds to which."
+                ],
+                shortcut: "Opposite faces add up to 7 if faces are numbered 1-6. (1↔6, 2↔5, 3↔4)."
+            },
+            {
+                title: "2. Die Matching",
+                text: "Matching die patterns to determine opposite faces.",
+                examples: [
+                    "If die shows 1, 2, 3 on three visible faces, determine what's on the opposite side of 1, 2, 3.",
+                    "Method: Use elimination. If three faces are visible, mark them. The opposite faces must be from the remaining three."
+                ],
+                shortcut: "In standard dice: Opposite faces sum to 7. So 1↔6, 2↔5, 3↔4."
+            },
+            {
+                title: "3. Folding Unfolded Cubes",
+                text: "Given an unfolded cube, identify the final 3D shape.",
+                examples: [
+                    "Study the pattern. Imagine folding it. Which faces touch which?",
+                    "Common trap: Two faces that look adjacent in the unfolding will NOT be adjacent when folded."
+                ],
+                shortcut: "Draw the unfolding. Mentally fold it step by step. Or trace with your fingers."
+            },
+            {
+                title: "4. Box-in-Box Problems",
+                text: "Smaller boxes folded inside larger boxes.",
+                examples: [
+                    "Track which symbols/patterns are on which faces of the small box.",
+                    "Determine final position based on how it's placed inside the large box."
+                ],
+                shortcut: "These are complex. Draw each step carefully."
+            }
+        ]
+    },
+    reasoning_non_verbal_series: {
+        category: "Reasoning: Non-Verbal",
+        title: "Non-Verbal Series: Comprehensive Deep Dive",
+        subtitle: "Pattern Recognition in Shapes and Figures",
+        blocks: [
+            {
+                title: "1. Shape Transformation Series",
+                text: "A pattern where shapes change systematically.",
+                examples: [
+                    "Series: Circle → Oval → Ellipse (Getting flatter)",
+                    "Series: Triangle (3) → Square (4) → Pentagon (5) (Sides increasing)",
+                    "Method: Identify what changes (size, shape, rotation, color) and apply the pattern."
+                ],
+                shortcut: "Ask: What property changes? Size? Shape? Rotation? Color? Pattern filling? Identify one change at a time."
+            },
+            {
+                title: "2. Position & Rotation Series",
+                text: "Objects moving or rotating in a systematic way.",
+                examples: [
+                    "Series: Triangle pointing up → pointing right → pointing down → pointing left (90° rotation each step)",
+                    "Series: Dot in top-left → top-middle → top-right → middle-right → bottom-right (Moving clockwise around box edges)"
+                ],
+                shortcut: "Trace the movement. Is it clockwise? Counter-clockwise? 45° steps? 90° steps?"
+            },
+            {
+                title: "3. Combination & Division Series",
+                text: "Shapes combining or dividing.",
+                examples: [
+                    "Series: 1 square → 2 squares → 4 squares → 8 squares (Doubling each step)",
+                    "Series: Star breaks into 2 parts → 3 parts → 4 parts"
+                ],
+                shortcut: "Count elements. Are they multiplying? Dividing? Adding? Subtracting?"
+            },
+            {
+                title: "4. Pattern Completion in 3×3 Grid",
+                text: "Missing figure in 3×3 grid following a logical pattern.",
+                examples: [
+                    "Check rows: Do all rows follow the same pattern? (Rotation, size, shading)",
+                    "Check columns: Do all columns follow the same pattern?",
+                    "Check diagonals: Sometimes patterns go diagonally.",
+                    "Method: Identify what pattern exists in 2 rows/columns. Apply to find the 3rd."
+                ],
+                shortcut: "In 3×3 grids: Usually patterns are either row-wise, column-wise, or cyclic (repeating after 3 steps)."
+            }
+        ]
     }
 };

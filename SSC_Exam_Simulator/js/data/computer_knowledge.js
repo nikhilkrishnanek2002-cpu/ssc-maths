@@ -153,5 +153,228 @@ const computerData = {
                 shortcut: "If you just 'use' it (like Gmail), it's SaaS. If you 'code' on it, it's PaaS. If you 'host' virtual machines on it, it's IaaS."
             }
         ]
+    },
+    comp_number_systems: {
+        category: "Computer: Fundamentals",
+        title: "Number Systems: Deep Dive & Conversions",
+        subtitle: "Binary, Octal, Decimal, Hexadecimal",
+        blocks: [
+            {
+                title: "1. Number System Basics",
+                text: "Different ways to represent numbers.",
+                examples: [
+                    "Decimal (Base 10): 0-9. Standard system humans use.",
+                    "Binary (Base 2): 0-1. Used by computers.",
+                    "Octal (Base 8): 0-7. Used in some systems.",
+                    "Hexadecimal (Base 16): 0-9, A-F. Used for memory addresses, color codes, MAC addresses."
+                ],
+                shortcut: "DECIMAL = NORMAL. BINARY = 2 symbols. OCTAL = 8 symbols. HEX = 16 symbols (A=10, B=11...F=15)."
+            },
+            {
+                title: "2. Decimal to Binary Conversion",
+                text: "Converting base 10 to base 2.",
+                examples: [
+                    "Method: Repeatedly divide by 2 and note remainders from bottom to top.",
+                    "Example: 25 ÷ 2 = 12 R 1, 12 ÷ 2 = 6 R 0, 6 ÷ 2 = 3 R 0, 3 ÷ 2 = 1 R 1, 1 ÷ 2 = 0 R 1.",
+                    "Reading bottom to top: 11001 (which is 25 in binary).",
+                    "Verification: 1×2⁴ + 1×2³ + 0×2² + 0×2¹ + 1×2⁰ = 16 + 8 + 0 + 0 + 1 = 25. ✓"
+                ],
+                shortcut: "Power of 2 series: 1, 2, 4, 8, 16, 32, 64, 128, 256. Memorize first 10 powers for quick conversions."
+            },
+            {
+                title: "3. Binary to Decimal Conversion",
+                text: "Converting base 2 to base 10.",
+                examples: [
+                    "Method: Multiply each digit by its place value (powers of 2) and sum.",
+                    "Example: 1101₂ = 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 8 + 4 + 0 + 1 = 13₁₀."
+                ],
+                shortcut: "Each binary digit represents a power of 2. Leftmost = highest power. Add only the positions with '1'."
+            },
+            {
+                title: "4. Binary to Hexadecimal (Quick Method)",
+                text: "Converting base 2 to base 16 without going through decimal.",
+                examples: [
+                    "Method: Group binary digits in sets of 4 from RIGHT TO LEFT. Each group = one hex digit.",
+                    "Example: 101101₂ = 0010 1101 (padding with 0 on left).",
+                    "0010 = 2, 1101 = 13 (D in hex). So 101101₂ = 2D₁₆.",
+                    "Hex digit table: 0000=0, 0001=1, ..., 1010=A, 1011=B, 1100=C, 1101=D, 1110=E, 1111=F."
+                ],
+                shortcut: "GROUP BY 4 BINARY DIGITS. Each group converts to one hex digit. This is much faster than decimal conversion."
+            }
+        ]
+    },
+    comp_database_fundamentals: {
+        category: "Computer: Database",
+        title: "Database Concepts: Deep Dive",
+        subtitle: "DBMS, SQL, Queries",
+        blocks: [
+            {
+                title: "1. Database Basics",
+                text: "Organized storage of data.",
+                examples: [
+                    "DBMS (Database Management System): Software that manages databases. Examples: MySQL, Oracle, SQL Server, PostgreSQL.",
+                    "Table/Relation: Rows (tuples/records) and columns (attributes/fields).",
+                    "Primary Key: Unique identifier for each row. No duplicates, no NULL.",
+                    "Foreign Key: Links one table to another. Enforces referential integrity.",
+                    "Index: Used to speed up queries on frequently searched columns."
+                ],
+                shortcut: "PRIMARY KEY = UNIQUE. FOREIGN KEY = LINKS TO ANOTHER TABLE."
+            },
+            {
+                title: "2. SQL Basics",
+                text: "Structured Query Language for database operations.",
+                examples: [
+                    "SELECT: Retrieve data. SELECT * FROM Students;",
+                    "INSERT: Add new data. INSERT INTO Students VALUES ('John', 25);",
+                    "UPDATE: Modify existing data. UPDATE Students SET Age=26 WHERE Name='John';",
+                    "DELETE: Remove data. DELETE FROM Students WHERE Age > 30;",
+                    "WHERE clause: Filter conditions. AND, OR, NOT operators."
+                ],
+                shortcut: "CRUD = Create (INSERT), Read (SELECT), Update (UPDATE), Delete (DELETE)."
+            },
+            {
+                title: "3. Database Relationships",
+                text: "How tables relate to each other.",
+                examples: [
+                    "One-to-One: One row in Table A corresponds to one row in Table B.",
+                    "One-to-Many: One row in Table A corresponds to many rows in Table B (most common).",
+                    "Many-to-Many: Many rows in Table A correspond to many rows in Table B (requires a junction/linking table)."
+                ],
+                shortcut: "ONE-TO-MANY = MOST COMMON. Use Foreign Key in the 'many' side table pointing to the 'one' side."
+            }
+        ]
+    },
+    comp_file_management: {
+        category: "Computer: File System",
+        title: "File Systems & File Management: Deep Dive",
+        subtitle: "File Extensions, Compression, Organization",
+        blocks: [
+            {
+                title: "1. File Extensions & Types",
+                text: "Different file types and their purposes.",
+                examples: [
+                    "Document files: .doc/.docx (Word), .xls/.xlsx (Excel), .ppt/.pptx (PowerPoint).",
+                    "Text files: .txt (plain text), .pdf (Portable Document Format).",
+                    "Image files: .jpg/.jpeg (compressed), .png (lossless), .gif (animated), .bmp (bitmap).",
+                    "Audio files: .mp3 (compressed), .wav (uncompressed), .flac (lossless).",
+                    "Video files: .mp4 (H.264 codec), .avi (older), .mov (Apple), .mkv (flexible)."
+                ],
+                shortcut: ".JPG = COMPRESSED (smaller). .PNG = LOSSLESS (larger). .GIF = ANIMATED."
+            },
+            {
+                title: "2. File Compression",
+                text: "Reducing file size for storage and transmission.",
+                examples: [
+                    "Lossless compression: No data loss. e.g., .zip, .rar, .7z. Useful for documents, archives.",
+                    "Lossy compression: Some data loss (imperceptible to humans). e.g., .jpg, .mp3. Useful for images, audio, video.",
+                    "Compression ratio: Original size / Compressed size. Higher ratio = better compression."
+                ],
+                shortcut: "LOSSLESS = PERFECT COPY after decompression. LOSSY = SMALLER but LOSES DETAIL."
+            },
+            {
+                title: "3. File Organization & Backup",
+                text: "Managing files on storage systems.",
+                examples: [
+                    "File system: FAT32 (legacy), NTFS (modern Windows), ext4 (Linux), HFS+ (Mac).",
+                    "Backup strategies: Full backup (entire data), Incremental (only changed files since last backup), Differential (changed since last full backup).",
+                    "Cloud backup: Google Drive, OneDrive, Dropbox. Automatic synchronization."
+                ],
+                shortcut: "NTFS = WINDOWS. ext4 = LINUX. FULL BACKUP = MOST COMPLETE. INCREMENTAL = FASTEST BACKUPS."
+            }
+        ]
+    },
+    comp_programming_basics: {
+        category: "Computer: Programming",
+        title: "Programming Concepts: Deep Dive",
+        subtitle: "Languages, Compilers, Algorithms",
+        blocks: [
+            {
+                title: "1. Programming Languages",
+                text: "Different languages for different purposes.",
+                examples: [
+                    "High-level: Python, Java, C++, JavaScript. Easy to read and write.",
+                    "Low-level: Assembly, Machine code (0s and 1s). Direct hardware control.",
+                    "Procedural: C, Pascal. Follow a sequence of instructions.",
+                    "Object-Oriented: Java, C++, Python. Use classes and objects.",
+                    "Functional: Lisp, Haskell. Based on mathematical functions.",
+                    "Scripting: Python, JavaScript, PHP. Interpreted, often for automation."
+                ],
+                shortcut: "PYTHON = EASIEST. JAVA = MOST POPULAR FOR BUSINESS. JAVASCRIPT = WEB."
+            },
+            {
+                title: "2. Compiler vs Interpreter",
+                text: "How code is converted to machine instructions.",
+                examples: [
+                    "Compiler: Converts entire code to machine code at once (fast execution). Used by C++, Java.",
+                    "Interpreter: Converts line-by-line at runtime (slower execution). Used by Python, JavaScript.",
+                    "Bytecode: Intermediate between source and machine code. Java uses bytecode (compiled to bytecode, then interpreted by JVM)."
+                ],
+                shortcut: "COMPILER = COMPILE ONCE, RUN MANY TIMES (faster). INTERPRETER = INTERPRET EACH TIME (slower)."
+            },
+            {
+                title: "3. Basic Data Structures",
+                text: "Ways to organize data for efficient operations.",
+                examples: [
+                    "Array: Ordered collection of elements. Fixed size (in most languages).",
+                    "Linked List: Elements linked via pointers. Flexible size. Slower access than arrays.",
+                    "Stack: Last-In-First-Out (LIFO). Used in function calls, undo functionality.",
+                    "Queue: First-In-First-Out (FIFO). Used in printing, process scheduling.",
+                    "Tree: Hierarchical structure with root and branches. Used in file systems, databases.",
+                    "Graph: Interconnected nodes. Used in networks, social graphs."
+                ],
+                shortcut: "ARRAY = FAST ACCESS. LINKED LIST = SLOW ACCESS, FLEXIBLE SIZE. STACK = UNDO. QUEUE = PRINTING."
+            }
+        ]
+    },
+    comp_internet_advanced: {
+        category: "Computer: Internet Advanced",
+        title: "Web Technologies & Advanced Networking: Deep Dive",
+        subtitle: "IP Addressing, Domain Names, VPN, Blockchain",
+        blocks: [
+            {
+                title: "1. IP Addressing",
+                text: "Identifying devices on networks.",
+                examples: [
+                    "IPv4: 32-bit address (4 octets). Example: 192.168.1.1. Total addresses: 2³² ≈ 4.3 billion.",
+                    "IPv6: 128-bit address. Example: 2001:0db8:85a3::8a2e:0370:7334. Total addresses: 2¹²⁸ (vastly more).",
+                    "Loopback address: 127.0.0.1 (refers to localhost).",
+                    "Private IP ranges: 10.0.0.0 - 10.255.255.255, 172.16.0.0 - 172.31.255.255, 192.168.0.0 - 192.168.255.255."
+                ],
+                shortcut: "IPv4 = RUNNING OUT. IPv6 = FUTURE. LOOPBACK = YOURSELF (127.0.0.1)."
+            },
+            {
+                title: "2. Domain Names & DNS",
+                text: "Converting domain names to IP addresses.",
+                examples: [
+                    "Domain Name: Easy-to-remember name (google.com) instead of IP (142.250.185.46).",
+                    "DNS (Domain Name System): Translates domain names to IP addresses.",
+                    "DNS Servers: Distributed worldwide. Your ISP maintains DNS servers.",
+                    "TLD (Top-Level Domain): .com, .org, .net, .in (country code), .gov (government)."
+                ],
+                shortcut: "DNS = PHONE DIRECTORY OF THE INTERNET. If DNS fails, you can't access websites even if internet is working."
+            },
+            {
+                title: "3. VPN & Encryption",
+                text: "Privacy and security on the internet.",
+                examples: [
+                    "VPN (Virtual Private Network): Encrypts your connection and masks your IP address. Appears as if you're in a different location.",
+                    "SSL/TLS: Encryption protocols for websites. HTTPS uses SSL/TLS.",
+                    "Encryption: Encoding data so only authorized people can decode it. Uses keys (public/private).",
+                    "Firewall: Blocks unauthorized access. Monitors incoming and outgoing traffic."
+                ],
+                shortcut: "VPN = PRIVACY + SECURITY. SSL/TLS = HTTPS. ENCRYPTION = UNREADABLE WITHOUT KEY."
+            },
+            {
+                title: "4. Blockchain & Cryptocurrency",
+                text: "Distributed ledger technology.",
+                examples: [
+                    "Blockchain: Chain of blocks, each block contains transaction data. Immutable (cannot be altered).",
+                    "Bitcoin: First cryptocurrency using blockchain.",
+                    "Smart Contracts: Self-executing contracts on blockchain (used in Ethereum).",
+                    "Decentralized: No central authority; distributed across network."
+                ],
+                shortcut: "BLOCKCHAIN = IMMUTABLE CHAIN. BITCOIN = FIRST CRYPTO. SMART CONTRACTS = AUTOMATED EXECUTION."
+            }
+        ]
     }
 };

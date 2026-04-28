@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSC CGL Master Dashboard</title>
+    <link rel="stylesheet" href="css/modern_theme.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #0d0f14 0%, #1a1234 50%, #0d1a0f 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -18,124 +19,410 @@
             justify-content: center;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #555;
-        }
-
-        .cards-container {
-            display: flex;
-            gap: 40px;
-            max-width: 1000px;
+        .nav-bar {
+            position: fixed;
+            top: 0;
             width: 100%;
-            padding: 0 20px;
-        }
-
-        .card {
-            flex: 1;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(13, 15, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
+            z-index: 100;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f5a623, #4f8ef7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .card-icon {
-            font-size: 4rem;
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            margin-top: 80px;
+            padding: 40px 24px;
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .hero-section {
+            margin-bottom: 60px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(245, 166, 35, 0.15);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .study-card .card-icon {
-            color: #f39c12;
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f5a623, #4f8ef7, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
         }
 
-        .exam-card .card-icon {
-            color: #3498db;
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .card p {
-            color: #666;
+        .hero-section p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
             line-height: 1.6;
         }
 
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.05) 0%, rgba(79, 142, 247, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--accent);
+            margin: 0 0 8px 0;
+        }
+
+        .stat-item p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid transparent;
+        }
+
+        .study-card {
+            border-top-color: var(--accent);
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.05) 0%, var(--card) 100%);
+        }
+
+        .exam-card {
+            border-top-color: var(--accent2);
+            background: linear-gradient(135deg, rgba(79, 142, 247, 0.05) 0%, var(--card) 100%);
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .study-card:hover {
+            border-top-color: var(--accent);
+        }
+
+        .exam-card:hover {
+            border-top-color: var(--accent2);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .study-card .card-icon {
+            background: rgba(245, 166, 35, 0.15);
+            color: var(--accent);
+        }
+
+        .exam-card .card-icon {
+            background: rgba(79, 142, 247, 0.15);
+            color: var(--accent2);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            color: var(--text);
+        }
+
+        .card p {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 15px;
+            margin: 0 0 24px 0;
+        }
+
         .btn-launch {
-            margin-top: 25px;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
+            margin-top: auto;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
             display: inline-block;
         }
 
         .study-card .btn-launch {
-            background: #fff3e0;
-            color: #e67e22;
-            border: 2px solid #e67e22;
+            background: var(--accent);
+            color: #000;
+        }
+
+        .study-card .btn-launch:hover {
+            background: #f7d26a;
+            transform: translateY(-2px);
         }
 
         .exam-card .btn-launch {
-            background: #e1f0fa;
-            color: #2980b9;
-            border: 2px solid #2980b9;
+            background: var(--accent2);
+            color: #fff;
         }
 
-        .card:hover .study-card .btn-launch {
-            background: #e67e22;
-            color: white;
+        .exam-card .btn-launch:hover {
+            background: #6a9fee;
+            transform: translateY(-2px);
+        }
+
+        .features-section {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .features-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #f5a623, #4f8ef7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-item {
+            background: rgba(20, 23, 32, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #f5a623, #4f8ef7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-item h4 {
+            color: var(--text);
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+
+        .feature-item p {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding: 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>SSC CGL Ultimate Hub</h1>
-        <p>Prepare, Practice, and Perfect your Government Exam Strategy.</p>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="logo">SSC CGL Ultimate Hub</div>
+        <div class="nav-links">
+            <a href="#study">Study</a>
+            <a href="#exam">Exam</a>
+            <a href="#features">Features</a>
+        </div>
+    </nav>
 
-    <div class="cards-container">
-        <!-- Study Mode Card -->
-        <a href="study.html" class="card study-card">
-            <i class="fa-solid fa-book-open card-icon"></i>
-            <h2>Study Platform</h2>
-            <p>Access the ultimate "Notebook". Learn Math theorems, Reasoning shortcuts, English grammar rules, and GK tips in a relaxed, distraction-free environment.</p>
-            <div class="btn-launch">Start Learning</div>
-        </a>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">Premium Exam Simulator</div>
+            <h1>Master SSC CGL Like a Pro</h1>
+            <p>Comprehensive study materials, AI-powered mock exams, and expert strategies to crack the SSC CGL examination in your first attempt.</p>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <h3>57+</h3>
+                    <p>Topics</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2500+</h3>
+                    <p>Questions</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5</h3>
+                    <p>Subjects</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Exam Simulator Card -->
-        <a href="exam.html" class="card exam-card">
-            <i class="fa-solid fa-stopwatch card-icon"></i>
-            <h2>Eduquity Mock Exam</h2>
-            <p>Ready to test your skills? Enter the strict, timed simulation mirroring the exact Eduquity CBT interface to build speed and accuracy.</p>
-            <div class="btn-launch">Take a Test</div>
-        </a>
+        <!-- Cards Container -->
+        <div class="cards-container">
+            <!-- Study Mode Card -->
+            <a href="study.html" class="card study-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h2>Study Platform</h2>
+                <p>Access the ultimate notebook with 57+ topics covering Math theorems, Reasoning shortcuts, English grammar rules, and GK tips in a distraction-free environment.</p>
+                <button class="btn-launch">Start Learning</button>
+            </a>
+
+            <!-- Exam Simulator Card -->
+            <a href="exam.html" class="card exam-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-stopwatch"></i>
+                </div>
+                <h2>Mock Exam</h2>
+                <p>Test your skills with realistic timed simulations mirroring the exact SSC CGL exam interface. Build speed and accuracy with our advanced exam simulator.</p>
+                <button class="btn-launch">Take a Test</button>
+            </a>
+        </div>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <h3>Why Choose Our Platform?</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h4>Expert Content</h4>
+                    <p>Curated study materials from SSC toppers and expert educators</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>Progress Tracking</h4>
+                    <p>Track your learning progress and identify weak areas instantly</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>Speed & Accuracy</h4>
+                    <p>Built-in calculator and timer to practice exam-like conditions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 SSC CGL Ultimate Hub | All rights reserved | Preparing students for excellence</p>
+        </footer>
     </div>
 
 </body>

@@ -323,5 +323,270 @@ const englishData = {
                 shortcut: "Find the FIRST sentence. Look at the options. If only two options start with that sentence, you instantly eliminated 50% of the choices."
             }
         ]
+    },
+    english_tenses_comprehensive: {
+        category: "English: Grammar",
+        title: "Tenses Comprehensive Deep Dive",
+        subtitle: "All 12 Tenses with Structures, Uses, and Examples",
+        blocks: [
+            {
+                title: "1. Present Tenses (4 types)",
+                text: "Used for current situations, general truths, and habitual actions.",
+                examples: [
+                    "Simple Present (V1): He plays cricket. Structure: S + V1/V1-s. Use: Habit, general truth, fixed schedule.",
+                    "Present Continuous (am/is/are + V-ing): He is playing cricket. Use: Action happening RIGHT NOW.",
+                    "Present Perfect (have/has + V3): He has played cricket. Use: Action completed recently with present relevance.",
+                    "Present Perfect Continuous (have/has + been + V-ing): He has been playing for 2 hours. Use: Action started in past, continuing to present."
+                ],
+                shortcut: "Simple Present = NOW (permanent). Continuous = NOW (temporary). Perfect = JUST NOW. Perfect Continuous = DURATION from past to NOW."
+            },
+            {
+                title: "2. Past Tenses (4 types)",
+                text: "Used for completed actions, historical events.",
+                examples: [
+                    "Simple Past (V2): He played cricket yesterday. Use: Single completed action in definite past time.",
+                    "Past Continuous (was/were + V-ing): He was playing when I arrived. Use: Action ongoing when something else happened.",
+                    "Past Perfect (had + V3): He had played before I came. Use: Action completed BEFORE another past action. (Past of Past)",
+                    "Past Perfect Continuous (had + been + V-ing): He had been playing for 2 hours when I arrived. Use: Duration of action in past."
+                ],
+                shortcut: "Past Perfect is ALWAYS used when two actions happen in the past. Use Past Perfect for the action that happened FIRST."
+            },
+            {
+                title: "3. Future Tenses (4 types)",
+                text: "Used for predictions, plans, intentions.",
+                examples: [
+                    "Simple Future (will + V1): He will play tomorrow. Use: Simple prediction or decision made at the moment of speaking.",
+                    "Future Continuous (will + be + V-ing): He will be playing tomorrow. Use: Action will be ongoing at a specific future time.",
+                    "Future Perfect (will + have + V3): He will have played by tomorrow. Use: Action will be completed by a specific future time.",
+                    "Future Perfect Continuous (will + have + been + V-ing): He will have been playing for 2 hours by the time I arrive."
+                ],
+                shortcut: "Future Perfect = WILL COMPLETE. Future Perfect Continuous = WILL HAVE COMPLETED (WITH DURATION)."
+            },
+            {
+                title: "4. Tense Selection Shortcuts",
+                text: "Quick decision-making in exams.",
+                examples: [
+                    "Key Words for Present Perfect: Just, Already, Recently, Ever, Never, Yet, Still.",
+                    "Key Words for Past Perfect: After, Before, When, As soon as (use past perfect for the earlier action).",
+                    "Key Words for Future: Tomorrow, Next week, will, is going to.",
+                    "Sequence: 'After he had eaten, he left.' (After = action 1 completed, then action 2 happened)."
+                ],
+                shortcut: "If you see 'After' in a sentence, the action after 'After' must be in Past Perfect."
+            }
+        ]
+    },
+    english_prepositions_mastery: {
+        category: "English: Grammar",
+        title: "Prepositions: Deep Dive & Common Fixed Phrases",
+        subtitle: "In, On, At, By + Phrasal Prepositions",
+        blocks: [
+            {
+                title: "1. Prepositions of Time",
+                text: "When to use In, On, At for time.",
+                examples: [
+                    "In: Months (In January), Years (In 2024), Seasons (In summer), Parts of day (In the morning). BUT NOT 'at the morning'.",
+                    "On: Specific dates (On 5th), Days (On Monday), Special days (On Christmas).",
+                    "At: Specific times (At 5 PM), Night (At night), Festivals (At Diwali), Specific moments (At midnight).",
+                    "Since: Starting point (I have worked since 2020). Duration WITH starting time.",
+                    "For: Duration only (I have worked for 4 years). NO starting point mentioned."
+                ],
+                shortcut: "IN = Large time unit. ON = Date/Day. AT = Specific time. SINCE = Starting point (Perfect tense). FOR = Duration (Perfect tense)."
+            },
+            {
+                title: "2. Prepositions of Place",
+                text: "Location prepositions.",
+                examples: [
+                    "In: Inside enclosed spaces (In the room). Region/City (In Mumbai).",
+                    "On: Surface (On the table). Direction (On the street, On the river).",
+                    "At: Specific points (At the station). Specific locations (At home, At work). Address (At 5 Main Street).",
+                    "Between: Two distinct items (Between A and B). Choose Between two options.",
+                    "Among: Groups/Multiple items (Among many students)."
+                ],
+                shortcut: "IN = INSIDE. ON = SURFACE. AT = POINT. Between = 2 things. Among = Many things."
+            },
+            {
+                title: "3. Phrasal Prepositions & Fixed Pairs",
+                text: "Verbs/Adjectives paired with specific prepositions.",
+                examples: [
+                    "Agree WITH (person), Agree TO (plan/proposal).",
+                    "Angry WITH (person), Angry AT (action/behavior).",
+                    "Compare TO (similarities), Compare WITH (differences).",
+                    "Different FROM, Grateful TO, Interested IN, Tired OF, Suitable FOR.",
+                    "Reason FOR, Emphasis ON, Focus ON, Consist OF, Insist ON."
+                ],
+                shortcut: "When in doubt, try the preposition that sounds most natural when you read it aloud. Native speakers use 'feel' more than logic."
+            },
+            {
+                title: "4. Phrasal Verbs (Verb + Preposition Combinations)",
+                text: "Verbs that change meaning when paired with prepositions.",
+                examples: [
+                    "Look: Look at (observe), Look for (search), Look after (care for), Look down on (despise).",
+                    "Put: Put on (wear), Put off (postpone), Put up (tolerate), Put aside (ignore).",
+                    "Take: Take on (assume), Take off (remove), Take up (start hobby), Take after (resemble).",
+                    "Run: Run across (meet by chance), Run away (flee), Run into (encounter), Run out (exhaust)."
+                ],
+                shortcut: "Phrasal verbs change the meaning entirely. 'Put on' ≠ 'Put off'. Memorize in context, not in isolation."
+            }
+        ]
+    },
+    english_adjectives_adverbs: {
+        category: "English: Grammar",
+        title: "Adjectives & Adverbs: Comparative & Superlative Deep Dive",
+        subtitle: "Irregular Forms, Double Comparatives, Placement",
+        blocks: [
+            {
+                title: "1. Formation of Comparatives & Superlatives",
+                text: "Rules for -er/-est, more/most, and irregular forms.",
+                examples: [
+                    "One-syllable adjectives: ADD -er/-est. (fast → faster, fastest).",
+                    "Two-syllable adjectives: Some add -er/-est (easy → easier), some use more/most (famous → more famous).",
+                    "Three+ syllables: Use more/most. (beautiful → more beautiful, most beautiful).",
+                    "Irregular: Good (better, best), Bad (worse, worst), Much/Many (more, most), Little (less, least), Far (farther/further, farthest/furthest)."
+                ],
+                shortcut: "If in doubt, use 'more/most'. It's NEVER wrong. But -er/-est is slightly more natural for one-syllable and most two-syllable words."
+            },
+            {
+                title: "2. Double Comparatives (NEVER USE)",
+                text: "A common error in SSC exams.",
+                examples: [
+                    "WRONG: 'more taller', 'more bigger', 'more smarter'.",
+                    "RIGHT: Use either '-er' OR 'more', never both.",
+                    "WRONG: He is 'more kinder' than you.",
+                    "RIGHT: He is 'kinder' than you. OR He is 'more kind' than you."
+                ],
+                shortcut: "IF YOU SEE MORE + -ER, IT'S ALWAYS WRONG. Eliminate those options immediately."
+            },
+            {
+                title: "3. Adverbs: Formation & Position",
+                text: "How adverbs modify verbs, adjectives, or sentences.",
+                examples: [
+                    "Formation: Usually add -ly to adjective (happy → happily, quick → quickly).",
+                    "Position in sentence: (1) After the main verb: 'He speaks slowly.' (2) Before the adjective: 'Extremely intelligent.' (3) At start/end of sentence: 'Unfortunately, he missed it.'",
+                    "IMPORTANT: 'Slow' can be adjective (slow car) OR adverb in phrases (go slow, slow down). 'Well' is the adverb form of 'good'."
+                ],
+                shortcut: "If modifying a noun, use adjective. If modifying a verb/adj/adverb, use adverb. 'He runs fast' (adv). 'He is fast' (adj)."
+            },
+            {
+                title: "4. Degrees of Adjectives in Context",
+                text: "Choosing the right comparative form in sentences.",
+                examples: [
+                    "Equality: 'as...as'. He is as tall as me. (NOT 'as tall than')",
+                    "Comparative: 'than'. He is taller than me.",
+                    "Superlative: 'the' + superlative. He is the tallest in the class.",
+                    "Worked example: 'Among the three, Priya is ___ student. (a) More intelligent (b) Most intelligent (c) Intelligent (d) Intelligently. Answer: (b) Most intelligent (superlative among three)."
+                ],
+                shortcut: "AS...AS = Equality. THAN = Comparing 2 things. THE + SUPERLATIVE = Best/Worst of group."
+            }
+        ]
+    },
+    english_articles_deep_dive: {
+        category: "English: Grammar",
+        title: "Articles (A, An, The): Deep Dive & SSC Patterns",
+        subtitle: "Usage Rules and Exception Handling",
+        blocks: [
+            {
+                title: "1. A vs An (Indefinite Articles)",
+                text: "Use 'a' before consonant sounds, 'an' before vowel sounds.",
+                examples: [
+                    "'A' before consonant sound: a book, a cat, a university (sounds like 'you').",
+                    "'An' before vowel sound: an apple, an elephant, an hour (sounds like 'ow').",
+                    "Exception: 'An' before silent H (an honest man, an honor)."
+                ],
+                shortcut: "Listen to the SOUND, not the letter. 'University' starts with 'U' but sounds like 'you' (consonant), so 'a university'."
+            },
+            {
+                title: "2. The (Definite Article)",
+                text: "Use 'the' for specific, known things. Omit 'the' for general statements.",
+                examples: [
+                    "With specific things: The book on the table (I know which one). The person you mentioned.",
+                    "With unique things: The sun, The moon, The Prime Minister, The capital of India.",
+                    "NO article with: Plural general nouns (Dogs are animals). Abstract nouns (Honesty is good). Proper nouns (India, Priya, January).",
+                    "With superlatives: She is the best teacher. The highest mountain."
+                ],
+                shortcut: "If you can replace the noun with 'which one?', use 'the'. If it's general, omit it."
+            },
+            {
+                title: "3. Article Omission Rules",
+                text: "When NOT to use articles.",
+                examples: [
+                    "Proper nouns: Priya, India, Monday, Shakespeare (NO 'the' unless geographic: 'the Himalayas', 'the USA').",
+                    "Plural nouns (general): Cats are animals. (NOT: 'The cats are animals' - that's specific).",
+                    "Uncountable nouns: Water is essential. Poetry is beautiful. (NO article for general use).",
+                    "After possessives: My book (NOT: 'the my book'). His house (NOT: 'the his house')."
+                ],
+                shortcut: "Possessive already marks the noun as specific. Don't add 'the'."
+            },
+            {
+                title: "4. Article in Fixed Phrases",
+                text: "Idiomatic uses of articles.",
+                examples: [
+                    "'By the way' (not 'by way'). 'In the end' (not 'in end'). 'At the moment' (not 'at moment').",
+                    "'Go to the hospital' (as patient), 'Go to hospital' (as worker).",
+                    "'In the morning' (general), 'In morning' (not used in English).",
+                    "'Have a good time'. 'Have a nice day'."
+                ],
+                shortcut: "These are fixed phrases. Memorize them as complete chunks."
+            }
+        ]
+    },
+    english_error_spotting_comprehensive: {
+        category: "English: Grammar",
+        title: "Error Spotting: Comprehensive Patterns & Speed Hacks",
+        subtitle: "The Most Common Error Types in SSC CGL",
+        blocks: [
+            {
+                title: "1. Subject-Verb Disagreement (Most Common)",
+                text: "The verb doesn't match the subject in number or person.",
+                examples: [
+                    "Collective nouns take singular verb: The team is ready. (NOT 'are')",
+                    "'None of' with plural: None of the books are useful. (Verb is PLURAL because 'books' is plural).",
+                    "Phrase between subject and verb: 'A series of books is available.' (Series = singular)",
+                    "'Majority of' rules: The majority of people are happy. (People = plural, so 'are')"
+                ],
+                shortcut: "Ignore all phrases between subject and verb. Just match subject and verb directly."
+            },
+            {
+                title: "2. Tense Inconsistency",
+                text: "Mixing tenses wrongly in the same sentence.",
+                examples: [
+                    "WRONG: 'He went to the shop and buy a book.' (went = past, buy = present).",
+                    "RIGHT: 'He went to the shop and bought a book.' (Both past).",
+                    "Timeline Consistency: If describing past events, maintain past tense throughout."
+                ],
+                shortcut: "Check the tense of the FIRST verb. All subsequent verbs in the same action should match (unless explicitly changing time)."
+            },
+            {
+                title: "3. Pronoun Errors",
+                text: "Wrong case, number, or person.",
+                examples: [
+                    "Case: 'Between you and I are many reasons.' (WRONG - should be 'me'). Prepositions always take objective case.",
+                    "Number: 'Each student brought their own books.' (WRONG - 'Each' is singular, so 'his/her books'). But: 'All students brought their books.' (RIGHT - 'All' is plural).",
+                    "Antecedent mismatch: 'The book lost its pages.' (RIGHT - 'it' refers to singular 'book')."
+                ],
+                shortcut: "For pronouns after prepositions, ALWAYS use objective case (me, him, her, us, them). Never subjective (I, he, she, we, they)."
+            },
+            {
+                title: "4. Noun-Adjective-Adverb Errors",
+                text: "Using the wrong form modifying nouns or verbs.",
+                examples: [
+                    "WRONG: 'He works very hard daily.' (Should be 'He works very hardly' is also wrong. Use 'He works hard and daily.') ",
+                    "Adjective with noun: 'A quick decision' (RIGHT). 'A quickly decision' (WRONG).",
+                    "Adverb with verb: 'Speak clearly' (RIGHT). 'Speak clear' (WRONG).",
+                    "Exception: Link verbs (is, feels, appears) take adjective: 'He feels sad' (NOT 'sadly')."
+                ],
+                shortcut: "Nouns + Adjectives. Verbs + Adverbs. Link verbs + Adjectives."
+            },
+            {
+                title: "5. Parallelism Errors",
+                text: "Structures should be grammatically similar when listed.",
+                examples: [
+                    "WRONG: 'He likes reading, writing, and to play.'",
+                    "RIGHT: 'He likes reading, writing, and playing.' (All gerunds).",
+                    "WRONG: 'She is intelligent, hardworking, and behaves honestly.'",
+                    "RIGHT: 'She is intelligent, hardworking, and honest.' (All adjectives)."
+                ],
+                shortcut: "When items are in a list (A, B, and C), they must all be the same grammatical form."
+            }
+        ]
     }
 };
