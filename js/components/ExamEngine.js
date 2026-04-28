@@ -49,6 +49,13 @@ function loadQuestion(index) {
             <div style="font-weight:700; margin-bottom:6px; color:#b45309;">📖 Read the passage carefully:</div>
             <div style="color:#444;">${q._rcPassage}</div>
         </div>`;
+    } else if (q.type === 'parajumble') {
+        prefixHtml = `<div style="background:#f0f7ff; border:1px solid #cfe2ff; padding:12px; margin-bottom:12px; border-radius:6px;">
+            <div style="font-weight:700; color:#084298; margin-bottom:10px;">🧩 Rearrange the following sentences (P, Q, R, S):</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                ${q.jumbled ? q.jumbled.map((s, i) => `<div style="background:white; padding:8px 12px; border-radius:4px; border:1px solid #dee2e6; font-size:13px;"><strong style="color:#0b5ed7;">${['P','Q','R','S'][i]}:</strong> ${s}</div>`).join('') : ''}
+            </div>
+        </div>`;
     }
 
     document.getElementById('question-text').innerHTML = `
