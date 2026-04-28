@@ -110,6 +110,19 @@
     <script src="js/data/pyq_bank.js"></script>
     <script src="js/data/computer_knowledge.js"></script>
     <script src="js/data/statistics_advanced.js"></script>
+    <script src="js/data/gk_history_capsule.js"></script>
+    <script src="js/data/gk_polity_capsule.js"></script>
+    <script src="js/data/gk_science_capsule.js"></script>
+    <script src="js/data/gk_economics_capsule.js"></script>
+    <script src="js/data/gk_geography_capsule.js"></script>
+    <script src="js/data/gk_superlatives_capsule.js"></script>
+    <script src="js/data/gk_history_medieval_expanded.js"></script>
+    <script src="js/data/gk_history_modern_expanded.js"></script>
+    <script src="js/data/gk_science_tables.js"></script>
+    <script src="js/data/gk_polity_expanded.js"></script>
+    <script src="js/data/gk_geography_expanded.js"></script>
+    <script src="js/data/gk_economics_expanded.js"></script>
+    <script src="js/data/gk_capsule_supplement.js"></script>
 
     <script>
         // Merged study data
@@ -122,6 +135,19 @@
             ...gkDataExpanded,
             ...computerData,
             ...statisticsData,
+            ...gkHistoryCapsule,
+            ...gkPolityCapsule,
+            ...gkScienceCapsule,
+            ...gkEconomicsCapsule,
+            ...gkGeographyCapsule,
+            ...gkSuperlativesCapsule,
+            ...gkHistoryMedievalExpanded,
+            ...gkHistoryModernExpanded,
+            ...gkScienceTables,
+            ...gkPolityExpanded,
+            ...gkGeographyExpanded,
+            ...gkEconomicsExpanded,
+            ...gkCapsuleSupplement,
             'pyq_2024_math': { title: "2024 Math PYQs", category: "PYQ Vault", subtitle: "Authentic Arithmetic & Algebra – 2019 to 2024", blocks: PYQ_BANK.math.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) },
             'pyq_2024_reasoning': { title: "2024 Reasoning PYQs", category: "PYQ Vault", subtitle: "Series, Coding-Decoding, Analogies – 2019 to 2024", blocks: PYQ_BANK.reasoning.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) },
             'pyq_2024_english': { title: "2024 English PYQs", category: "PYQ Vault", subtitle: "Synonyms, Antonyms, Error Detection – 2019 to 2024", blocks: PYQ_BANK.english.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) },
