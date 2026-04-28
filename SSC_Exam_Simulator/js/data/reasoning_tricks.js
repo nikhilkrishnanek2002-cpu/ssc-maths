@@ -41,27 +41,26 @@ const reasoningData = {
     },
     reasoning_syllogism: {
         category: "Reasoning: Verbal",
-        title: "Syllogism: Possibilities Deep Dive",
-        subtitle: "Mastering the Venn Diagrams",
+        title: "Syllogism: Possibilities Deep Dive & Speed Hacks",
+        subtitle: "The 100-50 Method (No Pen Trick)",
         blocks: [
             {
-                title: "1. The 100-50 Rule vs Venn Diagram",
-                text: "While the 100-50 rule is fast, the Venn Diagram is 100% accurate for 'Possibility' cases. Always draw the MINIMUM overlapping diagram.",
+                title: "1. The 100-50 Method (Solve in 3 seconds)",
+                text: "Never draw a Venn diagram for simple Syllogism again. Assign values to words.",
                 examples: [
-                    "<b>All A are B:</b> Draw circle A inside circle B.",
-                    "<b>Some A are B:</b> Draw circles intersecting.",
-                    "<b>No A is B:</b> Draw circles separated by a line with a cross (×).",
-                    "<b>Some A are not B:</b> Shade a small part of A and put a cross pointing to B."
+                    "ALL = 100/50 (+)",
+                    "NO = 100/100 (-)",
+                    "SOME = 50/50 (+)",
+                    "SOME NOT = 50/100 (-)"
                 ],
-                shortcut: "If the conclusion is POSITIVE (All/Some) and you don't see it explicitly in your drawing, it's FALSE."
+                shortcut: "SPEED HACK: If Statements are positive, Conclusions MUST be positive. Income (Statement) must be >= Expense (Conclusion). E.g., if a word has 50 in Statement, it CANNOT have 100 in Conclusion. If you see a violation, instantly eliminate it!"
             },
             {
-                title: "2. Handling 'Possibility' Cases",
-                text: "When a conclusion ends with 'is a possibility'.",
+                title: "2. Venn Diagrams for 'Possibility'",
+                text: "Use Venn Diagrams ONLY when the conclusion ends with 'is a possibility'.",
                 examples: [
                     "If two circles have NO direct or indirect connection in the statements, then ANY possibility between them is TRUE.",
-                    "If 'Some A are B' is given, then 'All A can be B is a possibility' is TRUE.",
-                    "If 'All A are B' is given, then 'All A are B is a possibility' is FALSE (because it's already a definite fact, not a possibility)."
+                    "If 'Some A are B' is given, then 'All A can be B is a possibility' is TRUE."
                 ],
                 shortcut: "Possibility trick: If you can redraw the Venn diagram to satisfy the conclusion WITHOUT violating any original statements, the possibility is true."
             },

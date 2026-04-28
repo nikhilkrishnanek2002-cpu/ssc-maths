@@ -232,11 +232,20 @@ const mathData = {
     // CATEGORY: MENSURATION
     math_mensuration: {
         category: "Math: Advance (Mensuration)",
-        title: "Mensuration 2D & 3D: Deep Dive",
-        subtitle: "Areas and Volumes",
+        title: "Mensuration 2D & 3D: Deep Dive & Speed Hacks",
+        subtitle: "Areas, Volumes, and Option Elimination",
         blocks: [
             {
-                title: "1. 2D Figures Formulas",
+                title: "1. The Rule of 11 (3-Second Hack)",
+                text: "Whenever finding Area or Volume of circles, cylinders, cones, or spheres.",
+                examples: [
+                    "Since π = 22/7, the final answer involves multiplication by 22.",
+                    "Therefore, the final answer MUST be a multiple of 11."
+                ],
+                shortcut: "SPEED HACK: Don't calculate! Just check which option is divisible by 11. (Sum of odd places - Sum of even places = 0 or 11). If only one option works, click it and move on!"
+            },
+            {
+                title: "2. 2D Figures Formulas",
                 text: "Area and Perimeters.",
                 examples: [
                     "Equilateral Triangle: Area = (√3/4)a², Height = (√3/2)a",
@@ -249,7 +258,7 @@ const mathData = {
                 shortcut: "Area of a triangle when all 3 sides are given: Heron's Formula: Area = √[s(s-a)(s-b)(s-c)], where s is semi-perimeter."
             },
             {
-                title: "2. 3D Figures Formulas",
+                title: "3. 3D Figures Formulas",
                 text: "Memorize these for direct calculation.",
                 examples: [
                     "Cube: Volume = a³, Surface Area = 6a², Diagonal = a√3",

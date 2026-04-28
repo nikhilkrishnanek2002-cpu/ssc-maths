@@ -94,6 +94,7 @@ function filterBySubject(subj) {
         const isReasoning = catName.includes('reasoning');
         const isEnglish = catName.includes('english');
         const isGK = catName.includes('gk') || catName.includes('general');
+        const isComputer = catName.includes('computer');
 
         let shouldShow = false;
         if (subj === 'all') shouldShow = true;
@@ -101,6 +102,7 @@ function filterBySubject(subj) {
         else if (subj === 'reasoning' && isReasoning) shouldShow = true;
         else if (subj === 'english' && isEnglish) shouldShow = true;
         else if (subj === 'gk' && isGK) shouldShow = true;
+        else if (subj === 'computer' && isComputer) shouldShow = true;
 
         if (shouldShow) {
             cat.style.display = 'block';
