@@ -318,5 +318,133 @@ const reasoningData = {
                 shortcut: "Work backwards. Look at the last fold and the final cut. Find the option that matches that exact quarter perfectly."
             }
         ]
+    },
+    // MASSIVE EXPANSION: ADVANCED LOGICAL & ANALYTICAL REASONING
+    reasoning_clocks: {
+        category: "Reasoning: Logical",
+        title: "Clocks and Time: Massive Deep Dive",
+        subtitle: "Angle Formulas and Mirror Time",
+        blocks: [
+            {
+                title: "1. The Angle Formula",
+                text: "To find the angle between the hour and minute hand at any given time H:M.",
+                examples: [
+                    "Angle = |30H - 11M/2|"
+                ],
+                shortcut: "SPEED HACK: If the ratio of minutes to hours is exactly 1:5 (e.g., 4:20, 5:25, 8:40), the angle is exactly HALF the minutes! (Angle for 4:20 is 20/2 = 10 degrees)."
+            },
+            {
+                title: "2. Mirror and Water Images of Clocks",
+                text: "Finding what time a clock shows when reflected.",
+                examples: [
+                    "Mirror Image: Subtract the given time from 11:60 (or 23:60).",
+                    "Water Image: Subtract the given time from 18:30 (or 17:90 if minutes > 30)."
+                ],
+                shortcut: "If the given time is 8:20, mirror image is 11:60 - 8:20 = 3:40."
+            }
+        ]
+    },
+    reasoning_calendars: {
+        category: "Reasoning: Logical",
+        title: "Calendars: Massive Deep Dive",
+        subtitle: "Odd Days and Leap Years",
+        blocks: [
+            {
+                title: "1. Odd Days Concept",
+                text: "An odd day is the remainder when the total number of days is divided by 7.",
+                examples: [
+                    "Ordinary Year (365 days): 52 weeks + 1 odd day.",
+                    "Leap Year (366 days): 52 weeks + 2 odd days.",
+                    "100 Years: 5 odd days. 200 Years: 3 odd days. 300 Years: 1 odd day. 400 Years: 0 odd days."
+                ],
+                shortcut: "A century year is a leap year ONLY if it is divisible by 400 (e.g., 2000 is leap, 1900 is NOT)."
+            },
+            {
+                title: "2. Finding the Day of the Week",
+                text: "To find the day on a specific date.",
+                examples: [
+                    "Sum = Date + Month Code + Year + Leap Years in that Century + Century Code.",
+                    "Divide Sum by 7. The remainder gives the day (0=Sunday, 1=Monday...)."
+                ],
+                shortcut: "If a date falls on Monday this year, it will fall on Tuesday next year (if ordinary year) or Wednesday (if leap year)."
+            }
+        ]
+    },
+    reasoning_dice: {
+        category: "Reasoning: Non-Verbal",
+        title: "Dice and Cubes: Massive Deep Dive",
+        subtitle: "Unfolding and Hidden Faces",
+        blocks: [
+            {
+                title: "1. Standard vs General Dice",
+                text: "Standard dice always follow a strict rule for opposite faces.",
+                examples: [
+                    "Standard Dice: Sum of opposite faces is ALWAYS 7 (1 opposite 6, 2 opposite 5, 3 opposite 4).",
+                    "General Dice: No strict rule. Any face can be opposite any other face."
+                ],
+                shortcut: "SPEED HACK: If you see two visible adjacent faces summing to 7 (e.g., 3 and 4 are visible together), it CANNOT be a Standard Dice. It's a General Dice."
+            },
+            {
+                title: "2. The Common Number Rule",
+                text: "When two different positions of the SAME dice are shown.",
+                examples: [
+                    "Rule of 1: If exactly ONE number is common in both positions, write the numbers starting from the common number in clockwise direction. The numbers that align vertically are opposites.",
+                    "Rule of 2: If exactly TWO numbers are common, the third unseen numbers on both dice are opposites."
+                ],
+                shortcut: "If a number is present on multiple dice views, its opposite is the number that is NEVER seen adjacent to it in any view."
+            }
+        ]
+    },
+    reasoning_seating: {
+        category: "Reasoning: Analytical",
+        title: "Seating Arrangement: Massive Deep Dive",
+        subtitle: "Circular and Linear Layouts",
+        blocks: [
+            {
+                title: "1. Circular Arrangement",
+                text: "People sitting around a circular table facing the center or outside.",
+                examples: [
+                    "Facing Center: Left = Clockwise, Right = Anti-clockwise.",
+                    "Facing Outside: Left = Anti-clockwise, Right = Clockwise."
+                ],
+                shortcut: "Always start drawing with the most definite statement (e.g., 'A sits exactly opposite to B' or 'C sits 2nd to the right of D'). Never start with a negative statement ('A is not next to B')."
+            },
+            {
+                title: "2. The 'And/Who' Conjunction Rule",
+                text: "Crucial grammar for puzzles.",
+                examples: [
+                    "A is to the right of B AND sits opposite C -> 'And' refers to the FIRST person (A).",
+                    "A is to the right of B WHO sits opposite C -> 'Who' refers to the SECOND person (B)."
+                ],
+                shortcut: "'And/But' points to the far subject. 'Who/Whom/Which' points to the immediate subject. Messing this up ruins the entire puzzle!"
+            }
+        ]
+    },
+    reasoning_statement: {
+        category: "Reasoning: Critical",
+        title: "Statement & Assumptions: Massive Deep Dive",
+        subtitle: "Implicit vs Explicit Logic",
+        blocks: [
+            {
+                title: "1. Assumptions Rules",
+                text: "An assumption is something the author SUPPOSES is true before making the statement.",
+                examples: [
+                    "Statement: 'Please switch off phones during the meeting.'",
+                    "Assumption 1: People have phones (Implicit).",
+                    "Assumption 2: People can read/hear the instruction (Implicit)."
+                ],
+                shortcut: "Eliminate any assumption that contains extreme words like 'All', 'Always', 'Never', 'None', or 'Only'. They are almost always invalid."
+            },
+            {
+                title: "2. Statement and Course of Action",
+                text: "Choosing the correct reaction to a problem.",
+                examples: [
+                    "Statement: A severe drought has hit the state.",
+                    "Action 1: Government should provide immediate relief (Valid).",
+                    "Action 2: Government should permanently ban farming (Invalid - too extreme)."
+                ],
+                shortcut: "A valid course of action must be PRACTICAL, LOGICAL, and directly SOLVE the problem without creating a bigger problem."
+            }
+        ]
     }
 };

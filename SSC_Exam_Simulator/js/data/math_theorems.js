@@ -455,5 +455,110 @@ const mathData = {
                 shortcut: "For sin²θ + cos²θ type questions, the max/min depends heavily on whether the powers are even or odd."
             }
         ]
+    },
+    // MASSIVE EXPANSION: ADDITIONAL TIER 1 & TIER 2 TOPICS
+    math_coordinate: {
+        category: "Math: Advance (Coordinate Geo)",
+        title: "Coordinate Geometry: Massive Deep Dive",
+        subtitle: "Slopes, Intercepts, and Reflections",
+        blocks: [
+            {
+                title: "1. Distance and Midpoint Formula",
+                text: "The foundation of coordinate geometry.",
+                examples: [
+                    "Distance between (x1, y1) and (x2, y2) = √[(x2 - x1)² + (y2 - y1)²]",
+                    "Midpoint = ((x1 + x2)/2, (y1 + y2)/2)"
+                ],
+                shortcut: "SPEED HACK: If finding distance from the origin (0,0), it's simply √(x² + y²). This is just the Pythagorean theorem!"
+            },
+            {
+                title: "2. Slope and Equation of Line",
+                text: "Understanding how lines behave on the Cartesian plane.",
+                examples: [
+                    "Slope (m) = (y2 - y1) / (x2 - x1)",
+                    "Slope-Intercept Form: y = mx + c (where c is y-intercept).",
+                    "Parallel lines: m1 = m2. Perpendicular lines: m1 * m2 = -1."
+                ],
+                shortcut: "If the equation is in the form Ax + By + C = 0, the slope is instantly found as (-A / B)."
+            },
+            {
+                title: "3. Reflection of a Point",
+                text: "A very frequently asked TCS pattern question.",
+                examples: [
+                    "Reflection of (x, y) in X-axis: (x, -y)",
+                    "Reflection of (x, y) in Y-axis: (-x, y)",
+                    "Reflection in the origin: (-x, -y)",
+                    "Reflection in the line y = x: (y, x)"
+                ],
+                shortcut: "Trick: Whatever axis you are reflecting 'in', that coordinate remains EXACTLY the same. The other coordinate changes its sign."
+            }
+        ]
+    },
+    math_probability_perm: {
+        category: "Math: Advance (Probability)",
+        title: "Permutations, Combinations & Probability: Deep Dive",
+        subtitle: "Card Tricks and Dice Rolling",
+        blocks: [
+            {
+                title: "1. Permutations vs Combinations",
+                text: "Knowing when to arrange and when to select.",
+                examples: [
+                    "Permutation (Arrangement matters): nPr = n! / (n-r)!",
+                    "Combination (Selection only, order doesn't matter): nCr = n! / [r! * (n-r)!]"
+                ],
+                shortcut: "SPEED HACK: nC0 = 1, nC1 = n, nCn = 1. Also, nCr = nC(n-r). So 100C98 is exactly the same as 100C2!"
+            },
+            {
+                title: "2. Dice and Cards Probability",
+                text: "The two most common probability scenarios.",
+                examples: [
+                    "Rolling 2 Dice: Total outcomes = 36. Sum ranges from 2 to 12.",
+                    "Deck of 52 Cards: 4 suits (Spades, Clubs = Black; Hearts, Diamonds = Red). 13 cards per suit. Face cards = J, Q, K (Total 12 face cards)."
+                ],
+                shortcut: "Dice Sum Trick: The number of ways to get a sum on 2 dice goes up to 7, then down. (Sum of 7 = 6 ways, Sum of 8 = 5 ways, Sum of 9 = 4 ways)."
+            }
+        ]
+    },
+    math_surds_indices: {
+        category: "Math: Arithmetic",
+        title: "Surds and Indices: Deep Dive",
+        subtitle: "Power Rules and Rationalization",
+        blocks: [
+            {
+                title: "1. Laws of Indices",
+                text: "Basic operations on exponents.",
+                examples: [
+                    "a^m * a^n = a^(m+n)",
+                    "a^m / a^n = a^(m-n)",
+                    "(a^m)^n = a^(mn)"
+                ],
+                shortcut: "Any number to the power of 0 is 1 (a^0 = 1). A negative power means reciprocal (a^-n = 1 / a^n)."
+            },
+            {
+                title: "2. Infinite Surd Series",
+                text: "A classic pattern question.",
+                examples: [
+                    "If x = √(A + √(A + √(A...))): The answer is the positive root of the quadratic equation y² - y - A = 0.",
+                    "If x = √(A * √(A * √(A...))): The answer is simply A."
+                ],
+                shortcut: "SPEED HACK: For √(A + √(A...)), find two consecutive integers whose product is A. The larger integer is the answer. (e.g., √(12 + √(12...)) -> 12 = 3*4. Answer is 4)."
+            }
+        ]
+    },
+    math_boats_streams: {
+        category: "Math: Arithmetic",
+        title: "Boats and Streams: Deep Dive",
+        subtitle: "Upstream and Downstream Speed",
+        blocks: [
+            {
+                title: "1. Core Formulas",
+                text: "Speed of boat = u, Speed of stream = v.",
+                examples: [
+                    "Downstream Speed (D) = u + v",
+                    "Upstream Speed (U) = u - v"
+                ],
+                shortcut: "If you are given Downstream and Upstream speeds, finding the individual speeds is instant: Speed of Boat = (D + U) / 2. Speed of Stream = (D - U) / 2."
+            }
+        ]
     }
 };
