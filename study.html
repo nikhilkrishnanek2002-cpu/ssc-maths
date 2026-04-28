@@ -140,11 +140,20 @@
             currentSearch = '';
             document.getElementById('search-bar').value = '';
             
+            // Exit detail view if active
+            document.getElementById('topics-grid').style.display = 'grid';
+            document.getElementById('topic-detail').style.display = 'none';
+            currentTopic = null;
+            
             // Update active button
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event) {
+                const btn = event.target.closest('.nav-btn') || event.target;
+                btn.classList.add('active');
+            }
             
             displayTopics();
+            window.scrollTo(0, 0);
         }
 
         // Search topics
