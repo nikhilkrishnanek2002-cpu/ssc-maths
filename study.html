@@ -70,12 +70,18 @@
         <style>
             .topics-grid {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
                 margin-bottom: 40px;
             }
 
-            @media (max-width: 600px) {
+            @media (max-width: 1024px) {
+                .topics-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 650px) {
                 .topics-grid {
                     grid-template-columns: 1fr;
                     gap: 16px;
