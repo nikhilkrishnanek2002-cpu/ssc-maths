@@ -201,23 +201,22 @@ const MathGenerator = {
 
     averages: function(index) {
         const count = 5;
-        const start = Math.floor(Math.random() * 20) + 10;
-        const nums = Array.from({length: count}, (_, i) => start + i * 2); // Consecutive even numbers
-        const sum = nums.reduce((a, b) => a + b, 0);
-        const avg = sum / count;
+        const start = (Math.floor(Math.random() * 10) + 5) * 2; 
+        const nums = Array.from({length: count}, (_, i) => start + i * 2);
+        const avg = nums[2]; 
 
-        let options = [avg, avg + 2, avg - 2, avg + 5];
-        options = options.sort(() => Math.random() - 0.5);
-        const correctIndex = options.indexOf(avg);
+        let options = [avg + 4, avg + 6, avg + 2, avg + 8];
+        options = [...new Set(options)].sort(() => Math.random() - 0.5);
+        const correctIndex = options.indexOf(avg + 4);
 
         return {
             id: `math_${index}`,
             text: `The average of 5 consecutive even numbers is ${avg}. What is the largest of these numbers?`,
-            options: options.map(o => (o + 4).toString()),
+            options: options.map(String),
             correctAnswer: correctIndex,
             explanation: {
-                standard: `Let the numbers be x, x+2, x+4, x+6, x+8.<br>Average = (5x + 20) / 5 = x + 4.<br>Given x + 4 = ${avg}, so x = ${avg - 4}.<br>Largest number = x + 8 = ${avg - 4} + 8 = ${avg + 4}.`,
-                trick: `In consecutive numbers, the average is the MIDDLE term.<br>Middle term (3rd) = ${avg}.<br>Largest term (5th) = ${avg} + 2 + 2 = ${avg + 4}.`
+                standard: `Let the numbers be x, x+2, x+4, x+6, x+8.<br>Average = (5x + 20) / 5 = x + 4.<br>Given x + 4 = ${avg}, so x = ${avg - 4} = ${start}.<br>Largest number = x + 8 = ${start} + 8 = ${start + 8}.`,
+                trick: `In consecutive numbers, the average is the MIDDLE term (3rd term).<br>Middle term = ${avg}.<br>To get the 5th (largest) term, add 2 twice: ${avg} + 2 + 2 = ${avg + 4}.`
             }
         };
     },
@@ -225,15 +224,15 @@ const MathGenerator = {
     problemAges: function(index) {
         const ratioA = 3;
         const ratioB = 4;
-        const years = 5;
-        const newRatioA = 4;
-        const newRatioB = 5;
-        // 3:4 -> 4:5 after 5 years. Difference 1 unit = 5 years.
-        const ageA = ratioA * years;
-        const ageB = ratioB * years;
+        const years = Math.floor(Math.random() * 5) + 5; 
+        const k = years;
+        const ageA = ratioA * k;
+        const ageB = ratioB * k;
+        const newRatioA = ratioA + 1;
+        const newRatioB = ratioB + 1;
 
-        let options = [ageA, ageA + 5, ageB, ageB + 5];
-        options = options.sort(() => Math.random() - 0.5);
+        let options = [ageA, ageA + years, ageB, ageB + years];
+        options = [...new Set(options)].sort(() => Math.random() - 0.5);
         const correctIndex = options.indexOf(ageA);
 
         return {
@@ -242,29 +241,30 @@ const MathGenerator = {
             options: options.map(String),
             correctAnswer: correctIndex,
             explanation: {
-                standard: `Let ages be ${ratioA}x and ${ratioB}x.<br>(${ratioA}x + ${years}) / (${ratioB}x + ${years}) = ${newRatioA} / ${newRatioB}.<br>Solving: ${newRatioB}(${ratioA}x + ${years}) = ${newRatioA}(${ratioB}x + ${years})<br>${newRatioB*ratioA}x + ${newRatioB*years} = ${newRatioA*ratioB}x + ${newRatioA*years}<br>x = ${years}.<br>Age of A = ${ratioA}x = ${ageA}.`,
-                trick: `Ratio Method: A:B = ${ratioA}:${ratioB}. After ${years} yrs, A:B = ${newRatioA}:${newRatioB}.<br>The increase in both parts is 1 unit (${newRatioA}-${ratioA}=1, ${newRatioB}-${ratioB}=1).<br>1 unit = ${years} years.<br>A's age = ${ratioA} units = ${ratioA} × ${years} = ${ageA}.`
+                standard: `Let present ages be ${ratioA}k and ${ratioB}k.<br>After ${years} years: (${ratioA}k + ${years}) / (${ratioB}k + ${years}) = ${newRatioA} / ${newRatioB}.<br>Cross multiplying: ${newRatioB}(${ratioA}k + ${years}) = ${newRatioA}(${ratioB}k + ${years})<br>${newRatioB*ratioA}k + ${newRatioB*years} = ${newRatioA*ratioB}k + ${newRatioA*years}<br>k = ${years}.<br>Age of A = ${ratioA}k = ${ratioA} * ${years} = ${ageA}.`,
+                trick: `Ratio Gap Method:<br>Present: ${ratioA}:${ratioB} (diff = 1)<br>Future: ${newRatioA}:${newRatioB} (diff = 1)<br>Since diff is same, check part increase: ${newRatioA} - ${ratioA} = 1 unit.<br>1 unit = ${years} years.<br>A's present age = ${ratioA} units = ${ratioA} * ${years} = ${ageA}.`
             }
         };
     },
 
     dataInterpretation: function(index) {
-        const total = 3600;
-        const angleA = 90; // 25%
+        const multiplier = Math.floor(Math.random() * 5) + 5;
+        const total = 360 * multiplier;
+        const angleA = [60, 90, 120, 150][Math.floor(Math.random() * 4)];
         const valueA = (angleA / 360) * total;
 
-        let options = [valueA, valueA + 100, valueA - 100, total / 2];
-        options = options.sort(() => Math.random() - 0.5);
+        let options = [valueA, valueA * 1.5, valueA * 0.5, total / 2];
+        options = [...new Set(options)].sort(() => Math.random() - 0.5);
         const correctIndex = options.indexOf(valueA);
 
         return {
             id: `math_${index}`,
-            text: `In a pie chart representing a total population of ${total}, the angle for 'Group A' is ${angleA}°. What is the actual population of Group A?`,
+            text: `In a pie chart representing a total value of ${total}, the central angle for 'Category A' is ${angleA}°. What is the value of Category A?`,
             options: options.map(String),
             correctAnswer: correctIndex,
             explanation: {
-                standard: `Value = (Angle / 360) * Total.<br>Value = (${angleA} / 360) * ${total} = (1/4) * ${total} = ${valueA}.`,
-                trick: `Angle-to-% Trick: 90° is exactly 1/4th of a circle (360°).<br>So, Group A is 1/4th of the total population.<br>1/4 of ${total} = ${valueA}.`
+                standard: `Value = (Central Angle / 360°) × Total Value.<br>Value = (${angleA}° / 360°) × ${total} = ${valueA}.`,
+                trick: `Fraction Trick: ${angleA}° is ${angleA}/360 = 1/${360/angleA} of the total.<br>Just divide ${total} by ${360/angleA} to get ${valueA} instantly.`
             }
         };
     },
