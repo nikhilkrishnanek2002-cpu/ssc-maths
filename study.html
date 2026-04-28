@@ -145,6 +145,15 @@
     <script src="js/data/gk_economics_expanded.js"></script>
     <script src="js/data/gk_capsule_supplement.js"></script>
     <script src="js/data/gk_capsule_final_tables.js"></script>
+    
+    <!-- New GA/GS Master Capsules -->
+    <script src="js/data/ga_physics_capsule.js"></script>
+    <script src="js/data/ga_chemistry_capsule.js"></script>
+    <script src="js/data/ga_biology_capsule.js"></script>
+    <script src="js/data/ga_history_capsule.js"></script>
+    <script src="js/data/ga_geography_capsule.js"></script>
+    <script src="js/data/ga_polity_capsule.js"></script>
+    <script src="js/data/ga_economics_capsule.js"></script>
 
     <script>
         // Merged study data - Ensuring all sources are consolidated
@@ -158,6 +167,17 @@
             ...(typeof gkDataExpanded !== 'undefined' ? gkDataExpanded : {}),
             ...(typeof computerData !== 'undefined' ? computerData : {}),
             ...(typeof statisticsData !== 'undefined' ? statisticsData : {}),
+            
+            // GS Capsules
+            ...(typeof gaPhysicsData !== 'undefined' ? gaPhysicsData : {}),
+            ...(typeof gaChemistryData !== 'undefined' ? gaChemistryData : {}),
+            ...(typeof gaBiologyData !== 'undefined' ? gaBiologyData : {}),
+            ...(typeof gaHistoryData !== 'undefined' ? gaHistoryData : {}),
+            ...(typeof gaGeographyData !== 'undefined' ? gaGeographyData : {}),
+            ...(typeof gaPolityData !== 'undefined' ? gaPolityData : {}),
+            ...(typeof gaEconomicsData !== 'undefined' ? gaEconomicsData : {}),
+
+            // Older GK Capsules (keeping for legacy support)
             ...(typeof gkHistoryCapsule !== 'undefined' ? gkHistoryCapsule : {}),
             ...(typeof gkPolityCapsule !== 'undefined' ? gkPolityCapsule : {}),
             ...(typeof gkScienceCapsule !== 'undefined' ? gkScienceCapsule : {}),
