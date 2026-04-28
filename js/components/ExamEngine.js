@@ -78,7 +78,8 @@ function saveAndNext() {
         examState.status[qId] = 'not-answered';
     }
     
-    if(examState.currentQuestionIndex < 24) {
+    const sectionQs = examState.questions[currentSection];
+    if(examState.currentQuestionIndex < sectionQs.length - 1) {
         loadQuestion(examState.currentQuestionIndex + 1);
     } else {
         renderQuestionGrid();
@@ -107,7 +108,8 @@ function markForReview() {
         examState.status[qId] = 'review';
     }
     
-    if(examState.currentQuestionIndex < 24) {
+    const sectionQs = examState.questions[currentSection];
+    if(examState.currentQuestionIndex < sectionQs.length - 1) {
         loadQuestion(examState.currentQuestionIndex + 1);
     } else {
         renderQuestionGrid();

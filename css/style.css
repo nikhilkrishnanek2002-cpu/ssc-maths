@@ -177,6 +177,27 @@ body {
 .difficulty-badge.high { background: #fd7e14; color: #fff; }
 .difficulty-badge.very-high { background: #dc3545; color: #fff; }
 
+.pattern-switch {
+    display: flex;
+    align-items: center;
+    background: #e9ecef;
+    padding: 3px;
+    border-radius: 6px;
+    margin-right: 15px;
+}
+.btn-pattern {
+    padding: 4px 10px;
+    font-size: 11px;
+    border: none;
+    background: transparent;
+    color: #444;
+}
+.btn-pattern.active {
+    background: #fff;
+    color: #0b5ed7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 /* Palette Section */
 .palette-section {
     width: 280px;

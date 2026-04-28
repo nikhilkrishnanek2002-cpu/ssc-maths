@@ -22,6 +22,11 @@
                 </label>
             </div>
             <div class="feature-btns">
+                <div class="pattern-switch">
+                    <span style="font-size: 11px; font-weight: bold; margin-right: 5px;">Pattern:</span>
+                    <button class="btn btn-pattern active" id="btn-tier1" onclick="switchPattern('tier1')">Tier-I</button>
+                    <button class="btn btn-pattern" id="btn-tier2" onclick="switchPattern('tier2')">Tier-II</button>
+                </div>
                 <button class="btn btn-refresh" onclick="refreshQP()" title="Generate New Question Paper">
                     <i class="fa-solid fa-arrows-rotate"></i> Refresh QP
                 </button>
@@ -43,6 +48,7 @@
                 <button class="tab-btn" data-section="gk" onclick="switchSection('gk')">General Awareness</button>
                 <button class="tab-btn" data-section="math" onclick="switchSection('math')">Quantitative Aptitude</button>
                 <button class="tab-btn" data-section="english" onclick="switchSection('english')">English Comprehension</button>
+                <button class="tab-btn" data-section="computer" onclick="switchSection('computer')">Computer Knowledge</button>
             </div>
             
             <div class="question-header">
@@ -138,8 +144,10 @@
     </script>
     <script src="js/data/english_bank.js"></script>
     <script src="js/data/gk_bank.js"></script>
+    <script src="js/data/computer_knowledge.js"></script>
     <script src="js/modules/math_generator.js"></script>
     <script src="js/modules/reasoning_generator.js"></script>
+    <script src="js/modules/computer_generator.js"></script>
     <script src="js/components/ExamEngine.js"></script>
     <script src="js/database/localStorageManager.js"></script>
     <script src="js/app.js"></script>

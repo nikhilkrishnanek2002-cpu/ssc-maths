@@ -5,8 +5,11 @@ const SECTIONS = {
     'reasoning': { id: 'reasoning', name: 'General Intelligence', count: 25 },
     'gk': { id: 'gk', name: 'General Awareness', count: 25 },
     'math': { id: 'math', name: 'Quantitative Aptitude', count: 25 },
-    'english': { id: 'english', name: 'English Comprehension', count: 25 }
+    'english': { id: 'english', name: 'English Comprehension', count: 25 },
+    'computer': { id: 'computer', name: 'Computer Knowledge', count: 20 }
 };
+
+let currentPattern = 'tier1'; // 'tier1' or 'tier2'
 
 // Exam State
 let examState = {
@@ -16,7 +19,8 @@ let examState = {
         'reasoning': [],
         'gk': [],
         'math': [],
-        'english': []
+        'english': [],
+        'computer': []
     },
     answers: {},
     status: {}, // visited, answered, review, review-answered
@@ -39,15 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function generateMockQuestions() {
     // Generate questions using our dynamic modules
-    examState.questions['math'] = MathGenerator.generateQuestions(25);
-    examState.questions['reasoning'] = ReasoningGenerator.generateQuestions(25);
-    examState.questions['english'] = EnglishBank.generateQuestions(25);
-    examState.questions['gk'] = GKBank.generateQuestions(25);
+    examState.questions['math'] = MathGenerator.generateQuestions(currentPattern === 'tier2' ? 30 : 25);
+    examState.questions['reasoning'] = ReasoningGenerator.generateQuestions(currentPattern === 'tier2' ? 30 : 25);
+    examState.questions['english'] = EnglishBank.generateQuestions(currentPattern === 'tier2' ? 45 : 25);
+    examState.questions['gk'] = GKBank.generateQuestions(currentPattern === 'tier2' ? 25 : 25);
+    examState.questions['computer'] = ComputerGenerator.generateQuestions(20);
 
     // Initialize/Reset status array and answers
     examState.answers = {};
     Object.keys(SECTIONS).forEach(section => {
-        for(let i=0; i<25; i++) {
+        const count = examState.questions[section].length;
+        for(let i=0; i<count; i++) {
             const qId = examState.questions[section][i].id;
             examState.status[qId] = 'not-visited';
         }
@@ -59,7 +65,34 @@ function refreshQP() {
         generateMockQuestions();
         examState.currentQuestionIndex = 0;
         switchSection(currentSection); // Re-renders the current section
-        alert("New Question Paper Generated! Difficulty: Randomized (Easy to High)");
+        alert(`New ${currentPattern.toUpperCase()} Question Paper Generated! Difficulty: Randomized`);
+    }
+}
+
+function switchPattern(pattern) {
+    if(currentPattern === pattern) return;
+    
+    if(confirm(`Switch to ${pattern.toUpperCase()} Pattern? Your current exam progress will be lost.`)) {
+        currentPattern = pattern;
+        
+        // Update Buttons UI
+        document.querySelectorAll('.btn-pattern').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`btn-${pattern}`).classList.add('active');
+        
+        // Update counts in SECTIONS for display
+        if(pattern === 'tier2') {
+            SECTIONS['math'].count = 30;
+            SECTIONS['reasoning'].count = 30;
+            SECTIONS['english'].count = 45;
+        } else {
+            SECTIONS['math'].count = 25;
+            SECTIONS['reasoning'].count = 25;
+            SECTIONS['english'].count = 25;
+        }
+
+        generateMockQuestions();
+        examState.currentQuestionIndex = 0;
+        switchSection('reasoning'); // Reset to first section
     }
 }
 
