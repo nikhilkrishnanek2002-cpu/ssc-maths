@@ -213,6 +213,25 @@ body {
     display: flex;
     flex-direction: column;
     background: #fff;
+    position: relative;
+}
+
+.mobile-close-palette {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff;
+    background: #dc3545;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .profile-area {
@@ -458,7 +477,7 @@ body {
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     }
     .palette-section.active { right: 0; }
-    .mobile-close-palette { display: block !important; }
+    .mobile-close-palette { display: flex !important; }
     .mobile-palette-toggle {
         display: flex;
         position: fixed;

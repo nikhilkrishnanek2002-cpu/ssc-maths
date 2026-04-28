@@ -273,6 +273,16 @@ function showSolution() {
     const box = document.getElementById('solution-box');
     
     let html = ``;
+
+    // Smart Feedback for Wrong Answers
+    const userAns = examState.answers[q.id];
+    if (userAns !== undefined && parseInt(userAns) !== q.correctAnswer) {
+        if (q.feedback && q.feedback[userAns]) {
+            html += `<div style="background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ffeeba;">
+                <i class="fa-solid fa-lightbulb"></i> <strong>Smart Feedback:</strong> ${q.feedback[userAns]}
+            </div>`;
+        }
+    }
     
     // Check what type of explanation it is
     if(typeof q.explanation === 'object') {

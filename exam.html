@@ -96,7 +96,7 @@
         <div class="palette-overlay" id="palette-overlay" onclick="togglePalette()"></div>
         <aside class="palette-section" id="palette-section">
             <!-- Mobile Close Button -->
-            <div class="mobile-close-palette" onclick="togglePalette()" style="display:none; position:absolute; top:10px; right:10px; font-size:28px; cursor:pointer; color:#fff; background:#dc3545; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:1100; box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+            <div class="mobile-close-palette" onclick="togglePalette()">
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="profile-area">
@@ -213,6 +213,24 @@
 
     <div class="mobile-palette-toggle" onclick="togglePalette()">
         <i class="fa-solid fa-table-cells"></i>
+    </div>
+
+    <!-- Concept Explainer Modal -->
+    <div id="concept-modal" class="calculator-modal hidden" style="width: 80%; max-width: 600px; padding: 0; overflow: hidden; z-index: 2000;">
+        <div class="calc-header" style="background: #6f42c1; color: white;">
+            <span id="concept-title">Subject Primer</span>
+            <button onclick="closeConceptModal()" class="close-calc" style="color: white;">&times;</button>
+        </div>
+        <div style="padding: 20px; background: #fff; color: #333;">
+            <div id="concept-content" style="min-height: 150px; font-size: 14px; line-height: 1.6;">
+                <!-- Content injected here -->
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                <button class="btn btn-secondary" id="concept-prev" onclick="changeConceptSlide(-1)" style="display: none;">&larr; Previous</button>
+                <button class="btn btn-save" id="concept-next" onclick="changeConceptSlide(1)" style="margin-left: auto;">Next &rarr;</button>
+                <button class="btn btn-submit" id="concept-start" onclick="startAfterConcept()" style="display: none; margin-left: auto; background: #198754;">Start Practice!</button>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->

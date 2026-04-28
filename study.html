@@ -263,7 +263,10 @@
                     
                     content += `
                         <div class="card ${color}">
-                            <h3>${block.title}</h3>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <h3>${block.title}</h3>
+                                <button class="btn btn-secondary" onclick="speakText(this.getAttribute('data-text'))" data-text="${encodeURIComponent(block.text)}" style="padding: 4px 8px; font-size: 12px;"><i class="fa-solid fa-volume-up"></i> Listen</button>
+                            </div>
                             <p>${block.text}</p>
                     `;
 
@@ -289,6 +292,7 @@
 
         // Close topic view
         function closeTopic() {
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
             currentTopic = null;
             document.getElementById('topics-grid').style.display = 'grid';
             document.getElementById('topic-detail').style.display = 'none';
@@ -304,6 +308,30 @@
         // Go home
         function goHome() {
             window.location.href = 'index.html';
+        }
+
+        // Text to Speech
+        let currentUtterance = null;
+        function speakText(encodedText) {
+            const text = decodeURIComponent(encodedText);
+            if ('speechSynthesis' in window) {
+                if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel();
+                    if (currentUtterance && currentUtterance.text === text) {
+                        currentUtterance = null;
+                        return;
+                    }
+                }
+                currentUtterance = new SpeechSynthesisUtterance(text);
+                // Try to find a good English voice
+                const voices = window.speechSynthesis.getVoices();
+                const enVoice = voices.find(v => v.lang.startsWith('en-GB') || v.lang.startsWith('en-US'));
+                if (enVoice) currentUtterance.voice = enVoice;
+                
+                window.speechSynthesis.speak(currentUtterance);
+            } else {
+                alert("Text to speech is not supported in your browser.");
+            }
         }
 
         // Initialize

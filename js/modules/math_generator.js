@@ -67,11 +67,18 @@ const MathGenerator = {
         options = options.sort(() => Math.random() - 0.5);
         const correctIndex = options.indexOf(totalDays);
 
+        const feedback = {};
+        options.forEach((opt, idx) => {
+            if (opt === (aDays+bDays).toString()) feedback[idx] = "You just added their individual days! Remember, working together takes LESS time, not more. You need to add their efficiencies, not their time.";
+            if (opt === (totalDays*1.2).toFixed(2) || opt === (totalDays*0.8).toFixed(2)) feedback[idx] = "You're close, but check your LCM and efficiency calculations again.";
+        });
+
         return {
             id: `math_${index}`,
             text: `A can do a piece of work in ${aDays} days and B can do the same work in ${bDays} days. If they work together, in how many days will the work be completed?`,
             options: options.map(o => `${o} days`),
             correctAnswer: correctIndex,
+            feedback: feedback,
             explanation: {
                 standard: `A's 1 day work = 1/${aDays}.<br>B's 1 day work = 1/${bDays}.<br>(A+B)'s 1 day work = 1/${aDays} + 1/${bDays} = (${aDays}+${bDays}) / (${aDays}×${bDays}).<br>Total days = reciprocal = (${aDays}×${bDays}) / (${aDays}+${bDays}) = ${totalDays} days.`,
                 trick: `LCM Method: Assume total work = LCM(${aDays}, ${bDays}) = ${lcm} units.<br>Efficiency of A = ${lcm}/${aDays} = ${aEff} units/day.<br>Efficiency of B = ${lcm}/${bDays} = ${bEff} units/day.<br>Total Days = Total Work / Total Efficiency = ${lcm} / (${aEff}+${bEff}) = ${totalDays} days.`
@@ -204,11 +211,18 @@ const MathGenerator = {
         options = options.sort(() => Math.random() - 0.5);
         const correctIndex = options.indexOf(extAngle);
 
+        const feedback = {};
+        options.forEach((opt, idx) => {
+            if (opt === 360) feedback[idx] = "You selected 360°. That is the sum of ALL exterior angles together, not just one single angle.";
+            if (opt === extAngle+10 || opt === extAngle-10) feedback[idx] = `Check your division: 360 ÷ ${sides} = ${extAngle}.`;
+        });
+
         return {
             id: `math_${index}`,
             text: `What is the measure of each exterior angle of a regular polygon with ${sides} sides?`,
             options: options.map(o => `${o}°`),
             correctAnswer: correctIndex,
+            feedback: feedback,
             explanation: {
                 standard: `For any convex polygon, the sum of all exterior angles is ALWAYS 360°.<br>Since it is a regular polygon, all exterior angles are equal.<br>Each exterior angle = 360° / ${sides} = ${extAngle}°.`,
                 trick: `Exterior Angle = 360 / n. If interior angle is given, Exterior = 180 - Interior. Then n = 360 / Exterior.`

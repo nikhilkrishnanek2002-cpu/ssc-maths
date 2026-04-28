@@ -200,13 +200,86 @@ function startSectionalPractice() {
         window.isSectionalMode = true;
         window.sectionalSubject = selected;
         
-        alert(`Starting ${selected.toUpperCase()} Sectional Practice (25 Qs / 15 Mins)`);
-        
-        renderTabs(); // Will only show one tab now
-        if (examState.timerInterval) clearInterval(examState.timerInterval);
-        startTimer();
-        switchSection(selected);
+        // Show Concept Explainer before starting
+        showConceptExplainer(selected);
     }
+}
+
+// Concept Explainer Logic
+const subjectExplainers = {
+    'math': [
+        { title: "Golden Rule of Math", text: "Always look for the unit digit or use digital sum when options are widely spaced. It saves 50% of calculation time!" },
+        { title: "Time & Work Trick", text: "If A takes x days and B takes y days, together they take (x*y)/(x+y) days. No need for LCM for just two people." },
+        { title: "Geometry Hack", text: "If a circle is inscribed in a quadrilateral ABCD, then AB + CD = BC + AD. Always." }
+    ],
+    'reasoning': [
+        { title: "Syllogism Approach", text: "Always draw Venn Diagrams. 'Some A are B' means they overlap. 'No A is B' means they are strictly separated." },
+        { title: "Coding-Decoding", text: "Write A-M and N-Z backwards below it. It instantly gives you opposite letters (A-Z, B-Y, etc.)." }
+    ],
+    'english': [
+        { title: "Para-jumbles Trick", text: "Look for transition words (However, Moreover, Therefore). They almost NEVER start a paragraph." },
+        { title: "Active/Passive Rule", text: "The tense NEVER changes when converting from Active to Passive voice. Only the verb form changes (e.g. is eating -> is being eaten)." }
+    ],
+    'gk': [
+        { title: "Elimination Strategy", text: "In GK, if two options are complete opposites, one of them is usually the answer." },
+        { title: "Polity Quick Tip", text: "Fundamental Rights are in Part III (Articles 12-35). Duties are in Part IVA (Article 51A)." }
+    ]
+};
+
+let currentConceptSlides = [];
+let currentConceptIndex = 0;
+
+function showConceptExplainer(subject) {
+    currentConceptSlides = subjectExplainers[subject] || [
+        { title: "Get Ready", text: "Read the questions carefully and manage your time." }
+    ];
+    currentConceptIndex = 0;
+    
+    document.getElementById('concept-title').innerText = `${SECTIONS[subject].name} - Quick Primer`;
+    document.getElementById('concept-modal').classList.remove('hidden');
+    
+    // Dim the timer
+    if (examState.timerInterval) clearInterval(examState.timerInterval);
+    
+    renderConceptSlide();
+}
+
+function renderConceptSlide() {
+    const slide = currentConceptSlides[currentConceptIndex];
+    document.getElementById('concept-content').innerHTML = `
+        <h3 style="color: #0b5ed7; margin-bottom: 15px; font-size: 18px;">${slide.title}</h3>
+        <p style="font-size: 16px;">${slide.text}</p>
+    `;
+    
+    document.getElementById('concept-prev').style.display = currentConceptIndex > 0 ? 'block' : 'none';
+    
+    if (currentConceptIndex === currentConceptSlides.length - 1) {
+        document.getElementById('concept-next').style.display = 'none';
+        document.getElementById('concept-start').style.display = 'block';
+    } else {
+        document.getElementById('concept-next').style.display = 'block';
+        document.getElementById('concept-start').style.display = 'none';
+    }
+}
+
+function changeConceptSlide(dir) {
+    currentConceptIndex += dir;
+    renderConceptSlide();
+}
+
+function closeConceptModal() {
+    document.getElementById('concept-modal').classList.add('hidden');
+}
+
+function startAfterConcept() {
+    closeConceptModal();
+    const selected = window.sectionalSubject;
+    
+    alert(`Starting ${selected.toUpperCase()} Sectional Practice (25 Qs / 15 Mins)`);
+    
+    renderTabs(); // Will only show one tab now
+    startTimer();
+    switchSection(selected);
 }
 
 function startTimer() {
