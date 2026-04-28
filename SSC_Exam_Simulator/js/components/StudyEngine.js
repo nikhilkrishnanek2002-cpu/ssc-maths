@@ -23,19 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         filterSidebar(term);
     });
 
-    // Flashcard Toggle
-    const flashBtn = document.getElementById('flashcard-toggle');
-    if(flashBtn) {
-        flashBtn.addEventListener('click', () => {
-            document.body.classList.toggle('flashcard-mode');
-            if(document.body.classList.contains('flashcard-mode')) {
-                flashBtn.innerHTML = `<i class="fa-solid fa-book-open"></i> Back to Normal View`;
-            } else {
-                flashBtn.innerHTML = `<i class="fa-solid fa-clone"></i> Enable Flashcard Mode`;
-            }
-        });
-    }
-
     // Topic Test
     const testBtn = document.getElementById('topic-test-btn');
     if(testBtn) {
@@ -217,19 +204,6 @@ function loadContent(topicId) {
 
     page.innerHTML = html;
 
-    // Add Flashcard Reveal Listeners
-    page.querySelectorAll('.example-box, .shortcut-box').forEach(box => {
-        box.addEventListener('click', () => {
-            if(document.body.classList.contains('flashcard-mode')) {
-                box.classList.toggle('revealed');
-                if(box.classList.contains('revealed')) {
-                    box.style.height = 'auto'; // expand
-                } else {
-                    box.style.height = '120px'; // collapse back
-                }
-            }
-        });
-    });
 }
 
 function toggleMastery(topicId) {

@@ -238,10 +238,4 @@ body {
 .mastery-btn { padding: 12px 24px; font-size: 1.1rem; border-radius: 30px; border: 2px solid #10b981; background: white; color: #10b981; font-weight: bold; cursor: pointer; transition: all 0.3s; }
 .mastered-btn { background: #10b981; color: white; }
 .nav-item.mastered { border-left-color: #10b981; background: #ecfdf5; }
-/* Flashcard Mode */
-body.flashcard-mode .example-box, body.flashcard-mode .shortcut-box { cursor: pointer; position: relative; height: 120px; overflow: hidden; }
-body.flashcard-mode .example-content, body.flashcard-mode .shortcut-box p { opacity: 0; filter: blur(5px); transition: all 0.3s ease; }
-body.flashcard-mode .example-box::after { content: 'Click to Reveal Examples'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; color: #3b82f6; pointer-events: none; transition: opacity 0.3s; }
-body.flashcard-mode .shortcut-box::after { content: 'Click to Reveal Shortcut'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; color: #f59e0b; pointer-events: none; transition: opacity 0.3s; }
-body.flashcard-mode .example-box.revealed .example-content, body.flashcard-mode .shortcut-box.revealed p { opacity: 1; filter: blur(0); }
-body.flashcard-mode .example-box.revealed::after, body.flashcard-mode .shortcut-box.revealed::after { opacity: 0; }
+
