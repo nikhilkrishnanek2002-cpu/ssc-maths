@@ -1,0 +1,276 @@
+/* Guide Styles */
+.guide-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.guide-header h1 {
+  color: #f5a623;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.guide-header p {
+  color: #7a82a0;
+  font-size: 1.1rem;
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.guide-sidebar {
+  background: #1a1e2e;
+  border: 1px solid #252a3d;
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.guide-sidebar h3 {
+  color: #f5a623;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+}
+
+.topic-list li {
+  margin-bottom: 0.5rem;
+}
+
+.topic-btn {
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  color: #7a82a0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-align: left;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.topic-btn:hover {
+  background: rgba(79, 142, 247, 0.1);
+  color: #4f8ef7;
+  border-color: #4f8ef7;
+}
+
+.topic-btn.active {
+  background: rgba(245, 166, 35, 0.15);
+  color: #f5a623;
+  border-color: #f5a623;
+}
+
+.guide-content {
+  background: #1a1e2e;
+  border: 1px solid #252a3d;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.topic-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #252a3d;
+}
+
+.topic-header h2 {
+  color: #f5a623;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.topic-desc {
+  color: #7a82a0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.content-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-section {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #252a3d;
+  border-radius: 8px;
+}
+
+.content-section h3 {
+  color: #f5a623;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #252a3d;
+  padding-bottom: 0.5rem;
+}
+
+.section-text {
+  color: #e8eaf0;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.formulas-box,
+.shortcuts-box,
+.examples-box {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #4f8ef7;
+}
+
+.formulas-box {
+  background: rgba(79, 142, 247, 0.08);
+  border-left-color: #4f8ef7;
+}
+
+.shortcuts-box {
+  background: rgba(46, 204, 113, 0.08);
+  border-left-color: #2ecc71;
+}
+
+.examples-box {
+  background: rgba(155, 89, 182, 0.08);
+  border-left-color: #9b59b6;
+}
+
+.formulas-box h4,
+.shortcuts-box h4,
+.examples-box h4 {
+  color: #f5a623;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.formulas-box ul,
+.shortcuts-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.formulas-box li,
+.shortcuts-box li {
+  color: #e8eaf0;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.formulas-box li:before {
+  content: '📐';
+  position: absolute;
+  left: 0;
+}
+
+.shortcuts-box li:before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+}
+
+.formulas-box code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-family: 'DM Mono', monospace;
+  color: #7bb3ff;
+  font-size: 0.9rem;
+}
+
+.example {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  margin: 0.8rem 0;
+  border-radius: 6px;
+  border-left: 3px solid #2ecc71;
+}
+
+.example p {
+  margin: 0.5rem 0;
+  color: #e8eaf0;
+}
+
+.reference-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #252a3d;
+}
+
+.reference-section h3 {
+  color: #f5a623;
+  margin-bottom: 1rem;
+}
+
+.reference-table {
+  overflow-x: auto;
+}
+
+.tips-section {
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tips-section h3 {
+  color: #f5a623;
+  margin-bottom: 1rem;
+}
+
+.tips-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tips-section li {
+  color: #e8eaf0;
+  margin-bottom: 0.8rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.tips-section li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-sidebar {
+    position: static;
+  }
+
+  .guide-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .topic-header h2 {
+    font-size: 1.3rem;
+  }
+}

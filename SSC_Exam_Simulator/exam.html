@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduquity SSC CGL Mock Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navigation Bar (Mimicking Exam Interface) -->
+    <header class="exam-header">
+        <div class="header-left">
+            <h2>SSC CGL TIER-I</h2>
+        </div>
+        <div class="header-right">
+            <div class="timer">
+                <i class="fa-regular fa-clock"></i> Time Left: <span id="time-left">60:00</span>
+            </div>
+            <div class="practice-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="practice-mode-toggle" onchange="togglePracticeMode()">
+                    <span class="slider round"></span>
+                </label>
+                <span>Practice Mode</span>
+            </div>
+            <div class="calculator-toggle" onclick="toggleCalculator()">
+                <i class="fa-solid fa-calculator"></i> Calculator
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Exam Container -->
+    <main class="exam-container">
+        
+        <!-- Left Side: Question Area -->
+        <section class="question-section">
+            <div class="section-tabs">
+                <button class="tab-btn active" data-section="reasoning" onclick="switchSection('reasoning')">General Intelligence</button>
+                <button class="tab-btn" data-section="gk" onclick="switchSection('gk')">General Awareness</button>
+                <button class="tab-btn" data-section="math" onclick="switchSection('math')">Quantitative Aptitude</button>
+                <button class="tab-btn" data-section="english" onclick="switchSection('english')">English Comprehension</button>
+            </div>
+            
+            <div class="question-header">
+                <span class="q-number">Question No. <span id="current-q-num">1</span></span>
+                <span class="marks-info"><span class="positive-mark">+2.00</span> | <span class="negative-mark">-0.50</span></span>
+            </div>
+
+            <div class="question-content" id="question-text">
+                <!-- Question text will be injected here via JS -->
+            </div>
+
+            <div class="options-container" id="options-container">
+                <!-- Options will be injected here via JS -->
+            </div>
+
+            <div id="solution-box" class="solution-box hidden">
+                <!-- Detailed explanation will be injected here -->
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="markForReview()">Mark for Review & Next</button>
+                <button class="btn btn-danger" onclick="clearResponse()">Clear Response</button>
+                <button class="btn btn-info hidden" id="btn-view-solution" onclick="showSolution()">View Solution</button>
+                <button class="btn btn-primary" onclick="saveAndNext()">Save & Next</button>
+            </div>
+        </section>
+
+        <!-- Right Side: Palette and Profile Area -->
+        <aside class="palette-section">
+            <div class="profile-area">
+                <img src="https://via.placeholder.com/60" alt="Candidate" class="profile-pic">
+                <div class="profile-info">
+                    <p><strong>Candidate Name:</strong> SSC Aspirant</p>
+                    <p><strong>Exam:</strong> SSC CGL Tier-I</p>
+                </div>
+            </div>
+
+            <div class="status-legend">
+                <div class="legend-item"><span class="badge answered">0</span> Answered</div>
+                <div class="legend-item"><span class="badge not-answered">0</span> Not Answered</div>
+                <div class="legend-item"><span class="badge not-visited">25</span> Not Visited</div>
+                <div class="legend-item"><span class="badge review">0</span> Marked for Review</div>
+                <div class="legend-item"><span class="badge review-answered">0</span> Answered & Marked for Review</div>
+            </div>
+
+            <div class="question-palette-header">
+                <h3>Question Palette</h3>
+            </div>
+            
+            <div class="question-grid" id="question-grid">
+                <!-- Grid buttons 1 to 25 will be injected here via JS -->
+            </div>
+
+            <div class="submit-area">
+                <button class="btn btn-submit" onclick="submitExam()">Submit Exam</button>
+            </div>
+        </aside>
+
+        <!-- On-Screen Calculator Modal -->
+        <div id="calculator-modal" class="calculator-modal hidden">
+            <div class="calc-header">
+                <span>Standard Calculator</span>
+                <button onclick="toggleCalculator()" class="close-calc">&times;</button>
+            </div>
+            <div class="calc-display" id="calc-display">0</div>
+            <div class="calc-keys">
+                <button class="calc-btn operator" onclick="calcInput('Clear')">C</button>
+                <button class="calc-btn operator" onclick="calcInput('Back')">&larr;</button>
+                <button class="calc-btn operator" onclick="calcInput('/')">/</button>
+                <button class="calc-btn operator" onclick="calcInput('*')">x</button>
+                
+                <button class="calc-btn" onclick="calcInput('7')">7</button>
+                <button class="calc-btn" onclick="calcInput('8')">8</button>
+                <button class="calc-btn" onclick="calcInput('9')">9</button>
+                <button class="calc-btn operator" onclick="calcInput('-')">-</button>
+                
+                <button class="calc-btn" onclick="calcInput('4')">4</button>
+                <button class="calc-btn" onclick="calcInput('5')">5</button>
+                <button class="calc-btn" onclick="calcInput('6')">6</button>
+                <button class="calc-btn operator" onclick="calcInput('+')">+</button>
+                
+                <button class="calc-btn" onclick="calcInput('1')">1</button>
+                <button class="calc-btn" onclick="calcInput('2')">2</button>
+                <button class="calc-btn" onclick="calcInput('3')">3</button>
+                <button class="calc-btn operator double-height" onclick="calcInput('=')">=</button>
+                
+                <button class="calc-btn double-width" onclick="calcInput('0')">0</button>
+                <button class="calc-btn" onclick="calcInput('.')">.</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/data/english_bank.js"></script>
+    <script src="js/data/gk_bank.js"></script>
+    <script src="js/modules/math_generator.js"></script>
+    <script src="js/modules/reasoning_generator.js"></script>
+    <script src="js/database/localStorageManager.js"></script>
+    <script src="js/components/ExamEngine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC CGL Master Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .card {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .study-card .card-icon {
+            color: #f39c12;
+        }
+
+        .exam-card .card-icon {
+            color: #3498db;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .btn-launch {
+            margin-top: 25px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+
+        .study-card .btn-launch {
+            background: #fff3e0;
+            color: #e67e22;
+            border: 2px solid #e67e22;
+        }
+
+        .exam-card .btn-launch {
+            background: #e1f0fa;
+            color: #2980b9;
+            border: 2px solid #2980b9;
+        }
+
+        .card:hover .study-card .btn-launch {
+            background: #e67e22;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>SSC CGL Ultimate Hub</h1>
+        <p>Prepare, Practice, and Perfect your Government Exam Strategy.</p>
+    </div>
+
+    <div class="cards-container">
+        <!-- Study Mode Card -->
+        <a href="study.html" class="card study-card">
+            <i class="fa-solid fa-book-open card-icon"></i>
+            <h2>Study Platform</h2>
+            <p>Access the ultimate "Notebook". Learn Math theorems, Reasoning shortcuts, English grammar rules, and GK tips in a relaxed, distraction-free environment.</p>
+            <div class="btn-launch">Start Learning</div>
+        </a>
+
+        <!-- Exam Simulator Card -->
+        <a href="exam.html" class="card exam-card">
+            <i class="fa-solid fa-stopwatch card-icon"></i>
+            <h2>Eduquity Mock Exam</h2>
+            <p>Ready to test your skills? Enter the strict, timed simulation mirroring the exact Eduquity CBT interface to build speed and accuracy.</p>
+            <div class="btn-launch">Take a Test</div>
+        </a>
+    </div>
+
+</body>
+</html>

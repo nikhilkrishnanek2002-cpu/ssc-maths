@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Platform - SSC CGL Master</title>
+    <link rel="stylesheet" href="css/study_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="study-sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" title="Back to Dashboard"><i class="fa-solid fa-arrow-left"></i></a>
+            <h2>My Notebook</h2>
+        </div>
+        
+        <!-- Progress Tracker -->
+        <div class="progress-container" style="padding: 10px 20px; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
+                <strong>Syllabus Mastery</strong>
+                <span id="progress-text">0%</span>
+            </div>
+            <div style="width: 100%; background: #e2e8f0; border-radius: 5px; height: 8px;">
+                <div id="progress-bar-fill" style="width: 0%; background: #10b981; height: 100%; border-radius: 5px; transition: width 0.3s ease;"></div>
+            </div>
+        </div>
+        
+        <div class="search-container" style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+            <input type="text" id="search-bar" placeholder="Search topics (e.g., Geometry)..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Nunito', sans-serif;">
+        </div>
+
+        <div class="subject-filters" style="padding: 10px 20px; display: flex; gap: 5px; flex-wrap: wrap; border-bottom: 1px solid #e2e8f0;">
+            <button class="subj-btn active" data-subj="all" onclick="filterBySubject('all')">All</button>
+            <button class="subj-btn" data-subj="math" onclick="filterBySubject('math')">Math</button>
+            <button class="subj-btn" data-subj="reasoning" onclick="filterBySubject('reasoning')">Reasoning</button>
+            <button class="subj-btn" data-subj="english" onclick="filterBySubject('english')">English</button>
+            <button class="subj-btn" data-subj="computer" onclick="filterBySubject('computer')">Computer</button>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <!-- Dynamically populated by StudyEngine.js -->
+        </div>
+    </aside>
+
+    <!-- Main Content Area (The Notebook Paper) -->
+    <main class="study-content">
+        <!-- Top Toolbar -->
+        <div class="study-toolbar">
+            <button id="flashcard-toggle" class="toolbar-btn"><i class="fa-solid fa-clone"></i> Enable Flashcard Mode</button>
+            <button id="topic-test-btn" class="toolbar-btn primary-btn"><i class="fa-solid fa-stopwatch"></i> Take Topic Test</button>
+        </div>
+
+        <div class="notebook-page" id="notebook-page">
+            <!-- Content gets injected here via StudyEngine.js -->
+            <div class="page-header">
+                <h1 class="page-title">Loading...</h1>
+            </div>
+        </div>
+    </main>
+
+    <!-- Data Banks -->
+    <script src="js/data/math_theorems.js"></script>
+    <script src="js/data/reasoning_tricks.js"></script>
+    <script src="js/data/english_rules.js"></script>
+    <script src="js/data/gk_tips.js"></script>
+    <script src="js/data/computer_knowledge.js"></script>
+    <script src="js/data/statistics_advanced.js"></script>
+    <script src="js/components/StudyEngine.js"></script>
+</body>
+</html>

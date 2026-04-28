@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL Maths — Complete Master Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #141720;
+    --card: #1a1e2e;
+    --border: #252a3d;
+    --accent: #f5a623;
+    --accent2: #4f8ef7;
+    --accent3: #2ecc71;
+    --accent4: #e74c3c;
+    --accent5: #9b59b6;
+    --text: #e8eaf0;
+    --muted: #7a82a0;
+    --highlight: #fff3d4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #0d0f14 0%, #1a1234 50%, #0d1a0f 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(245,166,35,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(79,142,247,0.07) 0%, transparent 60%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #f5a623, #f7d26a, #4f8ef7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; color: var(--accent); }
+  .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* Nav */
+  .nav-wrapper {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,15,20,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-wrapper::-webkit-scrollbar { display: none; }
+  .nav {
+    display: flex;
+    gap: 0;
+    padding: 0 16px;
+    min-width: max-content;
+  }
+  .nav-btn {
+    background: none; border: none;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 18px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { color: var(--text); }
+  .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Content */
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .section-sub { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .card.gold::before { background: linear-gradient(90deg, var(--accent), #f7d26a); }
+  .card.blue::before { background: linear-gradient(90deg, var(--accent2), #7bb3ff); }
+  .card.green::before { background: linear-gradient(90deg, var(--accent3), #58d68d); }
+  .card.red::before { background: linear-gradient(90deg, var(--accent4), #e67e22); }
+  .card.purple::before { background: linear-gradient(90deg, var(--accent5), #a569bd); }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title .icon {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .gold .icon { background: rgba(245,166,35,0.15); }
+  .blue .icon { background: rgba(79,142,247,0.15); }
+  .green .icon { background: rgba(46,204,113,0.15); }
+  .red .icon { background: rgba(231,76,60,0.15); }
+  .purple .icon { background: rgba(155,89,182,0.15); }
+
+  /* Formula boxes */
+  .formula {
+    background: rgba(79,142,247,0.08);
+    border: 1px solid rgba(79,142,247,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13.5px;
+    color: #7bb3ff;
+    margin: 10px 0;
+    line-height: 1.8;
+  }
+  .trick {
+    background: rgba(245,166,35,0.07);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .trick strong { color: var(--accent); }
+
+  .shortcut {
+    background: rgba(46,204,113,0.07);
+    border-left: 3px solid var(--accent3);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .shortcut strong { color: var(--accent3); }
+
+  .warning {
+    background: rgba(231,76,60,0.07);
+    border-left: 3px solid var(--accent4);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .warning strong { color: var(--accent4); }
+
+  /* Grid */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 12px 0;
+  }
+  th {
+    background: rgba(255,255,255,0.05);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 2px;
+  }
+  .tag-gold { background: rgba(245,166,35,0.15); color: var(--accent); }
+  .tag-blue { background: rgba(79,142,247,0.15); color: var(--accent2); }
+  .tag-green { background: rgba(46,204,113,0.15); color: var(--accent3); }
+
+  /* Problem boxes */
+  .problem {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+  }
+  .problem-q { font-size: 13.5px; color: var(--text); margin-bottom: 8px; }
+  .problem-a {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent3);
+    background: rgba(46,204,113,0.05);
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  .problem-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+
+  h3 { font-size: 15px; font-weight: 600; color: var(--accent); margin: 18px 0 10px; }
+  h4 { font-size: 14px; font-weight: 600; color: var(--text); margin: 14px 0 8px; }
+  p { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+  ul, ol { padding-left: 20px; font-size: 14px; }
+  li { margin-bottom: 6px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .mono { font-family: 'DM Mono', monospace; color: #7bb3ff; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">SSC CGL 2025 Prep</div>
+  <h1>Complete Maths Master Guide</h1>
+  <p>Every topic, theorem, shortcut & trick — fast solving methods with zero equation complexity</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">15</div><div class="stat-label">Topics</div></div>
+    <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Shortcuts</div></div>
+    <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Solved Problems</div></div>
+    <div class="stat"><div class="stat-num">80+</div><div class="stat-label">Key Formulas</div></div>
+  </div>
+</div>
+
+<div class="nav-wrapper">
+  <div class="nav">
+    <button class="nav-btn active" onclick="show('numbers')">Numbers</button>
+    <button class="nav-btn" onclick="show('percentage')">%age & Ratio</button>
+    <button class="nav-btn" onclick="show('profit')">Profit & Loss</button>
+    <button class="nav-btn" onclick="show('interest')">Interest</button>
+    <button class="nav-btn" onclick="show('timework')">Time & Work</button>
+    <button class="nav-btn" onclick="show('speed')">Speed & Distance</button>
+    <button class="nav-btn" onclick="show('algebra')">Algebra</button>
+    <button class="nav-btn" onclick="show('geometry')">Geometry</button>
+    <button class="nav-btn" onclick="show('mensuration')">Mensuration</button>
+    <button class="nav-btn" onclick="show('trigonometry')">Trigonometry</button>
+    <button class="nav-btn" onclick="show('statistics')">Statistics & DI</button>
+    <button class="nav-btn" onclick="show('sequence')">Sequence & Series</button>
+    <button class="nav-btn" onclick="show('simplification')">Simplification</button>
+    <button class="nav-btn" onclick="show('coordinate')">Coordinate Geo</button>
+    <button class="nav-btn" onclick="show('mixtures')">Mixtures</button>
+    <button class="nav-btn" onclick="show('cheatsheet')">⚡ Cheat Sheet</button>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===================== NUMBER SYSTEM ===================== -->
+<div id="numbers" class="section active">
+  <div class="section-title">Number System & HCF/LCM</div>
+  <div class="section-sub">Divisibility rules, shortcuts and fast calculation tricks</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🔢</div>Divisibility Rules — Learn Once, Use Forever</div>
+    <table>
+      <tr><th>Divisible by</th><th>Rule</th><th>Example</th></tr>
+      <tr><td>2</td><td>Last digit even (0,2,4,6,8)</td><td>234 ✓</td></tr>
+      <tr><td>3</td><td>Sum of all digits divisible by 3</td><td>132 → 1+3+2=6 ✓</td></tr>
+      <tr><td>4</td><td>Last 2 digits divisible by 4</td><td>1124 → 24/4=6 ✓</td></tr>
+      <tr><td>5</td><td>Last digit 0 or 5</td><td>345 ✓</td></tr>
+      <tr><td>6</td><td>Divisible by both 2 AND 3</td><td>126 ✓</td></tr>
+      <tr><td>7</td><td>Double last digit, subtract from rest. Repeat.</td><td>203 → 20-(2×3)=14 ✓</td></tr>
+      <tr><td>8</td><td>Last 3 digits divisible by 8</td><td>1256 → 256/8=32 ✓</td></tr>
+      <tr><td>9</td><td>Sum of digits divisible by 9</td><td>729 → 7+2+9=18 ✓</td></tr>
+      <tr><td>11</td><td>(Odd position sum) - (Even position sum) = 0 or 11</td><td>121 → (1+1)-2=0 ✓</td></tr>
+      <tr><td>12</td><td>Divisible by both 4 AND 3</td><td>144 ✓</td></tr>
+      <tr><td>25</td><td>Last 2 digits divisible by 25</td><td>1275 → 75/25=3 ✓</td></tr>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-title"><div class="icon">📐</div>HCF — Fast Methods</div>
+      <div class="trick"><strong>METHOD 1 (Factorization):</strong> Find common prime factors, take lowest power of each.</div>
+      <div class="trick"><strong>METHOD 2 (Division):</strong> Divide bigger by smaller, then smaller by remainder. Keep dividing until remainder = 0. Last divisor = HCF.</div>
+      <div class="formula">HCF of fractions = HCF of Numerators / LCM of Denominators</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">HCF of 48 and 36?</div>
+        <div class="problem-a">48 = 2⁴×3 | 36 = 2²×3² → HCF = 2²×3 = 12</div>
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-title"><div class="icon">📊</div>LCM — Fast Methods</div>
+      <div class="trick"><strong>METHOD:</strong> Find all prime factors, take HIGHEST power of each.</div>
+      <div class="formula">LCM of fractions = LCM of Numerators / HCF of Denominators</div>
+      <div class="formula">HCF × LCM = Product of two numbers (only for 2 numbers)</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">LCM of 12 and 18?</div>
+        <div class="problem-a">12=2²×3 | 18=2×3² → LCM = 2²×3² = 36</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">⚡</div>Number Tricks for SSC Speed</div>
+    <h3>Squares to Remember (1–30)</h3>
+    <table>
+      <tr><th>n</th><th>n²</th><th>n</th><th>n²</th><th>n</th><th>n²</th></tr>
+      <tr><td>11</td><td>121</td><td>16</td><td>256</td><td>21</td><td>441</td></tr>
+      <tr><td>12</td><td>144</td><td>17</td><td>289</td><td>22</td><td>484</td></tr>
+      <tr><td>13</td><td>169</td><td>18</td><td>324</td><td>23</td><td>529</td></tr>
+      <tr><td>14</td><td>196</td><td>19</td><td>361</td><td>24</td><td>576</td></tr>
+      <tr><td>15</td><td>225</td><td>20</td><td>400</td><td>25</td><td>625</td></tr>
+    </table>
+    <h3>Fast Squaring Trick (Numbers ending in 5)</h3>
+    <div class="shortcut"><strong>Rule:</strong> For n5² → multiply n×(n+1), attach 25 at end<br>
+    75² → 7×8 = 56 → answer = <strong>5625</strong><br>
+    85² → 8×9 = 72 → answer = <strong>7225</strong></div>
+    <h3>Multiplying Numbers Near 100</h3>
+    <div class="shortcut"><strong>Rule:</strong> 97×96 → (100-3)(100-4) → 100×(97-4)+(3×4) = 100×93+12 = <strong>9312</strong></div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">🔍</div>Remainders & Cyclicity Tricks</div>
+    <h3>Remainder Shortcut</h3>
+    <div class="trick"><strong>When dividing aⁿ by (a+1):</strong> Remainder is always 1 (if n is even) or a (if n is odd)<br>
+    Example: 7⁵ ÷ 8 → 7 is odd power → remainder = <strong>7</strong></div>
+    <h3>Cyclicity of Last Digits</h3>
+    <table>
+      <tr><th>Last Digit</th><th>Cycle (power 1,2,3,4...repeats)</th></tr>
+      <tr><td>2</td><td>2, 4, 8, 6 → cycle of 4</td></tr>
+      <tr><td>3</td><td>3, 9, 7, 1 → cycle of 4</td></tr>
+      <tr><td>4</td><td>4, 6 → cycle of 2</td></tr>
+      <tr><td>7</td><td>7, 9, 3, 1 → cycle of 4</td></tr>
+      <tr><td>8</td><td>8, 4, 2, 6 → cycle of 4</td></tr>
+      <tr><td>9</td><td>9, 1 → cycle of 2</td></tr>
+    </table>
+    <div class="shortcut"><strong>Trick:</strong> Find (power ÷ cycle length) → use remainder to get position in cycle<br>
+    Last digit of 7²³ → cycle of 4 → 23÷4 = remainder 3 → 3rd in cycle = <strong>3</strong></div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">📋</div>Important Number System Facts</div>
+    <div class="grid-2">
+      <div>
+        <h4>Types of Numbers</h4>
+        <ul>
+          <li>Natural: 1,2,3... (No 0)</li>
+          <li>Whole: 0,1,2,3...</li>
+          <li>Integers: ...-2,-1,0,1,2...</li>
+          <li>Rational: p/q form (q≠0)</li>
+          <li>Prime: Only 1 and itself as factors</li>
+          <li>Co-prime: HCF = 1</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Key Formulas</h4>
+        <div class="formula">Sum of 1 to n = n(n+1)/2
+Sum of odd numbers 1 to n = ((n+1)/2)²
+Sum of squares = n(n+1)(2n+1)/6
+Sum of cubes = [n(n+1)/2]²</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PERCENTAGE & RATIO ===================== -->
+<div id="percentage" class="section">
+  <div class="section-title">Percentage & Ratio/Proportion</div>
+  <div class="section-sub">The most important topics — used in every other chapter</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">%</div>Percentage — Key Conversions (Memorize!)</div>
+    <table>
+      <tr><th>Fraction</th><th>%</th><th>Fraction</th><th>%</th><th>Fraction</th><th>%</th></tr>
+      <tr><td>1/2</td><td>50%</td><td>1/7</td><td>14.28%</td><td>1/12</td><td>8.33%</td></tr>
+      <tr><td>1/3</td><td>33.33%</td><td>1/8</td><td>12.5%</td><td>1/13</td><td>7.69%</td></tr>
+      <tr><td>1/4</td><td>25%</td><td>1/9</td><td>11.11%</td><td>1/14</td><td>7.14%</td></tr>
+      <tr><td>1/5</td><td>20%</td><td>1/10</td><td>10%</td><td>1/15</td><td>6.66%</td></tr>
+      <tr><td>1/6</td><td>16.66%</td><td>1/11</td><td>9.09%</td><td>1/16</td><td>6.25%</td></tr>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-title"><div class="icon">⬆️</div>% Increase/Decrease</div>
+      <div class="formula">% Change = (Change/Original) × 100
+
+If A is x% more than B:
+B is x/(100+x) × 100% less than A
+
+If A is x% less than B:
+B is x/(100-x) × 100% more than A</div>
+      <div class="trick"><strong>Shortcut:</strong> 20% more → multiply by 1.2<br>
+      20% less → multiply by 0.8<br>
+      30% more then 10% less → 1.3 × 0.9 = 1.17 = 17% net increase</div>
+    </div>
+    <div class="card blue">
+      <div class="card-title"><div class="icon">🔄</div>Successive % Change</div>
+      <div class="formula">Net % = a + b + (ab/100)
+where a, b are the two percentages
+(use – for decrease)</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">Price up 20% then down 10%. Net change?</div>
+        <div class="problem-a">20 + (-10) + (20×-10/100) = 10 - 2 = +8%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">📉</div>Population & Depreciation</div>
+    <div class="formula">Population after n years = P × (1 + r/100)ⁿ
+Depreciation after n years = P × (1 - r/100)ⁿ</div>
+    <div class="shortcut"><strong>Fast:</strong> For small r and n=2: use successive % formula twice. Saves time.</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Population 10,000. Grows 10% p.a. Population after 2 years?</div>
+      <div class="problem-a">10,000 × 1.1 × 1.1 = 10,000 × 1.21 = 12,100</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">⚖️</div>Ratio & Proportion Shortcuts</div>
+    <h3>Key Ratio Rules</h3>
+    <div class="formula">If a:b = m:n and b:c = p:q
+Then a:b:c = mp : np : nq
+
+Componendo: (a+b)/(a-b) = (c+d)/(c-d) if a/b = c/d
+
+Fourth Proportional to a, b, c = bc/a
+Third Proportional to a, b = b²/a
+Mean Proportional to a, b = √(ab)</div>
+    <h3>Mixture Rule (Alligation)</h3>
+    <div class="trick">
+      <strong>Alligation Cross:</strong><br>
+      Cheaper ——— Mean ——— Dearer<br>
+      Ratio = (Dearer - Mean) : (Mean - Cheaper)<br><br>
+      <strong>Example:</strong> Mix milk at ₹20/L and ₹30/L to get ₹24/L<br>
+      Ratio = (30-24):(24-20) = 6:4 = <strong>3:2</strong>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">💰</div>Partnership Problems</div>
+    <div class="formula">Profit share ∝ Capital × Time
+
+If A invests Ca for Ta months and B invests Cb for Tb months:
+Ratio of profits = Ca×Ta : Cb×Tb</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">A invests ₹5000 for 6 months, B invests ₹4000 for 8 months. Share of ₹9400 profit?</div>
+      <div class="problem-a">Ratio = 5000×6 : 4000×8 = 30000:32000 = 15:16
+A = 9400×15/31 = ₹4500 | B = ₹4900</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PROFIT & LOSS ===================== -->
+<div id="profit" class="section">
+  <div class="section-title">Profit, Loss & Discount</div>
+  <div class="section-sub">Every formula you need with fast-solving tricks</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">💹</div>Core Formulas</div>
+    <div class="formula">Profit = SP - CP
+Loss = CP - SP
+Profit% = (Profit/CP) × 100
+Loss% = (Loss/CP) × 100
+
+SP = CP × (100+P%)/100  [Profit]
+SP = CP × (100-L%)/100  [Loss]
+CP = SP × 100/(100+P%)  [find CP from SP]
+CP = SP × 100/(100-L%)  [find CP from SP]</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-title"><div class="icon">🎯</div>Dishonest Trader Trick</div>
+      <div class="formula">If trader uses false weight w instead of true weight W:
+Profit% = (W-w)/w × 100</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">Trader uses 900g weight instead of 1kg. Profit%?</div>
+        <div class="problem-a">(1000-900)/900 × 100 = 100/9 = 11.11%</div>
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-title"><div class="icon">🔁</div>Two Article Trick</div>
+      <div class="formula">Sell 2 items at same price, one at x% profit, one at x% loss:
+Net Result = ALWAYS LOSS
+Loss% = x²/100</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">Two items sold at ₹1000 each, 20% profit and 20% loss. Net?</div>
+        <div class="problem-a">Loss% = 20²/100 = 400/100 = 4% loss</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🏷️</div>Discount & Marked Price</div>
+    <div class="formula">Discount = MP - SP
+Discount% = (Discount/MP) × 100
+SP = MP × (100 - D%)/100
+
+Successive discounts of a% and b%:
+Net discount = a + b - ab/100</div>
+    <div class="shortcut"><strong>Fast Trick:</strong> MP = SP × 100/(100-D%)<br>
+    CP to MP with P% profit after D% discount:<br>
+    MP/CP = (100+P%)/(100-D%)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">MP=₹500, 20% discount. SP?</div>
+      <div class="problem-a">SP = 500 × 80/100 = ₹400</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">📦</div>Buying & Selling More/Less Trick</div>
+    <div class="trick">
+      <strong>If buy x items for ₹ and sell x items for ₹ (different amounts):</strong>
+    </div>
+    <div class="formula">Buy n items at price of m (i.e., sell m, get n):
+Profit% = (n-m)/m × 100 (if n > m)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Buy 10 apples for ₹100, sell 8 for ₹100. Profit%?</div>
+      <div class="problem-a">CP per apple=₹10, SP per apple=100/8=₹12.5
+Profit% = (12.5-10)/10 × 100 = 25%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== INTEREST ===================== -->
+<div id="interest" class="section">
+  <div class="section-title">Simple & Compound Interest</div>
+  <div class="section-sub">Most formula-heavy topic — master these shortcuts to save time</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🏦</div>Simple Interest</div>
+    <div class="formula">SI = P×R×T / 100
+A = P + SI = P(1 + RT/100)
+
+P = SI×100/(R×T)
+R = SI×100/(P×T)
+T = SI×100/(P×R)</div>
+    <div class="shortcut"><strong>Trick:</strong> If SI on a sum for 3 years is ₹X and for 5 years is ₹Y, then Rate = (Y-X)/(P×2) × 100. Just find extra SI for 2 years → get principal.</div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">📈</div>Compound Interest</div>
+    <div class="formula">A = P × (1 + R/100)ⁿ
+CI = A - P
+
+Half-yearly: A = P × (1 + R/200)²ⁿ
+Quarterly: A = P × (1 + R/400)⁴ⁿ</div>
+    <div class="trick"><strong>For 2 years:</strong> CI = P × [R²/10000 + 2R/100]<br>
+    <strong>Difference:</strong> CI - SI (2 years) = PR²/10000 = SI × R/100</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">⚡</div>CI vs SI Shortcuts</div>
+    <table>
+      <tr><th>Year</th><th>SI (per year)</th><th>CI</th><th>Difference</th></tr>
+      <tr><td>1st</td><td>PR/100</td><td>PR/100</td><td>0</td></tr>
+      <tr><td>2nd</td><td>PR/100</td><td>PR/100 + PR²/10000</td><td>PR²/10000</td></tr>
+      <tr><td>3 years</td><td>3PR/100</td><td>P[(1+R/100)³-1]</td><td>3PR²/10000 + PR³/1000000</td></tr>
+    </table>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Find CI on ₹10,000 at 10% for 2 years.</div>
+      <div class="problem-a">SI = 10000×10×2/100 = ₹2000
+Diff = 10000×100/10000 = ₹100
+CI = 2000 + 100 = ₹2100</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">💡</div>Installment Problems</div>
+    <div class="formula">For equal installments x paying off P at R% SI over n years:
+P = x×n - SI on [x×n(n-1)/2] at rate R
+
+For CI: Each installment = A/(1+R/100) + A/(1+R/100)² + ...</div>
+    <div class="shortcut"><strong>Rule of 72:</strong> Time to double money at R% = 72/R years (approximate)<br>
+    At 8% → doubles in ≈ 9 years<br>
+    At 12% → doubles in ≈ 6 years</div>
+  </div>
+</div>
+
+<!-- ===================== TIME & WORK ===================== -->
+<div id="timework" class="section">
+  <div class="section-title">Time & Work + Pipes & Cisterns</div>
+  <div class="section-sub">Think in terms of "work done per day" — always use fractions</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🔧</div>Time & Work — Core Approach</div>
+    <div class="trick">
+      <strong>GOLDEN RULE:</strong> If A does work in n days → A's 1 day work = 1/n<br>
+      If A and B together → (1/a + 1/b) work per day → Together complete in ab/(a+b) days
+    </div>
+    <div class="formula">If A does in a days, B does in b days:
+Together = ab/(a+b) days
+
+A, B, C together = 1/(1/a + 1/b + 1/c) days
+
+If A is twice as fast as B: ratio of work = 2:1, ratio of time = 1:2</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-title"><div class="icon">👥</div>Work & Wages</div>
+      <div class="formula">Wages are divided in ratio of work done (= ratio of efficiency)</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">A does in 3 days, B in 6 days. Share of ₹90 total wage?</div>
+        <div class="problem-a">Efficiency ratio = 1/3 : 1/6 = 2:1
+A gets = 90×2/3 = ₹60 | B gets = ₹30</div>
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-title"><div class="icon">🏗️</div>Men × Days × Hours</div>
+      <div class="formula">M₁×D₁×H₁/W₁ = M₂×D₂×H₂/W₂
+M=Men, D=Days, H=Hours, W=Work</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">6 men do work in 8 days. How many men for 4 days?</div>
+        <div class="problem-a">6×8 = M×4 → M = 12 men</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🚰</div>Pipes & Cisterns</div>
+    <div class="trick">
+      <strong>Inlet pipe fills:</strong> Work = +1/n per hour<br>
+      <strong>Outlet pipe empties:</strong> Work = -1/n per hour<br>
+      Net work = Sum of all (with signs)
+    </div>
+    <div class="formula">Two inlets (a and b hours) + one outlet (c hours):
+Net filling rate = 1/a + 1/b - 1/c
+Time to fill = 1/(net rate)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Pipe A fills in 6h, B fills in 8h, C empties in 12h. All open — time to fill?</div>
+      <div class="problem-a">Rate = 1/6 + 1/8 - 1/12 = 4/24 + 3/24 - 2/24 = 5/24
+Time = 24/5 = 4.8 hours</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">⚡</div>Alternate Work Tricks</div>
+    <div class="trick"><strong>If A and B work alternately (A starts):</strong><br>
+    Find work in 2 days → how many complete pairs? Then check remaining.</div>
+    <div class="shortcut"><strong>If A alone takes 'a' days and A+B takes 't' days:</strong><br>
+    B alone = at/(a-t) days</div>
+    <div class="shortcut"><strong>Efficiency Method (LCM trick):</strong> Assume total work = LCM of all days. Then work per day = LCM/days. Fastest method for SSC!</div>
+    <div class="problem">
+      <div class="problem-label">Example (LCM method)</div>
+      <div class="problem-q">A=12 days, B=15 days, C=20 days. Together?</div>
+      <div class="problem-a">LCM(12,15,20) = 60 = Total work
+A/day=5, B/day=4, C/day=3 → Together=12/day
+Time = 60/12 = 5 days</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SPEED & DISTANCE ===================== -->
+<div id="speed" class="section">
+  <div class="section-title">Speed, Distance & Time + Trains + Boats</div>
+  <div class="section-sub">Three topics, one core idea — master all cases</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🚗</div>Core Formula & Conversions</div>
+    <div class="formula">Speed = Distance / Time
+Distance = Speed × Time
+Time = Distance / Speed
+
+km/h → m/s: multiply by 5/18
+m/s → km/h: multiply by 18/5</div>
+    <div class="shortcut"><strong>Quick conversions:</strong> 18 km/h = 5 m/s | 36 km/h = 10 m/s | 54 km/h = 15 m/s | 72 km/h = 20 m/s</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-title"><div class="icon">⚖️</div>Average Speed</div>
+      <div class="formula">If same distance at speeds a and b:
+Avg Speed = 2ab/(a+b) [Harmonic Mean]
+
+If same TIME at speeds a and b:
+Avg Speed = (a+b)/2 [Arithmetic Mean]</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">Go at 30 km/h, return at 20 km/h. Avg speed?</div>
+        <div class="problem-a">2×30×20/(30+20) = 1200/50 = 24 km/h</div>
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-title"><div class="icon">🏃</div>Relative Speed</div>
+      <div class="formula">Same direction: Relative Speed = |S₁ - S₂|
+Opposite direction: Relative Speed = S₁ + S₂</div>
+      <div class="problem">
+        <div class="problem-label">Example</div>
+        <div class="problem-q">A at 40 km/h, B at 30 km/h, same direction, 50km ahead. When does A catch?</div>
+        <div class="problem-a">Relative speed = 40-30 = 10 km/h
+Time = 50/10 = 5 hours</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🚂</div>Trains — All Cases</div>
+    <table>
+      <tr><th>Case</th><th>Formula</th></tr>
+      <tr><td>Train crosses a pole / person</td><td>Time = Length of train / Speed of train</td></tr>
+      <tr><td>Train crosses a platform / bridge</td><td>Time = (Length of train + Length of platform) / Speed</td></tr>
+      <tr><td>Two trains, opposite direction</td><td>Time = (L₁+L₂) / (S₁+S₂)</td></tr>
+      <tr><td>Two trains, same direction</td><td>Time = (L₁+L₂) / |S₁-S₂|</td></tr>
+      <tr><td>Train crosses a man running</td><td>Relative speed = Train speed ± Man speed</td></tr>
+    </table>
+    <div class="shortcut"><strong>Key tip:</strong> A "person" has zero length. A "stationary object" has zero speed.</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">🚣</div>Boats & Streams</div>
+    <div class="formula">U = Speed of boat in still water
+V = Speed of stream (current)
+
+Downstream speed = U + V
+Upstream speed = U - V
+
+U = (Downstream + Upstream) / 2
+V = (Downstream - Upstream) / 2</div>
+    <div class="shortcut">
+      <strong>Trick:</strong> If boat covers same distance upstream in time t₁ and downstream in t₂:<br>
+      U:V = (t₁+t₂):(t₁-t₂)
+    </div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Downstream = 18 km/h, Upstream = 12 km/h. Boat & stream speed?</div>
+      <div class="problem-a">Boat = (18+12)/2 = 15 km/h | Stream = (18-12)/2 = 3 km/h</div>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">📍</div>Meeting Point Problems</div>
+    <div class="formula">Two people A(speed a) & B(speed b) start from opposite ends (dist D):
+Meeting time = D/(a+b)
+At meeting: A covers = D×a/(a+b), B covers = D×b/(a+b)</div>
+    <div class="trick"><strong>Shortcut:</strong> Ratio of distances covered = Ratio of speeds (when time is same)</div>
+  </div>
+</div>
+
+<!-- ===================== ALGEBRA ===================== -->
+<div id="algebra" class="section">
+  <div class="section-title">Algebra — Identities & Shortcuts</div>
+  <div class="section-sub">Know all algebraic identities cold — they're SSC's favourite</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🔣</div>Must-Know Algebraic Identities</div>
+    <div class="formula">(a+b)² = a² + 2ab + b²
+(a-b)² = a² - 2ab + b²
+a² - b² = (a+b)(a-b)
+(a+b)³ = a³ + b³ + 3ab(a+b)
+(a-b)³ = a³ - b³ - 3ab(a-b)
+a³ + b³ = (a+b)(a² - ab + b²)
+a³ - b³ = (a-b)(a² + ab + b²)
+(a+b+c)² = a²+b²+c²+2ab+2bc+2ca</div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">🎯</div>If x + 1/x = k (Very Common in SSC!)</div>
+    <div class="formula">x + 1/x = k
+x² + 1/x² = k² - 2
+x³ + 1/x³ = k³ - 3k  [or k(k²-3)]
+x⁴ + 1/x⁴ = (x²+1/x²)² - 2 = (k²-2)² - 2
+
+x - 1/x = √(k²-4) [if k>2]
+x² - 1/x² = k × √(k²-4)</div>
+    <div class="trick"><strong>If x - 1/x = k:</strong> x² + 1/x² = k² + 2 | x³ - 1/x³ = k³ + 3k</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🧮</div>Linear Equations Shortcuts</div>
+    <div class="shortcut"><strong>Cramer's Rule (2 equations):</strong><br>
+    a₁x + b₁y = c₁ and a₂x + b₂y = c₂<br>
+    x = (c₁b₂ - c₂b₁)/(a₁b₂ - a₂b₁)<br>
+    y = (a₁c₂ - a₂c₁)/(a₁b₂ - a₂b₁)</div>
+    <div class="trick"><strong>No Solution:</strong> a₁/a₂ = b₁/b₂ ≠ c₁/c₂<br>
+    <strong>Infinite Solutions:</strong> a₁/a₂ = b₁/b₂ = c₁/c₂</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">📊</div>Surds & Indices</div>
+    <div class="formula">aᵐ × aⁿ = aᵐ⁺ⁿ
+aᵐ / aⁿ = aᵐ⁻ⁿ
+(aᵐ)ⁿ = aᵐⁿ
+a⁰ = 1 (a≠0)
+a⁻ⁿ = 1/aⁿ
+aˡ/ⁿ = ⁿ√a</div>
+    <h3>Rationalization Trick</h3>
+    <div class="trick"><strong>To rationalize 1/(√a + √b):</strong> Multiply by (√a - √b)/(√a - √b)<br>
+    Result = (√a - √b)/(a - b)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Simplify 1/(√5 + √3)</div>
+      <div class="problem-a">×(√5-√3)/(√5-√3) = (√5-√3)/(5-3) = (√5-√3)/2</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== GEOMETRY ===================== -->
+<div id="geometry" class="section">
+  <div class="section-title">Geometry — Lines, Triangles & Circles</div>
+  <div class="section-sub">Key theorems that SSC loves to test — with direct application</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">📐</div>Lines & Angles — Key Theorems</div>
+    <div class="grid-2">
+      <div>
+        <h4>When Parallel Lines Cut by Transversal:</h4>
+        <ul>
+          <li>Alternate angles = equal</li>
+          <li>Corresponding angles = equal</li>
+          <li>Co-interior angles = supplementary (add to 180°)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Key Angle Facts:</h4>
+        <ul>
+          <li>Vertically opposite angles = equal</li>
+          <li>Linear pair = 180°</li>
+          <li>Sum of angles around a point = 360°</li>
+          <li>Exterior angle = sum of two non-adjacent interior angles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">△</div>Triangle Theorems</div>
+    <table>
+      <tr><th>Theorem</th><th>Statement</th></tr>
+      <tr><td>Angle Sum</td><td>Sum of all angles = 180°</td></tr>
+      <tr><td>Exterior Angle</td><td>Exterior angle = sum of opposite interior angles</td></tr>
+      <tr><td>Pythagoras</td><td>In right triangle: a² + b² = c² (c = hypotenuse)</td></tr>
+      <tr><td>Mid-Point</td><td>Line joining mid-points of 2 sides = half of 3rd side and parallel to it</td></tr>
+      <tr><td>Basic Proportionality (BPT)</td><td>If line || base, it divides other two sides proportionally</td></tr>
+      <tr><td>Angle Bisector</td><td>Bisector divides opposite side in ratio of adjacent sides</td></tr>
+      <tr><td>Centroid</td><td>Divides median in 2:1 from vertex</td></tr>
+    </table>
+    <h3>Pythagorean Triplets (Memorize!)</h3>
+    <div class="formula">3-4-5 | 5-12-13 | 8-15-17 | 7-24-25
+6-8-10 | 9-12-15 | 10-24-26 | 20-21-29
+Multiples also work: 6-8-10, 9-12-15, etc.</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">⭕</div>Circle Theorems — SSC Favorites</div>
+    <table>
+      <tr><th>Theorem</th><th>Rule</th></tr>
+      <tr><td>Angle at centre</td><td>= 2 × angle at circumference (same arc)</td></tr>
+      <tr><td>Angle in semicircle</td><td>= 90° (angle in semicircle is always right angle)</td></tr>
+      <tr><td>Angles in same segment</td><td>= equal (subtend same arc)</td></tr>
+      <tr><td>Cyclic quadrilateral</td><td>Opposite angles add to 180°</td></tr>
+      <tr><td>Tangent ⊥ radius</td><td>Tangent is perpendicular to radius at point of contact</td></tr>
+      <tr><td>Two tangents from external point</td><td>Equal in length</td></tr>
+      <tr><td>Chord bisector</td><td>Perpendicular from centre to chord bisects the chord</td></tr>
+    </table>
+    <div class="trick"><strong>Tangent-Secant Rule:</strong> If tangent PT and secant PAB from external point P:<br>
+    PT² = PA × PB (Power of a point)</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">🔷</div>Quadrilaterals & Polygons</div>
+    <table>
+      <tr><th>Shape</th><th>Key Property</th><th>Area</th></tr>
+      <tr><td>Square</td><td>All sides equal, all angles 90°</td><td>side²</td></tr>
+      <tr><td>Rectangle</td><td>Opp sides equal, all 90°</td><td>l × b</td></tr>
+      <tr><td>Parallelogram</td><td>Opp sides equal & parallel</td><td>base × height</td></tr>
+      <tr><td>Rhombus</td><td>All sides equal, diagonals bisect at 90°</td><td>d₁×d₂/2</td></tr>
+      <tr><td>Trapezium</td><td>One pair of parallel sides</td><td>½(a+b)×h</td></tr>
+    </table>
+    <div class="formula">Sum of interior angles of n-gon = (n-2) × 180°
+Each interior angle of regular n-gon = (n-2)×180°/n
+Number of diagonals = n(n-3)/2</div>
+  </div>
+</div>
+
+<!-- ===================== MENSURATION ===================== -->
+<div id="mensuration" class="section">
+  <div class="section-title">Mensuration — 2D & 3D</div>
+  <div class="section-sub">All area, perimeter, volume and surface area formulas in one place</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">📏</div>2D Shapes — Area & Perimeter</div>
+    <table>
+      <tr><th>Shape</th><th>Area</th><th>Perimeter</th></tr>
+      <tr><td>Triangle</td><td>½ × base × height</td><td>a+b+c</td></tr>
+      <tr><td>Equilateral △</td><td>(√3/4)a²</td><td>3a</td></tr>
+      <tr><td>Right △</td><td>½ × base × height</td><td>a+b+c</td></tr>
+      <tr><td>Circle</td><td>πr²</td><td>2πr</td></tr>
+      <tr><td>Semi-circle</td><td>πr²/2</td><td>πr + 2r</td></tr>
+      <tr><td>Sector</td><td>(θ/360)×πr²</td><td>(θ/360)×2πr + 2r</td></tr>
+      <tr><td>Square</td><td>a²</td><td>4a</td></tr>
+      <tr><td>Rectangle</td><td>l×b</td><td>2(l+b)</td></tr>
+      <tr><td>Rhombus</td><td>d₁×d₂/2</td><td>4a (a = side)</td></tr>
+      <tr><td>Trapezium</td><td>½(a+b)h</td><td>Sum of all sides</td></tr>
+    </table>
+    <div class="formula">Triangle by Heron's Formula (when 3 sides given):
+s = (a+b+c)/2
+Area = √[s(s-a)(s-b)(s-c)]</div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">📦</div>3D Shapes — Volume & Surface Area</div>
+    <table>
+      <tr><th>Shape</th><th>Volume</th><th>LSA</th><th>TSA</th></tr>
+      <tr><td>Cube (side a)</td><td>a³</td><td>4a²</td><td>6a²</td></tr>
+      <tr><td>Cuboid (l,b,h)</td><td>lbh</td><td>2h(l+b)</td><td>2(lb+bh+lh)</td></tr>
+      <tr><td>Cylinder (r,h)</td><td>πr²h</td><td>2πrh</td><td>2πr(r+h)</td></tr>
+      <tr><td>Cone (r,h,l)</td><td>πr²h/3</td><td>πrl</td><td>πr(r+l)</td></tr>
+      <tr><td>Sphere (r)</td><td>4πr³/3</td><td>4πr²</td><td>4πr²</td></tr>
+      <tr><td>Hemisphere (r)</td><td>2πr³/3</td><td>2πr²</td><td>3πr²</td></tr>
+    </table>
+    <div class="formula">Slant height of cone: l = √(h² + r²)
+Diagonal of cuboid = √(l²+b²+h²)
+Diagonal of cube = a√3</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">⚡</div>Mensuration Tricks</div>
+    <div class="trick"><strong>When a square is converted to circle (same perimeter):</strong><br>
+    4a = 2πr → r = 2a/π → Area increases (circle has more area)</div>
+    <div class="trick"><strong>When area increases by x%:</strong><br>
+    Each side increases by: (√(100+x) - 10) × 10% approximately</div>
+    <div class="shortcut"><strong>Room problems:</strong> Floor area = l×b | 4 walls area = 2h(l+b) | Ceiling = l×b</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Cone melted → sphere. Cone: r=3,h=4. Find sphere radius.</div>
+      <div class="problem-a">Volume of cone = πr²h/3 = π×9×4/3 = 12π
+4πR³/3 = 12π → R³ = 9 → R = ∛9</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">📐</div>Important Values & Shortcuts</div>
+    <div class="grid-2">
+      <div>
+        <h4>π approximations:</h4>
+        <div class="formula">π ≈ 22/7 ≈ 3.14
+√2 ≈ 1.414
+√3 ≈ 1.732
+√5 ≈ 2.236</div>
+      </div>
+      <div>
+        <h4>Area ratios (equilateral △):</h4>
+        <div class="formula">If side doubles → area × 4
+If side triples → area × 9
+Ratio of areas = ratio of (sides)²</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TRIGONOMETRY ===================== -->
+<div id="trigonometry" class="section">
+  <div class="section-title">Trigonometry & Height/Distance</div>
+  <div class="section-sub">Values table + identities + application problems</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">📐</div>Trigonometric Values Table (Must Memorize!)</div>
+    <table>
+      <tr><th>Angle</th><th>sin</th><th>cos</th><th>tan</th><th>cosec</th><th>sec</th><th>cot</th></tr>
+      <tr><td>0°</td><td>0</td><td>1</td><td>0</td><td>∞</td><td>1</td><td>∞</td></tr>
+      <tr><td>30°</td><td>1/2</td><td>√3/2</td><td>1/√3</td><td>2</td><td>2/√3</td><td>√3</td></tr>
+      <tr><td>45°</td><td>1/√2</td><td>1/√2</td><td>1</td><td>√2</td><td>√2</td><td>1</td></tr>
+      <tr><td>60°</td><td>√3/2</td><td>1/2</td><td>√3</td><td>2/√3</td><td>2</td><td>1/√3</td></tr>
+      <tr><td>90°</td><td>1</td><td>0</td><td>∞</td><td>1</td><td>∞</td><td>0</td></tr>
+    </table>
+    <div class="shortcut"><strong>Memory trick for sin values:</strong> 0°→90° → √0/2, √1/2, √2/2, √3/2, √4/2 = 0, 1/2, 1/√2, √3/2, 1<br>
+    cos values are exactly sin in REVERSE order!</div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">🔗</div>Fundamental Identities</div>
+    <div class="formula">sin²θ + cos²θ = 1  →  sin²θ = 1-cos²θ
+1 + tan²θ = sec²θ  →  sec²θ - tan²θ = 1
+1 + cot²θ = cosec²θ →  cosec²θ - cot²θ = 1
+
+sec²θ - tan²θ = 1  →  (secθ+tanθ)(secθ-tanθ) = 1
+If secθ + tanθ = k, then secθ - tanθ = 1/k</div>
+    <div class="trick"><strong>Complementary angles:</strong><br>
+    sin(90°-θ) = cosθ | cos(90°-θ) = sinθ<br>
+    tan(90°-θ) = cotθ | sec(90°-θ) = cosecθ</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🏔️</div>Heights & Distances</div>
+    <table>
+      <tr><th>Scenario</th><th>Key Formula</th></tr>
+      <tr><td>Angle of elevation (looking UP)</td><td>tan θ = Height / Horizontal distance</td></tr>
+      <tr><td>Angle of depression (looking DOWN)</td><td>tan θ = Height / Horizontal distance</td></tr>
+      <tr><td>Tower & shadow</td><td>Height/Shadow = tan(angle)</td></tr>
+      <tr><td>Two angles from same line</td><td>Set up two tan equations, solve simultaneously</td></tr>
+    </table>
+    <div class="shortcut"><strong>Standard results:</strong><br>
+    If angle of elevation = 30° → Height = Distance/√3<br>
+    If angle of elevation = 45° → Height = Distance<br>
+    If angle of elevation = 60° → Height = Distance × √3</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">A 60m tall tower. Angle of elevation = 60°. Distance from tower?</div>
+      <div class="problem-a">tan 60° = 60/d → √3 = 60/d → d = 60/√3 = 20√3 m</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">📊</div>Trig Simplification Tricks</div>
+    <div class="trick"><strong>Step 1:</strong> Convert everything to sin and cos<br>
+    <strong>Step 2:</strong> Use identities to simplify<br>
+    <strong>Step 3:</strong> Look for (sin²+cos²=1) pattern</div>
+    <div class="formula">sin θ × cosec θ = 1
+cos θ × sec θ = 1
+tan θ × cot θ = 1
+tan θ = sin θ / cos θ</div>
+    <h3>Common SSC Pattern</h3>
+    <div class="trick"><strong>If sinθ + cosθ = k:</strong><br>
+    sin²θ + cos²θ = 1 (always)<br>
+    sinθ × cosθ = (k²-1)/2<br>
+    sin³θ + cos³θ = k(1 - sinθcosθ) = k(1-(k²-1)/2)</div>
+  </div>
+</div>
+
+<!-- ===================== STATISTICS ===================== -->
+<div id="statistics" class="section">
+  <div class="section-title">Statistics & Data Interpretation</div>
+  <div class="section-sub">Mean, Median, Mode + DI shortcuts for quick calculation</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">📊</div>Mean, Median, Mode</div>
+    <div class="grid-2">
+      <div>
+        <h4>Mean (Average)</h4>
+        <div class="formula">Mean = Sum of observations / n
+
+Weighted Mean = Σ(w×x) / Σw
+
+If all values increase by k: Mean increases by k
+If all values multiplied by k: Mean multiplies by k</div>
+      </div>
+      <div>
+        <h4>Median</h4>
+        <div class="formula">Arrange in order:
+If n is odd: Median = ((n+1)/2)th term
+If n is even: Median = avg of (n/2)th and (n/2+1)th
+
+Mode = most frequent value
+Relation: Mode = 3×Median - 2×Mean</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">📈</div>Data Interpretation Speed Tricks</div>
+    <div class="trick"><strong>For percentage questions on DI:</strong><br>
+    Always find 10% first, then build up (20%=2×10%, 5%=10%÷2, 15%=10%+5%)</div>
+    <div class="shortcut"><strong>For ratio questions:</strong> If A:B = x:y and total = T → A = T×x/(x+y)</div>
+    <div class="trick"><strong>% change in DI:</strong> (New - Old)/Old × 100<br>
+    If old≈new, use approximation to save time</div>
+    <h3>Common DI Calculation Shortcuts</h3>
+    <table>
+      <tr><th>What you need</th><th>Shortcut</th></tr>
+      <tr><td>% of a number</td><td>Find 1% first, then scale</td></tr>
+      <tr><td>Ratio comparison</td><td>Cross-multiply to compare</td></tr>
+      <tr><td>Growth rate</td><td>Check if values double, triple, etc.</td></tr>
+      <tr><td>Approx answers</td><td>Round to nearest 5 or 10</td></tr>
+    </table>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">📉</div>Range, Variance & Standard Deviation</div>
+    <div class="formula">Range = Maximum - Minimum
+
+Variance = Σ(x - mean)² / n
+Standard Deviation (SD) = √Variance
+
+SD is never negative.
+SD = 0 means all values are equal.
+If each value increased by k: SD unchanged (only mean changes)
+If each value multiplied by k: SD multiplies by |k|</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">🎯</div>SSC Exam Strategy — Last Minute Tips</div>
+    <ul style="font-size:14px; line-height:2">
+      <li>🏆 <strong>Do easy questions FIRST</strong> — Percentage, SI/CI, Ratio are fastest</li>
+      <li>⏱️ <strong>Time limit per question: 1.5 minutes max</strong> — skip if stuck</li>
+      <li>📐 <strong>Geometry & Mensuration</strong> — draw diagrams always, helps spot patterns</li>
+      <li>🔢 <strong>Use option elimination</strong> — plug in options for algebra problems</li>
+      <li>✅ <strong>Approximation in DI</strong> — never calculate exactly unless needed</li>
+      <li>🧠 <strong>LCM method for Time & Work</strong> — fastest approach</li>
+      <li>📊 <strong>Trig identities</strong> — convert to sin/cos first</li>
+      <li>🎯 <strong>Mark and review</strong> — come back to geometry theorems if uncertain</li>
+    </ul>
+    <div class="warning"><strong>Common mistakes to avoid:</strong><br>
+    ❌ Calculating HCF when LCM is asked (re-read question!)<br>
+    ❌ Forgetting to convert km/h to m/s in train problems<br>
+    ❌ Using SI formula for CI questions<br>
+    ❌ Forgetting to add/subtract length of train when platform is involved</div>
+  </div>
+</div>
+
+
+<!-- ===================== SEQUENCE & SERIES ===================== -->
+<div id="sequence" class="section">
+  <div class="section-title">Sequence & Series — AP, GP & Special Series</div>
+  <div class="section-sub">SSC regularly tests AP/GP formulas and number pattern recognition</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🔢</div>Arithmetic Progression (AP)</div>
+    <div class="formula">AP: a, a+d, a+2d, a+3d, ...
+nth term:  Tₙ = a + (n-1)d
+Sum of n terms: Sₙ = n/2 × [2a + (n-1)d]
+                   = n/2 × (First + Last)
+Middle term of AP = Arithmetic Mean of extremes
+d = Common Difference = T₂ - T₁</div>
+    <div class="shortcut"><strong>Trick — 3 numbers in AP:</strong> Take them as (a-d), a, (a+d). Sum = 3a.<br>
+    <strong>4 numbers in AP:</strong> Take as (a-3d), (a-d), (a+d), (a+3d). Sum = 4a.</div>
+    <div class="grid-2">
+      <div class="problem">
+        <div class="problem-label">Find nth term</div>
+        <div class="problem-q">AP: 3, 7, 11, 15... Find 20th term.</div>
+        <div class="problem-a">a=3, d=4 → T₂₀ = 3+(20-1)×4 = 3+76 = 79</div>
+      </div>
+      <div class="problem">
+        <div class="problem-label">Find Sum</div>
+        <div class="problem-q">Sum of 1+3+5+7+...+99</div>
+        <div class="problem-a">AP with a=1, d=2, Tₙ=99 → n=50
+S = 50/2 × (1+99) = 25×100 = 2500</div>
+      </div>
+    </div>
+    <h3>Important AP Shortcuts</h3>
+    <div class="trick"><strong>Sum of first n natural numbers:</strong> n(n+1)/2<br>
+    <strong>Sum of first n odd numbers:</strong> n² (1+3+5+...+2n-1 = n²)<br>
+    <strong>Sum of first n even numbers:</strong> n(n+1) (2+4+6+...+2n = n(n+1))</div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">📈</div>Geometric Progression (GP)</div>
+    <div class="formula">GP: a, ar, ar², ar³, ...
+nth term: Tₙ = a × rⁿ⁻¹
+Sum of n terms: Sₙ = a(rⁿ-1)/(r-1)  [if r≠1, r>1]
+                   = a(1-rⁿ)/(1-r)  [if r<1]
+Sum of infinite GP (|r|<1): S∞ = a/(1-r)
+Common Ratio: r = T₂/T₁</div>
+    <div class="shortcut"><strong>Trick — 3 numbers in GP:</strong> Take them as a/r, a, ar. Product = a³.<br>
+    Geometric Mean of a and b = √(ab)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">GP: 2, 6, 18, 54... Find 6th term.</div>
+      <div class="problem-a">a=2, r=3 → T₆ = 2×3⁵ = 2×243 = 486</div>
+    </div>
+    <div class="problem">
+      <div class="problem-label">Infinite GP</div>
+      <div class="problem-q">Sum of 1 + 1/2 + 1/4 + 1/8 + ... ∞</div>
+      <div class="problem-a">a=1, r=1/2 → S∞ = 1/(1-1/2) = 1/(1/2) = 2</div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🧩</div>Number Series — Pattern Recognition</div>
+    <h3>Common SSC Series Types</h3>
+    <table>
+      <tr><th>Type</th><th>Example</th><th>Logic</th></tr>
+      <tr><td>Perfect Squares</td><td>1, 4, 9, 16, 25...</td><td>n²</td></tr>
+      <tr><td>Perfect Cubes</td><td>1, 8, 27, 64, 125...</td><td>n³</td></tr>
+      <tr><td>Fibonacci</td><td>1,1,2,3,5,8,13,21...</td><td>Each = sum of prev 2</td></tr>
+      <tr><td>Triangular Nos</td><td>1,3,6,10,15,21...</td><td>n(n+1)/2</td></tr>
+      <tr><td>Prime Nos</td><td>2,3,5,7,11,13,17...</td><td>No factor except 1 & itself</td></tr>
+      <tr><td>Difference series</td><td>2,5,10,17,26...</td><td>Diff: 3,5,7,9 (odd nos)</td></tr>
+      <tr><td>Multiplication</td><td>3,6,12,24,48...</td><td>×2 each time (GP, r=2)</td></tr>
+      <tr><td>Mixed pattern</td><td>1,2,6,24,120...</td><td>×1, ×2, ×3, ×4 (factorial!)</td></tr>
+    </table>
+    <div class="trick"><strong>Step 1:</strong> Check if differences form a pattern (AP or GP)<br>
+    <strong>Step 2:</strong> If not, check ratios (GP series)<br>
+    <strong>Step 3:</strong> If not, check squares/cubes ± constant</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">🔁</div>Important Special Sums</div>
+    <div class="formula">Sum of squares: 1²+2²+3²+...+n² = n(n+1)(2n+1)/6
+Sum of cubes:  1³+2³+3³+...+n³ = [n(n+1)/2]²
+Note: 1³+2³+...+n³ = (1+2+...+n)²
+
+Sum of squares of first n EVEN numbers = 2n(n+1)(2n+1)/3
+Sum of squares of first n ODD numbers = n(2n-1)(2n+1)/3</div>
+    <div class="problem">
+      <div class="problem-label">Classic SSC Question</div>
+      <div class="problem-q">Find 1²+2²+3²+...+10²</div>
+      <div class="problem-a">= 10×11×21/6 = 2310/6 = 385</div>
+    </div>
+    <div class="problem">
+      <div class="problem-label">Classic SSC Question</div>
+      <div class="problem-q">Find 1³+2³+3³+...+10³</div>
+      <div class="problem-a">= [10×11/2]² = 55² = 3025</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SIMPLIFICATION ===================== -->
+<div id="simplification" class="section">
+  <div class="section-title">Simplification & Approximation</div>
+  <div class="section-sub">BODMAS, fractions, decimals, and fast calculation techniques</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🧮</div>BODMAS Rule — Order of Operations</div>
+    <div class="trick">
+      <strong>B — Brackets</strong> (solve innermost first: small → curly → square)<br>
+      <strong>O — Orders</strong> (powers and roots)<br>
+      <strong>D — Division</strong> (left to right)<br>
+      <strong>M — Multiplication</strong> (left to right)<br>
+      <strong>A — Addition</strong><br>
+      <strong>S — Subtraction</strong>
+    </div>
+    <div class="warning"><strong>Common trap:</strong> 48 ÷ 2(9+3) — always solve brackets first: 48÷2×12 = 24×12 = 288 (NOT 2)</div>
+    <div class="problem">
+      <div class="problem-label">BODMAS Example</div>
+      <div class="problem-q">Simplify: 5 + 3 × (8 - 2)² ÷ 4</div>
+      <div class="problem-a">= 5 + 3 × 6² ÷ 4
+= 5 + 3 × 36 ÷ 4
+= 5 + 108 ÷ 4
+= 5 + 27 = 32</div>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">⚡</div>Fast Calculation Tricks</div>
+    <h3>Multiplication Shortcuts</h3>
+    <div class="shortcut"><strong>× 11:</strong> Write first digit, then add adjacent pairs, write last digit<br>
+    47 × 11 → 4, (4+7), 7 → 4, 11, 7 → carry 1 → 517</div>
+    <div class="shortcut"><strong>× 5:</strong> Divide by 2, shift decimal (or ×10÷2)<br>
+    246 × 5 = 2460/2 = 1230</div>
+    <div class="shortcut"><strong>× 25:</strong> Divide by 4 then ×100<br>
+    36 × 25 = 3600/4 = 900</div>
+    <div class="shortcut"><strong>× 125:</strong> Divide by 8 then ×1000<br>
+    56 × 125 = 56000/8 = 7000</div>
+    <div class="shortcut"><strong>× 99:</strong> ×100 - original number<br>
+    37 × 99 = 3700 - 37 = 3663</div>
+    <h3>Squaring Near Numbers</h3>
+    <div class="formula">(a+b)² = a² + 2ab + b²
+Near 50: n² = (50±x)² = 2500 ± 100x + x²
+Example: 53² = 2500+300+9 = 2809
+Near 100: 97² = (100-3)² = 10000-600+9 = 9409</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🔢</div>Fractions & Decimals Speed Methods</div>
+    <h3>Comparison of Fractions</h3>
+    <div class="trick"><strong>Cross-multiply to compare:</strong> a/b vs c/d → compare ad vs bc<br>
+    3/7 vs 4/9 → 3×9=27 vs 4×7=28 → 4/9 is bigger</div>
+    <h3>Recurring Decimals to Fractions</h3>
+    <div class="formula">0.ā = a/9         [single digit repeat]
+0.ab̄ = (ab-a)/90   [one non-repeating, one repeating]
+0.āb̄ = ab/99       [two digit repeat]
+0.abcabc... = abc/999
+
+Examples:
+0.3333... = 3/9 = 1/3
+0.142857... = 1/7 (recognise this!)
+0.16̄ = (16-1)/90 = 15/90 = 1/6</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Convert 0.727272... to fraction</div>
+      <div class="problem-a">Two digits repeat → 72/99 = 8/11</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">🎯</div>Approximation Techniques for SSC</div>
+    <div class="shortcut"><strong>Rule:</strong> For options 5+ apart, round aggressively. For close options, calculate carefully.</div>
+    <h3>Square Root Approximation</h3>
+    <div class="formula">√(n²±x) ≈ n ± x/(2n)  [for small x]
+
+√50 → √(49+1) ≈ 7 + 1/14 ≈ 7.07
+√99 → √(100-1) ≈ 10 - 1/20 ≈ 9.95</div>
+    <h3>Useful Approximations</h3>
+    <table>
+      <tr><th>Value</th><th>Approx</th><th>Value</th><th>Approx</th></tr>
+      <tr><td>√2</td><td>1.414</td><td>√3</td><td>1.732</td></tr>
+      <tr><td>√5</td><td>2.236</td><td>√6</td><td>2.449</td></tr>
+      <tr><td>√7</td><td>2.646</td><td>√8</td><td>2.828</td></tr>
+      <tr><td>√10</td><td>3.162</td><td>√11</td><td>3.317</td></tr>
+      <tr><td>∛2</td><td>1.26</td><td>∛3</td><td>1.44</td></tr>
+    </table>
+    <div class="trick"><strong>Mental Math:</strong> 17% of 350 → 10%=35, 5%=17.5, 2%=7 → 17% ≈ 59.5</div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">🃏</div>Vedic Maths Tricks</div>
+    <h3>Multiplication of 2-digit numbers (same tens digit)</h3>
+    <div class="shortcut"><strong>Example 43 × 47:</strong> (Tens same=4, Units add to 10: 3+7=10)<br>
+    Left part: 4×(4+1) = 20 | Right part: 3×7 = 21<br>
+    Answer: <strong>2021</strong></div>
+    <h3>Nikhilam Method (near 100)</h3>
+    <div class="shortcut"><strong>92 × 96:</strong><br>
+    Deficiencies: 100-92=8, 100-96=4<br>
+    Left: 92-4 = 88 (or 96-8=88) | Right: 8×4=32<br>
+    Answer: <strong>8832</strong></div>
+    <h3>Division Shortcut (÷ by 9)</h3>
+    <div class="shortcut"><strong>Rule:</strong> 123 ÷ 9 → Bring down 1, add to next: 1, 1+2=3, 3+3=6 → quotient 13, remainder 6<br>
+    Check: 9×13+6 = 117+6 = 123 ✓</div>
+  </div>
+</div>
+
+<!-- ===================== COORDINATE GEOMETRY ===================== -->
+<div id="coordinate" class="section">
+  <div class="section-title">Coordinate Geometry</div>
+  <div class="section-sub">Straight lines, distances, midpoints and slopes — SSC asks 2–4 questions</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">📍</div>Distance, Midpoint & Section Formula</div>
+    <div class="formula">Distance between (x₁,y₁) and (x₂,y₂):
+d = √[(x₂-x₁)² + (y₂-y₁)²]
+
+Midpoint of two points:
+M = ((x₁+x₂)/2 , (y₁+y₂)/2)
+
+Section formula (divides in m:n internally):
+P = ((mx₂+nx₁)/(m+n) , (my₂+ny₁)/(m+n))
+
+Centroid of triangle (x₁,y₁)(x₂,y₂)(x₃,y₃):
+G = ((x₁+x₂+x₃)/3 , (y₁+y₂+y₃)/3)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Distance between (3,4) and (7,1)?</div>
+      <div class="problem-a">d = √[(7-3)²+(1-4)²] = √[16+9] = √25 = 5</div>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">📏</div>Straight Lines — Everything</div>
+    <div class="formula">Slope (m) = (y₂-y₁)/(x₂-x₁) = tan θ
+
+Equation forms:
+Slope-intercept: y = mx + c  (c = y-intercept)
+Point-slope: y-y₁ = m(x-x₁)
+Two-point: (y-y₁)/(y₂-y₁) = (x-x₁)/(x₂-x₁)
+Intercept form: x/a + y/b = 1
+
+Parallel lines: m₁ = m₂ (same slope)
+Perpendicular lines: m₁ × m₂ = -1</div>
+    <div class="shortcut"><strong>Angle between two lines:</strong> tan θ = |m₁-m₂|/|1+m₁m₂|</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Line through (2,3) and (4,7). Slope and equation?</div>
+      <div class="problem-a">m = (7-3)/(4-2) = 4/2 = 2
+y-3 = 2(x-2) → y = 2x-1</div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">📐</div>Distance from a Point to a Line</div>
+    <div class="formula">Distance from point (x₁,y₁) to line ax+by+c=0:
+d = |ax₁+by₁+c| / √(a²+b²)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Distance from (3,4) to line 3x-4y+5=0?</div>
+      <div class="problem-a">d = |3×3 - 4×4 + 5| / √(9+16)
+= |9-16+5| / 5 = |-2|/5 = 2/5</div>
+    </div>
+    <h3>Area of Triangle with Vertices</h3>
+    <div class="formula">Area = ½ |x₁(y₂-y₃) + x₂(y₃-y₁) + x₃(y₁-y₂)|</div>
+    <div class="shortcut"><strong>Collinear points check:</strong> Area = 0 means all 3 points lie on same line</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">⭕</div>Circles in Coordinate Geometry</div>
+    <div class="formula">Standard circle (centre at origin): x² + y² = r²
+General circle (centre h,k): (x-h)² + (y-k)² = r²
+General form: x²+y²+2gx+2fy+c = 0
+Centre = (-g,-f) | Radius = √(g²+f²-c)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Find centre and radius of x²+y²-6x+4y-12=0</div>
+      <div class="problem-a">g=-3, f=2, c=-12
+Centre = (3,-2) | r = √(9+4+12) = √25 = 5</div>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">🗺️</div>Coordinate Geometry Quick Facts</div>
+    <table>
+      <tr><th>Fact</th><th>Value/Formula</th></tr>
+      <tr><td>Origin</td><td>(0,0)</td></tr>
+      <tr><td>Slope of x-axis</td><td>0</td></tr>
+      <tr><td>Slope of y-axis</td><td>Undefined (∞)</td></tr>
+      <tr><td>Slope of line y=x</td><td>1 (45°)</td></tr>
+      <tr><td>Slope of y=-x</td><td>-1 (135°)</td></tr>
+      <tr><td>Quadrant I</td><td>x>0, y>0</td></tr>
+      <tr><td>Quadrant II</td><td>x<0, y>0</td></tr>
+      <tr><td>Quadrant III</td><td>x<0, y<0</td></tr>
+      <tr><td>Quadrant IV</td><td>x>0, y<0</td></tr>
+      <tr><td>Reflection in x-axis</td><td>(x,y) → (x,-y)</td></tr>
+      <tr><td>Reflection in y-axis</td><td>(x,y) → (-x,y)</td></tr>
+      <tr><td>Reflection in origin</td><td>(x,y) → (-x,-y)</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== MIXTURES ===================== -->
+<div id="mixtures" class="section">
+  <div class="section-title">Mixtures, Alligation & Average</div>
+  <div class="section-sub">Alligation — the most powerful shortcut in SSC Maths</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">⚗️</div>Alligation Rule — The Cross Method</div>
+    <div class="trick">
+      <strong>THE CROSS:</strong><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Cheaper (c) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dearer (d)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mean (m)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;(d-m) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (m-c)<br><br>
+      <strong>Ratio of quantities = (d-m) : (m-c)</strong>
+    </div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Mix rice at ₹15/kg and ₹20/kg to get ₹16/kg. Ratio?</div>
+      <div class="problem-a">(20-16) : (16-15) = 4:1
+For every 4 kg cheap rice, use 1 kg costly rice</div>
+    </div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Milk and water in ratio 4:1 in 25L. How much water to make 2:1?</div>
+      <div class="problem-a">Milk=20L, Water=5L. Let w more water added.
+20/(5+w) = 2/1 → 20=10+2w → w=5L</div>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">🧪</div>Replacement Problems</div>
+    <div class="formula">If from a vessel of volume V containing liquid A,
+x litres are removed and replaced with liquid B,
+done n times:
+
+Remaining A = V × (1 - x/V)ⁿ
+Fraction of A remaining = ((V-x)/V)ⁿ</div>
+    <div class="problem">
+      <div class="problem-label">Classic SSC Problem</div>
+      <div class="problem-q">40L vessel of milk. 8L removed and replaced with water, 3 times. Final milk?</div>
+      <div class="problem-a">Milk = 40 × (1 - 8/40)³ = 40 × (4/5)³
+= 40 × 64/125 = 2560/125 = 20.48 L</div>
+    </div>
+    <div class="shortcut"><strong>Ratio of milk:water finally</strong> = (V-x)ⁿ : Vⁿ - (V-x)ⁿ</div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">📊</div>Average — All Formulas</div>
+    <div class="formula">Average = Sum of all terms / Number of terms
+Sum = Average × Number of terms
+
+Average of consecutive natural nos from a to b = (a+b)/2
+Average of first n natural nos = (n+1)/2
+Average of first n even nos = n+1
+Average of first n odd nos = n
+Average of consecutive nos = middle number</div>
+    <div class="trick"><strong>Weighted Average:</strong> If group 1 (n₁ people) has avg A₁ and group 2 (n₂) has avg A₂:<br>
+    Combined avg = (n₁A₁ + n₂A₂)/(n₁+n₂)</div>
+    <div class="problem">
+      <div class="problem-label">Example</div>
+      <div class="problem-q">Average of 5 numbers is 20. One number 30 is replaced by 10. New average?</div>
+      <div class="problem-a">Old sum = 5×20=100. New sum = 100-30+10=80
+New avg = 80/5 = 16</div>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">⚡</div>Average Shortcut Tricks</div>
+    <div class="shortcut"><strong>If wrong value used:</strong><br>
+    Correct avg = Wrong avg + (Correct - Wrong)/n</div>
+    <div class="shortcut"><strong>If one number added/removed:</strong><br>
+    New sum = Old sum ± new number<br>
+    New avg = New sum / New count</div>
+    <div class="trick"><strong>Cricket batting average trick:</strong><br>
+    Avg increases by x runs → total extra runs = x × (no. of innings)<br>
+    Example: Avg goes from 40 to 42 after 10th innings → 10th innings score = old total + extra = 40×9 + extra<br>
+    New total = 42×10=420 | Old total = 40×9=360 | 10th innings = 420-360 = 60</div>
+    <div class="problem">
+      <div class="problem-label">Age-Based Average (SSC Favourite)</div>
+      <div class="problem-q">Average age of class of 30 is 14. Teacher's age makes it 15. Teacher's age?</div>
+      <div class="problem-a">New total = 31×15=465 | Old total = 30×14=420
+Teacher's age = 465-420 = 45 years</div>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">🎂</div>Age Problems</div>
+    <div class="formula">Present age = x
+Age n years ago = x - n
+Age n years later = x + n
+
+If A is n years older than B: A = B + n
+Ratio of ages: Set up equation with ratio → solve</div>
+    <div class="trick"><strong>Golden tip:</strong> Always assume present age as variable. Write equations for past/future directly.</div>
+    <div class="problem">
+      <div class="problem-label">Classic Age Problem</div>
+      <div class="problem-q">Ratio of A to B ages = 3:5. After 6 years ratio = 2:3. Present ages?</div>
+      <div class="problem-a">A=3x, B=5x → (3x+6)/(5x+6) = 2/3
+9x+18 = 10x+12 → x=6
+A=18, B=30</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CHEAT SHEET ===================== -->
+<div id="cheatsheet" class="section">
+  <div class="section-title">⚡ Complete Cheat Sheet</div>
+  <div class="section-sub">All critical formulas at one glance — perfect for last-minute revision</div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🏆</div>Arithmetic — Golden Formulas</div>
+    <div class="grid-2">
+      <div>
+        <div class="formula">PERCENTAGE
+% Change = Change/Original × 100
+Successive change: a+b+ab/100
+Price down x%: New = P×(100-x)/100
+
+PROFIT & LOSS
+SP = CP×(100+P)/100
+CP = SP×100/(100+P)
+False weight profit = (True-False)/False × 100
+Two items at same SP, x% P & x% L → x²/100 % loss</div>
+      </div>
+      <div>
+        <div class="formula">INTEREST
+SI = PRT/100
+CI (2yr) = SI + PR²/10000
+Rule of 72: Double in 72/R years
+
+RATIO & ALLIGATION
+Alligation ratio = (d-m):(m-c)
+Replacement: A left = V×((V-x)/V)ⁿ
+Partners: Profit ∝ Capital × Time</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title"><div class="icon">⏱️</div>Time, Speed & Work — Golden Formulas</div>
+    <div class="grid-2">
+      <div>
+        <div class="formula">TIME & WORK
+Together = ab/(a+b)
+LCM method: Total work = LCM of all days
+MDH/W = constant (Men×Days×Hours/Work)
+
+PIPES
+Net rate = sum of individual rates
+(inlet +, outlet -)
+Together time = 1/(sum of rates)</div>
+      </div>
+      <div>
+        <div class="formula">SPEED & DISTANCE
+S = D/T | km/h×5/18 = m/s
+Avg speed (same dist) = 2ab/(a+b)
+Relative speed (same dir) = |S₁-S₂|
+Relative speed (opp dir) = S₁+S₂
+Train cross platform = (L_train+L_platform)/Speed
+Boat: Upstream = U-V, Downstream = U+V</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="icon">🔣</div>Algebra & Series — Golden Formulas</div>
+    <div class="formula">KEY IDENTITIES
+(a+b)² = a²+2ab+b²   |   (a-b)² = a²-2ab+b²
+a²-b² = (a+b)(a-b)   |   (a+b+c)² = a²+b²+c²+2(ab+bc+ca)
+a³+b³ = (a+b)(a²-ab+b²)   |   a³-b³ = (a-b)(a²+ab+b²)
+
+IF x+1/x = k: x²+1/x² = k²-2 | x³+1/x³ = k³-3k
+
+SEQUENCES
+AP: Tₙ = a+(n-1)d | Sₙ = n/2[2a+(n-1)d]
+GP: Tₙ = arⁿ⁻¹ | S∞ = a/(1-r) [|r|<1]
+Σn = n(n+1)/2 | Σn² = n(n+1)(2n+1)/6 | Σn³ = [n(n+1)/2]²</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title"><div class="icon">📐</div>Geometry & Mensuration — Golden Formulas</div>
+    <div class="grid-2">
+      <div>
+        <div class="formula">2D AREAS
+Triangle = ½bh
+Equilateral △ = √3a²/4
+Circle = πr²   |   Sector = θ/360 × πr²
+Rhombus = d₁d₂/2
+Trapezium = ½(a+b)h
+Heron's: √[s(s-a)(s-b)(s-c)]
+
+CIRCLES
+Angle at centre = 2× angle at circumference
+Angles in same segment = equal
+Cyclic quad: opp angles = 180°
+Tangent from external point: PT² = PA×PB</div>
+      </div>
+      <div>
+        <div class="formula">3D VOLUMES
+Cube = a³   |   TSA = 6a²
+Cylinder = πr²h   |   LSA = 2πrh
+Cone = πr²h/3   |   LSA = πrl   |   l=√(h²+r²)
+Sphere = 4πr³/3   |   SA = 4πr²
+Hemisphere = 2πr³/3   |   TSA = 3πr²
+
+PYTHAGOREAN TRIPLETS
+3-4-5 | 5-12-13 | 8-15-17
+7-24-25 | 9-40-41 | 11-60-61</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title"><div class="icon">📐</div>Trigonometry — Golden Formulas</div>
+    <div class="formula">sin²θ + cos²θ = 1   |   1+tan²θ = sec²θ   |   1+cot²θ = cosec²θ
+sec²θ - tan²θ = 1   →   if secθ+tanθ = k then secθ-tanθ = 1/k
+sin(90-θ)=cosθ | cos(90-θ)=sinθ | tan(90-θ)=cotθ
+
+HEIGHTS & DISTANCES
+30°: height = dist/√3   |   45°: height = dist   |   60°: height = dist×√3
+tan θ = height / horizontal distance</div>
+
+    <table>
+      <tr><th></th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr>
+      <tr><td>sin</td><td>0</td><td>½</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>
+      <tr><td>cos</td><td>1</td><td>√3/2</td><td>1/√2</td><td>½</td><td>0</td></tr>
+      <tr><td>tan</td><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>∞</td></tr>
+    </table>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title"><div class="icon">🎯</div>SSC CGL Maths — Topic-wise Weightage Guide</div>
+    <table>
+      <tr><th>Topic</th><th>Approx Questions</th><th>Difficulty</th><th>Priority</th></tr>
+      <tr><td>Arithmetic (%, Ratio, P&L, SI/CI)</td><td>8–10</td><td>⭐⭐</td><td>🔴 Must Do</td></tr>
+      <tr><td>Algebra (Identities, Equations)</td><td>4–6</td><td>⭐⭐⭐</td><td>🔴 Must Do</td></tr>
+      <tr><td>Geometry (Lines, Circles, Triangles)</td><td>5–7</td><td>⭐⭐⭐</td><td>🔴 Must Do</td></tr>
+      <tr><td>Mensuration (2D & 3D)</td><td>4–6</td><td>⭐⭐⭐</td><td>🔴 Must Do</td></tr>
+      <tr><td>Trigonometry + Heights/Dist</td><td>3–5</td><td>⭐⭐⭐</td><td>🟡 High Priority</td></tr>
+      <tr><td>Data Interpretation</td><td>4–5</td><td>⭐⭐</td><td>🟡 High Priority</td></tr>
+      <tr><td>Number System</td><td>2–3</td><td>⭐⭐</td><td>🟡 High Priority</td></tr>
+      <tr><td>Time & Work + Speed</td><td>3–4</td><td>⭐⭐</td><td>🟢 Do Well</td></tr>
+      <tr><td>Sequence & Series</td><td>1–2</td><td>⭐⭐</td><td>🟢 Do Well</td></tr>
+      <tr><td>Coordinate Geometry</td><td>1–2</td><td>⭐⭐⭐</td><td>🟢 Attempt</td></tr>
+    </table>
+    <div class="shortcut" style="margin-top:16px"><strong>Exam Strategy:</strong> Solve arithmetic first (fastest) → algebra identities → geometry theorems → skip if stuck → return later. Aim: 20+ correct in 35 min for top score.</div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
