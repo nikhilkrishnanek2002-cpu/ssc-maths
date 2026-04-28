@@ -32,9 +32,31 @@ function loadQuestion(index) {
     
     // Add difficulty badge
     const difficultyHtml = q.difficulty ? `<span class="difficulty-badge ${q.difficulty.toLowerCase().replace(' ', '-')}">${q.difficulty}</span>` : '';
-    document.getElementById('question-text').innerHTML = `<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-        ${difficultyHtml}
-    </div><p>${q.text}</p>`;
+    
+    // DI Table or RC Passage prefix
+    let prefixHtml = '';
+    if (q._diSet) {
+        const di = q._diSet;
+        prefixHtml = `<div style="background:#f8f9fa; border:1px solid #dee2e6; border-radius:6px; padding:12px; margin-bottom:12px; font-size:12px; overflow-x:auto;">
+            <div style="font-weight:700; margin-bottom:8px; color:#0b5ed7;">📊 ${di.tableTitle}</div>
+            <table style="width:100%; border-collapse:collapse; font-size:11px;">
+                <thead><tr>${di.headers.map(h => `<th style="background:#0b5ed7;color:white;padding:6px 8px;text-align:left;">${h}</th>`).join('')}</tr></thead>
+                <tbody>${di.rows.map((row, i) => `<tr style="background:${i%2===0?'#fff':'#f8f9fa'}">${row.map(cell => `<td style="padding:5px 8px;border-bottom:1px solid #dee2e6;">${cell}</td>`).join('')}</tr>`).join('')}</tbody>
+            </table>
+        </div>`;
+    } else if (q._rcPassage) {
+        prefixHtml = `<div style="background:#fff9e6; border-left:4px solid #f59e0b; padding:12px; margin-bottom:12px; font-size:13px; line-height:1.6; max-height:150px; overflow-y:auto; border-radius:0 6px 6px 0;">
+            <div style="font-weight:700; margin-bottom:6px; color:#b45309;">📖 Read the passage carefully:</div>
+            <div style="color:#444;">${q._rcPassage}</div>
+        </div>`;
+    }
+
+    document.getElementById('question-text').innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            ${difficultyHtml}
+        </div>
+        ${prefixHtml}
+        <p>${q.text}</p>`;
 
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
@@ -80,6 +102,25 @@ function selectAnswer(qId, optionIndex) {
         document.getElementById('btn-view-solution').classList.remove('hidden');
         showSolution(); // Auto-show solution for immediate feedback
     }
+    
+    // Update question status
+    const prevStatus = examState.status[qId];
+    if(prevStatus === 'review') {
+        examState.status[qId] = 'review-answered';
+    } else {
+        examState.status[qId] = 'answered';
+    }
+
+    // Store which section this question belongs to (for MistakeBook)
+    examState._sectionMap = examState._sectionMap || {};
+    examState._sectionMap[qId] = currentSection;
+    
+    renderQuestionGrid();
+    updateLegend();
+
+    // Scroll palette button into view
+    const palBtn = document.querySelector(`#question-grid button[data-id="${qId}"]`);
+    if (palBtn) palBtn.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
 function saveAndNext() {
@@ -183,8 +224,19 @@ function submitExam() {
             examState.questions[sId].forEach(q => {
                 const userAns = examState.answers[q.id];
                 if (userAns === undefined) unanswered++;
-                else if (parseInt(userAns) === q.correctAnswer) correct++;
-                else wrong++;
+                else if (parseInt(userAns) === q.correctAnswer) {
+                    correct++;
+                    // If previously wrong, mark as corrected
+                    if (typeof MistakeBook !== 'undefined') {
+                        MistakeBook.markCorrect(q.id);
+                    }
+                } else {
+                    wrong++;
+                    // Save to Mistake Book
+                    if (typeof MistakeBook !== 'undefined') {
+                        MistakeBook.addMistake(q, parseInt(userAns), sId);
+                    }
+                }
             });
         }
 

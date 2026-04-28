@@ -465,3 +465,38 @@ body {
         cursor: pointer;
     }
 }
+
+/* Mobile small screen fixes */
+@media (max-width: 640px) {
+    .exam-header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    .header-left { order: 1; flex-wrap: wrap; gap: 6px; }
+    .header-left h2 { font-size: 13px; }
+    .header-right { order: 2; flex-wrap: wrap; gap: 6px; }
+    .section-tabs .tab-btn { font-size: 11px; padding: 6px 10px; }
+    .question-area { padding: 12px; font-size: 14px; }
+    .option-item { padding: 10px; font-size: 13px; }
+    .btn-group { flex-wrap: wrap; gap: 6px; }
+    .btn-group-left, .btn-group-right { width: 100%; justify-content: center; }
+    .feature-btns { flex-wrap: wrap; gap: 6px; }
+    .pattern-switch { flex-wrap: wrap; }
+    body { overflow-y: auto; }
+    main.exam-body { flex-direction: column; overflow-y: auto; height: auto; }
+    .question-section { max-height: none; overflow-y: visible; }
+}
+
+/* Timer warning pulse animation */
+@keyframes timerPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+.timer-warning {
+    animation: timerPulse 1s infinite;
+    color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}

@@ -64,20 +64,38 @@ function renderTabs() {
 
 function generateMockQuestions() {
     // Generate questions using our dynamic modules
-    examState.questions['math'] = MathGenerator.generateQuestions(currentPattern === 'tier2' ? 30 : 25);
+    examState.questions['math'] = MathGenerator.generateQuestions(currentPattern === 'tier2' ? 25 : 20);
     examState.questions['reasoning'] = ReasoningGenerator.generateQuestions(currentPattern === 'tier2' ? 30 : 25);
-    examState.questions['english'] = EnglishBank.generateQuestions(currentPattern === 'tier2' ? 45 : 25);
-    examState.questions['gk'] = GKBank.generateQuestions(currentPattern === 'tier2' ? 25 : 25);
+    examState.questions['english'] = EnglishBank.generateQuestions(currentPattern === 'tier2' ? 40 : 20);
+    examState.questions['gk'] = GKBank.generateQuestions(25);
     examState.questions['computer'] = ComputerGenerator.generateQuestions(20);
 
-    // Initialize/Reset status array and answers
+    // Inject 1 DI set (5 questions) into Math
+    if (typeof DI_BANK !== 'undefined' && DI_BANK.length > 0) {
+        const diSet = DI_BANK[Math.floor(Math.random() * DI_BANK.length)];
+        diSet.questions.forEach(q => {
+            q._diSet = diSet; // attach table reference
+            examState.questions['math'].push(q);
+        });
+    }
+
+    // Inject 1 RC passage (5 questions) into English
+    if (typeof RC_BANK !== 'undefined' && RC_BANK.length > 0) {
+        const rcSet = RC_BANK[Math.floor(Math.random() * RC_BANK.length)];
+        rcSet.questions.forEach(q => {
+            q._rcPassage = rcSet.passage; // attach passage
+            examState.questions['english'].push(q);
+        });
+    }
+
+    // Fully reset status, answers, and section maps
     examState.answers = {};
+    examState.status = {};
+    examState._sectionMap = {};
     Object.keys(SECTIONS).forEach(section => {
-        const count = examState.questions[section].length;
-        for(let i=0; i<count; i++) {
-            const qId = examState.questions[section][i].id;
-            examState.status[qId] = 'not-visited';
-        }
+        (examState.questions[section] || []).forEach(q => {
+            examState.status[q.id] = 'not-visited';
+        });
     });
 }
 
@@ -106,6 +124,10 @@ function switchPattern(pattern) {
         document.querySelectorAll('.btn-pattern').forEach(btn => btn.classList.remove('active'));
         document.getElementById(`btn-${pattern}`).classList.add('active');
         
+        // Update exam title
+        const titleEl = document.getElementById('exam-title');
+        if (titleEl) titleEl.innerText = `SSC CGL ${pattern === 'tier2' ? 'TIER-II' : 'TIER-I'} Exam`;
+
         // Update counts in SECTIONS for display
         if(pattern === 'tier2') {
             SECTIONS['math'].count = 30;
@@ -117,19 +139,27 @@ function switchPattern(pattern) {
             SECTIONS['english'].count = 25;
         }
 
+        // Reset timer
+        clearInterval(examState.timerInterval);
+        examState.timeLeft = pattern === 'tier2' ? 7200 : 3600;
+
         generateMockQuestions();
         examState.currentQuestionIndex = 0;
         renderTabs();
+        startTimer();
         switchSection('reasoning'); // Reset to first section
     }
 }
 
 function startTimer() {
     const timeDisplay = document.getElementById('time-left');
+    const timerBox = document.querySelector('.timer-box') || document.querySelector('.timer');
     
     examState.timerInterval = setInterval(() => {
         if(examState.timeLeft <= 0) {
             clearInterval(examState.timerInterval);
+            timeDisplay.innerText = '00:00';
+            alert('⏰ Time is up! Submitting your exam...');
             submitExam();
             return;
         }
@@ -138,6 +168,17 @@ function startTimer() {
         const m = Math.floor(examState.timeLeft / 60);
         const s = examState.timeLeft % 60;
         timeDisplay.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        
+        // Flash red in the last 10 minutes
+        if (examState.timeLeft <= 600 && timerBox) {
+            timerBox.style.color = '#dc3545';
+            timerBox.style.fontWeight = '900';
+        }
+        // Flash border in last 5 minutes
+        if (examState.timeLeft <= 300 && timerBox) {
+            timerBox.style.animation = 'none';
+            timerBox.style.border = '2px solid #dc3545';
+        }
         
     }, 1000);
 }

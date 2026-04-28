@@ -18,6 +18,9 @@
             <button class="btn btn-secondary" onclick="goHome()" style="background: #6c757d; border: none; font-size: 11px; display: flex; align-items: center; gap: 5px; height: 30px;">
                 <i class="fa-solid fa-home"></i> HOME
             </button>
+            <button class="btn btn-secondary" onclick="window.open('dashboard.html','_blank')" style="background: #198754; border: none; font-size: 11px; display: flex; align-items: center; gap: 5px; height: 30px;">
+                <i class="fa-solid fa-chart-line"></i> DASHBOARD
+            </button>
             <h2 id="exam-title">SSC CGL TIER-I Exam</h2>
         </div>
         <div class="header-right">
@@ -192,9 +195,10 @@
                     </div>
                 </div>
 
-                <div class="submit-area" style="display: flex; gap: 10px; justify-content: center;">
+                <div class="submit-area" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                     <button class="btn-submit" onclick="location.reload()">Restart Mock Test</button>
                     <button class="btn btn-save" onclick="shareScore()" style="background:#198754;">Share Score <i class="fa-solid fa-share-nodes"></i></button>
+                    <button class="btn btn-save" onclick="window.open('dashboard.html','_blank')" style="background:#6f42c1;"><i class="fa-solid fa-chart-line"></i> View Dashboard</button>
                 </div>
             </div>
         </div>
@@ -210,10 +214,20 @@
             document.getElementById('palette-section').classList.toggle('active');
             document.getElementById('palette-overlay').classList.toggle('active');
         }
+        // Keyboard Navigation: ArrowLeft/Right to move between questions
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') saveAndNext();
+            if (e.key === 'ArrowLeft') {
+                const idx = examState.currentQuestionIndex;
+                if (idx > 0) loadQuestion(idx - 1);
+            }
+        });
     </script>
     <script src="js/data/english_bank.js"></script>
     <script src="js/data/gk_bank.js"></script>
     <script src="js/data/pyq_bank.js"></script>
+    <script src="js/data/di_bank.js"></script>
+    <script src="js/data/rc_bank.js"></script>
     <script src="js/data/computer_knowledge.js"></script>
     <script src="js/modules/math_generator.js"></script>
     <script src="js/modules/reasoning_generator.js"></script>
@@ -221,6 +235,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/components/ExamEngine.js"></script>
     <script src="js/database/localStorageManager.js"></script>
+    <script src="js/database/mistakeBook.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
