@@ -63,9 +63,25 @@
         </div>
 
         <!-- Topics Grid -->
-        <div id="topics-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px;">
+        <div id="topics-grid" class="topics-grid">
             <!-- Topics loaded here by JavaScript -->
         </div>
+
+        <style>
+            .topics-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            @media (max-width: 600px) {
+                .topics-grid {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
+            }
+        </style>
 
         <!-- Topic Detail View -->
         <div id="topic-detail" style="display: none;">
