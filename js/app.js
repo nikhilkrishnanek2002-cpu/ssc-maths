@@ -81,6 +81,12 @@ function generateMockQuestions() {
     });
 }
 
+function goHome() {
+    if(confirm("Are you sure you want to leave the exam? Your current progress will be lost.")) {
+        window.location.href = 'index.html';
+    }
+}
+
 function refreshQP() {
     if(confirm("Are you sure you want to generate a new question paper? Your current progress will be lost.")) {
         generateMockQuestions();
