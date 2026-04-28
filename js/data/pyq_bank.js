@@ -30,6 +30,20 @@ const PYQ_BANK = {
             correctAnswer: 3,
             difficulty: "EASY",
             explanation: { standard: "cos² 61° = sin²(90-61) = sin² 29°. Since sin²θ + cos²θ = 1, the result is 1." }
+        },
+        {
+            text: "A thief is 1150 m away from the police. The thief starts running at 6 km/h and the police starts chasing at 11 km/h. How much distance (in meters) will the thief run before being caught?",
+            options: ["1485", "1380", "1125", "1280"],
+            correctAnswer: 1,
+            difficulty: "HIGH",
+            explanation: { standard: "Relative speed = 11 - 6 = 5 km/h. Time to catch = Dist / Rel Speed = 1.15 / 5 = 0.23 hours. Dist by thief = Speed * Time = 6 * 0.23 = 1.38 km = 1380 m." }
+        },
+        {
+            text: "Simplify: (x³ + 15x² + 75x + 125) / (x² - 25) * (x - 5)",
+            options: ["x² + 5x + 25", "x² - 25", "x² + 10x + 25", "x² + 25"],
+            correctAnswer: 2,
+            difficulty: "VERY HIGH",
+            explanation: { standard: "Numerator is (x + 5)³. Denominator is (x + 5)(x - 5). Result = [(x+5)³ / (x+5)(x-5)] * (x-5) = (x+5)² = x² + 10x + 25." }
         }
     ],
     english: [
@@ -53,6 +67,20 @@ const PYQ_BANK = {
             correctAnswer: 0,
             difficulty: "EASY",
             explanation: { standard: "The idiom means having more important matters to attend to." }
+        },
+        {
+            text: "Identify the INCORRECTLY spelled word in the options below:",
+            options: ["Bureaucracy", "Embarrass", "Connoisseur", "Relevent"],
+            correctAnswer: 3,
+            difficulty: "MEDIUM",
+            explanation: { standard: "The correct spelling is 'Relevant'." }
+        },
+        {
+            text: "Select the most appropriate synonym of the word: TOXIC",
+            options: ["Lethal", "Licit", "Laudatory", "Lanky"],
+            correctAnswer: 0,
+            difficulty: "EASY",
+            explanation: { standard: "Toxic means poisonous or deadly. Lethal is the correct synonym." }
         }
     ],
     reasoning: [
@@ -69,6 +97,13 @@ const PYQ_BANK = {
             correctAnswer: 3,
             difficulty: "MEDIUM",
             explanation: { standard: "Logic: Reverse the word and add +1 to each letter. NAME -> EMAN + 1 = FNBO. NAIL -> LIAN + 1 = MJBO." }
+        },
+        {
+            text: "Find the next number in the series: 1, 3, 10, 41, ?, 1237",
+            options: ["202", "210", "200", "206"],
+            correctAnswer: 3,
+            difficulty: "HIGH",
+            explanation: { standard: "Logic: (n * i) + 1 where i starts from 2. (1*2)+1=3, (3*3)+1=10, (10*4)+1=41, (41*5)+1=206." }
         }
     ],
     gk: [
@@ -85,6 +120,13 @@ const PYQ_BANK = {
             correctAnswer: 0,
             difficulty: "EASY",
             explanation: { standard: "Project Tiger was launched on April 1, 1973, to protect Bengal tigers." }
+        },
+        {
+            text: "Which country will host the FIFA World Cup 2026?",
+            options: ["Canada, USA and Mexico", "Brazil", "Argentina", "USA and Chile"],
+            correctAnswer: 0,
+            difficulty: "EASY",
+            explanation: { standard: "FIFA World Cup 2026 will be jointly hosted by Canada, USA, and Mexico." }
         }
     ]
 };

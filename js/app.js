@@ -37,9 +37,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start Exam Timer
     startTimer();
 
+    // Render Tabs based on Tier
+    renderTabs();
+
     // Load initial section
     switchSection('reasoning');
 });
+
+function renderTabs() {
+    const tabContainer = document.querySelector('.section-tabs');
+    tabContainer.innerHTML = '';
+    
+    const visibleSections = ['reasoning', 'gk', 'math', 'english'];
+    if (currentPattern === 'tier2') visibleSections.push('computer');
+    
+    visibleSections.forEach(sid => {
+        const s = SECTIONS[sid];
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn' + (currentSection === sid ? ' active' : '');
+        btn.dataset.section = sid;
+        btn.innerText = s.name;
+        btn.onclick = () => switchSection(sid);
+        tabContainer.appendChild(btn);
+    });
+}
 
 function generateMockQuestions() {
     // Generate questions using our dynamic modules
@@ -92,6 +113,7 @@ function switchPattern(pattern) {
 
         generateMockQuestions();
         examState.currentQuestionIndex = 0;
+        renderTabs();
         switchSection('reasoning'); // Reset to first section
     }
 }
