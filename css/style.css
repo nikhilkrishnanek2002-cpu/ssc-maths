@@ -399,6 +399,43 @@ body {
 
 .calculator-modal.hidden { display: none; }
 
+.calc-header {
+    background: #0b5ed7;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.close-calc { background: transparent; border: none; color: white; cursor: pointer; font-size: 20px; }
+.calc-display {
+    background: #222;
+    color: #0f0;
+    padding: 15px;
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    overflow: hidden;
+}
+.calc-body { padding: 10px; background: #e5e5e5; }
+.calc-row { display: flex; gap: 5px; margin-bottom: 5px; }
+.calc-btn {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+.calc-btn:hover { background: #f8f9fa; }
+.calc-btn.op { background: #0b5ed7; color: white; border-color: #0b5ed7; }
+.calc-btn.action { background: #6c757d; color: white; }
+.calc-btn.clear { background: #dc3545; color: white; }
+.calc-btn.equal { background: #198754; color: white; }
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .palette-section {
