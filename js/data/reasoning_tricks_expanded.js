@@ -1,6 +1,6 @@
 // MASSIVE CONTENT EXPANSION FOR REASONING TOPICS
 
-const reasoningData = {
+const reasoningDataExpanded = {
     reasoning_logical_sequence: {
         category: "Reasoning: Logical Reasoning",
         title: "Logical Sequence & Series - Complete Deep Dive",

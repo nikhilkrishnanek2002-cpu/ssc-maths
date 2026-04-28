@@ -1,4 +1,4 @@
-const mathData = {
+const mathDataExpanded = {
     // CATEGORY: ARITHMETIC - NUMBER SYSTEMS
     math_number_system: {
         category: "Math: Arithmetic",

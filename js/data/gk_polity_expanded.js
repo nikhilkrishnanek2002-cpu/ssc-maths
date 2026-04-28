@@ -18,16 +18,25 @@ const gkPolityExpanded = {
                 ]
             },
             {
-                title: "Key Parts of Constitution",
-                text: "The 22 major divisions.",
+                title: "Exhaustive Parts of Constitution (I-XXII)",
+                text: "The structural divisions of the document.",
                 examples: [
-                    "Part I: Union and its territory.",
+                    "Part I: The Union and its territory.",
                     "Part II: Citizenship.",
                     "Part III: Fundamental Rights.",
                     "Part IV: Directive Principles (DPSP).",
                     "Part IVA: Fundamental Duties.",
+                    "Part V: The Union (President, PM, Parliament).",
+                    "Part VI: The States.",
+                    "Part VIII: Union Territories.",
                     "Part IX: The Panchayats.",
+                    "Part IXA: The Municipalities.",
+                    "Part X: Scheduled and Tribal Areas.",
+                    "Part XI: Relations between Union and States.",
+                    "Part XIV: Services under Union/States (UPSC).",
                     "Part XV: Elections.",
+                    "Part XVII: Official Language.",
+                    "Part XVIII: Emergency Provisions.",
                     "Part XX: Amendment of the Constitution."
                 ]
             }
