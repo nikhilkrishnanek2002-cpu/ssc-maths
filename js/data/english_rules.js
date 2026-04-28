@@ -441,5 +441,36 @@ const englishData = {
                 shortcut: "EXAM HACK: Most errors are one of these 10 types. Train yourself to spot them instantly in 5 seconds per sentence."
             }
         ]
+    },
+
+    english_reading_comprehension: {
+        category: "English: Comprehension",
+        title: "Reading Comprehension: Advanced Strategies",
+        subtitle: "Main Idea, Tone, Inference & Detail Questions",
+        blocks: [
+            {
+                title: "1. Types of Questions & Strategies",
+                text: "Understanding what the examiner is asking.",
+                examples: [
+                    "Direct Questions: Found explicitly in the text. Strategy: Keyword scanning.",
+                    "Inference Questions: 'What can be inferred...' Strategy: Look for logical conclusions not explicitly stated.",
+                    "Vocabulary-in-context: 'What does X mean in paragraph 2?' Strategy: Read 2 lines before and after.",
+                    "Title/Main Theme: Strategy: First and last sentences of the passage usually hold the answer."
+                ],
+                shortcut: "DON'T read the passage first! Read the questions first to know what information is 'expensive' and what is 'cheap'."
+            },
+            {
+                title: "2. The Tone of the Author",
+                text: "Common tones in SSC passages.",
+                examples: [
+                    "Sarcastic: Mocking or ironical.",
+                    "Didactic: Intended to teach or moralize.",
+                    "Dogmatic: Asserting opinions in an arrogant way.",
+                    "Laudatory: Expressing praise.",
+                    "Objective: Factual and unbiased."
+                ],
+                shortcut: "Tone is determined by ADJECTIVES. If author uses 'disastrous', tone is negative/critical."
+            }
+        ]
     }
 };

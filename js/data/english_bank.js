@@ -89,6 +89,24 @@ const EnglishBank = {
                 standard: "Double comparatives are grammatically incorrect. 'Smarter' is already the comparative form of 'smart', so adding 'more' is redundant.",
                 trick: "Rule of Double: Never use 'more' with words ending in '-er' (more better, more taller are ALWAYS wrong)." 
             }
+        },
+        {
+            text: "Read the passage and answer: 'The automation of labor has led to increased efficiency but also significant job displacement. While technology creates new roles, the transition period for workers remains difficult.' <br><br><b>What is the main concern mentioned regarding automation?</b>",
+            options: ["Increased efficiency", "New roles", "Job displacement", "Technology development"],
+            correctAnswer: 2,
+            explanation: { 
+                standard: "The passage explicitly states that automation has led to 'significant job displacement', which is the main concern raised alongside the benefit of efficiency.",
+                trick: "Main Idea Trick: Look for 'but also' or 'however'. The information after these contrast words usually contains the primary concern or counterpoint the author wants to highlight." 
+            }
+        },
+        {
+            text: "From the passage: 'Insects play a crucial role in pollination, which is essential for the reproduction of many plants.' <br><br><b>What is the tone of the author?</b>",
+            options: ["Sarcastic", "Informative", "Critical", "Arrogant"],
+            correctAnswer: 1,
+            explanation: { 
+                standard: "The author is providing factual information about the role of insects in nature without expressing personal bias or emotion. This is an informative tone.",
+                trick: "Tone Trick: If the sentence sounds like a textbook definition or a science report, it's Informative/Objective. No emotional words = Informative." 
+            }
         }
     ],
 

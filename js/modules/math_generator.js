@@ -6,7 +6,8 @@ const MathGenerator = {
         let questions = [];
         const topics = [
             'profitLoss', 'timeWork', 'speedDistance', 'algebra', 
-            'trigonometry', 'percentage', 'simpleInterest', 'geometry'
+            'trigonometry', 'percentage', 'simpleInterest', 'geometry',
+            'averages', 'problemAges', 'dataInterpretation'
         ];
         for(let i=0; i<count; i++) {
             const topic = topics[Math.floor(Math.random() * topics.length)];
@@ -194,6 +195,76 @@ const MathGenerator = {
             explanation: {
                 standard: `For any convex polygon, the sum of all exterior angles is ALWAYS 360°.<br>Since it is a regular polygon, all exterior angles are equal.<br>Each exterior angle = 360° / ${sides} = ${extAngle}°.`,
                 trick: `Exterior Angle = 360 / n. If interior angle is given, Exterior = 180 - Interior. Then n = 360 / Exterior.`
+            }
+        };
+    },
+
+    averages: function(index) {
+        const count = 5;
+        const start = Math.floor(Math.random() * 20) + 10;
+        const nums = Array.from({length: count}, (_, i) => start + i * 2); // Consecutive even numbers
+        const sum = nums.reduce((a, b) => a + b, 0);
+        const avg = sum / count;
+
+        let options = [avg, avg + 2, avg - 2, avg + 5];
+        options = options.sort(() => Math.random() - 0.5);
+        const correctIndex = options.indexOf(avg);
+
+        return {
+            id: `math_${index}`,
+            text: `The average of 5 consecutive even numbers is ${avg}. What is the largest of these numbers?`,
+            options: options.map(o => (o + 4).toString()),
+            correctAnswer: correctIndex,
+            explanation: {
+                standard: `Let the numbers be x, x+2, x+4, x+6, x+8.<br>Average = (5x + 20) / 5 = x + 4.<br>Given x + 4 = ${avg}, so x = ${avg - 4}.<br>Largest number = x + 8 = ${avg - 4} + 8 = ${avg + 4}.`,
+                trick: `In consecutive numbers, the average is the MIDDLE term.<br>Middle term (3rd) = ${avg}.<br>Largest term (5th) = ${avg} + 2 + 2 = ${avg + 4}.`
+            }
+        };
+    },
+
+    problemAges: function(index) {
+        const ratioA = 3;
+        const ratioB = 4;
+        const years = 5;
+        const newRatioA = 4;
+        const newRatioB = 5;
+        // 3:4 -> 4:5 after 5 years. Difference 1 unit = 5 years.
+        const ageA = ratioA * years;
+        const ageB = ratioB * years;
+
+        let options = [ageA, ageA + 5, ageB, ageB + 5];
+        options = options.sort(() => Math.random() - 0.5);
+        const correctIndex = options.indexOf(ageA);
+
+        return {
+            id: `math_${index}`,
+            text: `The ratio of the ages of A and B is ${ratioA}:${ratioB}. After ${years} years, the ratio becomes ${newRatioA}:${newRatioB}. What is the present age of A?`,
+            options: options.map(String),
+            correctAnswer: correctIndex,
+            explanation: {
+                standard: `Let ages be ${ratioA}x and ${ratioB}x.<br>(${ratioA}x + ${years}) / (${ratioB}x + ${years}) = ${newRatioA} / ${newRatioB}.<br>Solving: ${newRatioB}(${ratioA}x + ${years}) = ${newRatioA}(${ratioB}x + ${years})<br>${newRatioB*ratioA}x + ${newRatioB*years} = ${newRatioA*ratioB}x + ${newRatioA*years}<br>x = ${years}.<br>Age of A = ${ratioA}x = ${ageA}.`,
+                trick: `Ratio Method: A:B = ${ratioA}:${ratioB}. After ${years} yrs, A:B = ${newRatioA}:${newRatioB}.<br>The increase in both parts is 1 unit (${newRatioA}-${ratioA}=1, ${newRatioB}-${ratioB}=1).<br>1 unit = ${years} years.<br>A's age = ${ratioA} units = ${ratioA} × ${years} = ${ageA}.`
+            }
+        };
+    },
+
+    dataInterpretation: function(index) {
+        const total = 3600;
+        const angleA = 90; // 25%
+        const valueA = (angleA / 360) * total;
+
+        let options = [valueA, valueA + 100, valueA - 100, total / 2];
+        options = options.sort(() => Math.random() - 0.5);
+        const correctIndex = options.indexOf(valueA);
+
+        return {
+            id: `math_${index}`,
+            text: `In a pie chart representing a total population of ${total}, the angle for 'Group A' is ${angleA}°. What is the actual population of Group A?`,
+            options: options.map(String),
+            correctAnswer: correctIndex,
+            explanation: {
+                standard: `Value = (Angle / 360) * Total.<br>Value = (${angleA} / 360) * ${total} = (1/4) * ${total} = ${valueA}.`,
+                trick: `Angle-to-% Trick: 90° is exactly 1/4th of a circle (360°).<br>So, Group A is 1/4th of the total population.<br>1/4 of ${total} = ${valueA}.`
             }
         };
     },

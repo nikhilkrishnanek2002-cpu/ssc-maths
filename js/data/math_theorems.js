@@ -581,5 +581,88 @@ const mathData = {
                 shortcut: "This formula is identical to compound interest depreciation!"
             }
         ]
+    },
+
+    math_averages: {
+        category: "Math: Arithmetic",
+        title: "Averages: Concept & Shortcut Techniques",
+        subtitle: "Weighted Average, Consecutive Numbers, Group Changes",
+        blocks: [
+            {
+                title: "1. Basic Formula & Weighted Average",
+                text: "Average = Sum of observations / Number of observations.",
+                examples: [
+                    "Average of first n natural numbers = (n+1)/2",
+                    "Average of first n even numbers = n+1",
+                    "Average of first n odd numbers = n",
+                    "Weighted Average = (n1*A1 + n2*A2) / (n1 + n2)"
+                ],
+                shortcut: "Deviation Method: Assume an average, calculate deviations of each term, find their average, and add to assumed average."
+            },
+            {
+                title: "2. Group Inclusion/Exclusion Traps",
+                text: "When a person joins or leaves a group.",
+                examples: [
+                    "New person's weight = New Avg + (Number of old members × Change in Avg)",
+                    "Example: Avg of 10 students is 40kg. One new student joins and avg becomes 41kg. New student = 41 + (10 * 1) = 51kg."
+                ],
+                shortcut: "New Value = New Average + (Old Count × Change)"
+            }
+        ]
+    },
+
+    math_problem_ages: {
+        category: "Math: Arithmetic",
+        title: "Problem of Ages: Ratio & Equation Mastery",
+        subtitle: "Past-Present-Future Relations, Ratio Method",
+        blocks: [
+            {
+                title: "1. The Ratio Method (Fastest!)",
+                text: "If ratio of A:B is 3:4 and after 5 years it becomes 4:5.",
+                examples: [
+                    "The difference between A and B stays constant regardless of years.",
+                    "If gap in ratios is same (4-3=1, 5-4=1), then 1 unit = 5 years.",
+                    "So A = 3*5=15, B = 4*5=20."
+                ],
+                shortcut: "Always check if the ratio difference between two people is the same across time. If not, multiply to make them equal!"
+            },
+            {
+                title: "2. Algebraic Setup for Ages",
+                text: "Let present ages be x and y.",
+                examples: [
+                    "n years ago: (x-n) and (y-n)",
+                    "n years hence: (x+n) and (y+n)",
+                    "Common trap: Forgetting to add/subtract 'n' from BOTH people."
+                ]
+            }
+        ]
+    },
+
+    math_data_interpretation: {
+        category: "Math: Data Interpretation",
+        title: "Data Interpretation: Graphs & Tables",
+        subtitle: "Pie Charts, Bar Graphs, Line Graphs, Tabulation",
+        blocks: [
+            {
+                title: "1. Pie Chart Calculations",
+                text: "Relating degrees to percentages.",
+                examples: [
+                    "360° = 100%",
+                    "1% = 3.6°",
+                    "10% = 36°",
+                    "To find value: (Angle / 360) * Total Value"
+                ],
+                shortcut: "Memorize: 18° = 5%, 54° = 15%, 72° = 20%."
+            },
+            {
+                title: "2. Growth Rate & Percentage Change",
+                text: "Frequent in Bar and Line graphs.",
+                examples: [
+                    "% Growth = [(Current - Previous) / Previous] * 100",
+                    "Average growth = Total growth / Number of years"
+                ],
+                shortcut: "Visual estimation: Check slopes in line graphs to find maximum growth instantly without calculation."
+            }
+        ]
     }
 };
