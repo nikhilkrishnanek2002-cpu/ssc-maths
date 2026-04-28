@@ -54,32 +54,45 @@ const mathData = {
     },
     math_percentages: {
         category: "Math: Arithmetic",
-        title: "Percentages, Profit & Loss",
+        title: "Percentages, Profit & Loss: Deep Dive",
         subtitle: "Fractions to Percentages Mastery",
         blocks: [
             {
                 title: "1. Fraction to Percentage Table",
-                text: "Memorize these to avoid calculations:",
+                text: "Memorize these to avoid calculations. Essential for Data Interpretation.",
                 examples: [
-                    "1/2 = 50%", "1/3 = 33.33%", "1/4 = 25%",
-                    "1/5 = 20%", "1/6 = 16.66%", "1/7 = 14.28%",
-                    "1/8 = 12.5%", "1/9 = 11.11%", "1/11 = 9.09%"
+                    "1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%",
+                    "1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%",
+                    "1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%"
                 ],
                 shortcut: "If A is x% more than B, then B is [x / (100+x)] * 100% less than A."
             },
             {
                 title: "2. Successive Discount & Profit",
-                text: "When multiple discounts or profits are applied.",
+                text: "When multiple discounts or profits are applied sequentially.",
                 examples: [
-                    "Successive discounts of a% and b%: Single equivalent discount = a + b - (ab/100)."
+                    "Successive discounts of a% and b%: Single equivalent discount = a + b - (ab/100).",
+                    "Three successive discounts: Apply formula to first two, then apply formula to the result and the third discount."
                 ],
                 shortcut: "Dishonest Dealer Trick: Profit % = [(True Weight - False Weight) / False Weight] * 100"
+            },
+            {
+                title: "3. Simple Interest (SI) and Compound Interest (CI)",
+                text: "Core arithmetic formulas.",
+                examples: [
+                    "SI = (P * R * T) / 100",
+                    "Amount = P + SI",
+                    "CI = P(1 + R/100)^T - P",
+                    "Difference between CI and SI for 2 years: D = P(R/100)²",
+                    "Difference between CI and SI for 3 years: D = P(R/100)² * (3 + R/100)"
+                ],
+                shortcut: "Effective Rate for 2 years CI = R + R + (R²/100). If R=10%, CI=21%."
             }
         ]
     },
     math_time_work: {
         category: "Math: Arithmetic",
-        title: "Time, Work, Speed & Distance",
+        title: "Time, Work, Speed & Distance: Deep Dive",
         subtitle: "Efficiency & Proportionality",
         blocks: [
             {
@@ -88,29 +101,49 @@ const mathData = {
                 examples: [
                     "If A does work in 10 days, B in 15 days. LCM(10,15) = 30 units (Total Work).",
                     "A's efficiency = 3 units/day. B's efficiency = 2 units/day.",
-                    "Time together = 30 / (3+2) = 6 days."
+                    "Time together = 30 / (3+2) = 6 days.",
+                    "If A leaves after 2 days: Work done = (3+2)*2 = 10 units. Remaining = 20 units. Time for B = 20/2 = 10 days."
                 ],
                 shortcut: "MDH Formula: (M1 * D1 * H1) / W1 = (M2 * D2 * H2) / W2"
             },
             {
-                title: "2. Time, Speed & Distance",
+                title: "2. Pipes & Cisterns",
+                text: "Same as Time & Work, but leakage/emptying pipe has NEGATIVE efficiency.",
+                examples: [
+                    "Pipe A fills in 10 hrs (+3 eff). Pipe B empties in 15 hrs (-2 eff). Total cap = 30.",
+                    "Net efficiency = 3 - 2 = +1 unit/hr. Time to fill = 30/1 = 30 hrs."
+                ],
+                shortcut: "If a pipe fills a tank in x hours, and due to a leak it takes y hours, the leak empties the tank in (x*y)/(y-x) hours."
+            },
+            {
+                title: "3. Time, Speed & Distance",
                 text: "Distance = Speed * Time. Remember units!",
                 examples: [
                     "To convert km/hr to m/s: multiply by 5/18.",
                     "To convert m/s to km/hr: multiply by 18/5."
                 ],
-                shortcut: "Average Speed (equal distance): 2xy / (x+y). Average Speed (three equal distances): 3xyz / (xy + yz + zx)."
+                shortcut: "Average Speed (equal distance): 2xy / (x+y). Early/Late Concept: Distance = (S1*S2)/(S1-S2) * (Time Difference in hrs)."
+            },
+            {
+                title: "4. Trains and Relative Speed",
+                text: "When two bodies are moving.",
+                examples: [
+                    "Moving in opposite directions: Add speeds (S1 + S2).",
+                    "Moving in same direction: Subtract speeds (S1 - S2).",
+                    "Train crossing a platform: Total distance = Length of train + Length of platform."
+                ],
+                shortcut: "Train crossing a pole/man: Distance = Length of train. Time = L / Speed."
             }
         ]
     },
     // CATEGORY: ALGEBRA
     math_algebra: {
         category: "Math: Advance (Algebra)",
-        title: "Algebraic Identities",
+        title: "Algebraic Identities: Deep Dive",
         subtitle: "School Algebra & Value Putting",
         blocks: [
             {
-                title: "1. Important Identities",
+                title: "1. The Big 3 Identities",
                 text: "These are directly asked in Tier-I and Tier-II.",
                 examples: [
                     "(a+b+c)² = a² + b² + c² + 2(ab + bc + ca)",
@@ -125,16 +158,28 @@ const mathData = {
                 examples: [
                     "If x + 1/x = a, then x² + 1/x² = a² - 2",
                     "If x - 1/x = a, then x² + 1/x² = a² + 2",
-                    "If x + 1/x = a, then x³ + 1/x³ = a³ - 3a"
+                    "If x + 1/x = a, then x³ + 1/x³ = a³ - 3a",
+                    "If x - 1/x = a, then x³ - 1/x³ = a³ + 3a",
+                    "If x + 1/x = a, then x⁴ + 1/x⁴ = (a²-2)² - 2"
                 ],
-                shortcut: "If x + 1/x = 1, then x³ = -1.<br>If x + 1/x = √3, then x^6 = -1."
+                shortcut: "Special Cases: If x + 1/x = 1, then x³ = -1. If x + 1/x = √3, then x^6 = -1. If x + 1/x = 2, then x = 1. If x + 1/x = -2, then x = -1."
+            },
+            {
+                title: "3. Value Putting Method",
+                text: "For complex algebraic expressions with multiple variables.",
+                examples: [
+                    "If number of equations < number of variables, put extra variables as 0 or 1.",
+                    "Example: a + b + c = 0. Put c = 0, b = 1, a = -1.",
+                    "WARNING: Never put a value that makes the denominator ZERO (1/0 is undefined)."
+                ],
+                shortcut: "Symmetric expressions: If an expression is completely symmetric for a, b, c, you can put a = b = c = 1 to find the answer."
             }
         ]
     },
     // CATEGORY: GEOMETRY
     math_geometry: {
         category: "Math: Advance (Geometry)",
-        title: "Geometry: Comprehensive Properties",
+        title: "Geometry: Comprehensive Deep Dive",
         subtitle: "Triangles, Circles, and Polygons",
         blocks: [
             {
@@ -187,19 +232,34 @@ const mathData = {
     // CATEGORY: MENSURATION
     math_mensuration: {
         category: "Math: Advance (Mensuration)",
-        title: "Mensuration 2D & 3D",
+        title: "Mensuration 2D & 3D: Deep Dive",
         subtitle: "Areas and Volumes",
         blocks: [
             {
-                title: "1. 3D Figures Formulas",
+                title: "1. 2D Figures Formulas",
+                text: "Area and Perimeters.",
+                examples: [
+                    "Equilateral Triangle: Area = (√3/4)a², Height = (√3/2)a",
+                    "Right Triangle: Area = 1/2 × Base × Height",
+                    "Rectangle: Area = l × b, Perimeter = 2(l+b), Diagonal = √(l² + b²)",
+                    "Square: Area = a² or d²/2, Perimeter = 4a, Diagonal = a√2",
+                    "Circle: Area = πr², Circumference = 2πr",
+                    "Sector Area = (θ/360) × πr²"
+                ],
+                shortcut: "Area of a triangle when all 3 sides are given: Heron's Formula: Area = √[s(s-a)(s-b)(s-c)], where s is semi-perimeter."
+            },
+            {
+                title: "2. 3D Figures Formulas",
                 text: "Memorize these for direct calculation.",
                 examples: [
+                    "Cube: Volume = a³, Surface Area = 6a², Diagonal = a√3",
+                    "Cuboid: Volume = lbh, Surface Area = 2(lb + bh + hl)",
                     "Cylinder: Volume = πr²h, CSA = 2πrh",
                     "Cone: Volume = 1/3πr²h, CSA = πrl (where l is slant height)",
                     "Sphere: Volume = 4/3πr³, Surface Area = 4πr²",
                     "Hemisphere: Volume = 2/3πr³, CSA = 2πr², TSA = 3πr²"
                 ],
-                shortcut: "When a 3D figure is melted and recast into another, their VOLUMES are always equal."
+                shortcut: "When a 3D figure is melted and recast into another, their VOLUMES are always equal. When wire is drawn from a cylinder, equate volumes."
             }
         ]
     },
@@ -233,26 +293,36 @@ const mathData = {
     // CATEGORY: STATISTICS
     math_statistics: {
         category: "Math: Advance (Trig/Stat)",
-        title: "Statistics & Data Interpretation",
+        title: "Statistics & Data Interpretation: Deep Dive",
         subtitle: "Mean, Median, Mode (Tier-II Focus)",
         blocks: [
             {
                 title: "1. Central Tendency",
                 text: "Basic formulas for grouped and ungrouped data.",
                 examples: [
-                    "Mean: Average of all data points.",
+                    "Mean: Average of all data points. (Sum/Count)",
                     "Median: Middle value when sorted. If even, average of two middle values.",
                     "Mode: Most frequently occurring value."
                 ],
                 shortcut: "Empirical Formula (Extremely Important): Mode = 3(Median) - 2(Mean)"
+            },
+            {
+                title: "2. Dispersion & Standard Deviation",
+                text: "Measuring how spread out the data is.",
+                examples: [
+                    "Range = Max Value - Min Value.",
+                    "Variance (σ²) = Average of squared differences from the Mean.",
+                    "Standard Deviation (σ) = Square root of Variance."
+                ],
+                shortcut: "If every observation in a dataset is increased by 'k', the Mean increases by 'k', but the Standard Deviation and Variance REMAIN UNCHANGED."
             }
         ]
     },
     // CATEGORY: ADDITIONAL ARITHMETIC
     math_mixture: {
         category: "Math: Arithmetic",
-        title: "Mixture and Alligation",
-        subtitle: "Cross Method Technique",
+        title: "Mixture and Alligation: Deep Dive",
+        subtitle: "Cross Method Technique & Replacements",
         blocks: [
             {
                 title: "1. The Alligation Rule",
@@ -261,13 +331,22 @@ const mathData = {
                     "Quantity of Cheaper / Quantity of Dearer = (Cost of Dearer - Mean Price) / (Mean Price - Cost of Cheaper)"
                 ],
                 shortcut: "Always draw the 'Cross'. Put the cheaper price on top left, dearer on top right, mean in the middle. Subtract diagonally to get the ratio."
+            },
+            {
+                title: "2. Successive Replacement Formula",
+                text: "When liquid is repeatedly removed and replaced with water.",
+                examples: [
+                    "Final quantity of original liquid = Original Volume × (1 - Replacement Volume/Total Volume)^n",
+                    "Where 'n' is the number of times the process is repeated."
+                ],
+                shortcut: "This is exactly the same formula as Compound Interest depreciation!"
             }
         ]
     },
     // CATEGORY: ADDITIONAL ADVANCE
     math_graphs: {
         category: "Math: Advance (Algebra)",
-        title: "Graphs of Linear Equations",
+        title: "Graphs of Linear Equations: Deep Dive",
         subtitle: "Slopes, Intercepts, and Visuals",
         blocks: [
             {
@@ -298,7 +377,7 @@ const mathData = {
     },
     math_congruence: {
         category: "Math: Advance (Geometry)",
-        title: "Congruence and Similarity",
+        title: "Congruence and Similarity: Deep Dive",
         subtitle: "Rules for Triangles",
         blocks: [
             {
@@ -317,7 +396,7 @@ const mathData = {
     // CATEGORY: ADVANCED MENSURATION & TRIGONOMETRY
     math_mensuration_adv: {
         category: "Math: Advance (Mensuration)",
-        title: "Advanced 3D Shapes",
+        title: "Advanced 3D Shapes: Deep Dive",
         subtitle: "Prisms, Pyramids, and Frustums",
         blocks: [
             {
@@ -344,7 +423,7 @@ const mathData = {
     },
     math_trig_adv: {
         category: "Math: Advance (Trig/Stat)",
-        title: "Radian Measures & Max/Min Values",
+        title: "Radian Measures & Max/Min: Deep Dive",
         subtitle: "Advanced Trigonometry",
         blocks: [
             {

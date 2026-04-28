@@ -89,24 +89,47 @@ const englishData = {
     },
     english_voice: {
         category: "English: Grammar Core",
-        title: "Active & Passive Voice",
-        subtitle: "Direct Rule Conversions",
+        title: "Active & Passive Voice: Deep Dive",
+        subtitle: "Direct Rule Conversions & Exceptions",
         blocks: [
             {
-                title: "1. Basic Tense Conversion",
+                title: "1. Basic Tense Conversion Rules",
                 text: "The object of the active sentence becomes the subject of the passive sentence.",
                 examples: [
-                    "Present Simple: He writes a letter. -> A letter IS written by him.",
-                    "Past Simple: He wrote a letter. -> A letter WAS written by him.",
-                    "Present Continuous: He is writing a letter. -> A letter IS BEING written by him."
+                    "Present Simple (V1) -> is/am/are + V3",
+                    "Past Simple (V2) -> was/were + V3",
+                    "Present Continuous (is + V-ing) -> is + being + V3",
+                    "Past Continuous (was + V-ing) -> was + being + V3",
+                    "Present Perfect (has + V3) -> has + been + V3"
                 ],
-                shortcut: "Voice conversions NEVER change the tense entirely (e.g., Present doesn't become Past). They only change the verb form (e.g., writes -> is written). If options change the tense, eliminate them instantly!"
+                shortcut: "Voice conversions NEVER change the tense entirely (e.g., Present doesn't become Past). If options change the tense, eliminate them instantly!"
+            },
+            {
+                title: "2. Modals and Imperative Sentences",
+                text: "Sentences with commands, requests, or modal verbs.",
+                examples: [
+                    "Modals (can/should/must + V1) -> can/should/must + be + V3",
+                    "Command (Open the door) -> Let the door be opened.",
+                    "Request (Please help me) -> You are requested to help me."
+                ],
+                shortcut: "For 'Let' sentences: Let + Object + be + V3."
+            },
+            {
+                title: "3. Important Exceptions (No 'By')",
+                text: "Some verbs take fixed prepositions instead of 'by' in passive voice.",
+                examples: [
+                    "Known TO (not known by)",
+                    "Surprised AT (not surprised by)",
+                    "Contained IN (not contained by)",
+                    "Satisfied WITH (not satisfied by)"
+                ],
+                shortcut: "SSC loves 'Known'. Active: I know him. Passive: He is known TO me (If you mark 'known by me', it is wrong)."
             }
         ]
     },
     english_speech: {
         category: "English: Grammar Core",
-        title: "Direct & Indirect Speech",
+        title: "Direct & Indirect Speech: Deep Dive",
         subtitle: "Narration Rules",
         blocks: [
             {
@@ -125,7 +148,7 @@ const englishData = {
     // CATEGORY: VOCABULARY
     english_vocab: {
         category: "English: Vocabulary",
-        title: "High-Frequency Vocab & Roots",
+        title: "High-Frequency Vocab & Roots: Deep Dive",
         subtitle: "Most repeated in SSC CGL",
         blocks: [
             {
@@ -143,7 +166,7 @@ const englishData = {
     },
     english_idioms: {
         category: "English: Vocabulary",
-        title: "Top 50 Idioms & Phrases",
+        title: "Top 50 Idioms & Phrases: Deep Dive",
         subtitle: "Contextual Meanings",
         blocks: [
             {
@@ -163,7 +186,7 @@ const englishData = {
     // CATEGORY: COMPREHENSION & CLOZE
     english_cloze: {
         category: "English: Comprehension",
-        title: "Cloze Test & Passage Strategy",
+        title: "Cloze Test & Passage: Deep Dive",
         subtitle: "Contextual Filling & Reading",
         blocks: [
             {
@@ -191,7 +214,7 @@ const englishData = {
     // CATEGORY: SPELLINGS
     english_spellings: {
         category: "English: Vocabulary",
-        title: "Spelling Rules",
+        title: "Spelling Rules: Deep Dive",
         subtitle: "Avoiding common mis-spelt words",
         blocks: [
             {
@@ -209,7 +232,7 @@ const englishData = {
     // CATEGORY: ADVANCED GRAMMAR
     english_advanced: {
         category: "English: Grammar Advanced",
-        title: "Voice & Narration",
+        title: "Voice & Narration: Deep Dive",
         subtitle: "Active/Passive and Direct/Indirect",
         blocks: [
             {
@@ -235,35 +258,59 @@ const englishData = {
     // CATEGORY: VOCABULARY EXPANSION
     english_vocab_adv: {
         category: "English: Vocabulary",
-        title: "Synonyms, Antonyms & One-Word",
-        subtitle: "Word Power Mastery",
+        title: "Synonyms, Antonyms & Roots: Deep Dive",
+        subtitle: "Word Power Mastery for Tier 1 & 2",
         blocks: [
             {
-                title: "1. Synonyms and Antonyms",
+                title: "1. Etymology: Positive/Negative Roots",
                 text: "Don't memorize blindly. Use Root Words, Prefixes, and Suffixes.",
                 examples: [
-                    "Root 'Bene' (Good): Benefactor, Benevolent, Benign.",
-                    "Root 'Mal' (Bad): Malicious, Malign, Malevolent.",
+                    "Root 'Bene/Eu' (Good): Benefactor, Benevolent, Eulogy (good speech), Euphony (good sound).",
+                    "Root 'Mal/Dys' (Bad): Malicious, Dysfunctional, Dyspepsia.",
                     "Prefix 'A/An' (Without): Apathy (without feeling), Anarchy (without rule)."
                 ],
-                shortcut: "If you don't know the word, look at its tone (Positive/Negative). Eliminate options that don't match the tone."
+                shortcut: "If you don't know the word, look at its prefix tone. Eliminate options that don't match the tone."
             },
             {
-                title: "2. One Word Substitution",
-                text: "Common root words make this section very scoring.",
+                title: "2. The 'Cracy/Archy' Root (Rule/Government)",
+                text: "Extremely common in One-Word Substitution.",
                 examples: [
-                    "-cide (killing): Patricide (father), Regicide (king).",
-                    "-phobia (fear): Claustrophobia (closed spaces), Acrophobia (heights).",
-                    "-archy/cracy (rule): Democracy (people), Autocracy (self)."
+                    "Democracy: Rule by people (Demos).",
+                    "Autocracy: Rule by one (Auto).",
+                    "Oligarchy: Rule by a few.",
+                    "Plutocracy: Rule by the wealthy.",
+                    "Theocracy: Rule by religious leaders (Theo = God).",
+                    "Gerontocracy: Rule by old people."
                 ],
-                shortcut: "Read the suffix first. It instantly narrows down the meaning of the word."
+                shortcut: "Pluto is a wealthy planet -> Plutocracy (wealthy). Theo means God (like Theology) -> Theocracy."
+            },
+            {
+                title: "3. The 'Phobia' Root (Fear)",
+                text: "Fears and phobias.",
+                examples: [
+                    "Claustrophobia: Fear of closed spaces.",
+                    "Acrophobia: Fear of heights.",
+                    "Hydrophobia: Fear of water (Rabies).",
+                    "Nyctophobia: Fear of darkness."
+                ],
+                shortcut: "Acrobat works at a height -> Acrophobia."
+            },
+            {
+                title: "4. The 'Cide' Root (Killing)",
+                text: "Murder/Killing words.",
+                examples: [
+                    "Patricide (Father), Matricide (Mother), Fratricide (Brother), Sororicide (Sister).",
+                    "Uxoricide (Wife), Mariticide (Husband).",
+                    "Regicide (King), Genocide (Whole race)."
+                ],
+                shortcut: "Sorority girls = Sisters -> Sororicide. Regal = King -> Regicide."
             }
         ]
     },
     // CATEGORY: SENTENCE STRUCTURE
     english_shuffling: {
         category: "English: Comprehension",
-        title: "Sentence Shuffling (PQRS)",
+        title: "Sentence Shuffling (PQRS): Deep Dive",
         subtitle: "Jumbled Sentences Tricks",
         blocks: [
             {

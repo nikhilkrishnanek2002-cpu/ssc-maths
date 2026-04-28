@@ -2,40 +2,54 @@ const gkData = {
     // CATEGORY: POLITY
     gk_polity_articles: {
         category: "GK: Polity",
-        title: "Important Articles",
+        title: "Important Articles: Deep Dive",
         subtitle: "The Core of the Indian Constitution",
         blocks: [
             {
                 title: "1. Fundamental Rights (Part III)",
-                text: "Covered from Articles 12 to 35. These are guaranteed for every citizen.",
+                text: "Covered from Articles 12 to 35. These are guaranteed for every citizen. Borrowed from USA.",
                 examples: [
                     "Article 14: Equality before law.",
-                    "Article 15: Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth.",
+                    "Article 15: Prohibition of discrimination.",
                     "Article 16: Equality of opportunity in public employment.",
                     "Article 17: Abolition of Untouchability.",
                     "Article 18: Abolition of titles.",
-                    "Article 19: Protection of 6 rights regarding freedom of speech, assembly, etc.",
-                    "Article 21: Protection of Life and Personal Liberty.",
-                    "Article 21A: Right to elementary education (Added by 86th Amendment).",
-                    "Article 32: Right to Constitutional Remedies (Heart & Soul of Constitution)."
+                    "Article 19: Protection of 6 rights (Speech, Assembly, Association, Movement, Residence, Profession).",
+                    "Article 21: Protection of Life and Personal Liberty. (Cannot be suspended during emergency).",
+                    "Article 21A: Right to elementary education.",
+                    "Article 32: Right to Constitutional Remedies (Writs: Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo-Warranto)."
                 ],
                 shortcut: "Sequence trick: E-F-E-R-E-R. Equality(14-18), Freedom(19-22), Exploitation(23-24), Religion(25-28), Education/Culture(29-30), Remedies(32)."
             },
             {
                 title: "2. DPSP and Fundamental Duties",
-                text: "Directive Principles of State Policy (Part IV) and Duties (Part IVA).",
+                text: "Directive Principles (Part IV) and Duties (Part IVA). Not enforceable by courts.",
                 examples: [
-                    "Article 40: Organization of village panchayats.",
-                    "Article 44: Uniform Civil Code for the citizens.",
-                    "Article 51A: Fundamental Duties (Added by 42nd Amendment, 1976 on recommendation of Swaran Singh Committee)."
+                    "Article 40: Organization of village panchayats (Gandhian principle).",
+                    "Article 44: Uniform Civil Code for the citizens (Liberal principle).",
+                    "Article 50: Separation of judiciary from executive.",
+                    "Article 51: Promotion of international peace and security.",
+                    "Article 51A: 11 Fundamental Duties (Added by 42nd Amendment, 1976)."
                 ],
-                shortcut: "Fundamental Duties were borrowed from USSR. DPSP was borrowed from Ireland."
+                shortcut: "Fundamental Duties = USSR. DPSP = Ireland. Concurrent List = Australia. Emergency = Germany."
+            },
+            {
+                title: "3. The Executive (President & VP)",
+                text: "Articles 52 to 78 cover the Union Executive.",
+                examples: [
+                    "Article 52: The President of India.",
+                    "Article 61: Procedure for impeachment of the President.",
+                    "Article 63: The Vice-President of India.",
+                    "Article 72: Pardoning power of the President.",
+                    "Article 76: Attorney-General for India."
+                ],
+                shortcut: "Pardoning power is 72. Think of a 72-year-old president showing mercy."
             }
         ]
     },
     gk_polity_amendments: {
         category: "GK: Polity",
-        title: "Major Constitutional Amendments",
+        title: "Major Constitutional Amendments: Deep Dive",
         subtitle: "Changes that shaped India",
         blocks: [
             {
@@ -56,28 +70,54 @@ const gkData = {
     // CATEGORY: HISTORY
     gk_history_modern: {
         category: "GK: History",
-        title: "Modern History: The Freedom Struggle",
-        subtitle: "Gandhi Era & Major Movements",
+        title: "Modern History: Exhaustive Timeline",
+        subtitle: "From Revolt of 1857 to Independence",
         blocks: [
             {
-                title: "1. Timeline of Gandhi's Movements",
-                text: "Chronological order of movements is a standard question.",
+                title: "1. The Revolt of 1857",
+                text: "The First War of Independence. Know the centers and their leaders.",
                 examples: [
-                    "1915: Gandhi returns to India from South Africa (Jan 9 - Pravasi Bharatiya Divas).",
+                    "Delhi: Bahadur Shah II & General Bakht Khan",
+                    "Kanpur: Nana Saheb & Tantia Tope",
+                    "Lucknow: Begum Hazrat Mahal",
+                    "Jhansi: Rani Laxmibai",
+                    "Bihar: Kunwar Singh"
+                ],
+                shortcut: "The immediate cause was the introduction of the Enfield rifle (greased cartridges). The Governor-General during the revolt was Lord Canning."
+            },
+            {
+                title: "2. The Gandhian Era (1915-1947)",
+                text: "A highly tested period. Memorize the exact years.",
+                examples: [
+                    "1915: Gandhi returns to India (Pravasi Bharatiya Divas).",
                     "1917: Champaran Satyagraha (First Civil Disobedience).",
                     "1918: Ahmedabad Mill Strike (First Hunger Strike).",
-                    "1918: Kheda Satyagraha (First Non-Cooperation).",
-                    "1920: Non-Cooperation Movement.",
-                    "1930: Civil Disobedience Movement (Dandi March - Salt Satyagraha).",
-                    "1942: Quit India Movement (August Kranti - 'Do or Die')."
+                    "1919: Jallianwala Bagh Massacre (April 13) and Rowlatt Act.",
+                    "1920: Non-Cooperation Movement launched.",
+                    "1922: Chauri Chaura incident (NCM called off).",
+                    "1930: Dandi March (Civil Disobedience Movement starts).",
+                    "1931: Gandhi-Irwin Pact.",
+                    "1942: Quit India Movement (August Kranti)."
                 ],
-                shortcut: "Acronym CAKE: Champaran, Ahmedabad, Kheda (1917-1918)."
+                shortcut: "Acronym CAKE: Champaran, Ahmedabad, Kheda. Remember the progression: First he disobeyed (Champaran), then fasted (Ahmedabad), then didn't cooperate (Kheda)."
+            },
+            {
+                title: "3. Important Sessions of INC",
+                text: "The Indian National Congress (founded 1885 by A.O. Hume).",
+                examples: [
+                    "1885 (Bombay): W.C. Bonnerjee (First President).",
+                    "1907 (Surat): Split between Moderates and Extremists.",
+                    "1916 (Lucknow): Lucknow Pact (Reunion of Moderates/Extremists and pact with Muslim League).",
+                    "1924 (Belgaum): ONLY session presided by Mahatma Gandhi.",
+                    "1929 (Lahore): 'Purna Swaraj' resolution passed (Presided by J.L. Nehru)."
+                ],
+                shortcut: "Gandhi only presided ONCE: 1924 Belgaum. If you see Belgaum, click Gandhi."
             }
         ]
     },
     gk_history_medieval: {
         category: "GK: History",
-        title: "Medieval History: Delhi Sultanate & Mughals",
+        title: "Medieval History: Deep Dive",
         subtitle: "Battles & Founders",
         blocks: [
             {
@@ -111,7 +151,7 @@ const gkData = {
     // CATEGORY: GEOGRAPHY
     gk_geography_india: {
         category: "GK: Geography",
-        title: "Indian Geography Facts",
+        title: "Indian Geography Facts: Deep Dive",
         subtitle: "Rivers, Borders, and Parks",
         blocks: [
             {
@@ -130,7 +170,7 @@ const gkData = {
     // CATEGORY: SCIENCE
     gk_science_biology: {
         category: "GK: General Science",
-        title: "Biology: Vitamins & Diseases",
+        title: "Biology & Diseases: Deep Dive",
         subtitle: "Deficiencies & Scientific Names",
         blocks: [
             {
@@ -150,26 +190,48 @@ const gkData = {
     // CATEGORY: ECONOMY
     gk_economy: {
         category: "GK: Economy",
-        title: "Indian Economy & Five Year Plans",
-        subtitle: "Key Economic Structures",
+        title: "Indian Economy: Deep Dive",
+        subtitle: "Five Year Plans, RBI, and Taxes",
         blocks: [
             {
-                title: "1. Important Five Year Plans",
+                title: "1. The Reserve Bank of India (RBI)",
+                text: "The central bank that controls monetary policy.",
+                examples: [
+                    "Established: April 1, 1935 (Hilton Young Commission). Nationalized in 1949.",
+                    "Repo Rate: The rate at which RBI lends money to commercial banks.",
+                    "Reverse Repo Rate: The rate at which RBI borrows from banks.",
+                    "CRR (Cash Reserve Ratio): Percentage of deposits banks must keep with RBI in cash.",
+                    "SLR (Statutory Liquidity Ratio): Percentage of deposits banks must maintain in liquid assets (gold, bonds)."
+                ],
+                shortcut: "To fight INFLATION, RBI INCREASES all rates (Repo, CRR, SLR) to suck money out of the market."
+            },
+            {
+                title: "2. Important Five Year Plans",
                 text: "The planning commission was established in 1950 (replaced by NITI Aayog in 2015).",
                 examples: [
-                    "First Plan (1951-56): Based on Harrod-Domar model. Focus on Agriculture.",
-                    "Second Plan (1956-61): Based on Mahalanobis model. Focus on Heavy Industries.",
-                    "Fifth Plan (1974-79): Focus on 'Garibi Hatao' (Poverty Alleviation).",
-                    "Eleventh Plan (2007-12): 'Faster and more inclusive growth'."
+                    "First Plan (1951-56): Harrod-Domar model (Agriculture).",
+                    "Second Plan (1956-61): Mahalanobis model (Heavy Industries like Bhilai, Durgapur, Rourkela).",
+                    "Fifth Plan (1974-79): 'Garibi Hatao' (Poverty Alleviation).",
+                    "Eighth Plan (1992-97): LPG Reforms (Liberalization, Privatization, Globalization) under PV Narasimha Rao."
                 ],
-                shortcut: "Remember the models: 1st=Harrod-Domar (Agriculture), 2nd=Mahalanobis (Industry)."
+                shortcut: "Remember the models: 1st=Agriculture, 2nd=Industry. LPG reforms happened during the 8th Plan."
+            },
+            {
+                title: "3. Taxation System in India",
+                text: "Direct vs Indirect Taxes.",
+                examples: [
+                    "Direct Taxes (paid directly to govt): Income Tax, Corporate Tax, Wealth Tax.",
+                    "Indirect Taxes (paid on goods/services): GST, Customs Duty, Excise Duty.",
+                    "GST (Goods & Services Tax): Introduced by 101st Amendment Act, 2016. Slabs: 5%, 12%, 18%, 28%."
+                ],
+                shortcut: "If the burden of the tax can be shifted to the consumer (like buying a laptop), it is an Indirect Tax."
             }
         ]
     },
     // CATEGORY: SCIENTIFIC RESEARCH
     gk_science_inventions: {
         category: "GK: General Science",
-        title: "Important Inventions & Discoveries",
+        title: "Important Inventions: Deep Dive",
         subtitle: "Physics and Chemistry",
         blocks: [
             {
@@ -189,7 +251,7 @@ const gkData = {
     // CATEGORY: CURRENT AFFAIRS
     gk_current_affairs: {
         category: "GK: Current Affairs",
-        title: "How to Study Current Events",
+        title: "Current Events Strategy: Deep Dive",
         subtitle: "Strategy for Offline Study",
         blocks: [
             {
@@ -206,7 +268,7 @@ const gkData = {
     // CATEGORY: HISTORY & CULTURE
     gk_history_culture: {
         category: "GK: History & Culture",
-        title: "Indian History & Art",
+        title: "Indian History & Art: Deep Dive",
         subtitle: "Ancient, Medieval, and Modern",
         blocks: [
             {
@@ -231,38 +293,47 @@ const gkData = {
             }
         ]
     },
-    // CATEGORY: GEOGRAPHY
     gk_geography: {
         category: "GK: Geography",
-        title: "Indian & World Geography",
-        subtitle: "Rivers, Mountains, and Solar System",
+        title: "Indian Geography: Deep Dive",
+        subtitle: "Rivers, Mountains, and Climate",
         blocks: [
             {
-                title: "1. Indian Geography",
-                text: "Focus on the Himalayan system and Peninsular rivers.",
+                title: "1. The Himalayan River Systems",
+                text: "Indus, Ganga, and Brahmaputra are the major systems.",
                 examples: [
-                    "West-flowing rivers: Narmada and Tapi (They form estuaries, not deltas).",
-                    "Highest peak in India: K2 (Godwin Austen) or Kangchenjunga (undisputed).",
-                    "Longest coastline: Gujarat."
+                    "Ganga: Originates at Gangotri (Bhagirathi). Meets Alaknanda at Devprayag to become Ganga. Longest river in India.",
+                    "Brahmaputra: Known as Tsangpo in Tibet, Dihang in Arunachal, Jamuna in Bangladesh. Forms the largest river island, Majuli.",
+                    "Indus Tributaries: Jhelum, Chenab, Ravi, Beas, Sutlej."
                 ],
-                shortcut: "Tropic of Cancer passes through 8 states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, WB, Tripura, Mizoram (Trick: GRMC J WTM)."
+                shortcut: "Panchprayag Trick (Alaknanda meets others): D-A-B (Devprayag=Bhagirathi), R-A-M (Rudraprayag=Mandakini)."
             },
             {
-                title: "2. The Solar System",
-                text: "Basic facts about planets.",
+                title: "2. The Peninsular Rivers",
+                text: "Older than Himalayan rivers, non-perennial.",
                 examples: [
-                    "Hottest Planet: Venus (due to greenhouse effect).",
-                    "Red Planet: Mars (iron oxide).",
-                    "Largest Moon: Ganymede (Jupiter)."
+                    "East Flowing (Form Deltas, flow into Bay of Bengal): Mahanadi, Godavari (Dakshin Ganga), Krishna, Cauvery.",
+                    "West Flowing (Form Estuaries, flow into Arabian Sea): Narmada, Tapi, Mahi, Sabarmati."
                 ],
-                shortcut: "Order of planets from Sun: My Very Educated Mother Just Served Us Noodles (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune)."
+                shortcut: "West flowing rivers trick: 'NaTa' (Narmada, Tapi) don't form deltas because they flow through hard rift valleys."
+            },
+            {
+                title: "3. Mountain Ranges and Peaks",
+                text: "The physical divisions of India.",
+                examples: [
+                    "Highest peak of Himalayas in India: Kangchenjunga (Sikkim).",
+                    "Highest peak of Aravalli: Guru Shikhar (Mt. Abu).",
+                    "Highest peak of South India: Anamudi (Western Ghats).",
+                    "Eastern and Western Ghats meet at: Nilgiri Hills."
+                ],
+                shortcut: "Aravalli is the OLDEST fold mountain. Himalayas are the YOUNGEST fold mountains."
             }
         ]
     },
     // CATEGORY: GENERAL POLICY
     gk_general_policy: {
         category: "GK: General Policy",
-        title: "General Policy & Governance",
+        title: "General Policy & Governance: Deep Dive",
         subtitle: "Schemes and Committees",
         blocks: [
             {

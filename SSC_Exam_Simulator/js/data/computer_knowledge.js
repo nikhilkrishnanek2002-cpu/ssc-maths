@@ -1,7 +1,7 @@
 const computerData = {
     comp_basics: {
         category: "Computer: Basics",
-        title: "Computer Basics & Hardware",
+        title: "Computer Basics & Hardware: Deep Dive",
         subtitle: "CPU, Memory, and I/O Devices",
         blocks: [
             {
@@ -27,58 +27,81 @@ const computerData = {
     },
     comp_software: {
         category: "Computer: Software",
-        title: "Windows OS & MS Office",
-        subtitle: "Operating System and Applications",
+        title: "Windows OS & MS Office: Deep Dive",
+        subtitle: "Shortcuts & Application Mastery",
         blocks: [
             {
-                title: "1. Windows OS & Shortcuts",
+                title: "1. Windows OS & General Shortcuts",
                 text: "Windows uses GUI. Windows Explorer is the file manager.",
                 examples: [
-                    "Win + D: Show Desktop",
+                    "Win + D: Show/Hide Desktop",
                     "Win + L: Lock PC",
-                    "Alt + Tab: Switch apps",
-                    "Ctrl + Shift + Esc: Task Manager"
+                    "Win + R: Open Run dialog",
+                    "Alt + Tab: Switch between open apps",
+                    "Ctrl + Shift + Esc: Open Task Manager directly"
                 ],
-                shortcut: "F5 refreshes the window, F2 renames a file, F3 opens search."
+                shortcut: "Function Keys: F2 = Rename, F5 = Refresh, F7 = Spell Check (in MS Word), Alt + F4 = Close active window."
             },
             {
-                title: "2. MS Office Suites",
-                text: "Word (docs), Excel (spreadsheets), PowerPoint (presentations).",
+                title: "2. MS Word & Excel (Most Asked)",
+                text: "The core MS Office applications.",
                 examples: [
-                    "Excel: Rows are numbers (1,2,3), Columns are letters (A,B,C). Active cell is highlighted.",
-                    "Word: Ctrl+B (Bold), Ctrl+I (Italic), Ctrl+U (Underline).",
-                    "PowerPoint: F5 starts slide show from the beginning, Shift+F5 from current slide."
+                    "Word: Ctrl+J (Justify), Ctrl+H (Replace), Ctrl+K (Hyperlink).",
+                    "Excel: A workbook contains multiple worksheets. Maximum rows in modern Excel = 1,048,576. Maximum columns = 16,384 (XFD).",
+                    "Excel formulas ALWAYS start with '='. E.g., =SUM(A1:A5)."
                 ],
-                shortcut: "In Excel, formulas ALWAYS start with an equal sign (=). E.g., =SUM(A1:A5)."
+                shortcut: "In MS Word, Ctrl + = creates Subscript (H₂O). Ctrl + Shift + + creates Superscript (x²)."
+            },
+            {
+                title: "3. MS PowerPoint",
+                text: "Presentation software.",
+                examples: [
+                    "F5: Starts slide show from the BEGINNING.",
+                    "Shift+F5: Starts slide show from the CURRENT slide.",
+                    "Ctrl+M: Inserts a NEW slide (Don't confuse with Ctrl+N, which opens a new presentation)."
+                ],
+                shortcut: "To duplicate a slide, select it and press Ctrl+D."
             }
         ]
     },
     comp_internet: {
         category: "Computer: Internet",
-        title: "Internet, Email & Security",
-        subtitle: "Web Browsing and Cyber Threats",
+        title: "Internet, Networking & Security: Deep Dive",
+        subtitle: "Web Browsing, Protocols, and Cyber Threats",
         blocks: [
             {
-                title: "1. Web Browsing & Email",
-                text: "Browsers display web pages. Emails use protocols to send/receive messages.",
+                title: "1. Web Protocols and Emails",
+                text: "Rules that govern data transfer.",
                 examples: [
-                    "HTTP/HTTPS: Web protocol (S is Secure).",
-                    "SMTP: Sending email.",
-                    "POP3/IMAP: Receiving email.",
-                    "URL: Uniform Resource Locator (web address)."
+                    "HTTP/HTTPS: Web protocol (HTTPS is encrypted via SSL/TLS).",
+                    "SMTP (Simple Mail Transfer Protocol): Used for SENDING emails.",
+                    "POP3/IMAP: Used for RECEIVING emails (IMAP keeps it on the server, POP3 downloads it).",
+                    "FTP: File Transfer Protocol (used for uploading/downloading files to a server)."
                 ],
-                shortcut: "CC in email = Carbon Copy (visible to all). BCC = Blind Carbon Copy (hidden from others)."
+                shortcut: "CC in email = Carbon Copy (visible to all). BCC = Blind Carbon Copy (hidden from others). If you want to hide email addresses, use BCC."
             },
             {
-                title: "2. Cyber Security & Threats",
-                text: "Malware refers to malicious software designed to harm or exploit systems.",
+                title: "2. Networking Devices & Topologies",
+                text: "How computers connect to each other.",
                 examples: [
-                    "Virus: Needs a host file to replicate.",
-                    "Worm: Self-replicating, doesn't need a host.",
-                    "Trojan: Disguised as legitimate software.",
-                    "Phishing: Fake emails/sites to steal credentials."
+                    "Router: Connects different networks (e.g., your home LAN to the internet).",
+                    "Switch: Connects devices within the SAME network intelligently.",
+                    "Hub: Connects devices but broadcasts data to EVERYONE (dumb device).",
+                    "Topologies: Star (all connected to a central hub), Ring (circular), Bus (single main cable)."
                 ],
-                shortcut: "Antivirus and Firewalls are the primary defenses. Firewalls monitor incoming/outgoing network traffic."
+                shortcut: "Star topology is the most common in modern LANs. If the central hub fails, the whole network goes down."
+            },
+            {
+                title: "3. Cyber Security & Malware",
+                text: "Malicious software designed to harm or exploit systems.",
+                examples: [
+                    "Virus: Needs a host file/program to replicate. Spreads when you execute the file.",
+                    "Worm: Self-replicating, doesn't need a host. Spreads automatically across networks.",
+                    "Trojan: Disguised as legitimate software (e.g., a fake game). Does not self-replicate.",
+                    "Phishing: Fake emails/websites designed to steal passwords or credit card info.",
+                    "Ransomware: Encrypts your files and demands payment to unlock them."
+                ],
+                shortcut: "A Firewall monitors and controls incoming and outgoing network traffic based on security rules. It acts as a barrier."
             }
         ]
     }

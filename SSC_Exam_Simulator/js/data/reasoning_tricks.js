@@ -2,52 +2,84 @@ const reasoningData = {
     // CATEGORY: VERBAL REASONING
     reasoning_series: {
         category: "Reasoning: Verbal",
-        title: "Number & Alphabet Series",
-        subtitle: "Pattern Recognition Masterclass",
+        title: "Number Series: Deep Dive",
+        subtitle: "Advanced Step & Pattern Recognition",
         blocks: [
             {
-                title: "1. Number Series Priorities",
-                text: "When approaching a number series, check patterns in this priority order to save time:",
+                title: "1. The Step Method (Universal Trick)",
+                text: "If you cannot immediately spot a square/cube/prime pattern, ALWAYS use the Step Method.",
                 examples: [
-                    "Priority 1: Prime Numbers",
-                    "Priority 2: Squares and Cubes (n², n³, n²±1, n³±1)",
-                    "Priority 3: Multiplication/Division (×n ± 1)",
-                    "Priority 4: Step Method (Difference of difference)"
+                    "Series: 2, 9, 28, 65, 126",
+                    "Step 1 (Find Differences): 7, 19, 37, 61",
+                    "Step 2 (Differences of Differences): 12, 18, 24",
+                    "Step 3 (Third level): 6, 6 (Constant!)",
+                    "Now work upwards: 24+6=30. 61+30=91. 126+91 = 217."
                 ],
-                shortcut: "If numbers increase VERY rapidly, it's definitely a Multiplication or Cube series. If they increase slowly, it's an Addition/Difference series."
+                shortcut: "The Step Method works for 90% of series that don't involve pure multiplication. Draw it quickly like a pyramid."
             },
             {
-                title: "2. Alphabet Coding (EJOTY)",
-                text: "To memorize the position values of English alphabets, remember the word EJOTY.",
+                title: "2. The 'Half-Pattern' Decimal Trick",
+                text: "Whenever a series drops suddenly and then rises, or has .5 in it.",
                 examples: [
-                    "E = 5, J = 10, O = 15, T = 20, Y = 25"
+                    "Series: 10, 5, 5, 7.5, 15",
+                    "Pattern: ×0.5, ×1, ×1.5, ×2",
+                    "Next is 15 × 2.5 = 37.5."
                 ],
-                shortcut: "Reverse position = 27 - (Forward Position). Example: Reverse of A (1) is Z (27-1=26)."
+                shortcut: "If you see the second number is EXACTLY HALF of the first, it is a ×0.5 series. Don't waste time on differences."
+            },
+            {
+                title: "3. Alternating Series",
+                text: "When numbers go up and down repeatedly.",
+                examples: [
+                    "Series: 50, 5, 45, 10, 40, 15, ?",
+                    "Pattern 1 (Odd positions): 50 -> 45 -> 40 -> (35)",
+                    "Pattern 2 (Even positions): 5 -> 10 -> 15"
+                ],
+                shortcut: "If the series is unusually long (more than 5 or 6 numbers), it is almost always an alternating twin series."
             }
         ]
     },
     reasoning_syllogism: {
         category: "Reasoning: Verbal",
-        title: "Syllogism: Venn Diagram Method",
-        subtitle: "Visualizing Statements",
+        title: "Syllogism: Possibilities Deep Dive",
+        subtitle: "Mastering the Venn Diagrams",
         blocks: [
             {
-                title: "1. The 4 Basic Statements",
-                text: "Always draw the Minimum Overlapping Venn Diagram. Don't assume extra relationships.",
+                title: "1. The 100-50 Rule vs Venn Diagram",
+                text: "While the 100-50 rule is fast, the Venn Diagram is 100% accurate for 'Possibility' cases. Always draw the MINIMUM overlapping diagram.",
                 examples: [
-                    "<b>All A are B:</b> Draw circle A completely inside circle B.",
-                    "<b>Some A are B:</b> Draw circle A intersecting circle B.",
-                    "<b>No A is B:</b> Draw circle A and circle B separated by a line with a cross (×).",
-                    "<b>Some A are not B:</b> Draw circle A intersecting B, but shade a part of A and put a cross pointing to B."
+                    "<b>All A are B:</b> Draw circle A inside circle B.",
+                    "<b>Some A are B:</b> Draw circles intersecting.",
+                    "<b>No A is B:</b> Draw circles separated by a line with a cross (×).",
+                    "<b>Some A are not B:</b> Shade a small part of A and put a cross pointing to B."
                 ],
-                shortcut: "Possibility Cases: If there is no direct or indirect relation given between two elements, then ALL possibilities between them are TRUE."
+                shortcut: "If the conclusion is POSITIVE (All/Some) and you don't see it explicitly in your drawing, it's FALSE."
+            },
+            {
+                title: "2. Handling 'Possibility' Cases",
+                text: "When a conclusion ends with 'is a possibility'.",
+                examples: [
+                    "If two circles have NO direct or indirect connection in the statements, then ANY possibility between them is TRUE.",
+                    "If 'Some A are B' is given, then 'All A can be B is a possibility' is TRUE.",
+                    "If 'All A are B' is given, then 'All A are B is a possibility' is FALSE (because it's already a definite fact, not a possibility)."
+                ],
+                shortcut: "Possibility trick: If you can redraw the Venn diagram to satisfy the conclusion WITHOUT violating any original statements, the possibility is true."
+            },
+            {
+                title: "3. 'Only' and 'Only a few'",
+                text: "The newest TCS pattern questions.",
+                examples: [
+                    "'Only A are B' means exactly the same as 'All B are A' (Draw B inside A). BUT B cannot interact with any other element.",
+                    "'Only a few A are B' means TWO things simultaneously: 'Some A are B' AND 'Some A are not B'."
+                ],
+                shortcut: "For 'Only a few A are B', you can never say 'All A are B is a possibility' (it's false), but you CAN say 'All B are A is a possibility' (it's true)."
             }
         ]
     },
     reasoning_blood: {
         category: "Reasoning: Verbal",
-        title: "Blood Relations",
-        subtitle: "Family Tree Generation",
+        title: "Blood Relations: Deep Dive",
+        subtitle: "Family Tree & Coded Relations",
         blocks: [
             {
                 title: "1. Drawing the Family Tree",
@@ -59,13 +91,31 @@ const reasoningData = {
                     "Siblings = Single horizontal line (-)",
                     "Generations = Vertical line (|)"
                 ],
-                shortcut: "In 'Pointing to a photograph' questions, always start solving from the end of the sentence or from the word 'My'."
+                shortcut: "Never assume the gender of a person based purely on their name (e.g., 'Kiran' could be male or female) unless explicitly stated."
+            },
+            {
+                title: "2. Pointing to a Photograph",
+                text: "The trickiest type of blood relation.",
+                examples: [
+                    "Example: Pointing to a man, a woman said, 'His mother is the only daughter of my mother.'",
+                    "Breakdown: 'my mother's only daughter' = the woman herself. So, 'His mother = the woman'. Thus, the woman is his mother."
+                ],
+                shortcut: "Always start solving backwards from the word 'My'. Find out who 'My' refers to, and work your way to the start of the sentence."
+            },
+            {
+                title: "3. Coded Blood Relations",
+                text: "A + B means A is father of B, etc.",
+                examples: [
+                    "Don't draw the whole tree if you can eliminate options.",
+                    "If the question asks 'Which of the following shows P is the aunt of Q?', P MUST be female. Check the symbol immediately after P. If it represents a male relation, eliminate that option instantly!"
+                ],
+                shortcut: "Check gender first to eliminate 2 options. Then check generation gap (+1 for father, 0 for brother). You don't even need to draw the tree!"
             }
         ]
     },
     reasoning_direction: {
         category: "Reasoning: Verbal",
-        title: "Direction & Distance",
+        title: "Direction & Distance: Deep Dive",
         subtitle: "Pythagoras & Shadow Concepts",
         blocks: [
             {
@@ -92,8 +142,8 @@ const reasoningData = {
     // CATEGORY: NON-VERBAL REASONING
     reasoning_nonverbal: {
         category: "Reasoning: Non-Verbal",
-        title: "Visual & Figural Reasoning",
-        subtitle: "Paper Folding, Mirror Images",
+        title: "Visual Reasoning: Deep Dive",
+        subtitle: "Counting Figures & Mirror Images",
         blocks: [
             {
                 title: "1. Mirror and Water Images",
@@ -105,21 +155,31 @@ const reasoningData = {
                 shortcut: "In an exam, you can literally turn your rough paper upside down or hold it against the light to see water/mirror images instantly without thinking!"
             },
             {
-                title: "2. Counting Figures (Triangles)",
-                text: "Don't count manually. Use standard tricks.",
+                title: "2. Counting Triangles (Advanced)",
+                text: "Don't count manually. Use standard formula tricks.",
                 examples: [
                     "A triangle divided by 'n' vertical lines from the top vertex: Number of triangles = n(n+1)/2",
-                    "A square with both diagonals drawn: 8 triangles.",
+                    "A square with both diagonals drawn: 8 triangles. Two such squares joined: 8+8+2(common vertices) = 18 triangles.",
                     "A square with a cross and a plus drawn (8 parts): 8 * 2 = 16 triangles."
                 ],
                 shortcut: "Symmetric Triangle Rule: If a large triangle has smaller identical triangles inside, count the number of base segments (n). Total = [n(n+2)(2n+1)]/8 (if n is even). Ignore remainder if odd."
+            },
+            {
+                title: "3. Counting Squares and Rectangles",
+                text: "Grids of squares.",
+                examples: [
+                    "For a symmetric grid (n × n): Total squares = 1² + 2² + 3² ... + n².",
+                    "For an asymmetric grid (m × n): Total squares = (m×n) + ((m-1)×(n-1)) ... until one becomes 1.",
+                    "Total Rectangles in any grid (m × n): (Sum of row numbers) × (Sum of column numbers)."
+                ],
+                shortcut: "Every square is a rectangle, but not every rectangle is a square. If a question asks for 'rectangles', you MUST include the squares in your count unless it says 'rectangles only'."
             }
         ]
     },
     // CATEGORY: ADDITIONAL NON-VERBAL
     reasoning_embedded: {
         category: "Reasoning: Non-Verbal",
-        title: "Embedded Figures",
+        title: "Embedded Figures: Deep Dive",
         subtitle: "Finding the hidden shape",
         blocks: [
             {
@@ -153,7 +213,7 @@ const reasoningData = {
     // CATEGORY: ADVANCED REASONING
     reasoning_advanced: {
         category: "Reasoning: Advanced",
-        title: "Space Visualization & Word Building",
+        title: "Space Visualization & Word Building: Deep Dive",
         subtitle: "Spatial Orientation and Lexical Tasks",
         blocks: [
             {
@@ -179,7 +239,7 @@ const reasoningData = {
     // CATEGORY: ADDITIONAL VERBAL REASONING
     reasoning_analogies: {
         category: "Reasoning: Verbal",
-        title: "Analogies & Classification",
+        title: "Analogies & Classification: Deep Dive",
         subtitle: "Semantic, Symbolic, and Figural",
         blocks: [
             {
@@ -205,7 +265,7 @@ const reasoningData = {
     },
     reasoning_coding: {
         category: "Reasoning: Verbal",
-        title: "Coding and Decoding",
+        title: "Coding and Decoding: Deep Dive",
         subtitle: "Letter, Number, and Symbol Coding",
         blocks: [
             {
@@ -222,7 +282,7 @@ const reasoningData = {
     },
     reasoning_clerical: {
         category: "Reasoning: Verbal",
-        title: "Indexing & Address Matching",
+        title: "Indexing & Address Matching: Deep Dive",
         subtitle: "Clerical Aptitude Tasks",
         blocks: [
             {
@@ -246,7 +306,7 @@ const reasoningData = {
     },
     reasoning_paper: {
         category: "Reasoning: Non-Verbal",
-        title: "Punched Hole & Paper Folding",
+        title: "Punched Hole & Paper Folding: Deep Dive",
         subtitle: "Unfolding Patterns",
         blocks: [
             {
