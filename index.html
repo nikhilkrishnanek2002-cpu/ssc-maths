@@ -311,21 +311,40 @@
 
         @media (max-width: 768px) {
             .nav-bar {
-                flex-direction: column;
-                gap: 16px;
+                padding: 12px 16px;
+            }
+            
+            .logo {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
             }
 
             .hero-section h1 {
                 font-size: 2.5rem;
+                margin-top: 20px;
             }
 
             .stats-bar {
-                flex-direction: column;
-                gap: 24px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .stat-item:last-child {
+                grid-column: span 2;
             }
 
             .cards-container {
                 grid-template-columns: 1fr;
+                margin: 40px auto;
             }
 
             .features-grid {
@@ -333,7 +352,7 @@
             }
 
             .card {
-                padding: 24px;
+                padding: 30px 20px;
             }
         }
     </style>

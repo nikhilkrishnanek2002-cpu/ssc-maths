@@ -37,12 +37,12 @@
     <!-- Navigation Bar -->
     <div class="nav-wrapper">
         <div class="nav">
-            <button class="nav-btn active" onclick="filterBySubject('all')">All Topics</button>
-            <button class="nav-btn" onclick="filterBySubject('math')">📐 Mathematics</button>
+            <button class="nav-btn active" onclick="filterBySubject('all')">All</button>
+            <button class="nav-btn" onclick="filterBySubject('math')">📐 Math</button>
             <button class="nav-btn" onclick="filterBySubject('english')">📚 English</button>
             <button class="nav-btn" onclick="filterBySubject('reasoning')">🧠 Reasoning</button>
             <button class="nav-btn" onclick="filterBySubject('gk')">🌍 GK</button>
-            <button class="nav-btn" onclick="filterBySubject('computer')">💻 Computer</button>
+            <button class="nav-btn" onclick="filterBySubject('computer')">💻 Comp</button>
             <button class="nav-btn" style="margin-left: auto;" onclick="goHome()"><i class="fas fa-home"></i> Home</button>
         </div>
     </div>
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Topics Grid -->
-        <div id="topics-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 40px;">
+        <div id="topics-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px;">
             <!-- Topics loaded here by JavaScript -->
         </div>
 
