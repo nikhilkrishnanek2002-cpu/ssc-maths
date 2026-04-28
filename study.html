@@ -43,6 +43,7 @@
             <button class="nav-btn" onclick="filterBySubject('reasoning')">🧠 Reasoning</button>
             <button class="nav-btn" onclick="filterBySubject('gk')">🌍 GK</button>
             <button class="nav-btn" onclick="filterBySubject('computer')">💻 Comp</button>
+            <button class="nav-btn" onclick="filterBySubject('pyq')">📂 PYQ Vault</button>
             <button class="nav-btn" onclick="filterBySubject('tier2')" style="color: var(--accent4);">🏆 Tier-2 Focus</button>
             <button class="nav-btn" style="margin-left: auto;" onclick="goHome()"><i class="fas fa-home"></i> Home</button>
         </div>
@@ -120,7 +121,11 @@
             ...GKBank,
             ...gkDataExpanded,
             ...computerData,
-            ...statisticsData
+            ...statisticsData,
+            'pyq_2024_math': { title: "2024 Math PYQs", theory: "Advanced Arithmetic and Algebra from Sept 2024 slots.", practice: PYQ_BANK.math },
+            'pyq_2024_reasoning': { title: "2024 Reasoning PYQs", theory: "Authentic pattern identification from 2024 shifts.", practice: PYQ_BANK.reasoning },
+            'pyq_2024_english': { title: "2024 English PYQs", theory: "Authentic vocabulary and grammar errors from 2024.", practice: PYQ_BANK.english },
+            'pyq_2024_gk': { title: "2024 GA PYQs", theory: "Current affairs and static GK from recent exams.", practice: PYQ_BANK.gk }
         };
 
         let currentFilter = 'all';
@@ -135,6 +140,7 @@
             if (key.startsWith('gk_')) return 'gk';
             if (key.startsWith('comp_')) return 'computer';
             if (key.startsWith('stat_')) return 'statistics';
+            if (key.startsWith('pyq_')) return 'pyq';
             return 'other';
         }
 

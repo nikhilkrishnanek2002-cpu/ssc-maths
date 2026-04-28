@@ -59,6 +59,17 @@ function loadQuestion(index) {
     } else {
         document.getElementById('btn-view-solution').classList.add('hidden');
     }
+
+    // Trigger KaTeX for beautiful math formulas if available
+    if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById('question-text'), {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });
+    }
 }
 
 function selectAnswer(qId, optionIndex) {
@@ -157,9 +168,41 @@ function updateLegend() {
 }
 
 function submitExam() {
-    // Phase 4 will handle Mistake Book and local storage
     clearInterval(examState.timerInterval);
-    alert("Exam Submitted Successfully! Analyzing Results...");
+    
+    let totalCorrect = 0;
+    let totalWrong = 0;
+    let subjectStats = {};
+
+    Object.keys(SECTIONS).forEach(sId => {
+        let correct = 0;
+        let wrong = 0;
+        let unanswered = 0;
+        
+        if (examState.questions[sId]) {
+            examState.questions[sId].forEach(q => {
+                const userAns = examState.answers[q.id];
+                if (userAns === undefined) unanswered++;
+                else if (parseInt(userAns) === q.correctAnswer) correct++;
+                else wrong++;
+            });
+        }
+
+        subjectStats[sId] = { correct, wrong, unanswered };
+        totalCorrect += correct;
+        totalWrong += wrong;
+    });
+
+    const marksPerCorrect = currentPattern === 'tier2' ? 3 : 2;
+    const marksPerWrong = currentPattern === 'tier2' ? 1 : 0.5;
+    const finalScore = (totalCorrect * marksPerCorrect) - (totalWrong * marksPerWrong);
+
+    // Call dynamic result renderer in app.js
+    if (typeof renderResults === 'function') {
+        renderResults(finalScore, subjectStats);
+    } else {
+        alert(`Exam Submitted!\nScore: ${finalScore.toFixed(2)}\nCorrect: ${totalCorrect}\nWrong: ${totalWrong}`);
+    }
 }
 
 function showSolution() {

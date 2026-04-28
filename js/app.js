@@ -155,6 +155,99 @@ function switchSection(sectionId) {
     loadQuestion(0);
 }
 
+function renderResults(score, stats) {
+    const modal = document.getElementById('results-modal');
+    modal.classList.remove('hidden');
+    document.getElementById('total-score').innerText = score.toFixed(1);
+    
+    // Save to Local History
+    if (typeof StorageManager !== 'undefined') {
+        StorageManager.saveScore(currentPattern, score);
+    }
+
+    // Breakdown Table
+    let tableHtml = `<div style="margin-bottom:15px; font-weight:bold; border-bottom:1px solid #ccc;">Subject-wise Accuracy</div>
+        <table style="width:100%; border-collapse:collapse; font-size:12px;">
+        <thead><tr style="border-bottom:2px solid #0b5ed7; text-align:left;"><th>Subject</th><th style="color:green;">C</th><th style="color:red;">W</th></tr></thead>
+        <tbody>`;
+    
+    const labels = [];
+    const data = [];
+
+    Object.keys(stats).forEach(sId => {
+        const s = SECTIONS[sId];
+        const stat = stats[sId];
+        if (!examState.questions[sId] || examState.questions[sId].length === 0) return;
+
+        tableHtml += `<tr style="border-bottom:1px solid #eee; height:30px;">
+            <td style="font-weight:bold;">${s.name.split(' ')[0]}</td>
+            <td style="color:green; font-weight:bold;">${stat.correct}</td>
+            <td style="color:red;">${stat.wrong}</td>
+        </tr>`;
+        
+        labels.push(s.name.split(' ')[0]);
+        const accuracy = stat.correct + stat.wrong > 0 
+            ? (stat.correct / (stat.correct + stat.wrong)) * 100 
+            : 0;
+        data.push(accuracy);
+    });
+    
+    tableHtml += `</tbody></table>`;
+    
+    // Add Personal Best/History to the UI
+    if (typeof StorageManager !== 'undefined') {
+        tableHtml += `<div style="margin-top:20px; margin-bottom:10px; font-weight:bold; border-bottom:1px solid #ccc;">Your Recent Mock History</div>`;
+        tableHtml += StorageManager.renderLeaderboard();
+    }
+
+    document.getElementById('subject-breakdown').innerHTML = tableHtml;
+
+    // Chart.js Radar Chart
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    if (window.myPerfChart) window.myPerfChart.destroy();
+
+    window.myPerfChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Accuracy %',
+                data: data,
+                backgroundColor: 'rgba(11, 94, 215, 0.2)',
+                borderColor: '#0b5ed7',
+                pointBackgroundColor: '#0b5ed7',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    angleLines: { display: true },
+                    suggestedMin: 0,
+                    suggestedMax: 100,
+                    ticks: { display: false }
+                }
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
+}
+
+function closeResults() {
+    document.getElementById('results-modal').classList.add('hidden');
+}
+
+function shareScore() {
+    const score = document.getElementById('total-score').innerText;
+    const text = `🚀 I just completed an authentic SSC CGL Mock Exam on the SSC Preparation Platform!\n\n🏆 My Score: ${score} / 200.0\n📈 My Pattern: ${currentPattern.toUpperCase()}\n\nTry it yourself and beat my score: ${window.location.href}`;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Performance Summary copied to clipboard! Share it with your friends.");
+    }).catch(err => {
+        alert("Failed to copy. Here is your score: " + score);
+    });
+}
+
 // Calculator Logic
 let calcVisible = false;
 let calcValue = '';

@@ -1,86 +1,44 @@
-// Local Storage Manager
-// Acts as an offline database to save progress and mistakes
+// Local Storage Manager for saving personal bests and progress
+// No API Keys needed, works in all modern browsers
 
-const LocalDB = {
-    saveMistakes: function(questions, answers) {
-        let mistakes = JSON.parse(localStorage.getItem('ssc_mistakes')) || [];
-        let newMistakesCount = 0;
-
-        Object.keys(questions).forEach(section => {
-            questions[section].forEach(q => {
-                const userAnswer = answers[q.id];
-                // If answer is wrong or not attempted
-                if(userAnswer !== q.correctAnswer) {
-                    // Avoid duplicates
-                    if(!mistakes.find(m => m.id === q.id)) {
-                        mistakes.push({
-                            id: q.id,
-                            section: section,
-                            text: q.text,
-                            options: q.options,
-                            correctAnswer: q.correctAnswer,
-                            explanation: q.explanation,
-                            userAnswer: userAnswer !== undefined ? userAnswer : null,
-                            dateAdded: new Date().toISOString()
-                        });
-                        newMistakesCount++;
-                    }
-                }
-            });
+const StorageManager = {
+    saveScore: function(pattern, score) {
+        let history = JSON.parse(localStorage.getItem('ssc_exam_history') || '[]');
+        history.push({
+            date: new Date().toLocaleDateString(),
+            time: new Date().toLocaleTimeString(),
+            pattern: pattern.toUpperCase(),
+            score: score.toFixed(1)
         });
-
-        localStorage.setItem('ssc_mistakes', JSON.stringify(mistakes));
-        return newMistakesCount;
+        // Keep only last 10
+        if(history.length > 10) history.shift();
+        localStorage.setItem('ssc_exam_history', JSON.stringify(history));
     },
 
-    getMistakes: function() {
-        return JSON.parse(localStorage.getItem('ssc_mistakes')) || [];
+    getBestScore: function(pattern) {
+        let history = JSON.parse(localStorage.getItem('ssc_exam_history') || '[]');
+        const scores = history
+            .filter(h => h.pattern === pattern.toUpperCase())
+            .map(h => parseFloat(h.score));
+        return scores.length > 0 ? Math.max(...scores) : 0;
     },
 
-    clearMistakes: function() {
-        localStorage.removeItem('ssc_mistakes');
-    },
+    renderLeaderboard: function() {
+        let history = JSON.parse(localStorage.getItem('ssc_exam_history') || '[]');
+        if (history.length === 0) return "<p style='color:#999;'>No exams taken yet.</p>";
 
-    saveAnalytics: function(timeSpent, score) {
-        let analytics = JSON.parse(localStorage.getItem('ssc_analytics')) || [];
-        analytics.push({
-            date: new Date().toISOString(),
-            timeSpent: timeSpent,
-            score: score
+        let html = `<table style="width:100%; border-collapse:collapse; font-size:12px; margin-top:10px;">
+            <thead><tr style="border-bottom:1px solid #ccc; text-align:left;"><th>Date</th><th>Tier</th><th>Score</th></tr></thead>
+            <tbody>`;
+        
+        history.reverse().forEach(h => {
+            html += `<tr style="border-bottom:1px solid #eee;">
+                <td>${h.date}</td>
+                <td>${h.pattern}</td>
+                <td style="font-weight:bold; color:#0b5ed7;">${h.score}</td>
+            </tr>`;
         });
-        localStorage.setItem('ssc_analytics', JSON.stringify(analytics));
+        html += `</tbody></table>`;
+        return html;
     }
-};
-
-// Update the submitExam function in ExamEngine to use this
-const originalSubmitExam = submitExam;
-window.submitExam = function() {
-    clearInterval(examState.timerInterval);
-    
-    // Calculate score
-    let score = 0;
-    let correct = 0;
-    let wrong = 0;
-    
-    Object.keys(examState.questions).forEach(section => {
-        examState.questions[section].forEach(q => {
-            const userAnswer = examState.answers[q.id];
-            if(userAnswer === q.correctAnswer) {
-                score += 2;
-                correct++;
-            } else if (userAnswer !== undefined) {
-                score -= 0.5;
-                wrong++;
-            }
-        });
-    });
-
-    const newMistakes = LocalDB.saveMistakes(examState.questions, examState.answers);
-    LocalDB.saveAnalytics(3600 - examState.timeLeft, score);
-
-    alert(`Exam Submitted!\n\nScore: ${score} / 200\nCorrect: ${correct}\nWrong: ${wrong}\n\n${newMistakes} new mistakes saved to your offline Mistake Book.`);
-    
-    // In a full app, this would route to a result/analytics page.
-    // For now, reload to restart
-    window.location.reload();
 };

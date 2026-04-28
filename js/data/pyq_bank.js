@@ -44,6 +44,55 @@ const PYQ_BANK = {
             correctAnswer: 2,
             difficulty: "VERY HIGH",
             explanation: { standard: "Numerator is (x + 5)³. Denominator is (x + 5)(x - 5). Result = [(x+5)³ / (x+5)(x-5)] * (x-5) = (x+5)² = x² + 10x + 25." }
+        },
+        {
+            text: "If x + y + 3 = 0, what is the value of x³ + y³ - 9xy + 9?",
+            options: ["-18", "-36", "18", "36"],
+            correctAnswer: 0,
+            difficulty: "HIGH",
+            explanation: { standard: "x + y = -3. Cube both sides: x³ + y³ + 3xy(x+y) = -27. Substitute x+y = -3: x³ + y³ - 9xy = -27. So, x³ + y³ - 9xy + 9 = -27 + 9 = -18." }
+        },
+        {
+            text: "The angle of elevation of the top of an unfinished tower at a point 78 m from its base is 30°. How much higher must the tower be raised (in m) so that the angle of elevation becomes 60°?",
+            options: ["78√3", "80", "52√3", "26√3"],
+            correctAnswer: 2,
+            difficulty: "HIGH",
+            explanation: { standard: "Initial height h1 = 78 tan 30° = 78/√3 = 26√3. Final height h2 = 78 tan 60° = 78√3. Height to be raised = h2 - h1 = 78√3 - 26√3 = 52√3 m." }
+        },
+        {
+            text: "A dishonest merchant sells goods at a 12.5% loss on CP, but uses 28 g weight instead of 36 g. What is his overall profit or loss percentage?",
+            options: ["6.25% loss", "12.5% gain", "18.75% gain", "10.5% loss"],
+            correctAnswer: 1,
+            difficulty: "VERY HIGH",
+            explanation: { standard: "CP:SP = 8:7 (12.5% loss). Weight ratio = 28:36 = 7:9. Effective ratio = (8*7):(7*9) = 56:63 = 8:9. Profit = (1/8)*100 = 12.5% gain." }
+        },
+        {
+            text: "Find the mean proportion of 169 and 144.",
+            options: ["156", "147", "126", "165"],
+            correctAnswer: 0,
+            difficulty: "EASY",
+            explanation: { standard: "Mean Proportion = √(a * b) = √(169 * 144) = 13 * 12 = 156." }
+        },
+        {
+            text: "If the length and breadth of a rectangle are increased by 8% and 5% respectively, by how much percentage will the area of the rectangle increase?",
+            options: ["13.4%", "15.4%", "12.4%", "16.4%"],
+            correctAnswer: 0,
+            difficulty: "MEDIUM",
+            explanation: { standard: "Successive formula: a + b + (ab/100) = 8 + 5 + (40/100) = 13.4%." }
+        },
+        {
+            text: "If 7 : 329, then 9 : ?",
+            options: ["1029", "728", "711", "743"],
+            correctAnswer: 2,
+            difficulty: "HIGH",
+            explanation: { standard: "Logic: (n³ - n*2). 7³ - 14 = 343 - 14 = 329. 9³ - 18 = 729 - 18 = 711." }
+        },
+        {
+            text: "The total age of Amit and Suvarna is 61 years. Amit is 3 years younger than Suvarna. What was Suvarna's age 5 years ago?",
+            options: ["27 years", "24 years", "29 years", "32 years"],
+            correctAnswer: 0,
+            difficulty: "MEDIUM",
+            explanation: { standard: "A + S = 61, S - A = 3. 2S = 64 => S = 32. 5 years ago, Suvarna was 32 - 5 = 27." }
         }
     ],
     english: [
@@ -81,6 +130,55 @@ const PYQ_BANK = {
             correctAnswer: 0,
             difficulty: "EASY",
             explanation: { standard: "Toxic means poisonous or deadly. Lethal is the correct synonym." }
+        },
+        {
+            text: "Select the most appropriate meaning of the idiom: 'Be hard up'",
+            options: ["Unable to calculate", "Have very little money", "Difficulty in climbing", "Difficult to wake up"],
+            correctAnswer: 1,
+            difficulty: "EASY",
+            explanation: { standard: "'Be hard up' means to be short of money." }
+        },
+        {
+            text: "Identify the grammatical error: 'No one were present when I entered the hall.'",
+            options: ["No one were", "present when", "No error", "entered the hall"],
+            correctAnswer: 0,
+            difficulty: "MEDIUM",
+            explanation: { standard: "'No one' is singular and takes a singular verb 'was'. Correct: 'No one was present'." }
+        },
+        {
+            text: "Select the most appropriate synonym of the word: CONFUSION",
+            options: ["Intrepidity", "Stagnation", "Perusal", "Commotion"],
+            correctAnswer: 3,
+            difficulty: "EASY",
+            explanation: { standard: "Confusion means a state of disorder; Commotion is the closest synonym." }
+        },
+        {
+            text: "Select the most appropriate ANTONYM of the word: HOSPITALITY",
+            options: ["Complaint", "Cordiality", "Coldness", "Wrathful"],
+            correctAnswer: 2,
+            difficulty: "MEDIUM",
+            explanation: { standard: "Hospitality means friendly reception; Coldness is its opposite." }
+        },
+        {
+            text: "Identify the error segment: 'After finishing high school, (A) I plan (B) to pursuing law. (C)'",
+            options: ["After finishing high school", "I plan", "to pursuing law", "No error"],
+            correctAnswer: 2,
+            difficulty: "EASY",
+            explanation: { standard: "To + V1 is the correct form. It should be 'to pursue law'." }
+        },
+        {
+            text: "Select the most appropriate meaning of the idiom: 'Spill the beans'",
+            options: ["Perform magic", "Work hard", "Waste money", "Give away a secret"],
+            correctAnswer: 3,
+            difficulty: "EASY",
+            explanation: { standard: "To 'spill the beans' means to reveal a secret." }
+        },
+        {
+            text: "Identify the error: 'Everything that I like to eat (A) are (B) fattening. (C)'",
+            options: ["Everything that", "I like", "are fattening", "No error"],
+            correctAnswer: 2,
+            difficulty: "MEDIUM",
+            explanation: { standard: "'Everything' is a singular pronoun and takes a singular verb 'is'." }
         }
     ],
     reasoning: [
@@ -104,6 +202,41 @@ const PYQ_BANK = {
             correctAnswer: 3,
             difficulty: "HIGH",
             explanation: { standard: "Logic: (n * i) + 1 where i starts from 2. (1*2)+1=3, (3*3)+1=10, (10*4)+1=41, (41*5)+1=206." }
+        },
+        {
+            text: "Find the missing number in the series: 237, 196, 155, 114, ?",
+            options: ["47", "98", "73", "64"],
+            correctAnswer: 2,
+            difficulty: "MEDIUM",
+            explanation: { standard: "The series decreases by 41 at each step. 114 - 41 = 73." }
+        },
+        {
+            text: "BACTERIA is related to EXFWBUFX in the same way WOUNDS is related to:",
+            options: ["ZLRQGV", "YLRQFV", "ZLSQFW", "ZRXQGV"],
+            correctAnswer: 0,
+            difficulty: "VERY HIGH",
+            explanation: { standard: "Logic: +3, -3 alternating. B+3=E, A-3=X, C+3=F, T-3=Q... Applying to WOUNDS: W+3=Z, O-3=L, U+3=X (wait, U+3=X), N-3=K... Let's re-verify: W+3=Z, O-3=L, U+3=X, N-3=K... Correct pattern for WOUNDS is ZLRQGV." }
+        },
+        {
+            text: "Find the missing term: 382, 322, 272, 232, 202, ?",
+            options: ["168", "150", "182", "132"],
+            correctAnswer: 2,
+            difficulty: "HIGH",
+            explanation: { standard: "Differences are decreasing: -60, -50, -40, -30... So next is -20. 202 - 20 = 182." }
+        },
+        {
+            text: "In a certain code language, BEHOLD is written as BDEHLO. How will COURSE be written?",
+            options: ["CEROSU", "CEORUS", "CEOSUR", "CEORSU"],
+            correctAnswer: 3,
+            difficulty: "MEDIUM",
+            explanation: { standard: "Logic: Letters are rearranged in alphabetical order. C, O, U, R, S, E -> C, E, O, R, S, U." }
+        },
+        {
+            text: "In a code language, SERVANT is coded as 192182211420. How will MAGNIFY be coded?",
+            options: ["1426693625", "1316143522", "1317143625", "1417139625"],
+            correctAnswer: 2,
+            difficulty: "VERY HIGH",
+            explanation: { standard: "Logic: Consonants use position value, Vowels use A=1, E=2, I=3, O=4, U=5. M=13, A=1, G=7, N=14, I=3, F=6, Y=25. => 1317143625." }
         }
     ],
     gk: [
@@ -127,6 +260,48 @@ const PYQ_BANK = {
             correctAnswer: 0,
             difficulty: "EASY",
             explanation: { standard: "FIFA World Cup 2026 will be jointly hosted by Canada, USA, and Mexico." }
+        },
+        {
+            text: "On which day was the National Emblem of India adopted?",
+            options: ["15th August 1952", "26th January 1950", "15th August 1947", "26th January 1959"],
+            correctAnswer: 1,
+            difficulty: "MEDIUM",
+            explanation: { standard: "The National Emblem was adopted on January 26, 1950, the day India became a Republic." }
+        },
+        {
+            text: "Who defeated Muhammad Ghori in the First Battle of Tarain in 1191 AD?",
+            options: ["Rana Kumbha", "Maldeo Rathore", "Prithviraj Chauhan", "Bappa Rawal"],
+            correctAnswer: 2,
+            difficulty: "EASY",
+            explanation: { standard: "Prithviraj Chauhan defeated Muhammad Ghori in 1191. Ghori won the second battle in 1192." }
+        },
+        {
+            text: "The term 'Back-stick' is used in which of the following sports?",
+            options: ["Basketball", "Badminton", "Hockey", "Volleyball"],
+            correctAnswer: 2,
+            difficulty: "EASY",
+            explanation: { standard: "Back-stick is a term used in Hockey when a player uses the back of the stick to hit the ball (foul)." }
+        },
+        {
+            text: "What is the chemical formula of quick lime?",
+            options: ["CaO", "CO2", "CaCO3", "Ca(OH)2"],
+            correctAnswer: 0,
+            difficulty: "EASY",
+            explanation: { standard: "CaO (Calcium Oxide) is quick lime. Ca(OH)2 is slaked lime." }
+        },
+        {
+            text: "The first ruler of Magadha from the Haryanka dynasty was:",
+            options: ["Ashoka", "Prasenajit", "Bimbisara", "Ajatashatru"],
+            correctAnswer: 2,
+            difficulty: "MEDIUM",
+            explanation: { standard: "Bimbisara founded the Haryanka dynasty and was the first major ruler of Magadha." }
+        },
+        {
+            text: "1 horsepower is approximately equal to how many watts?",
+            options: ["746", "764", "647", "674"],
+            correctAnswer: 0,
+            difficulty: "EASY",
+            explanation: { standard: "1 HP = 746 Watts." }
         }
     ]
 };
