@@ -122,10 +122,10 @@
             ...gkDataExpanded,
             ...computerData,
             ...statisticsData,
-            'pyq_2024_math': { title: "2024 Math PYQs", theory: "Advanced Arithmetic and Algebra from Sept 2024 slots.", practice: PYQ_BANK.math },
-            'pyq_2024_reasoning': { title: "2024 Reasoning PYQs", theory: "Authentic pattern identification from 2024 shifts.", practice: PYQ_BANK.reasoning },
-            'pyq_2024_english': { title: "2024 English PYQs", theory: "Authentic vocabulary and grammar errors from 2024.", practice: PYQ_BANK.english },
-            'pyq_2024_gk': { title: "2024 GA PYQs", theory: "Current affairs and static GK from recent exams.", practice: PYQ_BANK.gk }
+            'pyq_2024_math': { title: "2024 Math PYQs", category: "PYQ Vault", subtitle: "Authentic Arithmetic & Algebra – 2019 to 2024", blocks: PYQ_BANK.math.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) },
+            'pyq_2024_reasoning': { title: "2024 Reasoning PYQs", category: "PYQ Vault", subtitle: "Series, Coding-Decoding, Analogies – 2019 to 2024", blocks: PYQ_BANK.reasoning.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) },
+            'pyq_2024_english': { title: "2024 English PYQs", category: "PYQ Vault", subtitle: "Synonyms, Antonyms, Error Detection – 2019 to 2024", blocks: PYQ_BANK.english.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) },
+            'pyq_2024_gk': { title: "2024 GA/GK PYQs", category: "PYQ Vault", subtitle: "Current Affairs & Static GK – 2019 to 2024", blocks: PYQ_BANK.gk.map(q => ({ title: q.text, text: `Correct: ${q.options[q.correctAnswer]}`, examples: [] })) }
         };
 
         let currentFilter = 'all';
@@ -180,11 +180,16 @@
 
             for (const [key, topic] of Object.entries(allStudyData)) {
                 const subject = getSubject(key);
-                
+                if (!topic || typeof topic !== 'object') continue;
+
                 let matches = false;
                 if (currentFilter === 'all') matches = true;
                 else if (currentFilter === 'tier2') {
-                    matches = topic.category.includes('Tier 2') || subject === 'computer' || subject === 'statistics';
+                    const cat = topic.category || '';
+                    const isTier2Topic = cat.toLowerCase().includes('tier 2') || cat.toLowerCase().includes('tier2');
+                    matches = isTier2Topic || subject === 'computer' || subject === 'statistics';
+                } else if (currentFilter === 'pyq') {
+                    matches = subject === 'pyq';
                 } else {
                     matches = subject === currentFilter;
                 }
@@ -192,7 +197,7 @@
                 const searchMatch = currentSearch === '' || 
                     topic.title.toLowerCase().includes(currentSearch) ||
                     (topic.subtitle && topic.subtitle.toLowerCase().includes(currentSearch)) ||
-                    topic.category.toLowerCase().includes(currentSearch);
+                    (topic.category && topic.category.toLowerCase().includes(currentSearch));
 
                 if (matches && searchMatch) {
                     const colorClass = ['gold', 'blue', 'green', 'red', 'purple'][count % 5];
@@ -205,7 +210,7 @@
                             <span class="icon">${icons[colorClass]}</span>
                             <span>${topic.title}</span>
                         </div>
-                        <div style="color: var(--muted); font-size: 12px; margin-bottom: 12px;">${topic.subtitle || topic.category}</div>
+                        <div style="color: var(--muted); font-size: 12px; margin-bottom: 12px;">${topic.subtitle || topic.category || ''}</div>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
                             <span class="tag tag-${colorClass}">
                                 ${topic.blocks ? topic.blocks.length : 0} blocks
