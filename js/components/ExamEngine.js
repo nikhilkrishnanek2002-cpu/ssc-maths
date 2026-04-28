@@ -53,7 +53,7 @@ function loadQuestion(index) {
         prefixHtml = `<div style="background:#f0f7ff; border:1px solid #cfe2ff; padding:12px; margin-bottom:12px; border-radius:6px;">
             <div style="font-weight:700; color:#084298; margin-bottom:10px;">🧩 Rearrange the following sentences (P, Q, R, S):</div>
             <div style="display:flex; flex-direction:column; gap:8px;">
-                ${q.jumbled ? q.jumbled.map((s, i) => `<div style="background:white; padding:8px 12px; border-radius:4px; border:1px solid #dee2e6; font-size:13px;"><strong style="color:#0b5ed7;">${['P','Q','R','S'][i]}:</strong> ${s}</div>`).join('') : ''}
+                ${(q.jumbled && Array.isArray(q.jumbled)) ? q.jumbled.map((s, i) => `<div style="background:white; padding:8px 12px; border-radius:4px; border:1px solid #dee2e6; font-size:13px;"><strong style="color:#0b5ed7;">${['P','Q','R','S'][i] || i+1}:</strong> ${s}</div>`).join('') : '<p>Sentences missing.</p>'}
             </div>
         </div>`;
     }
@@ -68,15 +68,19 @@ function loadQuestion(index) {
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
 
-    q.options.forEach((opt, i) => {
-        const isChecked = examState.answers[q.id] === i ? 'checked' : '';
-        optionsContainer.innerHTML += `
-            <label class="option-item">
-                <input type="radio" name="answer" value="${i}" ${isChecked} onchange="selectAnswer('${q.id}', ${i})">
-                <span>${opt}</span>
-            </label>
-        `;
-    });
+    if (q.options && Array.isArray(q.options)) {
+        q.options.forEach((opt, i) => {
+            const isChecked = examState.answers[q.id] === i ? 'checked' : '';
+            optionsContainer.innerHTML += `
+                <label class="option-item">
+                    <input type="radio" name="answer" value="${i}" ${isChecked} onchange="selectAnswer('${q.id}', ${i})">
+                    <span>${opt}</span>
+                </label>
+            `;
+        });
+    } else {
+        optionsContainer.innerHTML = '<p style="color:red; padding:10px;">Error: Options missing for this question.</p>';
+    }
 
     renderQuestionGrid();
     updateLegend();
