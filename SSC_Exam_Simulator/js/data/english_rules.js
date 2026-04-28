@@ -2,7 +2,7 @@ const englishData = {
     // CATEGORY: GRAMMAR
     english_grammar_nouns: {
         category: "English: Grammar Core",
-        title: "Parts of Speech: Nouns & Pronouns",
+        title: "Parts of Speech: Nouns & Pronouns: Deep Dive & Speed Hacks",
         subtitle: "Exhaustive Error Spotting Rules",
         blocks: [
             {
@@ -53,7 +53,7 @@ const englishData = {
     },
     english_grammar_verbs: {
         category: "English: Grammar Core",
-        title: "Subject-Verb Agreement",
+        title: "Subject-Verb Agreement: Deep Dive & Speed Hacks",
         subtitle: "The Most Tested Topic",
         blocks: [
             {
@@ -89,7 +89,7 @@ const englishData = {
     },
     english_voice: {
         category: "English: Grammar Core",
-        title: "Active & Passive Voice: Deep Dive",
+        title: "Active & Passive Voice: Deep Dive & Speed Hacks",
         subtitle: "Direct Rule Conversions & Exceptions",
         blocks: [
             {
@@ -129,7 +129,7 @@ const englishData = {
     },
     english_speech: {
         category: "English: Grammar Core",
-        title: "Direct & Indirect Speech: Deep Dive",
+        title: "Direct & Indirect Speech: Deep Dive & Speed Hacks",
         subtitle: "Narration Rules",
         blocks: [
             {
@@ -148,7 +148,7 @@ const englishData = {
     // CATEGORY: VOCABULARY
     english_vocab: {
         category: "English: Vocabulary",
-        title: "High-Frequency Vocab & Roots: Deep Dive",
+        title: "High-Frequency Vocab & Roots: Deep Dive & Speed Hacks",
         subtitle: "Most repeated in SSC CGL",
         blocks: [
             {
@@ -166,7 +166,7 @@ const englishData = {
     },
     english_idioms: {
         category: "English: Vocabulary",
-        title: "Top 50 Idioms & Phrases: Deep Dive",
+        title: "Top 50 Idioms & Phrases: Deep Dive & Speed Hacks",
         subtitle: "Contextual Meanings",
         blocks: [
             {
@@ -186,7 +186,7 @@ const englishData = {
     // CATEGORY: COMPREHENSION & CLOZE
     english_cloze: {
         category: "English: Comprehension",
-        title: "Cloze Test & Passage: Deep Dive",
+        title: "Cloze Test & Passage: Deep Dive & Speed Hacks",
         subtitle: "Contextual Filling & Reading",
         blocks: [
             {
@@ -214,7 +214,7 @@ const englishData = {
     // CATEGORY: SPELLINGS
     english_spellings: {
         category: "English: Vocabulary",
-        title: "Spelling Rules: Deep Dive",
+        title: "Spelling Rules: Deep Dive & Speed Hacks",
         subtitle: "Avoiding common mis-spelt words",
         blocks: [
             {
@@ -232,7 +232,7 @@ const englishData = {
     // CATEGORY: ADVANCED GRAMMAR
     english_advanced: {
         category: "English: Grammar Advanced",
-        title: "Voice & Narration: Deep Dive",
+        title: "Voice & Narration: Deep Dive & Speed Hacks",
         subtitle: "Active/Passive and Direct/Indirect",
         blocks: [
             {
@@ -258,7 +258,7 @@ const englishData = {
     // CATEGORY: VOCABULARY EXPANSION
     english_vocab_adv: {
         category: "English: Vocabulary",
-        title: "Synonyms, Antonyms & Roots: Deep Dive",
+        title: "Synonyms, Antonyms & Roots: Deep Dive & Speed Hacks",
         subtitle: "Word Power Mastery for Tier 1 & 2",
         blocks: [
             {
@@ -310,7 +310,7 @@ const englishData = {
     // CATEGORY: SENTENCE STRUCTURE
     english_shuffling: {
         category: "English: Comprehension",
-        title: "Sentence Shuffling (PQRS): Deep Dive",
+        title: "Sentence Shuffling (PQRS): Deep Dive & Speed Hacks",
         subtitle: "Jumbled Sentences Tricks",
         blocks: [
             {

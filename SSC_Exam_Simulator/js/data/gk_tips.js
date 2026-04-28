@@ -2,7 +2,7 @@ const gkData = {
     // CATEGORY: POLITY
     gk_polity_articles: {
         category: "GK: Polity",
-        title: "Important Articles: Deep Dive",
+        title: "Important Articles: Deep Dive & Memory Hacks",
         subtitle: "The Core of the Indian Constitution",
         blocks: [
             {
@@ -49,7 +49,7 @@ const gkData = {
     },
     gk_polity_amendments: {
         category: "GK: Polity",
-        title: "Major Constitutional Amendments: Deep Dive",
+        title: "Major Constitutional Amendments: Deep Dive & Memory Hacks",
         subtitle: "Changes that shaped India",
         blocks: [
             {
@@ -117,7 +117,7 @@ const gkData = {
     },
     gk_history_medieval: {
         category: "GK: History",
-        title: "Medieval History: Deep Dive",
+        title: "Medieval History: Deep Dive & Memory Hacks",
         subtitle: "Battles & Founders",
         blocks: [
             {
@@ -151,7 +151,7 @@ const gkData = {
     // CATEGORY: GEOGRAPHY
     gk_geography_india: {
         category: "GK: Geography",
-        title: "Indian Geography Facts: Deep Dive",
+        title: "Indian Geography Facts: Deep Dive & Memory Hacks",
         subtitle: "Rivers, Borders, and Parks",
         blocks: [
             {
@@ -170,7 +170,7 @@ const gkData = {
     // CATEGORY: SCIENCE
     gk_science_biology: {
         category: "GK: General Science",
-        title: "Biology & Diseases: Deep Dive",
+        title: "Biology & Diseases: Deep Dive & Memory Hacks",
         subtitle: "Deficiencies & Scientific Names",
         blocks: [
             {
@@ -190,7 +190,7 @@ const gkData = {
     // CATEGORY: ECONOMY
     gk_economy: {
         category: "GK: Economy",
-        title: "Indian Economy: Deep Dive",
+        title: "Indian Economy: Deep Dive & Memory Hacks",
         subtitle: "Five Year Plans, RBI, and Taxes",
         blocks: [
             {
@@ -231,7 +231,7 @@ const gkData = {
     // CATEGORY: SCIENTIFIC RESEARCH
     gk_science_inventions: {
         category: "GK: General Science",
-        title: "Important Inventions: Deep Dive",
+        title: "Important Inventions: Deep Dive & Memory Hacks",
         subtitle: "Physics and Chemistry",
         blocks: [
             {
@@ -251,7 +251,7 @@ const gkData = {
     // CATEGORY: CURRENT AFFAIRS
     gk_current_affairs: {
         category: "GK: Current Affairs",
-        title: "Current Events Strategy: Deep Dive",
+        title: "Current Events Strategy: Deep Dive & Memory Hacks",
         subtitle: "Strategy for Offline Study",
         blocks: [
             {
@@ -268,7 +268,7 @@ const gkData = {
     // CATEGORY: HISTORY & CULTURE
     gk_history_culture: {
         category: "GK: History & Culture",
-        title: "Indian History & Art: Deep Dive",
+        title: "Indian History & Art: Deep Dive & Memory Hacks",
         subtitle: "Ancient, Medieval, and Modern",
         blocks: [
             {
@@ -295,7 +295,7 @@ const gkData = {
     },
     gk_geography: {
         category: "GK: Geography",
-        title: "Indian Geography: Deep Dive",
+        title: "Indian Geography: Deep Dive & Memory Hacks",
         subtitle: "Rivers, Mountains, and Climate",
         blocks: [
             {
@@ -333,7 +333,7 @@ const gkData = {
     // CATEGORY: GENERAL POLICY
     gk_general_policy: {
         category: "GK: General Policy",
-        title: "General Policy & Governance: Deep Dive",
+        title: "General Policy & Governance: Deep Dive & Memory Hacks",
         subtitle: "Schemes and Committees",
         blocks: [
             {
