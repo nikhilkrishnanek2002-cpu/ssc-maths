@@ -91,12 +91,20 @@ const GKBank = {
         }
         
         return shuffled.slice(0, count).map((q, index) => {
-            const rand = Math.random();
-            let difficulty = "MEDIUM";
-            if (rand < 0.2) difficulty = "EASY";
-            else if (rand > 0.8) difficulty = (Math.random() > 0.5 ? "VERY HIGH" : "HIGH");
+            // Chance to swap with authentic PYQ
+            let finalQ = q;
+            if (Math.random() < 0.3 && typeof PYQ_BANK !== 'undefined' && PYQ_BANK.gk) {
+                finalQ = PYQ_BANK.gk[Math.floor(Math.random() * PYQ_BANK.gk.length)];
+            }
             
-            return { ...q, id: `gk_${index}`, difficulty: difficulty };
+            const rand = Math.random();
+            let difficulty = finalQ.difficulty || "MEDIUM";
+            if (!finalQ.difficulty) {
+                if (rand < 0.2) difficulty = "EASY";
+                else if (rand > 0.8) difficulty = (Math.random() > 0.5 ? "VERY HIGH" : "HIGH");
+            }
+            
+            return { ...finalQ, id: `gk_${index}`, difficulty: difficulty };
         });
     }
 };

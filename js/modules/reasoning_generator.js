@@ -6,7 +6,7 @@ const ReasoningGenerator = {
         let questions = [];
         const topics = [
             'numberSeries', 'codingDecoding', 'syllogism', 
-            'bloodRelation', 'direction', 'analogy'
+            'bloodRelation', 'direction', 'analogy', 'pyq'
         ];
         for(let i=0; i<count; i++) {
             const topic = topics[Math.floor(Math.random() * topics.length)];
@@ -173,5 +173,14 @@ const ReasoningGenerator = {
                 trick: `Analogy Hack: Always look for squares and cubes first in number analogies. For word analogies, strictly define the relationship in a sentence: "X is surrounded by Y", then apply it exactly to the second pair.`
             }
         };
+    },
+
+    pyq: function(index) {
+        // Pull from authentic PYQ Bank
+        if (typeof PYQ_BANK !== 'undefined' && PYQ_BANK.reasoning) {
+            const q = PYQ_BANK.reasoning[Math.floor(Math.random() * PYQ_BANK.reasoning.length)];
+            return { ...q, id: `reasoning_pyq_${index}` };
+        }
+        return this.analogy(index); // Fallback
     }
 };

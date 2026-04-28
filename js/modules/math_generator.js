@@ -7,7 +7,7 @@ const MathGenerator = {
         const topics = [
             'profitLoss', 'timeWork', 'speedDistance', 'algebra', 
             'trigonometry', 'percentage', 'simpleInterest', 'geometry',
-            'averages', 'problemAges', 'dataInterpretation'
+            'averages', 'problemAges', 'dataInterpretation', 'pyq'
         ];
         
         // CGL 2025 Pattern: 25% Easy, 50% Medium, 25% High/Very High
@@ -284,6 +284,15 @@ const MathGenerator = {
                 trick: `Fraction Trick: ${angleA}° is ${angleA}/360 = 1/${360/angleA} of the total.<br>Just divide ${total} by ${360/angleA} to get ${valueA} instantly.`
             }
         };
+    },
+
+    pyq: function(index) {
+        // Pull from authentic PYQ Bank
+        if (typeof PYQ_BANK !== 'undefined' && PYQ_BANK.math) {
+            const q = PYQ_BANK.math[Math.floor(Math.random() * PYQ_BANK.math.length)];
+            return { ...q, id: `math_pyq_${index}` };
+        }
+        return this.profitLoss(index); // Fallback
     },
 
     gcd: function(a, b) {

@@ -118,12 +118,20 @@ const EnglishBank = {
         }
         
         return shuffled.slice(0, count).map((q, index) => {
+            // Chance to swap with authentic PYQ
+            let finalQ = q;
+            if (Math.random() < 0.3 && typeof PYQ_BANK !== 'undefined' && PYQ_BANK.english) {
+                finalQ = PYQ_BANK.english[Math.floor(Math.random() * PYQ_BANK.english.length)];
+            }
+
             const rand = Math.random();
-            let difficulty = "MEDIUM";
-            if (rand < 0.2) difficulty = "EASY";
-            else if (rand > 0.8) difficulty = (Math.random() > 0.5 ? "VERY HIGH" : "HIGH");
+            let difficulty = finalQ.difficulty || "MEDIUM";
+            if (!finalQ.difficulty) {
+                if (rand < 0.2) difficulty = "EASY";
+                else if (rand > 0.8) difficulty = (Math.random() > 0.5 ? "VERY HIGH" : "HIGH");
+            }
             
-            return { ...q, id: `english_${index}`, difficulty: difficulty };
+            return { ...finalQ, id: `english_${index}`, difficulty: difficulty };
         });
     }
 };
