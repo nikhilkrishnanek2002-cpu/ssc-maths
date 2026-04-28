@@ -115,40 +115,54 @@ function refreshQP() {
 }
 
 function switchPattern(pattern) {
+    console.log("Switching pattern to:", pattern);
     if(currentPattern === pattern) return;
     
-    if(confirm(`Switch to ${pattern.toUpperCase()} Pattern? Your current exam progress will be lost.`)) {
-        currentPattern = pattern;
-        
-        // Update Buttons UI
-        document.querySelectorAll('.btn-pattern').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(`btn-${pattern}`).classList.add('active');
-        
-        // Update exam title
-        const titleEl = document.getElementById('exam-title');
-        if (titleEl) titleEl.innerText = `SSC CGL ${pattern === 'tier2' ? 'TIER-II' : 'TIER-I'} Exam`;
-
-        // Update counts in SECTIONS for display
-        if(pattern === 'tier2') {
-            SECTIONS['math'].count = 30;
-            SECTIONS['reasoning'].count = 30;
-            SECTIONS['english'].count = 45;
-        } else {
-            SECTIONS['math'].count = 25;
-            SECTIONS['reasoning'].count = 25;
-            SECTIONS['english'].count = 25;
-        }
-
-        // Reset timer
-        clearInterval(examState.timerInterval);
-        examState.timeLeft = pattern === 'tier2' ? 7200 : 3600;
-
-        generateMockQuestions();
-        examState.currentQuestionIndex = 0;
-        renderTabs();
-        startTimer();
-        switchSection('reasoning'); // Reset to first section
+    // Auto-save state or just reset
+    currentPattern = pattern;
+    
+    // Update Buttons UI
+    document.querySelectorAll('.btn-pattern').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(`btn-${pattern}`);
+    if (activeBtn) activeBtn.classList.add('active');
+    
+    // Update exam title
+    const titleEl = document.getElementById('exam-title');
+    if (titleEl) {
+        titleEl.innerText = `SSC CGL ${pattern === 'tier2' ? 'TIER-II' : 'TIER-I'} Exam`;
     }
+
+    // Update counts in SECTIONS for display
+    if(pattern === 'tier2') {
+        SECTIONS['math'].count = 30;
+        SECTIONS['reasoning'].count = 30;
+        SECTIONS['english'].count = 45;
+        SECTIONS['computer'].count = 20;
+    } else {
+        SECTIONS['math'].count = 25;
+        SECTIONS['reasoning'].count = 25;
+        SECTIONS['english'].count = 25;
+        delete SECTIONS['computer'].count; // Hide or reset
+    }
+
+    // Reset timer and clear old interval
+    if (examState.timerInterval) clearInterval(examState.timerInterval);
+    examState.timeLeft = (pattern === 'tier2') ? 7200 : 3600;
+
+    // Reset whole exam state
+    examState.answers = {};
+    examState.status = {};
+    examState.currentQuestionIndex = 0;
+    
+    generateMockQuestions();
+    renderTabs();
+    startTimer();
+    
+    // Switch to first section
+    const firstSection = pattern === 'tier2' ? 'reasoning' : 'reasoning'; 
+    switchSection(firstSection);
+    
+    console.log("Pattern switch complete.");
 }
 
 function startTimer() {
