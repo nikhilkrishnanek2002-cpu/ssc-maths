@@ -28,7 +28,7 @@
                 <div class="stat-label">Speed Hacks</div>
             </div>
             <div class="stat">
-                <div class="stat-num">5</div>
+                <div class="stat-num">6</div>
                 <div class="stat-label">Subjects</div>
             </div>
         </div>
@@ -43,6 +43,7 @@
             <button class="nav-btn" onclick="filterBySubject('reasoning')">🧠 Reasoning</button>
             <button class="nav-btn" onclick="filterBySubject('gk')">🌍 GK</button>
             <button class="nav-btn" onclick="filterBySubject('computer')">💻 Comp</button>
+            <button class="nav-btn" onclick="filterBySubject('tier2')" style="color: var(--accent4);">🏆 Tier-2 Focus</button>
             <button class="nav-btn" style="margin-left: auto;" onclick="goHome()"><i class="fas fa-home"></i> Home</button>
         </div>
     </div>
@@ -117,7 +118,8 @@
             ...reasoningData,
             ...GKBank,
             ...gkDataExpanded,
-            ...computerData
+            ...computerData,
+            ...statisticsData
         };
 
         let currentFilter = 'all';
@@ -131,6 +133,7 @@
             if (key.startsWith('reasoning_')) return 'reasoning';
             if (key.startsWith('gk_')) return 'gk';
             if (key.startsWith('comp_')) return 'computer';
+            if (key.startsWith('stat_')) return 'statistics';
             return 'other';
         }
 
@@ -170,7 +173,15 @@
 
             for (const [key, topic] of Object.entries(allStudyData)) {
                 const subject = getSubject(key);
-                const matches = currentFilter === 'all' || subject === currentFilter;
+                
+                let matches = false;
+                if (currentFilter === 'all') matches = true;
+                else if (currentFilter === 'tier2') {
+                    matches = topic.category.includes('Tier 2') || subject === 'computer' || subject === 'statistics';
+                } else {
+                    matches = subject === currentFilter;
+                }
+
                 const searchMatch = currentSearch === '' || 
                     topic.title.toLowerCase().includes(currentSearch) ||
                     (topic.subtitle && topic.subtitle.toLowerCase().includes(currentSearch)) ||
