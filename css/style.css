@@ -162,6 +162,20 @@ body {
 .btn:hover { background: #f1f1f1; }
 .btn-save { background: #0b5ed7; color: white; border-color: #0b5ed7; }
 .btn-save:hover { background: #084298; }
+.btn-refresh { background: #dc3545; color: white; border-color: #dc3545; margin-right: 10px; }
+.btn-refresh:hover { background: #bb2d3b; }
+
+.difficulty-badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.difficulty-badge.easy { background: #2e7d32; color: #fff; }
+.difficulty-badge.medium { background: #ffc107; color: #000; }
+.difficulty-badge.high { background: #fd7e14; color: #fff; }
+.difficulty-badge.very-high { background: #dc3545; color: #fff; }
 
 /* Palette Section */
 .palette-section {

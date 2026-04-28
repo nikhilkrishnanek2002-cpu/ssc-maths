@@ -118,7 +118,12 @@ const EnglishBank = {
         }
         
         return shuffled.slice(0, count).map((q, index) => {
-            return { ...q, id: `english_${index}` };
+            const rand = Math.random();
+            let difficulty = "MEDIUM";
+            if (rand < 0.2) difficulty = "EASY";
+            else if (rand > 0.8) difficulty = (Math.random() > 0.5 ? "VERY HIGH" : "HIGH");
+            
+            return { ...q, id: `english_${index}`, difficulty: difficulty };
         });
     }
 };

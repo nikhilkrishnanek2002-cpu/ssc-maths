@@ -29,7 +29,12 @@ function loadQuestion(index) {
 
     // Update UI
     document.getElementById('current-q-num').innerText = index + 1;
-    document.getElementById('question-text').innerHTML = `<p>${q.text}</p>`;
+    
+    // Add difficulty badge
+    const difficultyHtml = q.difficulty ? `<span class="difficulty-badge ${q.difficulty.toLowerCase().replace(' ', '-')}">${q.difficulty}</span>` : '';
+    document.getElementById('question-text').innerHTML = `<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        ${difficultyHtml}
+    </div><p>${q.text}</p>`;
 
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';

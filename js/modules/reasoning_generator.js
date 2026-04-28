@@ -10,7 +10,16 @@ const ReasoningGenerator = {
         ];
         for(let i=0; i<count; i++) {
             const topic = topics[Math.floor(Math.random() * topics.length)];
-            questions.push(this[topic](i));
+            const q = this[topic](i);
+            
+            // Randomly assign difficulty label for UI
+            const rand = Math.random();
+            if (rand < 0.2) q.difficulty = "EASY";
+            else if (rand < 0.7) q.difficulty = "MEDIUM";
+            else if (rand < 0.9) q.difficulty = "HIGH";
+            else q.difficulty = "VERY HIGH";
+            
+            questions.push(q);
         }
         return questions;
     },

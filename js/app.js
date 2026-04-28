@@ -44,13 +44,23 @@ function generateMockQuestions() {
     examState.questions['english'] = EnglishBank.generateQuestions(25);
     examState.questions['gk'] = GKBank.generateQuestions(25);
 
-    // Initialize status array
+    // Initialize/Reset status array and answers
+    examState.answers = {};
     Object.keys(SECTIONS).forEach(section => {
         for(let i=0; i<25; i++) {
             const qId = examState.questions[section][i].id;
             examState.status[qId] = 'not-visited';
         }
     });
+}
+
+function refreshQP() {
+    if(confirm("Are you sure you want to generate a new question paper? Your current progress will be lost.")) {
+        generateMockQuestions();
+        examState.currentQuestionIndex = 0;
+        switchSection(currentSection); // Re-renders the current section
+        alert("New Question Paper Generated! Difficulty: Randomized (Easy to High)");
+    }
 }
 
 function startTimer() {

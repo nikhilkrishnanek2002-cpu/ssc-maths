@@ -9,30 +9,47 @@ const MathGenerator = {
             'trigonometry', 'percentage', 'simpleInterest', 'geometry',
             'averages', 'problemAges', 'dataInterpretation'
         ];
+        
+        // CGL 2025 Pattern: 25% Easy, 50% Medium, 25% High/Very High
         for(let i=0; i<count; i++) {
             const topic = topics[Math.floor(Math.random() * topics.length)];
-            questions.push(this[topic](i));
+            let difficulty = 1; // Default Medium
+            const rand = Math.random();
+            if (rand < 0.25) difficulty = 0; // Easy
+            else if (rand > 0.75) difficulty = (Math.random() > 0.5 ? 3 : 2); // High/Very High
+            
+            questions.push(this[topic](i, difficulty));
         }
         return questions;
     },
 
-    profitLoss: function(index) {
-        const cp = (Math.floor(Math.random() * 50) + 10) * 100; // e.g., 1000 to 5000
-        const profitPercent = Math.floor(Math.random() * 20) + 5; // 5% to 25%
-        const sp = cp + (cp * profitPercent / 100);
+    profitLoss: function(index, difficulty = 1) {
+        let cp = (Math.floor(Math.random() * 50) + 10) * 100;
+        let profitPercent = Math.floor(Math.random() * 20) + 5;
         
-        let options = [sp, sp - 100, sp + 200, sp * 1.1].map(Math.round);
-        options = options.sort(() => Math.random() - 0.5);
-        const correctIndex = options.indexOf(Math.round(sp));
+        if (difficulty === 0) { // Easy
+            cp = 1000;
+            profitPercent = 10;
+        } else if (difficulty >= 2) { // High/Very High
+            cp = (Math.random() * 5000 + 5000).toFixed(2); // Decimal values for higher difficulty
+            profitPercent = (Math.random() * 15 + 15).toFixed(1);
+        }
+
+        const sp = parseFloat(cp) + (parseFloat(cp) * parseFloat(profitPercent) / 100);
+        
+        let options = [sp, sp - 100.5, sp + 200.75, sp * 1.05].map(v => parseFloat(v).toFixed(2));
+        options = [...new Set(options)].sort(() => Math.random() - 0.5);
+        const correctIndex = options.indexOf(sp.toFixed(2));
 
         return {
             id: `math_${index}`,
+            difficulty: difficulty === 3 ? "VERY HIGH" : (difficulty === 2 ? "HIGH" : (difficulty === 1 ? "MEDIUM" : "EASY")),
             text: `A shopkeeper bought an article for ₹${cp}. If he wants to make a profit of ${profitPercent}%, what should be the selling price?`,
             options: options.map(o => `₹${o}`),
             correctAnswer: correctIndex,
             explanation: {
-                standard: `Let Cost Price (CP) = ₹${cp}.<br>Profit % = ${profitPercent}%.<br>Selling Price (SP) = CP + Profit = CP + (CP * Profit% / 100).<br>SP = ${cp} + (${cp} * ${profitPercent} / 100) = ${cp} + ${cp * profitPercent / 100} = ₹${sp}.`,
-                trick: `Multiplier Trick: A ${profitPercent}% profit means the SP is ${100 + profitPercent}% of CP.<br>So, SP = ${cp} × 1.${profitPercent.toString().padStart(2, '0')} = ₹${sp}. Solve it in one line!`
+                standard: `CP = ₹${cp}, Profit = ${profitPercent}%.<br>SP = ${cp} + (${cp} × ${profitPercent}/100) = ₹${sp.toFixed(2)}.`,
+                trick: `CGL 2025 Speed Hack: Multiply CP by 1.${profitPercent.toString().replace('.', '')} to get SP directly.`
             }
         };
     },
