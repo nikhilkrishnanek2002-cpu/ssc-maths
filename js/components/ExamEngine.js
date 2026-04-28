@@ -64,9 +64,10 @@ function loadQuestion(index) {
 function selectAnswer(qId, optionIndex) {
     examState.answers[qId] = optionIndex;
     
-    // In practice mode, reveal 'View Solution' button once an answer is selected
+    // In practice mode, reveal solution immediately once an answer is selected
     if(isPracticeMode) {
         document.getElementById('btn-view-solution').classList.remove('hidden');
+        showSolution(); // Auto-show solution for immediate feedback
     }
 }
 
