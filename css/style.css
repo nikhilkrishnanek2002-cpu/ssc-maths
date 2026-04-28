@@ -432,6 +432,7 @@ body {
 }
 .calc-btn:hover { background: #f8f9fa; }
 .calc-btn.op { background: #0b5ed7; color: white; border-color: #0b5ed7; }
+.calc-btn.sci { background: #6f42c1; color: white; border-color: #6f42c1; }
 .calc-btn.action { background: #6c757d; color: white; }
 .calc-btn.clear { background: #dc3545; color: white; }
 .calc-btn.equal { background: #198754; color: white; }

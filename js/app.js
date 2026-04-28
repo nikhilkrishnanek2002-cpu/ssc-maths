@@ -154,7 +154,13 @@ function calcInput(val) {
         calcValue = calcValue.slice(0, -1);
     } else if (val === '=') {
         try {
-            calcValue = eval(calcValue).toString();
+            // Fix brackets if they are unclosed
+            let expression = calcValue;
+            const openBrackets = (expression.match(/\(/g) || []).length;
+            const closeBrackets = (expression.match(/\)/g) || []).length;
+            for(let i=0; i < openBrackets - closeBrackets; i++) expression += ')';
+            
+            calcValue = eval(expression).toString();
         } catch(e) {
             calcValue = 'Error';
         }
@@ -162,5 +168,12 @@ function calcInput(val) {
         if(calcValue === 'Error') calcValue = '';
         calcValue += val;
     }
-    display.innerText = calcValue || '0';
+    
+    // Formatting for display
+    let displayValue = calcValue
+        .replace(/Math\.sqrt\(/g, '√(')
+        .replace(/Math\.PI/g, 'π')
+        .replace(/\*\*/g, '^');
+    
+    display.innerText = displayValue || '0';
 }

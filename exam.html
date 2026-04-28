@@ -126,32 +126,40 @@
             <div class="calc-display" id="calc-display">0</div>
             <div class="calc-body">
                 <div class="calc-row">
+                    <button class="calc-btn sci" onclick="calcInput('Math.sqrt(')">√</button>
+                    <button class="calc-btn sci" onclick="calcInput('**2')">x²</button>
+                    <button class="calc-btn sci" onclick="calcInput('%')">%</button>
+                    <button class="calc-btn op" onclick="calcInput('/')">÷</button>
+                </div>
+                <div class="calc-row">
+                    <button class="calc-btn sci" onclick="calcInput('(')">(</button>
+                    <button class="calc-btn sci" onclick="calcInput(')')">)</button>
+                    <button class="calc-btn sci" onclick="calcInput('Math.PI')">π</button>
+                    <button class="calc-btn op" onclick="calcInput('*')">×</button>
+                </div>
+                <div class="calc-row">
                     <button class="calc-btn" onclick="calcInput('7')">7</button>
                     <button class="calc-btn" onclick="calcInput('8')">8</button>
                     <button class="calc-btn" onclick="calcInput('9')">9</button>
-                    <button class="calc-btn op" onclick="calcInput('/')">/</button>
+                    <button class="calc-btn op" onclick="calcInput('-')">-</button>
                 </div>
                 <div class="calc-row">
                     <button class="calc-btn" onclick="calcInput('4')">4</button>
                     <button class="calc-btn" onclick="calcInput('5')">5</button>
                     <button class="calc-btn" onclick="calcInput('6')">6</button>
-                    <button class="calc-btn op" onclick="calcInput('*')">×</button>
+                    <button class="calc-btn op" onclick="calcInput('+')">+</button>
                 </div>
                 <div class="calc-row">
                     <button class="calc-btn" onclick="calcInput('1')">1</button>
                     <button class="calc-btn" onclick="calcInput('2')">2</button>
                     <button class="calc-btn" onclick="calcInput('3')">3</button>
-                    <button class="calc-btn op" onclick="calcInput('-')">-</button>
+                    <button class="calc-btn equal" onclick="calcInput('=')" style="flex: 1;">=</button>
                 </div>
                 <div class="calc-row">
                     <button class="calc-btn" onclick="calcInput('0')">0</button>
                     <button class="calc-btn" onclick="calcInput('.')">.</button>
                     <button class="calc-btn action" onclick="calcInput('Back')"><i class="fa-solid fa-backspace"></i></button>
-                    <button class="calc-btn op" onclick="calcInput('+')">+</button>
-                </div>
-                <div class="calc-row">
-                    <button class="calc-btn clear" onclick="calcInput('Clear')" style="flex: 2;">C</button>
-                    <button class="calc-btn equal" onclick="calcInput('=')" style="flex: 2;">=</button>
+                    <button class="calc-btn clear" onclick="calcInput('Clear')">C</button>
                 </div>
             </div>
         </div>
