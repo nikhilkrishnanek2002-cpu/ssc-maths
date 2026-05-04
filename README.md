@@ -3,13 +3,13 @@
 This project is a fully offline, self-contained study application containing the complete SSC CGL Tier-1 and Tier-2 syllabus. 
 
 ## 🚀 How to Use (No Internet Required!)
-1. Open the `SSC_Exam_Simulator` folder.
+1. Open this project folder (`ssc maths`).
 2. Double-click the `index.html` file to open it in your default web browser (Chrome/Edge/Firefox).
 3. From the Dashboard, choose either **Start Learning** (Study Notebook) or **Take Mock Test** (Exam Simulator).
 
 ## 🔗 How to Share with Friends
 Because this is built purely with HTML, CSS, and JS (with no backend servers or databases required), it is extremely easy to share!
-1. Right-click the `SSC_Exam_Simulator` folder.
+1. Right-click this project folder.
 2. Select **"Send to -> Compressed (zipped) folder"**.
 3. Send that `.zip` file via WhatsApp, Email, or Telegram to your friends.
 4. They just need to extract the zip and double-click `index.html` to use the entire platform!

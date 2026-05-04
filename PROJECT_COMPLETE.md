@@ -16,7 +16,7 @@ Your request for **"Massive Content Deep Dives for every topic"** has been **SUC
 
 | Metric | Before | After | Increase |
 |--------|--------|-------|----------|
-| **Topics** | 22 | 57 | **+159%** |
+| **Topics** | 22 | 61 | **+177%** |
 | **Content Blocks** | ~80 | 240+ | **+200%** |
 | **Worked Examples** | ~150 | 650+ | **+333%** |
 | **Speed Hacks** | ~50 | 165+ | **+230%** |
@@ -182,35 +182,18 @@ Status: ✅ Complete
 
 ## 💻 INTEGRATION STATUS
 
-### What Needs to Be Done
-Just **3 simple steps**:
+### Current Status
+Integration is **complete**.
 
-1. **Add imports to `js/app.js`** (2 lines)
-   ```javascript
-   import englishVocabularyData from './data/english_vocabulary_comprehensive.js';
-   import gkDataExpanded from './data/gk_comprehensive_expanded.js';
-   ```
+1. Study data sources are wired directly in `study.html` using script includes (browser global pattern).
+2. Expanded data objects are merged into `allStudyData` in the inline study app script.
+3. Topic filtering now covers all key prefixes used by the integrated datasets.
 
-2. **Merge data objects** (2 lines change)
-   ```javascript
-   const allStudyData = {
-       ...mathData,
-       ...englishData,
-       ...englishVocabularyData,    // ADD THIS
-       ...reasoningData,
-       ...gkBank,
-       ...gkDataExpanded,           // ADD THIS
-       ...computerData
-   };
-   ```
-
-3. **Test & Deploy**
-   - Open `study.html` in browser
-   - Select new topics from dropdown
-   - Verify content displays correctly
-   - Deploy to production
-
-**Total Integration Time: 30-45 minutes**
+**Verification Checklist**
+- Open `study.html` in browser.
+- Filter by GK and search for newly added GA/GK capsules.
+- Open Tier-2 Focus and confirm statistics + computer topics appear.
+- Open `exam.html` and verify sectional practice prompt handles cancel safely.
 
 ---
 
@@ -224,7 +207,7 @@ All files are ready in your project folder:
 3. `CODE_SNIPPETS.md` - Integration code (20 min)
 
 ### Detailed Reference
-- `CONTENT_INDEX.md` - All 57 topics listed
+- `CONTENT_INDEX.md` - Complete topic listing
 - `IMPLEMENTATION_GUIDE.md` - Detailed steps
 - `CONTENT_EXPANSION_SUMMARY.md` - What was added
 

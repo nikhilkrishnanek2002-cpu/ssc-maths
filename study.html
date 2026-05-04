@@ -13,7 +13,7 @@
     <div class="hero">
         <div class="hero-badge">SSC CGL Complete Preparation</div>
         <h1>Study Master Platform</h1>
-        <p>61 comprehensive topics with 700+ worked examples, 180+ speed hacks &amp; complete exam coverage</p>
+        <p>61 comprehensive topics with 650+ worked examples, 165+ speed hacks &amp; complete exam coverage</p>
         <div class="hero-stats">
             <div class="stat">
                 <div class="stat-num">61</div>
@@ -97,7 +97,18 @@
     <script src="js/data/english_vocabulary_comprehensive.js"></script>
     <script src="js/data/reasoning_tricks.js"></script>
     <script src="js/data/gk_tips.js"></script>               <!-- FIX #2: was missing -->
+    <script src="js/data/ga_biology_capsule.js"></script>
+    <script src="js/data/ga_chemistry_capsule.js"></script>
+    <script src="js/data/ga_economics_capsule.js"></script>
+    <script src="js/data/ga_geography_capsule.js"></script>
+    <script src="js/data/ga_history_capsule.js"></script>
+    <script src="js/data/ga_physics_capsule.js"></script>
+    <script src="js/data/ga_polity_capsule.js"></script>
     <script src="js/data/gk_comprehensive_expanded.js"></script>
+    <script src="js/data/gk_capsule_final_tables.js"></script>
+    <script src="js/data/gk_history_medieval_expanded.js"></script>
+    <script src="js/data/gk_history_modern_expanded.js"></script>
+    <script src="js/data/gk_science_tables.js"></script>
     <script src="js/data/pyq_bank.js"></script>
     <script src="js/data/computer_knowledge.js"></script>
     <script src="js/data/statistics_advanced.js"></script>
@@ -114,7 +125,18 @@
             ...englishVocabularyData,   // vocab_ prefix keys
             ...reasoningData,
             ...gkData,                  // FIX: was ...GKBank (wrong format)
+            ...gaBiologyData,
+            ...gaChemistryData,
+            ...gaEconomicsData,
+            ...gaGeographyData,
+            ...gaHistoryData,
+            ...gaPhysicsData,
+            ...gaPolityData,
             ...gkDataExpanded,
+            ...gkCapsuleFinalTables,
+            ...gkHistoryMedievalExpanded,
+            ...gkHistoryModernExpanded,
+            ...gkScienceTables,
             ...computerData,
             ...statisticsData,          // stat_ prefix keys
 
@@ -181,6 +203,7 @@
             if (key.startsWith('vocab_'))     return 'english';  // FIX #3: vocab_ → english
             if (key.startsWith('reasoning_')) return 'reasoning';
             if (key.startsWith('gk_'))        return 'gk';
+            if (key.startsWith('ga_'))        return 'gk';
             if (key.startsWith('comp_'))      return 'computer';
             if (key.startsWith('pyq_'))       return 'pyq';
             return 'other';

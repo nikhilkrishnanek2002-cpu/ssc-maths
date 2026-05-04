@@ -173,7 +173,9 @@ function switchPattern(pattern) {
 
 function startSectionalPractice() {
     const subjects = ['math', 'reasoning', 'english', 'gk'];
-    const choice = prompt("Select Subject for Sectional Practice:\n1. Math\n2. Reasoning\n3. English\n4. GK\n(Enter number or name)").toLowerCase();
+    const rawChoice = prompt("Select Subject for Sectional Practice:\n1. Math\n2. Reasoning\n3. English\n4. GK\n(Enter number or name)");
+    if (rawChoice === null) return;
+    const choice = rawChoice.trim().toLowerCase();
     
     let selected = '';
     if (choice === '1' || choice.includes('math')) selected = 'math';
@@ -202,6 +204,8 @@ function startSectionalPractice() {
         
         // Show Concept Explainer before starting
         showConceptExplainer(selected);
+    } else {
+        alert('Please choose a valid subject: 1, 2, 3, or 4.');
     }
 }
 
