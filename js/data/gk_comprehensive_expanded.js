@@ -293,5 +293,310 @@ const gkDataExpanded = {
                 shortcut: "GRAND SLAMS = 4 (Wimbledon, US Open, French Open, Australian Open)."
             }
         ]
+    },
+    gk_environment_ecology: {
+        category: "GK: Environment",
+        title: "Environment and Ecology: SSC Focus",
+        subtitle: "Ecosystem, Biodiversity, Climate, and Protocols",
+        blocks: [
+            {
+                title: "1. Ecosystem and Food Chain",
+                text: "Ecosystem is the interaction of living organisms with physical environment.",
+                examples: [
+                    "Producers: Green plants.",
+                    "Primary consumers: Herbivores.",
+                    "Secondary/Tertiary consumers: Carnivores.",
+                    "Decomposers: Bacteria and fungi recycle nutrients."
+                ],
+                shortcut: "Energy flow is one-way; nutrient cycle is cyclic."
+            },
+            {
+                title: "2. Biodiversity and Conservation",
+                text: "Biodiversity includes genetic, species, and ecosystem diversity.",
+                examples: [
+                    "In-situ conservation: National parks, wildlife sanctuaries, biosphere reserves.",
+                    "Ex-situ conservation: Zoos, botanical gardens, seed banks.",
+                    "IUCN categories include Critically Endangered, Endangered, Vulnerable.",
+                    "India hotspots include Western Ghats and Eastern Himalaya regions."
+                ],
+                shortcut: "In-situ = within natural habitat, Ex-situ = outside natural habitat."
+            },
+            {
+                title: "3. Climate Change and Key Agreements",
+                text: "Global warming is linked to greenhouse gases like CO2, methane, and nitrous oxide.",
+                examples: [
+                    "Greenhouse effect traps heat and raises global temperature.",
+                    "Montreal Protocol focuses on ozone-depleting substances.",
+                    "Kyoto Protocol targeted emission reductions for developed countries.",
+                    "Paris Agreement aims to limit global warming well below 2 degrees C."
+                ],
+                shortcut: "Montreal = ozone, Paris = climate warming targets."
+            }
+        ]
+    },
+    gk_indian_budget_banking: {
+        category: "GK: Economy Tier 2",
+        title: "Indian Budget, Banking, and Fiscal Basics",
+        subtitle: "Budget terms, deficits, taxation, and RBI-linked facts",
+        blocks: [
+            {
+                title: "1. Union Budget Key Terms",
+                text: "Budget questions often test core fiscal vocabulary and concept differentiation.",
+                examples: [
+                    "Revenue receipts vs capital receipts",
+                    "Revenue expenditure vs capital expenditure",
+                    "Fiscal deficit = total expenditure - (revenue receipts + non-debt capital receipts)",
+                    "Primary deficit = fiscal deficit - interest payments"
+                ],
+                shortcut: "If interest payment is removed from fiscal deficit, result is primary deficit.",
+                practiceProblems: [
+                    "Differentiate revenue deficit and fiscal deficit.",
+                    "Identify whether loan recovery is capital or revenue receipt."
+                ],
+                miniQuiz: [
+                    { q: "Which deficit excludes interest payments?", answer: "Primary deficit", explanation: "Primary deficit adjusts fiscal deficit by removing interest burden." },
+                    { q: "Tax receipts fall under which budget head?", answer: "Revenue receipts", explanation: "Taxes are recurring government income." }
+                ]
+            },
+            {
+                title: "2. Banking and Monetary Terms",
+                text: "RBI policy rates and liquidity tools are common in competitive exam GK.",
+                examples: [
+                    "Repo rate: RBI lends to commercial banks",
+                    "Reverse repo: banks park funds with RBI",
+                    "CRR: share of deposits banks maintain with RBI in cash",
+                    "SLR: share of deposits in approved liquid assets"
+                ],
+                shortcut: "Higher repo generally makes loans costlier and can reduce inflation pressure.",
+                practiceProblems: [
+                    "Which tool directly controls bank cash reserve with RBI?",
+                    "What policy move is used to control rising inflation?"
+                ],
+                miniQuiz: [
+                    { q: "CRR is maintained in what form?", answer: "Cash with RBI", explanation: "CRR is mandatory cash reserve." },
+                    { q: "Who issues Indian currency notes (except one-rupee note)?", answer: "RBI", explanation: "RBI is the central note-issuing authority." }
+                ]
+            },
+            {
+                title: "3. Tax Structure and Reforms",
+                text: "Direct and indirect tax differences are standard objective questions.",
+                examples: [
+                    "Direct tax: paid directly by person/entity (income tax)",
+                    "Indirect tax: burden can be shifted (GST)",
+                    "GST implemented to simplify multiple indirect taxes",
+                    "Progressive tax means higher rate on higher income slabs"
+                ],
+                shortcut: "If tax burden can be transferred to consumer, it is generally indirect tax.",
+                practiceProblems: [
+                    "Classify GST and corporate tax.",
+                    "Choose example of progressive tax in options."
+                ],
+                miniQuiz: [
+                    { q: "GST is direct or indirect tax?", answer: "Indirect tax", explanation: "Collected in supply chain and burden shifts to consumer." },
+                    { q: "Income tax is paid by whom?", answer: "The earning individual/entity", explanation: "Liability is direct and non-transferable." }
+                ]
+            }
+        ]
+    },
+    gk_science_space_tech: {
+        category: "GK: Science Tier 2",
+        title: "Science and Space Technology Revision",
+        subtitle: "Physics constants, biology fundamentals, and India space milestones",
+        blocks: [
+            {
+                title: "1. Physics and Chemistry Rapid Facts",
+                text: "Objective papers include direct one-line science facts with unit or concept matching.",
+                examples: [
+                    "SI unit of force: newton",
+                    "SI unit of pressure: pascal",
+                    "pH less than 7 indicates acidic solution",
+                    "Speed of light in vacuum is approximately 3 x 10^8 m/s"
+                ],
+                shortcut: "Memorize unit-concept pairs in clusters (force-newton, work-joule, power-watt).",
+                practiceProblems: [
+                    "Identify SI unit of power.",
+                    "State pH nature of a solution with pH 9."
+                ],
+                miniQuiz: [
+                    { q: "SI unit of work is?", answer: "Joule", explanation: "Work and energy share same SI unit." },
+                    { q: "pH 3 is acidic or basic?", answer: "Acidic", explanation: "Values below 7 are acidic." }
+                ]
+            },
+            {
+                title: "2. Biology and Human System Quick Revision",
+                text: "Biology in SSC tends to ask organ function and vitamin-deficiency mapping.",
+                examples: [
+                    "Liver is largest gland in human body",
+                    "RBC carries oxygen via hemoglobin",
+                    "Insulin regulates blood glucose",
+                    "Vitamin C deficiency causes scurvy"
+                ],
+                shortcut: "Map each vitamin to one hallmark disease to avoid confusion in options.",
+                practiceProblems: [
+                    "Name hormone that lowers blood sugar.",
+                    "Which vitamin deficiency causes rickets?"
+                ],
+                miniQuiz: [
+                    { q: "Hormone linked to diabetes mellitus?", answer: "Insulin", explanation: "Insulin deficiency or resistance causes glucose dysregulation." },
+                    { q: "RBC life span is around?", answer: "120 days", explanation: "Standard human physiology benchmark." }
+                ]
+            },
+            {
+                title: "3. India Space and Technology Milestones",
+                text: "Space programs and mission-purpose pairing is increasingly asked in exams.",
+                examples: [
+                    "ISRO is India's primary space agency",
+                    "Chandrayaan missions focus on lunar exploration",
+                    "Mangalyaan was India's Mars Orbiter Mission",
+                    "Navigation system: NavIC"
+                ],
+                shortcut: "Remember mission-domain pair: Chandrayaan-Moon, Mangalyaan-Mars, Aditya-L1-Sun study.",
+                practiceProblems: [
+                    "Match mission with target celestial body.",
+                    "Expand the acronym ISRO."
+                ],
+                miniQuiz: [
+                    { q: "Mangalyaan targeted which planet?", answer: "Mars", explanation: "It is also called Mars Orbiter Mission." },
+                    { q: "NavIC is related to?", answer: "Regional navigation", explanation: "India's indigenous navigation system." }
+                ]
+            }
+        ]
+    },
+    gk_polity_governance: {
+        category: "GK: Polity Tier 2",
+        title: "Indian Polity and Governance Revision",
+        subtitle: "Constitutional offices, parliament process, and federal structure",
+        blocks: [
+            {
+                title: "1. Constitutional Offices",
+                text: "Polity questions often test appointment, role, and constitutional basis of key offices.",
+                examples: [
+                    "President is constitutional head of Union",
+                    "Prime Minister is real executive head",
+                    "Governor is constitutional head of state",
+                    "CAG audits public expenditure"
+                ],
+                shortcut: "Constitutional bodies derive authority from Constitution, statutory bodies from acts.",
+                practiceProblems: [
+                    "Identify constitutional article linked with key office.",
+                    "Differentiate powers of President and Prime Minister."
+                ],
+                miniQuiz: [
+                    { q: "Who is called guardian of public purse?", answer: "CAG", explanation: "Comptroller and Auditor General audits government accounts." },
+                    { q: "Real executive in parliamentary system?", answer: "Prime Minister and Council of Ministers", explanation: "They exercise actual executive authority." }
+                ]
+            },
+            {
+                title: "2. Parliament and Law-Making",
+                text: "Understanding bill passage and money bill rules helps in elimination-based questions.",
+                examples: [
+                    "Ordinary bill can be introduced in either house",
+                    "Money bill can be introduced only in Lok Sabha",
+                    "Rajya Sabha has limited role in money bill",
+                    "President's assent is final step before act"
+                ],
+                shortcut: "If question says taxation/withdrawal from consolidated fund, likely money bill context.",
+                practiceProblems: [
+                    "Choose house with exclusive money bill introduction right.",
+                    "Sequence steps in ordinary bill passage."
+                ],
+                miniQuiz: [
+                    { q: "Who certifies a money bill?", answer: "Speaker of Lok Sabha", explanation: "Speaker's decision is authoritative." },
+                    { q: "Can ordinary bill start in Rajya Sabha?", answer: "Yes", explanation: "Ordinary bill may originate in either house." }
+                ]
+            }
+        ]
+    },
+
+    gk_geography_india_world_maps: {
+        category: "GK: Geography Tier 2",
+        title: "India and World Geography Map Capsule",
+        subtitle: "Rivers, passes, climate zones, and strategic locations",
+        blocks: [
+            {
+                title: "1. India Map Anchors",
+                text: "Map-based GK improves retention of static geography for objective exams.",
+                examples: [
+                    "Himalayan passes: Nathu La, Shipki La, Zoji La",
+                    "Major rivers: Ganga, Brahmaputra, Godavari, Krishna",
+                    "Plateaus: Deccan Plateau in peninsular India",
+                    "Desert region: Thar in Rajasthan"
+                ],
+                shortcut: "Link each river with source-state and mouth (Bay of Bengal/Arabian Sea).",
+                practiceProblems: [
+                    "Identify river flowing into Arabian Sea from options.",
+                    "Match mountain pass with state/region."
+                ],
+                miniQuiz: [
+                    { q: "Godavari empties into which water body?", answer: "Bay of Bengal", explanation: "It is an east-flowing peninsular river." },
+                    { q: "Thar Desert lies mainly in?", answer: "Rajasthan", explanation: "North-western arid zone of India." }
+                ]
+            },
+            {
+                title: "2. World Geography Essentials",
+                text: "World map static facts are common in mixed GK sets.",
+                examples: [
+                    "Largest ocean: Pacific",
+                    "Largest continent by area: Asia",
+                    "Suez Canal links Mediterranean and Red Sea",
+                    "Panama Canal links Atlantic and Pacific"
+                ],
+                shortcut: "Memorize strategic canal-sea pairs for one-mark map questions.",
+                practiceProblems: [
+                    "Choose canal connecting Mediterranean and Red Sea.",
+                    "Identify continent with largest population share."
+                ],
+                miniQuiz: [
+                    { q: "Which canal links Atlantic and Pacific?", answer: "Panama Canal", explanation: "Crosses Isthmus of Panama." },
+                    { q: "Largest ocean on Earth?", answer: "Pacific Ocean", explanation: "Greatest surface area among oceans." }
+                ]
+            }
+        ]
+    },
+
+    gk_science_bio_physics_mix: {
+        category: "GK: Science Tier 2",
+        title: "Mixed Science MCQ Booster",
+        subtitle: "Biology, physics, chemistry one-liners for rapid recall",
+        blocks: [
+            {
+                title: "1. Biology One-Liners",
+                text: "Human body and plant biology facts are repeatedly asked in SSC prelims and mains.",
+                examples: [
+                    "Functional unit of kidney: nephron",
+                    "Site of photosynthesis: chloroplast",
+                    "Vitamin D deficiency causes rickets",
+                    "Largest internal organ: liver"
+                ],
+                shortcut: "Use organ-function pairing for quick elimination (pancreas-insulin, lungs-gas exchange).",
+                practiceProblems: [
+                    "Identify organ producing insulin.",
+                    "Name pigment responsible for photosynthesis."
+                ],
+                miniQuiz: [
+                    { q: "Basic unit of life?", answer: "Cell", explanation: "Cell is structural and functional unit." },
+                    { q: "Nephron belongs to which organ?", answer: "Kidney", explanation: "It is filtration unit of kidney." }
+                ]
+            },
+            {
+                title: "2. Physics and Chemistry Quick Checks",
+                text: "Simple law-definition mapping can secure fast marks with little calculation.",
+                examples: [
+                    "Ohm's law: V=IR",
+                    "Acid turns blue litmus red",
+                    "Newton's second law links force and acceleration",
+                    "Sound cannot travel in vacuum"
+                ],
+                shortcut: "For law-based MCQs, identify variable relation first before looking at options.",
+                practiceProblems: [
+                    "Choose law relating current and voltage.",
+                    "Select medium where sound speed is highest among given options."
+                ],
+                miniQuiz: [
+                    { q: "Litmus color in base solution?", answer: "Blue (red litmus turns blue)", explanation: "Basic solutions show blue trend in litmus test." },
+                    { q: "Can sound travel in vacuum?", answer: "No", explanation: "Mechanical wave needs medium." }
+                ]
+            }
+        ]
     }
 };

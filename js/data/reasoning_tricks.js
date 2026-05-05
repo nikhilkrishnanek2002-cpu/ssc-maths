@@ -240,5 +240,302 @@ const reasoningData = {
                 shortcut: "Check ROWS first. If row pattern is unclear, check COLUMNS. Finally, check DIAGONALS."
             }
         ]
+    },
+
+    reasoning_seating_ranking: {
+        category: "Reasoning: Arrangement",
+        title: "Seating Arrangement and Ranking",
+        subtitle: "Linear, Circular, and Position-Based Questions",
+        blocks: [
+            {
+                title: "1. Linear Arrangement",
+                text: "Place fixed constraints first, then fill relative positions step-by-step.",
+                examples: [
+                    "If A is second to the left of B, write pair as A B with exact spacing.",
+                    "If C is at one end, lock that position first.",
+                    "For facing north in a row: left and right are direct.",
+                    "For mixed directions, mark arrows above names to avoid side mistakes."
+                ],
+                shortcut: "Create slots first (1 to n), then place absolute clues before relative clues."
+            },
+            {
+                title: "2. Circular Arrangement",
+                text: "In circular seating, fix one person to remove rotational ambiguity.",
+                examples: [
+                    "If all face center: left is clockwise, right is anti-clockwise.",
+                    "If all face outward: left and right reverse.",
+                    "Opposite position in 8-person circle is 4 seats away.",
+                    "Adjacent means immediate left or immediate right."
+                ],
+                shortcut: "Always write 'center-facing' or 'outward-facing' at top of rough diagram before solving clues."
+            },
+            {
+                title: "3. Ranking and Ordering",
+                text: "Use total count relation: if rank from top and bottom are known, total = top + bottom - 1.",
+                examples: [
+                    "If A is 7th from top and 12th from bottom, total = 7 + 12 - 1 = 18",
+                    "If B is just above C, then B rank is one less than C from top.",
+                    "Middle position in odd count n is (n+1)/2"
+                ],
+                shortcut: "Translate words like 'just before', 'immediately after', 'between' into exact position equations."
+            }
+        ]
+    },
+
+    reasoning_coding_decoding_advanced: {
+        category: "Reasoning: Tier 2",
+        title: "Coding-Decoding Advanced Patterns",
+        subtitle: "Letter shifts, alpha-numeric rules, and matrix-style coding",
+        blocks: [
+            {
+                title: "1. Letter Position and Shift Coding",
+                text: "Most coding questions are based on letter position values from A=1 to Z=26.",
+                examples: [
+                    "If CAT -> DBU, each letter shifted by +1",
+                    "If BACK -> YZXP, reverse alphabet mapping is applied",
+                    "If code uses +2, -1 alternating pattern, track each position separately"
+                ],
+                shortcut: "Write alphabet with positions once on rough sheet to reduce repeated counting.",
+                practiceProblems: [
+                    "If PARK is coded as RCTM, how is HOME coded?",
+                    "Using opposite alphabet coding, what is code of SUN?"
+                ],
+                miniQuiz: [
+                    { q: "In reverse alphabet coding, A maps to?", answer: "Z", explanation: "Mirror coding maps first to last." },
+                    { q: "If each letter is shifted +1, DOG becomes?", answer: "EPH", explanation: "D->E, O->P, G->H." }
+                ]
+            },
+            {
+                title: "2. Word and Number Pattern Coding",
+                text: "Some SSC sets encode full words via arithmetic operations on letter sums.",
+                examples: [
+                    "Sum coding: CODE -> 3+15+4+5 = 27",
+                    "Product coding can use first and last letter values",
+                    "Repeated letters may be counted once or multiple times depending on rule"
+                ],
+                shortcut: "First identify whether rule is per-letter transformation or whole-word arithmetic.",
+                practiceProblems: [
+                    "Find coded value of TEAM if coding is sum of letter positions.",
+                    "If BAT=23 and CAT=24 in a pattern, find HAT."
+                ],
+                miniQuiz: [
+                    { q: "Letter value of Z is?", answer: "26", explanation: "Standard alpha numbering." },
+                    { q: "If coding uses sum, CAT equals?", answer: "24", explanation: "3+1+20 = 24." }
+                ]
+            },
+            {
+                title: "3. Matrix and Symbol Substitution Coding",
+                text: "Advanced sets provide symbol maps where one symbol can represent multiple conditions.",
+                examples: [
+                    "A 3x3 matrix may map letters by row and column indices",
+                    "Symbol coding can hide vowels with one symbol and consonants with another",
+                    "Position parity (odd/even place) often changes code rule"
+                ],
+                shortcut: "Decode one known word first, then apply same transformation to target word.",
+                practiceProblems: [
+                    "In a matrix coding table, decode given pair for target word.",
+                    "If odd positions are +2 and even are -1, decode TABLE."
+                ],
+                miniQuiz: [
+                    { q: "In parity coding, odd/even usually refer to?", answer: "Letter position in the word", explanation: "Rule changes by index location." },
+                    { q: "Best first step in unknown code set?", answer: "Decode a sample with known mapping", explanation: "Anchor mapping avoids guesswork." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_nonverbal_series: {
+        category: "Reasoning: Tier 2 Spatial",
+        title: "Non-Verbal Figure Series and Mirror Logic",
+        subtitle: "Rotation, reflection, counting elements, and embedded shape patterns",
+        blocks: [
+            {
+                title: "1. Rotation and Reflection Patterns",
+                text: "Figure-series questions often rotate by fixed angles or mirror around an axis.",
+                examples: [
+                    "Clockwise rotation by 90 degrees each step",
+                    "Alternate reflection around vertical and horizontal axes",
+                    "Rotation with symbol inversion (filled to hollow)"
+                ],
+                shortcut: "Track one unique marker (dot/corner) to detect direction quickly.",
+                practiceProblems: [
+                    "Identify next figure in a 90-degree rotation series.",
+                    "Find figure after alternating mirror reflections."
+                ],
+                miniQuiz: [
+                    { q: "Mirror image across vertical axis swaps which sides?", answer: "Left and right", explanation: "Vertical mirror flips horizontal orientation." },
+                    { q: "After four 90-degree rotations, figure returns to?", answer: "Original orientation", explanation: "360-degree total rotation." }
+                ]
+            },
+            {
+                title: "2. Element Count and Progressive Addition",
+                text: "Many figure series increment lines, dots, or regions in a numeric pattern.",
+                examples: [
+                    "Dots increase by +1 each step",
+                    "Lines increase in odd sequence: +1, +3, +5",
+                    "Shaded regions follow alternate fill/unfill logic"
+                ],
+                shortcut: "Count elements in each frame first; shape complexity can hide simple arithmetic growth.",
+                practiceProblems: [
+                    "Find next frame where triangles increase in arithmetic sequence.",
+                    "Choose missing figure where shaded zones alternate."
+                ],
+                miniQuiz: [
+                    { q: "If dots are 2,4,6,8 then next count?", answer: "10", explanation: "Common difference is +2." },
+                    { q: "If shading alternates black/white, next after white?", answer: "Black", explanation: "Alternating binary pattern." }
+                ]
+            },
+            {
+                title: "3. Embedded Figure and Completion",
+                text: "Candidates must detect hidden base shape among distractors with extra lines.",
+                examples: [
+                    "Triangle hidden inside intersecting line network",
+                    "Square completion by adding one edge",
+                    "Missing-part puzzle where orientation is preserved"
+                ],
+                shortcut: "Ignore decorative lines and trace only closed boundaries of target shape.",
+                practiceProblems: [
+                    "Find option containing exact embedded pentagon.",
+                    "Pick the figure that completes the pattern with least additions."
+                ],
+                miniQuiz: [
+                    { q: "Best method for embedded figure question?", answer: "Trace target boundary first", explanation: "Boundary-tracing avoids distraction by noise lines." },
+                    { q: "In completion puzzles, first check?", answer: "Orientation and edge continuity", explanation: "Correct fit preserves existing direction flow." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_data_sufficiency: {
+        category: "Reasoning: Tier 2 Analytical",
+        title: "Data Sufficiency Mastery",
+        subtitle: "Statement adequacy, minimal information, and elimination strategy",
+        blocks: [
+            {
+                title: "1. Adequacy Decision Framework",
+                text: "Data sufficiency asks whether statements are enough, not the final numerical value.",
+                examples: [
+                    "Statement I alone sufficient",
+                    "Statement II alone sufficient",
+                    "Both together sufficient",
+                    "Even both together insufficient"
+                ],
+                shortcut: "Do not solve fully if adequacy can be determined early.",
+                practiceProblems: [
+                    "Check if two statements are enough to find age difference.",
+                    "Determine adequacy for ratio value question."
+                ],
+                miniQuiz: [
+                    { q: "Main target in data sufficiency?", answer: "Sufficiency, not exact answer", explanation: "Question tests adequacy of information." },
+                    { q: "If I and II each insufficient but together sufficient, choose?", answer: "Both together sufficient", explanation: "Combined data resolves unknown." }
+                ]
+            },
+            {
+                title: "2. Common Traps",
+                text: "Candidates lose marks by assuming hidden conditions not present in statements.",
+                examples: [
+                    "Assuming integer values when not specified",
+                    "Assuming positive values for variables by default",
+                    "Ignoring possibility of multiple valid outcomes"
+                ],
+                shortcut: "Test at least two value cases; if both satisfy statement but give different outcomes, statement is insufficient.",
+                practiceProblems: [
+                    "Is x positive? I: x^2=9 II: x>0",
+                    "Can triangle be formed? I: two sides given II: angle relation given"
+                ],
+                miniQuiz: [
+                    { q: "From x^2=16, can x be uniquely determined?", answer: "No", explanation: "x can be 4 or -4." },
+                    { q: "Need of multiple case testing in DS?", answer: "To avoid false sufficiency", explanation: "Single-case checking can mislead." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_statement_assumption: {
+        category: "Reasoning: Critical Logic",
+        title: "Statement and Assumption",
+        subtitle: "Implicit beliefs, argument support, and logical necessity",
+        blocks: [
+            {
+                title: "1. What is an Assumption",
+                text: "An assumption is an unstated premise that must hold true for statement/argument to make sense.",
+                examples: [
+                    "Statement: Buy this water purifier for pure water",
+                    "Assumption: Impure water is harmful",
+                    "Assumption: Audience seeks safer water"
+                ],
+                shortcut: "Use negation test: if negating option destroys argument, it is likely an assumption.",
+                practiceProblems: [
+                    "Find assumption in advertisement statement.",
+                    "Identify implicit belief in policy recommendation."
+                ],
+                miniQuiz: [
+                    { q: "Assumption is usually stated explicitly?", answer: "No", explanation: "It is generally implicit." },
+                    { q: "Best test for assumption?", answer: "Negation test", explanation: "Negate candidate and check argument collapse." }
+                ]
+            },
+            {
+                title: "2. Weak vs Strong Assumptions",
+                text: "Strong assumptions are necessary and directly linked; weak ones are peripheral or optional.",
+                examples: [
+                    "Strong: directly required for argument validity",
+                    "Weak: may be true but not necessary",
+                    "Extreme generalizations are usually weak assumptions"
+                ],
+                shortcut: "Prefer minimal necessary support over broad social or moral claims.",
+                practiceProblems: [
+                    "Classify given assumptions as strong/weak.",
+                    "Choose necessary assumption for given conclusion."
+                ],
+                miniQuiz: [
+                    { q: "Can a true statement still be a weak assumption?", answer: "Yes", explanation: "Truth alone does not ensure necessity." },
+                    { q: "Assumption must be what for argument?", answer: "Necessary", explanation: "Without it, argument loses force." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_calendar_clock: {
+        category: "Reasoning: Calendar and Clock",
+        title: "Calendar and Clock Reasoning",
+        subtitle: "Odd days, day-date mapping, and angle-based clock logic",
+        blocks: [
+            {
+                title: "1. Calendar and Odd Days",
+                text: "Day-date questions are solved by counting odd days across years and months.",
+                examples: [
+                    "Normal year has 365 days = 1 odd day",
+                    "Leap year has 366 days = 2 odd days",
+                    "Century leap condition: divisible by 400"
+                ],
+                shortcut: "Memorize month day counts and leap year rule for quick day shifts.",
+                practiceProblems: [
+                    "Find day of 1 Jan for a given year from known reference.",
+                    "Count odd days between two dates."
+                ],
+                miniQuiz: [
+                    { q: "Leap year among 1900, 2000, 2100?", answer: "2000", explanation: "Century year must be divisible by 400." },
+                    { q: "Odd days in 730 days?", answer: "2", explanation: "730 mod 7 = 2." }
+                ]
+            },
+            {
+                title: "2. Clock Angle Basics",
+                text: "Clock questions involve relative speeds of hour and minute hands.",
+                examples: [
+                    "Minute hand speed = 6 degrees per minute",
+                    "Hour hand speed = 0.5 degree per minute",
+                    "Angle formula at h:m = |30h - 5.5m|"
+                ],
+                shortcut: "For coincidence (overlap), use relative speed 5.5 degrees per minute.",
+                practiceProblems: [
+                    "Find angle at 3:20",
+                    "How many times hands overlap in 12 hours?"
+                ],
+                miniQuiz: [
+                    { q: "At 6:00, angle between hands?", answer: "180 degrees", explanation: "Hands opposite each other." },
+                    { q: "Overlaps in 12 hours?", answer: "11", explanation: "Hands coincide every ~65.45 minutes." }
+                ]
+            }
+        ]
     }
 };

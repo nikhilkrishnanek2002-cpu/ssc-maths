@@ -472,5 +472,309 @@ const englishData = {
                 shortcut: "Tone is determined by ADJECTIVES. If author uses 'disastrous', tone is negative/critical."
             }
         ]
+    },
+
+    english_cloze_parajumble: {
+        category: "English: Practice",
+        title: "Cloze Test and Para-Jumbles",
+        subtitle: "Context Clues, Connectors, and Sequence Strategy",
+        blocks: [
+            {
+                title: "1. Cloze Test Strategy",
+                text: "Solve blanks using grammar + meaning + tone, not vocabulary alone.",
+                examples: [
+                    "Check tense consistency across sentence before filling verb blanks.",
+                    "Use article logic: 'a' before consonant sound, 'an' before vowel sound.",
+                    "Preposition pairs: interested in, depend on, good at, capable of.",
+                    "Connector clues: however (contrast), therefore (result), moreover (addition)."
+                ],
+                shortcut: "First pass: fill easy grammar blanks. Second pass: solve vocabulary blanks using paragraph tone."
+            },
+            {
+                title: "2. Para-Jumble Sequencing",
+                text: "Find opening and closing lines first, then link middle sentences by flow.",
+                examples: [
+                    "Opening sentence usually introduces topic and has no backward reference.",
+                    "Sentences starting with pronouns (this, that, they, such) are rarely first.",
+                    "Look for mandatory pairs: cause-effect, question-answer, statement-example.",
+                    "Chronological signals: first, then, later, finally."
+                ],
+                shortcut: "Identify transition words and noun-pronoun links to build anchor pairs before final ordering."
+            },
+            {
+                title: "3. High-Frequency Trap Patterns",
+                text: "Common traps are close-option synonyms and grammatically correct but context-wrong choices.",
+                examples: [
+                    "A word may fit grammar but fail tone (positive vs negative context).",
+                    "In para-jumbles, a sentence with specific details usually cannot open the paragraph.",
+                    "If two options look right, choose the one matching the central theme of surrounding lines."
+                ],
+                shortcut: "When stuck between two options, re-read one line before and after the blank for semantic fit."
+            }
+        ]
+    },
+
+    english_sentence_improvement: {
+        category: "English: Tier 2 Practice",
+        title: "Sentence Improvement and Error Correction",
+        subtitle: "Grammar precision, conciseness, and exam elimination strategy",
+        blocks: [
+            {
+                title: "1. Grammar-First Improvement Approach",
+                text: "Sentence improvement questions reward strict grammar control more than vocabulary flair.",
+                examples: [
+                    "Check verb tense and subject-verb agreement first.",
+                    "Then check pronoun case and reference clarity.",
+                    "Finally evaluate preposition and article usage."
+                ],
+                shortcut: "Eliminate options with obvious tense/agreement errors before semantic comparison.",
+                practiceProblems: [
+                    "He do not knows the answer. Improve the underlined part.",
+                    "Neither of the boys were present. Improve the underlined part."
+                ],
+                miniQuiz: [
+                    { q: "Correct form: Neither of the players ___ selected.", answer: "was", explanation: "'Neither' is singular in standard exam grammar." },
+                    { q: "Choose better sentence: She is senior than me / She is senior to me", answer: "She is senior to me", explanation: "Senior is followed by 'to', not 'than'." }
+                ]
+            },
+            {
+                title: "2. Concision and Redundancy Removal",
+                text: "Many options are grammatically correct but wordy; SSC prefers concise correctness.",
+                examples: [
+                    "Return back -> return",
+                    "Repeat again -> repeat",
+                    "Discuss about -> discuss",
+                    "More better -> better"
+                ],
+                shortcut: "When two options are both grammatical, choose the shorter and sharper expression.",
+                practiceProblems: [
+                    "He returned back to home late at night. Improve.",
+                    "We discussed about the proposal yesterday. Improve."
+                ],
+                miniQuiz: [
+                    { q: "Best correction: The meeting was postponed to next week.", answer: "The meeting was postponed until next week", explanation: "'Until next week' is clearer in time-bound expression." },
+                    { q: "Correct expression: very unique / unique", answer: "unique", explanation: "Unique is absolute and does not usually take intensifiers." }
+                ]
+            },
+            {
+                title: "3. Modifier Placement and Parallelism",
+                text: "Misplaced modifiers and broken parallel structure are common traps.",
+                examples: [
+                    "Incorrect: Walking down the road, the tree looked beautiful.",
+                    "Correct: Walking down the road, I found the tree beautiful.",
+                    "Incorrect: She likes singing, dancing, and to paint.",
+                    "Correct: She likes singing, dancing, and painting."
+                ],
+                shortcut: "Keep list items in the same grammatical form (all verbs in -ing or all infinitives).",
+                practiceProblems: [
+                    "Correct the parallel error: He likes to swim, running, and to cycle.",
+                    "Correct modifier placement in: Covered with dust, I cleaned the old books."
+                ],
+                miniQuiz: [
+                    { q: "Which is parallel? to read, writing, and to speak / reading, writing, and speaking", answer: "reading, writing, and speaking", explanation: "All list elements follow same form." },
+                    { q: "Misplaced modifier usually affects what?", answer: "Clarity of meaning", explanation: "Modifier may attach to wrong noun, changing meaning." }
+                ]
+            }
+        ]
+    },
+
+    english_word_power_revision: {
+        category: "English: Tier 2 Vocabulary",
+        title: "Word Power Revision Capsules",
+        subtitle: "Confusables, one-word substitutions, and phrase precision",
+        blocks: [
+            {
+                title: "1. High-Frequency Confusables",
+                text: "These pairs are repeatedly asked in vocabulary and sentence correction sections.",
+                examples: [
+                    "Affect (verb) vs Effect (noun)",
+                    "Accept (receive) vs Except (exclude)",
+                    "Principal (head/main) vs Principle (rule)",
+                    "Stationary (still) vs Stationery (writing materials)"
+                ],
+                shortcut: "Link words with memory hooks: principal ends with 'pal' (your school pal).",
+                practiceProblems: [
+                    "Choose correct: The new policy had a positive _____ on exports.",
+                    "Choose correct: All students were present _____ Rohan."
+                ],
+                miniQuiz: [
+                    { q: "Which word means 'main or chief'?", answer: "Principal", explanation: "Principle means a rule or doctrine." },
+                    { q: "Which one is writing paper material?", answer: "Stationery", explanation: "Stationary means not moving." }
+                ]
+            },
+            {
+                title: "2. One-Word Substitution (Exam Core)",
+                text: "Replace long definitions with exact single-word expressions.",
+                examples: [
+                    "One who writes dictionary -> Lexicographer",
+                    "One who studies plants -> Botanist",
+                    "Government by the people -> Democracy",
+                    "One who cannot read/write -> Illiterate"
+                ],
+                shortcut: "Break substitutions by domain: profession, government, behavior, medicine.",
+                practiceProblems: [
+                    "One who can speak many languages.",
+                    "A person who hates mankind."
+                ],
+                miniQuiz: [
+                    { q: "One who speaks many languages is called?", answer: "Polyglot", explanation: "Poly = many, glot = tongue/language." },
+                    { q: "Hatred of humankind is?", answer: "Misanthropy", explanation: "A misanthrope dislikes humankind." }
+                ]
+            },
+            {
+                title: "3. Phrasal Verb Accuracy",
+                text: "Phrasal verb meaning often differs from literal verb meaning.",
+                examples: [
+                    "Call off = cancel",
+                    "Bring up = raise (a topic/child)",
+                    "Look into = investigate",
+                    "Put up with = tolerate"
+                ],
+                shortcut: "Treat phrasal verbs as fixed units; changing preposition usually changes meaning.",
+                practiceProblems: [
+                    "The event was called _____ due to rain.",
+                    "Police will look _____ the matter."
+                ],
+                miniQuiz: [
+                    { q: "'Put up with' means?", answer: "Tolerate", explanation: "It expresses endurance of unpleasant situations." },
+                    { q: "'Call off the strike' means?", answer: "Cancel the strike", explanation: "Call off is a cancellation phrasal verb." }
+                ]
+            }
+        ]
+    },
+
+    english_para_completion: {
+        category: "English: Tier 2 Practice",
+        title: "Paragraph Completion and Coherence",
+        subtitle: "Sentence placement, logical flow, and transition matching",
+        blocks: [
+            {
+                title: "1. Coherence Signals",
+                text: "Paragraph completion requires meaning continuity and transition alignment.",
+                examples: [
+                    "Contrast markers: however, although, nevertheless",
+                    "Result markers: therefore, thus, hence",
+                    "Addition markers: moreover, furthermore, also",
+                    "Example markers: for instance, for example"
+                ],
+                shortcut: "Pick option whose opening connector logically matches previous sentence tone.",
+                practiceProblems: [
+                    "Select best continuation after a contrasting statement.",
+                    "Choose sentence that keeps formal tone in academic paragraph."
+                ],
+                miniQuiz: [
+                    { q: "Best connector for contrast?", answer: "However", explanation: "However introduces opposing idea." },
+                    { q: "Best connector for consequence?", answer: "Therefore", explanation: "It indicates logical result." }
+                ]
+            },
+            {
+                title: "2. Contextual Fit vs Grammatical Fit",
+                text: "Many options are grammatical, but only one matches context progression.",
+                examples: [
+                    "Avoid options that repeat same idea without progression",
+                    "Reject abrupt topic shifts in formal passage",
+                    "Check pronoun references (this, these, such) for clear antecedent"
+                ],
+                shortcut: "Read one sentence before and one after blank; choose option that links both naturally.",
+                practiceProblems: [
+                    "Find line that best connects cause and policy recommendation.",
+                    "Choose sentence that maintains neutral analytical tone."
+                ],
+                miniQuiz: [
+                    { q: "Primary test in paragraph completion?", answer: "Logical continuity", explanation: "Grammar alone is insufficient." },
+                    { q: "Pronoun without clear reference indicates?", answer: "Weak option", explanation: "Ambiguous antecedent breaks coherence." }
+                ]
+            }
+        ]
+    },
+
+    english_advanced_reading: {
+        category: "English: Tier 2 Comprehension",
+        title: "Advanced Reading and Inference",
+        subtitle: "Author intent, assumptions, and critical interpretation",
+        blocks: [
+            {
+                title: "1. Inference vs Fact Distinction",
+                text: "Fact is directly stated; inference is logically derived from clues.",
+                examples: [
+                    "Fact question asks what passage explicitly states",
+                    "Inference question asks what follows logically",
+                    "Assumption question asks unstated belief supporting argument"
+                ],
+                shortcut: "For inference, choose option with strongest support and least extra assumption.",
+                practiceProblems: [
+                    "Identify whether statement is fact or inference.",
+                    "Select assumption behind policy argument in passage."
+                ],
+                miniQuiz: [
+                    { q: "If line is directly present in passage, question type is?", answer: "Fact-based", explanation: "Directly retrievable information." },
+                    { q: "Inference should be?", answer: "Supported but not explicitly stated", explanation: "Derived logically from text." }
+                ]
+            },
+            {
+                title: "2. Tone and Bias Detection",
+                text: "Tone recognition helps eliminate close options in advanced RC.",
+                examples: [
+                    "Objective tone uses neutral and evidence-based language",
+                    "Critical tone highlights flaws or limitations",
+                    "Optimistic tone emphasizes positive outcomes",
+                    "Skeptical tone questions certainty"
+                ],
+                shortcut: "Track adjectives/adverbs to detect emotional charge and author stance.",
+                practiceProblems: [
+                    "Determine tone from policy editorial excerpt.",
+                    "Identify if passage is descriptive, argumentative, or analytical."
+                ],
+                miniQuiz: [
+                    { q: "Tone with doubt and caution is?", answer: "Skeptical", explanation: "It questions validity or certainty." },
+                    { q: "Tone in balanced data-led writing is?", answer: "Objective", explanation: "Minimal emotional coloring." }
+                ]
+            }
+        ]
+    },
+
+    english_editing_omission: {
+        category: "English: Tier 2 Editing",
+        title: "Editing and Omission Drills",
+        subtitle: "Error correction in short passages and line-by-line grammar repair",
+        blocks: [
+            {
+                title: "1. Editing Workflow",
+                text: "Editing passages should be solved in layers: grammar, vocabulary, then coherence.",
+                examples: [
+                    "Check determiners and articles first",
+                    "Then verify verb tense consistency",
+                    "Then inspect pronoun references",
+                    "Finally refine prepositions and collocations"
+                ],
+                shortcut: "Do not over-correct; one line usually has one dominant error.",
+                practiceProblems: [
+                    "Correct article-preposition errors in a 5-line passage.",
+                    "Find omission in subject-verb agreement sentence."
+                ],
+                miniQuiz: [
+                    { q: "Best first check in editing set?", answer: "Subject-verb agreement and tense", explanation: "Most frequent high-impact errors." },
+                    { q: "Can one line have multiple possible rewrites?", answer: "Yes, but exam expects one best correction", explanation: "Choose minimal and grammatically exact fix." }
+                ]
+            },
+            {
+                title: "2. Omission Pattern Recognition",
+                text: "Omission questions usually drop articles, prepositions, auxiliaries, or pronouns.",
+                examples: [
+                    "She is best candidate -> missing article 'the'",
+                    "He insisted go -> missing preposition 'on' and gerund form",
+                    "They not ready -> missing auxiliary 'are'"
+                ],
+                shortcut: "Read sentence aloud mentally; missing function words usually reveal rhythm break.",
+                practiceProblems: [
+                    "Identify missing word in each line of given passage.",
+                    "Insert omitted auxiliary in negative sentence."
+                ],
+                miniQuiz: [
+                    { q: "In 'He interested mathematics', omitted preposition?", answer: "in", explanation: "Standard collocation is interested in." },
+                    { q: "In 'They going now', omitted auxiliary?", answer: "are", explanation: "Present continuous requires be + V-ing." }
+                ]
+            }
+        ]
     }
 };

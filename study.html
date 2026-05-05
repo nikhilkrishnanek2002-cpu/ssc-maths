@@ -13,18 +13,18 @@
     <div class="hero">
         <div class="hero-badge">SSC CGL Complete Preparation</div>
         <h1>Study Master Platform</h1>
-        <p>61 comprehensive topics with 650+ worked examples, 165+ speed hacks &amp; complete exam coverage</p>
+        <p>91 comprehensive topics with 1200+ worked examples, 320+ speed hacks &amp; complete exam coverage</p>
         <div class="hero-stats">
             <div class="stat">
-                <div class="stat-num">61</div>
+                <div class="stat-num">91</div>
                 <div class="stat-label">Topics</div>
             </div>
             <div class="stat">
-                <div class="stat-num">650+</div>
+                <div class="stat-num">1200+</div>
                 <div class="stat-label">Examples</div>
             </div>
             <div class="stat">
-                <div class="stat-num">165+</div>
+                <div class="stat-num">320+</div>
                 <div class="stat-label">Speed Hacks</div>
             </div>
             <div class="stat">
@@ -44,6 +44,7 @@
             <button class="nav-btn" onclick="filterBySubject('gk', this)">🌍 GK</button>
             <button class="nav-btn" onclick="filterBySubject('computer', this)">💻 Comp</button>
             <button class="nav-btn" onclick="filterBySubject('pyq', this)">📂 PYQ Vault</button>
+            <button class="nav-btn" onclick="filterBySubject('tier1', this)" style="color: var(--accent2);">🎯 Tier-1 Focus</button>
             <button class="nav-btn" onclick="filterBySubject('tier2', this)" style="color: var(--accent4);">🏆 Tier-2 Focus</button>
             <button class="nav-btn" style="margin-left: auto;" onclick="goHome()"><i class="fas fa-home"></i> Home</button>
         </div>
@@ -209,6 +210,17 @@
             return 'other';
         }
 
+        function isTier2Topic(key, topic, subject) {
+            const text = `${topic.title || ''} ${topic.subtitle || ''} ${topic.category || ''}`.toLowerCase();
+            if (key.startsWith('stat_')) return true;
+            if (subject === 'computer') return true;
+            if (text.includes('tier 2') || text.includes('tier-2') || text.includes('tier2')) return true;
+            if (text.includes('advanced') || text.includes('probability') || text.includes('data interpretation')) return true;
+            if (text.includes('cloze') || text.includes('parajumble') || text.includes('reading comprehension')) return true;
+            if (text.includes('seating arrangement') || text.includes('syllogism')) return true;
+            return false;
+        }
+
         let currentFilter = 'all';
         let currentSearch = '';
         let currentTopic  = null;
@@ -252,12 +264,10 @@
                 let matches = false;
                 if (currentFilter === 'all') {
                     matches = true;
+                } else if (currentFilter === 'tier1') {
+                    matches = subject !== 'pyq' && !isTier2Topic(key, topic, subject);
                 } else if (currentFilter === 'tier2') {
-                    // FIX #5: was checking subject === 'statistics' which never matched
-                    const cat = (topic.category || '').toLowerCase();
-                    matches = cat.includes('tier 2') || cat.includes('tier2')
-                           || subject === 'computer'
-                           || key.startsWith('stat_');          // statistics = tier-2 focus
+                    matches = isTier2Topic(key, topic, subject);
                 } else {
                     matches = (subject === currentFilter);
                 }
@@ -322,6 +332,8 @@
                 topic.blocks.forEach((block, idx) => {
                     const colors = ['gold','blue','green','red','purple'];
                     const color  = colors[idx % 5];
+                    const blockHasQuiz = (block.miniQuiz && block.miniQuiz.length > 0)
+                        || (block.practiceProblems && block.practiceProblems.length > 0);
 
                     // Safely encode text for the data attribute
                     const safeText = (block.text || '').replace(/"/g, '&quot;');
@@ -347,6 +359,29 @@
 
                     if (block.shortcut) {
                         content += `<div class="shortcut" style="margin-top:12px;"><strong>⚡ Speed Hack:</strong> ${block.shortcut}</div>`;
+                    }
+
+                    if (block.practiceProblems && block.practiceProblems.length > 0) {
+                        content += `<div style="margin-top:12px;"><strong style="color:var(--accent2);">Mini Quiz (Self-check):</strong><ul style="margin-top:8px;">`;
+                        block.practiceProblems.forEach(q => { content += `<li>${q}</li>`; });
+                        content += `</ul></div>`;
+                    }
+
+                    if (block.miniQuiz && block.miniQuiz.length > 0) {
+                        content += `<div style="margin-top:12px;"><strong style="color:var(--accent4);">Quick Quiz:</strong>`;
+                        block.miniQuiz.forEach((q, qIdx) => {
+                            content += `
+                                <details style="margin-top:8px;padding:8px;border:1px solid var(--border);border-radius:8px;">
+                                    <summary style="cursor:pointer;font-weight:600;">Q${qIdx + 1}. ${q.q}</summary>
+                                    <div style="margin-top:8px;color:var(--muted);">Answer: <strong style="color:var(--text);">${q.answer}</strong></div>
+                                    ${q.explanation ? `<div style="margin-top:4px;font-size:13px;">${q.explanation}</div>` : ''}
+                                </details>`;
+                        });
+                        content += `</div>`;
+                    }
+
+                    if (blockHasQuiz) {
+                        content += `<div class="tag tag-${color}" style="margin-top:10px;display:inline-block;">Quiz Ready</div>`;
                     }
 
                     content += `</div>`;

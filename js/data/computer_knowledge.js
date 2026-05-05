@@ -376,5 +376,307 @@ const computerData = {
                 shortcut: "BLOCKCHAIN = IMMUTABLE CHAIN. BITCOIN = FIRST CRYPTO. SMART CONTRACTS = AUTOMATED EXECUTION."
             }
         ]
+    },
+    comp_operating_systems: {
+        category: "Computer: Systems",
+        title: "Operating Systems and Process Management",
+        subtitle: "Scheduling, Memory, File Systems, and Commands",
+        blocks: [
+            {
+                title: "1. OS Fundamentals",
+                text: "Operating System is system software that manages hardware, files, memory, and processes.",
+                examples: [
+                    "Examples: Windows, Linux, macOS, Android.",
+                    "Single-user vs multi-user OS.",
+                    "GUI OS uses icons/windows; CLI OS uses typed commands.",
+                    "Kernel is the core part of an operating system."
+                ],
+                shortcut: "If question asks interface type with command prompt focus, think CLI; with icons and mouse, think GUI."
+            },
+            {
+                title: "2. Process Scheduling and Memory",
+                text: "CPU scheduling decides which process gets CPU time; memory management decides where processes are stored.",
+                examples: [
+                    "FCFS: First Come First Served.",
+                    "Round Robin: Time-slice based scheduling.",
+                    "Multitasking: Multiple programs run apparently at same time.",
+                    "Virtual memory uses disk space as temporary RAM extension."
+                ],
+                shortcut: "Round Robin is commonly linked with time quantum; FCFS is simplest but can cause long waiting."
+            },
+            {
+                title: "3. File Systems and Useful Commands",
+                text: "File system organizes data as files and folders with naming and permissions.",
+                examples: [
+                    "Common file systems: NTFS, FAT32, exFAT.",
+                    "Windows command examples: dir (list), cd (change directory), cls (clear screen).",
+                    "Linux command examples: ls (list), pwd (current path), mkdir (create folder).",
+                    "Absolute path starts from root/drive; relative path depends on current folder."
+                ],
+                shortcut: "For command questions, map command to one core action: list, navigate, create, delete, copy."
+            }
+        ]
+    },
+    comp_dbms_sql_practice: {
+        category: "Computer: Database Tier 2",
+        title: "DBMS and SQL Practical Capsule",
+        subtitle: "Keys, normalization, joins, and common SQL commands",
+        blocks: [
+            {
+                title: "1. Relational Design and Keys",
+                text: "Database tables are connected using key relationships to avoid duplication and inconsistency.",
+                examples: [
+                    "Primary key uniquely identifies each row.",
+                    "Foreign key links child table to parent table.",
+                    "Composite key uses multiple columns for uniqueness.",
+                    "Candidate key is a potential primary key."
+                ],
+                shortcut: "Primary key = unique + not null. This combination appears in many objective questions.",
+                practiceProblems: [
+                    "Identify key type in StudentID column with unique values.",
+                    "Choose relationship key from options for two linked tables."
+                ],
+                miniQuiz: [
+                    { q: "Can primary key contain null?", answer: "No", explanation: "Primary key must always have a value." },
+                    { q: "Foreign key mainly ensures what?", answer: "Referential integrity", explanation: "It enforces valid parent-child references." }
+                ]
+            },
+            {
+                title: "2. Core SQL Query Patterns",
+                text: "SSC computer sections often ask command-purpose and basic query outcomes.",
+                examples: [
+                    "SELECT retrieves data",
+                    "INSERT adds new rows",
+                    "UPDATE modifies existing rows",
+                    "DELETE removes rows"
+                ],
+                shortcut: "DDL defines structure (CREATE, ALTER, DROP); DML manipulates data (INSERT, UPDATE, DELETE).",
+                practiceProblems: [
+                    "Command to rename a table column in SQL?",
+                    "Difference between WHERE and HAVING in grouped query?"
+                ],
+                miniQuiz: [
+                    { q: "Which clause filters groups after aggregation?", answer: "HAVING", explanation: "WHERE filters rows before grouping." },
+                    { q: "SQL command to add a table?", answer: "CREATE", explanation: "CREATE TABLE defines new relation." }
+                ]
+            },
+            {
+                title: "3. Joins and Normalization",
+                text: "Join questions are frequent due to their role in combining relational data.",
+                examples: [
+                    "INNER JOIN returns matching rows from both tables",
+                    "LEFT JOIN returns all left table rows and matching right rows",
+                    "RIGHT JOIN mirrors LEFT JOIN on right side",
+                    "Normalization reduces redundancy (1NF, 2NF, 3NF basics)"
+                ],
+                shortcut: "If question says 'all rows from left table', answer is LEFT JOIN.",
+                practiceProblems: [
+                    "Choose join type to retain all employee rows with optional department data.",
+                    "Pick normal form that removes partial dependency."
+                ],
+                miniQuiz: [
+                    { q: "Which normal form removes repeating groups?", answer: "1NF", explanation: "First normal form enforces atomic values." },
+                    { q: "Join that keeps all left rows?", answer: "LEFT JOIN", explanation: "Unmatched right values become null." }
+                ]
+            }
+        ]
+    },
+    comp_cyber_security_practice: {
+        category: "Computer: Security Tier 2",
+        title: "Cyber Security and Safe Computing",
+        subtitle: "Authentication, attacks, cryptography, and prevention",
+        blocks: [
+            {
+                title: "1. Authentication and Access Control",
+                text: "Security starts with identity verification and controlled permissions.",
+                examples: [
+                    "Authentication verifies identity (password, OTP, biometrics)",
+                    "Authorization defines allowed actions after login",
+                    "MFA combines two or more independent factors",
+                    "Principle of least privilege gives minimum required access"
+                ],
+                shortcut: "Authentication asks 'who are you'; authorization asks 'what can you do'.",
+                practiceProblems: [
+                    "Classify OTP login as authentication or authorization.",
+                    "Pick safest policy for role-based access in office network."
+                ],
+                miniQuiz: [
+                    { q: "Fingerprint login is which factor type?", answer: "Something you are", explanation: "Biometric factor category." },
+                    { q: "MFA improves security by?", answer: "Requiring multiple independent proofs", explanation: "Compromise of one factor is not enough." }
+                ]
+            },
+            {
+                title: "2. Attack Types and Defenses",
+                text: "Understanding common attack patterns helps rapid elimination in objective questions.",
+                examples: [
+                    "Phishing steals credentials via fake communication",
+                    "Ransomware encrypts files and demands payment",
+                    "DDoS floods service with traffic",
+                    "Social engineering exploits human trust"
+                ],
+                shortcut: "If attack involves tricking people rather than systems, classify it as social engineering.",
+                practiceProblems: [
+                    "Identify attack in fake bank email requesting OTP.",
+                    "Best first action after ransomware detection?"
+                ],
+                miniQuiz: [
+                    { q: "DDoS mainly targets what?", answer: "Service availability", explanation: "Flooding traffic makes service unreachable." },
+                    { q: "Fake urgent email for password reset is?", answer: "Phishing", explanation: "Credential theft via deception." }
+                ]
+            },
+            {
+                title: "3. Encryption and Secure Communication",
+                text: "Encryption protects confidentiality in data storage and transmission.",
+                examples: [
+                    "Symmetric encryption uses one shared key",
+                    "Asymmetric encryption uses public-private key pair",
+                    "Hashing produces fixed digest for integrity checks",
+                    "Digital signatures verify sender authenticity"
+                ],
+                shortcut: "Hashing is one-way; encryption is reversible with key.",
+                practiceProblems: [
+                    "Which technique verifies file integrity?",
+                    "Differentiate public key and private key usage."
+                ],
+                miniQuiz: [
+                    { q: "Which is one-way: encryption or hashing?", answer: "Hashing", explanation: "Hash values are not designed for reversal." },
+                    { q: "HTTPS primarily adds what to HTTP?", answer: "TLS encryption", explanation: "Secure channel for web traffic." }
+                ]
+            }
+        ]
+    },
+    comp_network_protocols_practice: {
+        category: "Computer: Networking Tier 2",
+        title: "Networking and Protocol Stack",
+        subtitle: "OSI/TCP-IP basics, protocol-purpose mapping, and practical understanding",
+        blocks: [
+            {
+                title: "1. Protocol Purpose Mapping",
+                text: "Protocol questions are usually about function and default usage context.",
+                examples: [
+                    "HTTP/HTTPS for web transfer",
+                    "FTP for file transfer",
+                    "SMTP for sending emails",
+                    "POP3/IMAP for receiving emails"
+                ],
+                shortcut: "If protocol handles secure web browsing, choose HTTPS.",
+                practiceProblems: [
+                    "Identify protocol used for outgoing email.",
+                    "Choose protocol for secure webpage access."
+                ],
+                miniQuiz: [
+                    { q: "SMTP is used for?", answer: "Sending mail", explanation: "Simple Mail Transfer Protocol handles outbound mail." },
+                    { q: "Protocol for encrypted web traffic?", answer: "HTTPS", explanation: "HTTP over TLS/SSL." }
+                ]
+            },
+            {
+                title: "2. Network Layers and Devices",
+                text: "Layered model understanding helps answer router/switch/hub questions quickly.",
+                examples: [
+                    "Switch works mainly at data-link layer for MAC forwarding",
+                    "Router connects networks using IP layer decisions",
+                    "Hub broadcasts to all ports without filtering"
+                ],
+                shortcut: "If question says 'connect different networks', answer router.",
+                practiceProblems: [
+                    "Pick correct device for inter-network connection.",
+                    "Choose device that broadcasts blindly."
+                ],
+                miniQuiz: [
+                    { q: "Device for LAN segment intelligent forwarding?", answer: "Switch", explanation: "Switch forwards using MAC table." },
+                    { q: "Which device lacks packet intelligence?", answer: "Hub", explanation: "Hub simply repeats signals." }
+                ]
+            }
+        ]
+    },
+
+    comp_excel_data_analysis: {
+        category: "Computer: Excel Tier 2",
+        title: "Excel Data Analysis and Formula Practice",
+        subtitle: "Functions, lookup logic, sorting/filtering, and spreadsheet productivity",
+        blocks: [
+            {
+                title: "1. Formula and Function Essentials",
+                text: "Formula mastery improves both objective and practical computer section performance.",
+                examples: [
+                    "SUM, AVERAGE, MAX, MIN for numerical summaries",
+                    "COUNT counts numbers; COUNTA counts non-empty cells",
+                    "IF function supports conditional outputs",
+                    "Absolute reference example: $A$1"
+                ],
+                shortcut: "Use $ for locking rows/columns while dragging formulas.",
+                practiceProblems: [
+                    "Write formula to compute average of B2:B11.",
+                    "Count non-empty cells in range C1:C50."
+                ],
+                miniQuiz: [
+                    { q: "Which function counts all non-empty cells?", answer: "COUNTA", explanation: "COUNTA counts text, numbers, and logical values." },
+                    { q: "Formula reference that never changes when copied?", answer: "Absolute reference", explanation: "Uses dollar signs in address." }
+                ]
+            },
+            {
+                title: "2. Lookup and Data Cleaning",
+                text: "Lookup functions and sorting are common in practical office data workflows.",
+                examples: [
+                    "VLOOKUP searches first column and returns mapped value",
+                    "INDEX-MATCH is flexible alternative to VLOOKUP",
+                    "Sort can be ascending or descending by selected key",
+                    "Filter displays rows matching criteria"
+                ],
+                shortcut: "Use named ranges and structured tables to avoid reference errors.",
+                practiceProblems: [
+                    "Choose function for value retrieval by key.",
+                    "Find method to show only rows where marks > 80."
+                ],
+                miniQuiz: [
+                    { q: "Tool to temporarily hide non-matching rows?", answer: "Filter", explanation: "Filter keeps source data intact while narrowing view." },
+                    { q: "VLOOKUP requires key in which side?", answer: "Leftmost column of lookup range", explanation: "Classic VLOOKUP limitation." }
+                ]
+            }
+        ]
+    },
+
+    comp_ai_ml_foundations: {
+        category: "Computer: Emerging Tech",
+        title: "AI and Machine Learning Foundations",
+        subtitle: "Core definitions, model types, and practical use cases",
+        blocks: [
+            {
+                title: "1. AI vs ML vs Deep Learning",
+                text: "AI is broad intelligence simulation; ML is data-driven learning; deep learning uses neural networks.",
+                examples: [
+                    "AI example: rule-based chatbot",
+                    "ML example: spam email classifier",
+                    "Deep learning example: image recognition"
+                ],
+                shortcut: "All deep learning is ML, and all ML is part of AI.",
+                practiceProblems: [
+                    "Classify recommendation engine under AI/ML category.",
+                    "Differentiate supervised and unsupervised learning."
+                ],
+                miniQuiz: [
+                    { q: "Which learning uses labeled data?", answer: "Supervised learning", explanation: "Training examples include known outputs." },
+                    { q: "Face recognition is often based on?", answer: "Deep learning", explanation: "Neural networks handle complex visual patterns." }
+                ]
+            },
+            {
+                title: "2. Responsible AI Basics",
+                text: "Modern exam and interview contexts include fairness, privacy, and explainability concerns.",
+                examples: [
+                    "Bias can arise from skewed training data",
+                    "Privacy requires careful handling of personal data",
+                    "Explainability is needed for high-impact decisions"
+                ],
+                shortcut: "A high-accuracy model is not automatically fair or trustworthy.",
+                practiceProblems: [
+                    "Identify risk of using biased historical data.",
+                    "Choose safeguard for user data in AI systems."
+                ],
+                miniQuiz: [
+                    { q: "Key ethical risk in ML hiring model?", answer: "Bias", explanation: "Model may replicate unfair historical patterns." },
+                    { q: "Transparency in AI helps with?", answer: "Trust and accountability", explanation: "Users can understand decision rationale." }
+                ]
+            }
+        ]
     }
 };

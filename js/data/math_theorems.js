@@ -664,5 +664,310 @@ const mathData = {
                 shortcut: "Visual estimation: Check slopes in line graphs to find maximum growth instantly without calculation."
             }
         ]
+    },
+
+    math_probability_basics: {
+        category: "Math: Arithmetic",
+        title: "Probability Basics for SSC",
+        subtitle: "Events, Dice, Cards, Coins, and Selection Logic",
+        blocks: [
+            {
+                title: "1. Core Formula and Event Types",
+                text: "Probability of an event E is P(E) = Favorable outcomes / Total outcomes.",
+                examples: [
+                    "Range: 0 <= P(E) <= 1",
+                    "Sure event: P(E)=1, impossible event: P(E)=0",
+                    "Complement rule: P(not E) = 1 - P(E)",
+                    "Example: Probability of getting an even number on a fair die = 3/6 = 1/2"
+                ],
+                shortcut: "If a question asks 'at least one', often solve 'none' first and subtract from 1."
+            },
+            {
+                title: "2. Dice, Coins, and Cards",
+                text: "Most SSC probability questions are direct counting with simple sample spaces.",
+                examples: [
+                    "Two coins sample space: {HH, HT, TH, TT} => total 4 outcomes",
+                    "P(exactly one head in two coins) = 2/4 = 1/2",
+                    "Two dice total outcomes = 36",
+                    "P(sum is 7 with two dice) = 6/36 = 1/6",
+                    "Cards: deck has 52 cards, 4 suits, 13 cards each suit"
+                ],
+                shortcut: "For cards, first classify by suit/rank, then count carefully before dividing by 52 (or 51, 50 in successive draws)."
+            },
+            {
+                title: "3. Conditional and Without Replacement",
+                text: "When one item is removed, total outcomes reduce for the next draw.",
+                examples: [
+                    "Bag has 5 red, 3 blue. P(first red then blue without replacement) = (5/8)*(3/7) = 15/56",
+                    "If replacement is allowed, denominator stays same in next step",
+                    "P(A and B for independent events) = P(A)*P(B)",
+                    "P(A or B for mutually exclusive events) = P(A)+P(B)"
+                ],
+                shortcut: "Write each stage as a fraction line-by-line; avoid mental shortcuts in without-replacement questions."
+            }
+        ]
+    },
+
+    math_algebra_quadratic: {
+        category: "Math: Algebra (Tier 2)",
+        title: "Quadratic Equations and Algebraic Identities",
+        subtitle: "Roots, factorization, discriminant, and expression simplification",
+        blocks: [
+            {
+                title: "1. Standard Form and Nature of Roots",
+                text: "A quadratic equation is ax^2 + bx + c = 0 where a != 0.",
+                examples: [
+                    "Discriminant D = b^2 - 4ac",
+                    "If D > 0, roots are real and distinct",
+                    "If D = 0, roots are real and equal",
+                    "If D < 0, roots are complex"
+                ],
+                shortcut: "Before solving fully, check discriminant to identify the root type quickly.",
+                practiceProblems: [
+                    "Find nature of roots: x^2 - 6x + 9 = 0",
+                    "For 2x^2 + x - 3 = 0, find D and classify roots"
+                ],
+                miniQuiz: [
+                    { q: "For x^2 - 4x + 4 = 0, what is D?", answer: "0", explanation: "b^2 - 4ac = 16 - 16 = 0" },
+                    { q: "If D is negative, are roots real?", answer: "No", explanation: "Negative D gives non-real complex roots." }
+                ]
+            },
+            {
+                title: "2. Sum and Product of Roots",
+                text: "For ax^2 + bx + c = 0, sum of roots = -b/a and product = c/a.",
+                examples: [
+                    "Equation x^2 - 7x + 12 = 0 has sum = 7 and product = 12",
+                    "If roots are alpha and beta, equation is x^2 - (alpha+beta)x + alpha*beta = 0",
+                    "If one root is known, second root = sum - first"
+                ],
+                shortcut: "Use sum-product to build equations from root conditions without solving by formula.",
+                practiceProblems: [
+                    "Find equation whose roots are 3 and 5",
+                    "If sum of roots is 8 and product is 15, write the quadratic"
+                ],
+                miniQuiz: [
+                    { q: "If roots are 2 and 9, what is coefficient of x in monic equation?", answer: "-11", explanation: "x^2 - (2+9)x + 18 = x^2 - 11x + 18" },
+                    { q: "For x^2 + 5x + 6 = 0, product of roots is?", answer: "6", explanation: "For monic equation, product = constant term." }
+                ]
+            },
+            {
+                title: "3. High-Frequency Algebraic Identities",
+                text: "Identity-based expansion and reduction saves time in simplification questions.",
+                examples: [
+                    "(a+b)^2 = a^2 + 2ab + b^2",
+                    "(a-b)^2 = a^2 - 2ab + b^2",
+                    "a^2 - b^2 = (a-b)(a+b)",
+                    "(a+b+c)^2 = a^2+b^2+c^2+2(ab+bc+ca)"
+                ],
+                shortcut: "When expression matches an identity pattern, avoid full multiplication.",
+                practiceProblems: [
+                    "Simplify: 99^2 using identity",
+                    "Find value of a^2+b^2 if a+b=10 and ab=21"
+                ],
+                miniQuiz: [
+                    { q: "99^2 equals?", answer: "9801", explanation: "(100-1)^2 = 10000 - 200 + 1" },
+                    { q: "If a+b=8 and ab=12, then a^2+b^2=?", answer: "40", explanation: "a^2+b^2 = (a+b)^2 - 2ab = 64 - 24" }
+                ]
+            }
+        ]
+    },
+
+    math_geometry_mensuration: {
+        category: "Math: Geometry (Tier 2)",
+        title: "Geometry and Mensuration Essentials",
+        subtitle: "Triangles, circles, area-volume formulas, and exam shortcuts",
+        blocks: [
+            {
+                title: "1. Triangle Properties and Rules",
+                text: "Triangle angle sum is 180 degrees and exterior angle equals sum of opposite interior angles.",
+                examples: [
+                    "Pythagoras theorem: in right triangle, h^2 = p^2 + b^2",
+                    "Area of triangle = 1/2 * base * height",
+                    "Equilateral triangle area = (sqrt(3)/4)*a^2"
+                ],
+                shortcut: "If sides are in 3:4:5 ratio, triangle is right-angled.",
+                practiceProblems: [
+                    "Find hypotenuse when other sides are 9 and 12",
+                    "Find area of equilateral triangle with side 8"
+                ],
+                miniQuiz: [
+                    { q: "A triangle has angles 40 and 65. Third angle?", answer: "75 degrees", explanation: "Sum of interior angles is 180." },
+                    { q: "In a 3-4-5 triangle, longest side corresponds to?", answer: "Hypotenuse", explanation: "Largest side in right triangle is hypotenuse." }
+                ]
+            },
+            {
+                title: "2. Circle and Sector Basics",
+                text: "Circumference and area formulas are frequently used in SSC mensuration questions.",
+                examples: [
+                    "Circumference = 2*pi*r",
+                    "Area of circle = pi*r^2",
+                    "Area of sector = (theta/360)*pi*r^2",
+                    "Arc length = (theta/360)*2*pi*r"
+                ],
+                shortcut: "For comparative questions, keep pi common and compare radius terms first.",
+                practiceProblems: [
+                    "Find circumference of circle of radius 7",
+                    "Find area of 90-degree sector for radius 14"
+                ],
+                miniQuiz: [
+                    { q: "If radius doubles, area becomes how many times?", answer: "4 times", explanation: "Area proportional to r^2." },
+                    { q: "Which formula gives arc length?", answer: "(theta/360)*2*pi*r", explanation: "Arc is proportional part of full circumference." }
+                ]
+            },
+            {
+                title: "3. Surface Area and Volume",
+                text: "Cube, cuboid, cylinder, cone, and sphere formulas are high-frequency in Tier 2.",
+                examples: [
+                    "Cube: TSA = 6a^2, Volume = a^3",
+                    "Cuboid: TSA = 2(lb+bh+hl), Volume = l*b*h",
+                    "Cylinder: CSA = 2*pi*r*h, Volume = pi*r^2*h",
+                    "Sphere: Surface area = 4*pi*r^2, Volume = (4/3)*pi*r^3"
+                ],
+                shortcut: "Convert all dimensions to same unit before applying formulas.",
+                practiceProblems: [
+                    "Find volume of cylinder with r=3 and h=10",
+                    "A cube has side 5. Find its TSA and volume"
+                ],
+                miniQuiz: [
+                    { q: "Volume of cube with side 4?", answer: "64", explanation: "a^3 = 4^3" },
+                    { q: "Sphere surface area formula?", answer: "4*pi*r^2", explanation: "Standard mensuration identity." }
+                ]
+            }
+        ]
+    },
+
+    math_trigonometry_basics: {
+        category: "Math: Trigonometry (Tier 2)",
+        title: "Trigonometry Fast Revision",
+        subtitle: "Standard values, identities, and height-distance shortcuts",
+        blocks: [
+            {
+                title: "1. Standard Ratios and Identities",
+                text: "Memorizing standard trig values removes most calculation burden in exam questions.",
+                examples: [
+                    "sin 0=0, sin 30=1/2, sin 45=1/sqrt(2), sin 60=sqrt(3)/2, sin 90=1",
+                    "cos 0=1, cos 30=sqrt(3)/2, cos 45=1/sqrt(2), cos 60=1/2, cos 90=0",
+                    "tan theta = sin theta / cos theta",
+                    "sin^2 theta + cos^2 theta = 1"
+                ],
+                shortcut: "Use complementary rule: sin(90-theta)=cos(theta) and cos(90-theta)=sin(theta).",
+                practiceProblems: [
+                    "Find value of tan 45 + sin 30",
+                    "Evaluate sin^2 60 + cos^2 60"
+                ],
+                miniQuiz: [
+                    { q: "tan 45 equals?", answer: "1", explanation: "Standard trigonometric value." },
+                    { q: "sin^2 theta + cos^2 theta equals?", answer: "1", explanation: "Core identity." }
+                ]
+            },
+            {
+                title: "2. Heights and Distances",
+                text: "Questions usually involve right triangles with angle of elevation/depression.",
+                examples: [
+                    "If angle is 45 degree, height = horizontal distance",
+                    "If angle is 30 degree, height = distance/sqrt(3)",
+                    "If angle is 60 degree, height = sqrt(3)*distance"
+                ],
+                shortcut: "Convert word problem to right triangle first, then apply tan theta = opposite/adjacent.",
+                practiceProblems: [
+                    "A pole casts shadow 10m at 45 degree elevation. Find pole height.",
+                    "From a point 20m away, angle of elevation is 30 degree. Find height."
+                ],
+                miniQuiz: [
+                    { q: "At 45 degree, opposite and adjacent are?", answer: "Equal", explanation: "tan 45 = 1." },
+                    { q: "Angle of depression is measured from?", answer: "Horizontal line", explanation: "It is downward from observer's horizontal." }
+                ]
+            }
+        ]
+    },
+
+    math_coordinate_geometry: {
+        category: "Math: Coordinate Geometry (Tier 2)",
+        title: "Coordinate Geometry Essentials",
+        subtitle: "Distance, section formula, slope, and line basics",
+        blocks: [
+            {
+                title: "1. Distance and Midpoint",
+                text: "Coordinate formulas are direct-scoring if recalled correctly.",
+                examples: [
+                    "Distance between (x1,y1) and (x2,y2) = sqrt((x2-x1)^2 + (y2-y1)^2)",
+                    "Midpoint = ((x1+x2)/2, (y1+y2)/2)",
+                    "Origin distance from (a,b) = sqrt(a^2+b^2)"
+                ],
+                shortcut: "For perpendicular axes movement, use Pythagoras on coordinate differences.",
+                practiceProblems: [
+                    "Distance between (2,3) and (8,11)",
+                    "Midpoint of (-4,6) and (10,2)"
+                ],
+                miniQuiz: [
+                    { q: "Distance from origin to (3,4)?", answer: "5", explanation: "sqrt(3^2+4^2)=5." },
+                    { q: "Midpoint x-coordinate of 2 and 10?", answer: "6", explanation: "Average of x values." }
+                ]
+            },
+            {
+                title: "2. Slope and Equation of Line",
+                text: "Slope determines inclination; line equations appear in multiple forms.",
+                examples: [
+                    "Slope m=(y2-y1)/(x2-x1)",
+                    "Point-slope form: y-y1 = m(x-x1)",
+                    "Slope-intercept form: y=mx+c",
+                    "Parallel lines have equal slopes; perpendicular lines have m1*m2=-1"
+                ],
+                shortcut: "If line is horizontal, slope=0; if vertical, slope is undefined.",
+                practiceProblems: [
+                    "Find slope through points (1,2) and (5,10)",
+                    "Equation of line with slope 2 through (3,4)"
+                ],
+                miniQuiz: [
+                    { q: "Slope of horizontal line?", answer: "0", explanation: "No change in y." },
+                    { q: "Condition for perpendicular slopes?", answer: "Product = -1", explanation: "m1*m2=-1." }
+                ]
+            }
+        ]
+    },
+
+    math_permutation_combination: {
+        category: "Math: PnC (Tier 2)",
+        title: "Permutation and Combination",
+        subtitle: "Counting methods, arrangement logic, and selection shortcuts",
+        blocks: [
+            {
+                title: "1. Core Formulas",
+                text: "Permutation is arrangement; combination is selection.",
+                examples: [
+                    "nPr = n!/(n-r)!",
+                    "nCr = n!/(r!(n-r)!)",
+                    "nCr = nC(n-r)",
+                    "Number of arrangements of word with repeated letters = n!/(p!q!... )"
+                ],
+                shortcut: "If order matters use permutation, else use combination.",
+                practiceProblems: [
+                    "How many ways to select 3 from 8?",
+                    "Arrange 5 different books on a shelf."
+                ],
+                miniQuiz: [
+                    { q: "Formula for 6C2?", answer: "6!/(2!4!)", explanation: "Standard nCr formula." },
+                    { q: "Order matters in team selection?", answer: "No", explanation: "Selection uses combinations." }
+                ]
+            },
+            {
+                title: "2. Circular and Restricted Arrangements",
+                text: "Circular seating and restriction-based arrangements are common advanced questions.",
+                examples: [
+                    "Circular arrangement of n distinct persons = (n-1)!",
+                    "If two people must sit together, treat them as one unit first",
+                    "If two people must not sit together, subtract together-cases from total"
+                ],
+                shortcut: "Break restriction problems into total minus forbidden cases.",
+                practiceProblems: [
+                    "Number of circular arrangements of 7 persons",
+                    "Arrange 6 persons in row if A and B must be together"
+                ],
+                miniQuiz: [
+                    { q: "Circular arrangements of 5 persons?", answer: "24", explanation: "(5-1)! = 4!" },
+                    { q: "Method for 'not together' cases?", answer: "Total - together cases", explanation: "Complement counting." }
+                ]
+            }
+        ]
     }
 };
