@@ -1,0 +1,356 @@
+{
+  "generated": "2026-05-05T04:31:20.026Z",
+  "total": 175,
+  "weakest": [
+    {
+      "key": "gk_current_affairs",
+      "title": "Current Events Strategy: Deep Dive & Memory Hacks",
+      "subjectGuess": "gk",
+      "score": 3,
+      "blocks": 1
+    },
+    {
+      "key": "english_error_spotting",
+      "title": "Error Spotting - Complete Strategy & Common Errors",
+      "subjectGuess": "english",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "gk_general_policy",
+      "title": "General Policy & Governance: Deep Dive & Memory Hacks",
+      "subjectGuess": "gk",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "gk_geography_india",
+      "title": "Indian Geography Facts: Deep Dive & Memory Hacks",
+      "subjectGuess": "gk",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "gk_science_biology",
+      "title": "Biology & Diseases: Deep Dive & Memory Hacks",
+      "subjectGuess": "gk",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "gk_science_inventions",
+      "title": "Important Inventions: Deep Dive & Memory Hacks",
+      "subjectGuess": "gk",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "math_surface_area_volume",
+      "title": "Surface Area and Volume Master Sheet",
+      "subjectGuess": "math",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "reasoning_classification",
+      "title": "Classification & Odd One Out - Complete Guide",
+      "subjectGuess": "reasoning",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "reasoning_matrix_reasoning",
+      "title": "Matrix Reasoning - Image Pattern Recognition",
+      "subjectGuess": "reasoning",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "stat_index",
+      "title": "Index Numbers & Time Series: Massive Deep Dive",
+      "subjectGuess": "stat",
+      "score": 4,
+      "blocks": 1
+    },
+    {
+      "key": "ga_bio_digestive_vitamins",
+      "title": "Digestion & Nutrition",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_bio_diversity_classification",
+      "title": "Classification & Diversity",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_bio_endocrine_hormones",
+      "title": "Endocrine System",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_chem_industrial_salts",
+      "title": "Industrial Salts",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_chem_solutions_colloids",
+      "title": "Solutions & Colloids",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_geo_world",
+      "title": "World Geography",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_physics_heat_transmission",
+      "title": "Transmission of Heat",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "ga_physics_quantities_units",
+      "title": "Physical Quantities & Units",
+      "subjectGuess": "ga",
+      "score": 4,
+      "blocks": 2
+    },
+    {
+      "key": "reasoning_puzzle_grid",
+      "title": "Grid and Puzzle Completion",
+      "subjectGuess": "reasoning",
+      "score": 5,
+      "blocks": 1
+    },
+    {
+      "key": "ga_bio_branches_terms",
+      "title": "Introduction & Branches",
+      "subjectGuess": "ga",
+      "score": 5,
+      "blocks": 2
+    },
+    {
+      "key": "ga_bio_tissues_skeletal",
+      "title": "Tissues & Skeletal System",
+      "subjectGuess": "ga",
+      "score": 5,
+      "blocks": 2
+    },
+    {
+      "key": "gk_india_presidents_pm",
+      "title": "India: Presidents & Prime Ministers",
+      "subjectGuess": "gk",
+      "score": 5,
+      "blocks": 2
+    },
+    {
+      "key": "english_idioms_phrases",
+      "title": "Top 50 Idioms & Phrases - Complete Reference",
+      "subjectGuess": "english",
+      "score": 6,
+      "blocks": 2
+    },
+    {
+      "key": "math_mixture_alligation_adv",
+      "title": "Mixture & Alligation: Advanced Scenarios",
+      "subjectGuess": "math",
+      "score": 6,
+      "blocks": 2
+    },
+    {
+      "key": "math_problem_ages",
+      "title": "Problem of Ages: Ratio & Equation Mastery",
+      "subjectGuess": "math",
+      "score": 6,
+      "blocks": 2
+    },
+    {
+      "key": "math_surds_indices",
+      "title": "Surds and Indices: Complete Reference",
+      "subjectGuess": "math",
+      "score": 6,
+      "blocks": 2
+    },
+    {
+      "key": "reasoning_analogy",
+      "title": "Analogy & Similarity - Complete Reference",
+      "subjectGuess": "reasoning",
+      "score": 6,
+      "blocks": 2
+    },
+    {
+      "key": "reasoning_syllogism",
+      "title": "Syllogism & Deductive Reasoning - Complete Guide",
+      "subjectGuess": "reasoning",
+      "score": 6,
+      "blocks": 2
+    },
+    {
+      "key": "ga_bio_cell_division",
+      "title": "Cell Biology & Division",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_bio_circulatory_blood",
+      "title": "Circulatory System",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_bio_diseases_pathogens",
+      "title": "Health & Diseases",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_bio_excretory_repro",
+      "title": "Excretion & Reproduction",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_bio_nervous_brain_eye",
+      "title": "Nervous System & Sense Organs",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_chem_atomic_structure",
+      "title": "Atomic Structure",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_chem_common_elements",
+      "title": "Common Elements & Compounds",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_chem_metals_ores",
+      "title": "Metals & Metallurgy",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_chem_periodic_reactions",
+      "title": "Periodic Table & Reactions",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_chem_pollution",
+      "title": "Environmental Chemistry",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_eco_basics",
+      "title": "Economic Concepts",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_eco_inflation_taxes",
+      "title": "Inflation & Taxation",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_eco_national_income",
+      "title": "National Income & Sectors",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_geo_resources",
+      "title": "Resources & Agriculture",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_hist_medieval",
+      "title": "Medieval India",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_hist_modern_phase1",
+      "title": "Modern India: Expansion",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_physics_induction_nuclear",
+      "title": "Induction & Nuclear Physics",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_physics_motion_kinematics",
+      "title": "Motion & Kinematics",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_physics_oscillations_waves",
+      "title": "Oscillations & Waves",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_physics_projectile_circular",
+      "title": "Projectile & Circular Motion",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_physics_sound_properties",
+      "title": "Sound & Acoustic Phenomena",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    },
+    {
+      "key": "ga_polity_basics",
+      "title": "Constitution Basics",
+      "subjectGuess": "ga",
+      "score": 6,
+      "blocks": 3
+    }
+  ]
+}
