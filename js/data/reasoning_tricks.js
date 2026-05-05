@@ -502,6 +502,25 @@ const reasoningData = {
         blocks: [
             {
                 title: "1. Calendar and Odd Days",
+                text: "Calendar questions often ask day-date relations, leap years, and odd-day counting.",
+                examples: [
+                    "A normal year has 1 odd day because 365 days = 52 weeks + 1 day",
+                    "A leap year has 2 odd days because 366 days = 52 weeks + 2 days",
+                    "Odd days help find the weekday on a given date"
+                ],
+                shortcut: "Reduce long year spans into odd days first, then apply weekday shift."
+            },
+            {
+                title: "2. Clock Angles and Time Pairs",
+                text: "Clock reasoning depends on angle formation and overlap between hour and minute hands.",
+                examples: [
+                    "At 3:00, angle between hands = 90°",
+                    "At 6:00, angle between hands = 180°",
+                    "Hands overlap at specific minute positions during the hour"
+                ],
+                shortcut: "Use angle = |30H - (11/2)M| for exact clock questions."
+            }
+        ]
     },
 
     reasoning_inequality: {
@@ -657,42 +676,6 @@ const reasoningData = {
                 miniQuiz: [
                     { q: "Best first check in matrix puzzle?", answer: "Row and column patterns", explanation: "Basic structure often reveals answer." },
                     { q: "If shape rotates 90 degrees each step, next is?", answer: "Another 90-degree rotation", explanation: "Fixed transformation pattern." }
-                ]
-            }
-        ]
-    }
-                text: "Day-date questions are solved by counting odd days across years and months.",
-                examples: [
-                    "Normal year has 365 days = 1 odd day",
-                    "Leap year has 366 days = 2 odd days",
-                    "Century leap condition: divisible by 400"
-                ],
-                shortcut: "Memorize month day counts and leap year rule for quick day shifts.",
-                practiceProblems: [
-                    "Find day of 1 Jan for a given year from known reference.",
-                    "Count odd days between two dates."
-                ],
-                miniQuiz: [
-                    { q: "Leap year among 1900, 2000, 2100?", answer: "2000", explanation: "Century year must be divisible by 400." },
-                    { q: "Odd days in 730 days?", answer: "2", explanation: "730 mod 7 = 2." }
-                ]
-            },
-            {
-                title: "2. Clock Angle Basics",
-                text: "Clock questions involve relative speeds of hour and minute hands.",
-                examples: [
-                    "Minute hand speed = 6 degrees per minute",
-                    "Hour hand speed = 0.5 degree per minute",
-                    "Angle formula at h:m = |30h - 5.5m|"
-                ],
-                shortcut: "For coincidence (overlap), use relative speed 5.5 degrees per minute.",
-                practiceProblems: [
-                    "Find angle at 3:20",
-                    "How many times hands overlap in 12 hours?"
-                ],
-                miniQuiz: [
-                    { q: "At 6:00, angle between hands?", answer: "180 degrees", explanation: "Hands opposite each other." },
-                    { q: "Overlaps in 12 hours?", answer: "11", explanation: "Hands coincide every ~65.45 minutes." }
                 ]
             }
         ]

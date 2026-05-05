@@ -381,6 +381,12 @@ const mathData = {
         ]
     },
 
+    math_surface_area_volume: {
+        category: "Math: Mensuration",
+        title: "Surface Area and Volume Master Sheet",
+        subtitle: "2D and 3D formula recall for fast mensuration solving",
+        blocks: [
+            {
                 title: "3. 3D Figures - Volumes and Surface Areas",
                 text: "Complete formulas for all 3D shapes.",
                 examples: [
