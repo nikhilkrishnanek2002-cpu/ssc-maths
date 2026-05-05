@@ -598,5 +598,184 @@ const gkDataExpanded = {
                 ]
             }
         ]
+    },
+
+    gk_history_freedom_recap: {
+        category: "GK: History Tier 2",
+        title: "Freedom Struggle Recap Capsule",
+        subtitle: "Events, leaders, sessions, and year mapping",
+        blocks: [
+            {
+                title: "1. Major Events and Leaders",
+                text: "Freedom movement questions often combine event, year, and leader information.",
+                examples: [
+                    "Non-Cooperation: 1920",
+                    "Civil Disobedience: 1930",
+                    "Quit India: 1942",
+                    "Champaran: Gandhi's first satyagraha in India"
+                ],
+                shortcut: "Associate each movement with one trigger event and one year.",
+                practiceProblems: [
+                    "Match movement with year.",
+                    "Identify leader of Champaran movement."
+                ],
+                miniQuiz: [
+                    { q: "Quit India year?", answer: "1942", explanation: "Mass movement launched during World War II." },
+                    { q: "Champaran leader?", answer: "Mahatma Gandhi", explanation: "First satyagraha in India." }
+                ]
+            },
+            {
+                title: "2. Congress Sessions and Important Incidents",
+                text: "SSC asks session names and key split points in Congress history.",
+                examples: [
+                    "Surat split: 1907",
+                    "Lahore session: 1929 with Purna Swaraj resolution",
+                    "First INC session: Bombay 1885"
+                ],
+                shortcut: "Purna Swaraj is tied to Lahore 1929.",
+                practiceProblems: [
+                    "Match Lahore session to resolution.",
+                    "Pick year of Surat split."
+                ],
+                miniQuiz: [
+                    { q: "Lahore session year?", answer: "1929", explanation: "Associated with Purna Swaraj." },
+                    { q: "First INC session venue?", answer: "Bombay", explanation: "1885 first session." }
+                ]
+            }
+        ]
+    },
+
+    gk_economy_policy_watch: {
+        category: "GK: Economy Tier 2",
+        title: "Economy and Policy Watch",
+        subtitle: "Current economic vocabulary and policy-linked facts",
+        blocks: [
+            {
+                title: "1. Growth and Inflation Terms",
+                text: "Economy questions often ask definition and relationship of key terms.",
+                examples: [
+                    "Inflation = general rise in prices",
+                    "Deflation = general fall in prices",
+                    "GDP growth measures expansion of output"
+                ],
+                shortcut: "Inflation is price-level change, not just one item going expensive.",
+                practiceProblems: [
+                    "Define deflation in one line.",
+                    "State meaning of GDP growth."
+                ],
+                miniQuiz: [
+                    { q: "General rise in prices is?", answer: "Inflation", explanation: "Macro-level price increase." },
+                    { q: "General fall in prices is?", answer: "Deflation", explanation: "Opposite of inflation." }
+                ]
+            },
+            {
+                title: "2. Budget and Policy Terms",
+                text: "Policy language is common in GK, especially around fiscal and monetary decisions.",
+                examples: [
+                    "Fiscal policy: government spending and taxation",
+                    "Monetary policy: RBI tools and money supply control",
+                    "Direct tax: income tax",
+                    "Indirect tax: GST"
+                ],
+                shortcut: "Government handles fiscal policy; RBI handles monetary policy.",
+                practiceProblems: [
+                    "Classify GST and repo rate under policy category.",
+                    "Differentiate fiscal from monetary policy."
+                ],
+                miniQuiz: [
+                    { q: "RBI policy belongs to?", answer: "Monetary policy", explanation: "RBI controls money supply and rates." },
+                    { q: "Taxation part of which policy?", answer: "Fiscal policy", explanation: "Government revenue and spending decisions." }
+                ]
+            }
+        ]
+    },
+
+    gk_environment_climate: {
+        category: "GK: Environment Tier 2",
+        title: "Climate, Pollution, and Conservation",
+        subtitle: "Pollutants, greenhouse gases, and environmental protection",
+        blocks: [
+            {
+                title: "1. Pollution Types",
+                text: "Environmental pollution can be air, water, soil, or noise pollution.",
+                examples: [
+                    "Air pollution from smoke, particulate matter, gases",
+                    "Water pollution from industrial waste and sewage",
+                    "Noise pollution from traffic and loud machinery"
+                ],
+                shortcut: "Match pollutant with medium and source in one step.",
+                practiceProblems: [
+                    "Identify main source of noise pollution in cities.",
+                    "Name greenhouse gas responsible for warming."
+                ],
+                miniQuiz: [
+                    { q: "CO2 is what type of gas?", answer: "Greenhouse gas", explanation: "Traps heat in atmosphere." },
+                    { q: "Water pollution commonly involves?", answer: "Sewage and industrial waste", explanation: "Major contamination sources." }
+                ]
+            },
+            {
+                title: "2. Conservation Measures",
+                text: "Conservation includes reducing, reusing, recycling and habitat protection.",
+                examples: [
+                    "Afforestation increases forest cover",
+                    "Waste segregation improves recycling",
+                    "Public transport reduces emissions"
+                ],
+                shortcut: "Remember 3Rs: reduce, reuse, recycle.",
+                practiceProblems: [
+                    "Which action directly reduces plastic waste?",
+                    "What does afforestation mean?"
+                ],
+                miniQuiz: [
+                    { q: "3Rs stand for?", answer: "Reduce, reuse, recycle", explanation: "Core waste management principle." },
+                    { q: "Afforestation means?", answer: "Planting trees on non-forest land", explanation: "Creates forest cover." }
+                ]
+            }
+        ]
+    },
+
+    gk_sports_2020s: {
+        category: "GK: Sports",
+        title: "Recent Sports Highlights",
+        subtitle: "Major winners, hosts, and events from recent years",
+        blocks: [
+            {
+                title: "1. Olympics and Global Events",
+                text: "Recent sporting updates are asked in current-affairs style objective questions.",
+                examples: [
+                    "Tokyo Olympics held in 2021",
+                    "Paris Olympics 2024",
+                    "India's notable medals in shooting and athletics"
+                ],
+                shortcut: "Know host city and one standout Indian performance for each big event.",
+                practiceProblems: [
+                    "Name host city of 2024 Summer Olympics.",
+                    "Which country won 2023 ODI World Cup?"
+                ],
+                miniQuiz: [
+                    { q: "2024 Summer Olympics host city?", answer: "Paris", explanation: "Hosted in France." },
+                    { q: "2023 ODI World Cup winner?", answer: "Australia", explanation: "Won the tournament in India." }
+                ]
+            },
+            {
+                title: "2. Indian Sports Icons",
+                text: "Player-event matching helps in sports GK.",
+                examples: [
+                    "Neeraj Chopra and javelin throw",
+                    "P.V. Sindhu and badminton",
+                    "Sachin Tendulkar and cricket",
+                    "Mary Kom and boxing"
+                ],
+                shortcut: "Link athlete to sport with one anchor achievement or medal.",
+                practiceProblems: [
+                    "Match Neeraj Chopra with sport.",
+                    "Which sport is associated with Mary Kom?"
+                ],
+                miniQuiz: [
+                    { q: "Neeraj Chopra is associated with?", answer: "Javelin throw", explanation: "Olympic gold medalist." },
+                    { q: "PV Sindhu plays?", answer: "Badminton", explanation: "World-class Indian shuttler." }
+                ]
+            }
+        ]
     }
 };

@@ -502,6 +502,165 @@ const reasoningData = {
         blocks: [
             {
                 title: "1. Calendar and Odd Days",
+    },
+
+    reasoning_inequality: {
+        category: "Reasoning: Analytical",
+        title: "Inequality and Ranking Relations",
+        subtitle: "Greater/lesser logic, coded symbols, and statement interpretation",
+        blocks: [
+            {
+                title: "1. Symbol Meanings",
+                text: "Inequality questions use symbols such as >, <, =, and logical relations between items.",
+                examples: [
+                    "A > B means A is greater than B",
+                    "A >= B means A is greater than or equal to B",
+                    "If A > B and B > C, then A > C"
+                ],
+                shortcut: "Convert symbols into direct language first, then compare step by step.",
+                practiceProblems: [
+                    "Given A > B = C, determine possible relations.",
+                    "Solve inequality chain with coded symbols."
+                ],
+                miniQuiz: [
+                    { q: "If A > B and B > C, then A ? C", answer: ">", explanation: "Transitive comparison." },
+                    { q: "A = B and B = C implies A ? C", answer: "=", explanation: "Equality is transitive." }
+                ]
+            },
+            {
+                title: "2. Coded Inequality Problems",
+                text: "Some questions replace comparison signs with symbols or words that must be decoded.",
+                examples: [
+                    "X means greater than",
+                    "Y means equal to",
+                    "Z means less than"
+                ],
+                shortcut: "Write symbol map before comparing statement pairs.",
+                practiceProblems: [
+                    "Decode relation from symbol rules.",
+                    "Check if conclusion follows from premises."
+                ],
+                miniQuiz: [
+                    { q: "If X means >, then A X B means?", answer: "A > B", explanation: "Symbol translation first." },
+                    { q: "Logical conclusion should always be?", answer: "Supported by given premises", explanation: "No extra assumption allowed." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_direction_puzzle: {
+        category: "Reasoning: Spatial",
+        title: "Direction Sense and Path Tracking",
+        subtitle: "Movement paths, distance, final facing direction, and return questions",
+        blocks: [
+            {
+                title: "1. Path Tracking Basics",
+                text: "Direction questions become easy when each turn is recorded in sequence.",
+                examples: [
+                    "North then east gives northeast displacement",
+                    "Opposite directions can cancel each other",
+                    "Final facing direction may differ from displacement direction"
+                ],
+                shortcut: "Separate facing direction from movement direction before solving.",
+                practiceProblems: [
+                    "Find final position after a sequence of turns.",
+                    "Determine distance from start after multiple moves."
+                ],
+                miniQuiz: [
+                    { q: "Movement east then west results in?", answer: "Net zero horizontal displacement", explanation: "Opposite movements cancel." },
+                    { q: "Facing direction and displacement are same?", answer: "Not always", explanation: "A person may turn but move elsewhere." }
+                ]
+            },
+            {
+                title: "2. Return and Shortest Path Logic",
+                text: "Questions may ask shortest route to origin after several directional moves.",
+                examples: [
+                    "Use coordinate method for long path problems",
+                    "Take net north-south and east-west distances separately",
+                    "Use Pythagoras for final straight-line distance"
+                ],
+                shortcut: "Solve return problems by cancelling opposite legs first.",
+                practiceProblems: [
+                    "Find shortest path back to origin after a travel sequence.",
+                    "Compare two different routes to same destination."
+                ],
+                miniQuiz: [
+                    { q: "Opposite of east is?", answer: "West", explanation: "Cardinal opposite." },
+                    { q: "Short straight-line return uses which theorem?", answer: "Pythagoras", explanation: "Distance from net components." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_critical_reasoning: {
+        category: "Reasoning: Critical Reasoning",
+        title: "Critical Reasoning and Argument Evaluation",
+        subtitle: "Strengthen, weaken, and assumption style questions",
+        blocks: [
+            {
+                title: "1. Strengthen and Weaken",
+                text: "A strong statement supports the conclusion; a weak one undermines it.",
+                examples: [
+                    "Strengthen: adds evidence or causal support",
+                    "Weaken: provides counterexample or alternative cause",
+                    "Neutral: repeats the same information without impact"
+                ],
+                shortcut: "Ask: does the option make the argument more believable or less believable?",
+                practiceProblems: [
+                    "Pick statement that strengthens a policy argument.",
+                    "Pick statement that weakens a conclusion about sales growth."
+                ],
+                miniQuiz: [
+                    { q: "Which option strengthens an argument most?", answer: "Direct supporting evidence", explanation: "Evidence increases credibility." },
+                    { q: "A counterexample usually does what?", answer: "Weakens", explanation: "It shows argument is not universal." }
+                ]
+            },
+            {
+                title: "2. Cause-Effect Evaluation",
+                text: "Many reasoning items ask whether one event caused another or merely correlated with it.",
+                examples: [
+                    "Correlation does not always imply causation",
+                    "A rising trend can have multiple causes",
+                    "Timeline order helps determine plausible cause"
+                ],
+                shortcut: "Prefer options that explain mechanism, not just coincidence.",
+                practiceProblems: [
+                    "Identify likely cause from set of events.",
+                    "Reject mere correlation option in analysis question."
+                ],
+                miniQuiz: [
+                    { q: "Correlation proves causation?", answer: "No", explanation: "Association alone is insufficient." },
+                    { q: "Strong causal option should include?", answer: "Mechanism or evidence", explanation: "A causal link needs support." }
+                ]
+            }
+        ]
+    },
+
+    reasoning_puzzle_grid: {
+        category: "Reasoning: Spatial",
+        title: "Grid and Puzzle Completion",
+        subtitle: "Matrices, positions, and pattern matching in visual logic",
+        blocks: [
+            {
+                title: "1. Grid Pattern Recognition",
+                text: "Matrix puzzles often combine row, column, and shape transformation rules.",
+                examples: [
+                    "Row pattern may be shape type",
+                    "Column pattern may be shading or rotation",
+                    "Center cell may combine both rules"
+                ],
+                shortcut: "Inspect one attribute at a time: shape, fill, rotation, count.",
+                practiceProblems: [
+                    "Pick missing matrix cell using row-column logic.",
+                    "Identify transformation in 3x3 puzzle."
+                ],
+                miniQuiz: [
+                    { q: "Best first check in matrix puzzle?", answer: "Row and column patterns", explanation: "Basic structure often reveals answer." },
+                    { q: "If shape rotates 90 degrees each step, next is?", answer: "Another 90-degree rotation", explanation: "Fixed transformation pattern." }
+                ]
+            }
+        ]
+    }
                 text: "Day-date questions are solved by counting odd days across years and months.",
                 examples: [
                     "Normal year has 365 days = 1 odd day",

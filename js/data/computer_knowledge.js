@@ -678,5 +678,183 @@ const computerData = {
                 ]
             }
         ]
+    },
+
+    comp_spreadsheet_shortcuts: {
+        category: "Computer: Productivity",
+        title: "Spreadsheet Shortcuts and Productivity",
+        subtitle: "Keyboard shortcuts, ranges, and fast workflow in office software",
+        blocks: [
+            {
+                title: "1. Core Shortcuts",
+                text: "Shortcuts reduce time in computer objective questions and practical use.",
+                examples: [
+                    "Ctrl+C copy, Ctrl+V paste, Ctrl+X cut",
+                    "Ctrl+Z undo, Ctrl+Y redo",
+                    "Ctrl+S save, Ctrl+P print",
+                    "Alt+Tab switch apps"
+                ],
+                shortcut: "If a shortcut is universal editing action, it is usually Ctrl plus a single key.",
+                practiceProblems: [
+                    "Which shortcut saves file?",
+                    "Which shortcut opens print dialog?"
+                ],
+                miniQuiz: [
+                    { q: "Undo shortcut?", answer: "Ctrl+Z", explanation: "Universal undo command." },
+                    { q: "Paste shortcut?", answer: "Ctrl+V", explanation: "Standard clipboard paste." }
+                ]
+            },
+            {
+                title: "2. Ranges, Cells, and References",
+                text: "Spreadsheet coordinates and references are basic exam material.",
+                examples: [
+                    "Cell address example: A1",
+                    "Range example: A1:B10",
+                    "Mixed reference locks row or column only"
+                ],
+                shortcut: "Remember row comes after column in cell address.",
+                practiceProblems: [
+                    "Write address for third column and fifth row.",
+                    "Select a range from C2 to F9."
+                ],
+                miniQuiz: [
+                    { q: "Cell B7 means what column?", answer: "B", explanation: "Column letter first." },
+                    { q: "Range uses what separator?", answer: ":", explanation: "Colon marks range selection." }
+                ]
+            }
+        ]
+    },
+
+    comp_hardware_peripherals: {
+        category: "Computer: Hardware",
+        title: "Hardware and Peripheral Devices",
+        subtitle: "Input, output, storage, and common device roles",
+        blocks: [
+            {
+                title: "1. Input and Output Devices",
+                text: "Devices that send data to computer and receive data from computer.",
+                examples: [
+                    "Keyboard, mouse, scanner are input devices",
+                    "Monitor, printer, speakers are output devices",
+                    "Touchscreen acts as both input and output"
+                ],
+                shortcut: "If device sends data into computer, classify it as input.",
+                practiceProblems: [
+                    "Classify barcode scanner.",
+                    "Classify projector."
+                ],
+                miniQuiz: [
+                    { q: "Printer is which type?", answer: "Output device", explanation: "It produces hard copy output." },
+                    { q: "Touchscreen is what kind of device?", answer: "Both input and output", explanation: "It displays and accepts touch input." }
+                ]
+            },
+            {
+                title: "2. Storage Devices",
+                text: "Storage can be primary, secondary, magnetic, optical, or solid-state.",
+                examples: [
+                    "HDD uses magnetic disks",
+                    "SSD is faster solid-state storage",
+                    "USB flash drive uses flash memory",
+                    "CD/DVD are optical media"
+                ],
+                shortcut: "If speed matters, SSD usually beats HDD.",
+                practiceProblems: [
+                    "Choose non-volatile storage device.",
+                    "Pick faster storage among HDD and SSD."
+                ],
+                miniQuiz: [
+                    { q: "SSD stands for?", answer: "Solid State Drive", explanation: "Non-mechanical storage." },
+                    { q: "CD uses which storage principle?", answer: "Optical", explanation: "Laser-based read/write." }
+                ]
+            }
+        ]
+    },
+
+    comp_os_security_tools: {
+        category: "Computer: Systems",
+        title: "OS Utilities and Maintenance Tools",
+        subtitle: "Backup, compression, antivirus, and system maintenance",
+        blocks: [
+            {
+                title: "1. Backup and Compression",
+                text: "Backup protects data; compression reduces file size for storage or transfer.",
+                examples: [
+                    "Full backup copies everything",
+                    "Incremental backup copies only changes",
+                    "ZIP and RAR are common compressed formats"
+                ],
+                shortcut: "Backup is for recovery; compression is for size reduction.",
+                practiceProblems: [
+                    "Choose backup method for daily small changes.",
+                    "Name a common compression format."
+                ],
+                miniQuiz: [
+                    { q: "Compression purpose?", answer: "Reduce size", explanation: "Makes storage and transfer efficient." },
+                    { q: "Backup protects against what?", answer: "Data loss", explanation: "Restores files after failure or deletion." }
+                ]
+            },
+            {
+                title: "2. Antivirus and System Maintenance",
+                text: "Protection tools scan, detect, and remove malicious software or performance clutter.",
+                examples: [
+                    "Antivirus scans and removes malware",
+                    "Defragmentation reorganizes files on HDD for better access",
+                    "Firewall monitors network traffic"
+                ],
+                shortcut: "Defragmentation is mainly relevant to HDD, not SSD in same way.",
+                practiceProblems: [
+                    "Which tool removes malware?",
+                    "What utility improves HDD access by rearrangement?"
+                ],
+                miniQuiz: [
+                    { q: "Firewall is used for?", answer: "Network traffic control", explanation: "Monitors incoming/outgoing traffic." },
+                    { q: "Defragmentation mainly helps which storage?", answer: "HDD", explanation: "Mechanical disks benefit from file rearrangement." }
+                ]
+            }
+        ]
+    },
+
+    comp_emerging_tech_revision: {
+        category: "Computer: Emerging Tech",
+        title: "Emerging Technologies Revision",
+        subtitle: "Cloud, IoT, blockchain, and future computing basics",
+        blocks: [
+            {
+                title: "1. Cloud and IoT",
+                text: "Cloud delivers services over internet; IoT connects physical devices to networks.",
+                examples: [
+                    "Cloud storage: remote file access",
+                    "IoT device: smart thermostat",
+                    "Wearables can be part of IoT ecosystem"
+                ],
+                shortcut: "If device collects and shares sensor data, think IoT.",
+                practiceProblems: [
+                    "Classify smart watch as IoT or not.",
+                    "Give one cloud service example."
+                ],
+                miniQuiz: [
+                    { q: "IoT stands for?", answer: "Internet of Things", explanation: "Connected smart devices and sensors." },
+                    { q: "Cloud service example?", answer: "Google Drive", explanation: "Online storage and access." }
+                ]
+            },
+            {
+                title: "2. Blockchain Recap",
+                text: "Blockchain is a distributed ledger with immutable chained records.",
+                examples: [
+                    "Each block contains data, hash, and previous block reference",
+                    "Changing one block affects the whole chain",
+                    "Used in cryptocurrencies and secure record systems"
+                ],
+                shortcut: "Blockchain is best remembered as shared, chained, tamper-resistant records.",
+                practiceProblems: [
+                    "Identify primary property of blockchain.",
+                    "Name first cryptocurrency using blockchain."
+                ],
+                miniQuiz: [
+                    { q: "Blockchain is centrally controlled?", answer: "No", explanation: "It is decentralized." },
+                    { q: "Bitcoin is a?", answer: "Cryptocurrency", explanation: "First widely known blockchain-based currency." }
+                ]
+            }
+        ]
     }
 };

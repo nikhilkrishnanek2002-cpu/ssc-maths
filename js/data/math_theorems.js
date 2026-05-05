@@ -381,35 +381,6 @@ const mathData = {
         ]
     },
 
-    math_mensuration: {
-        category: "Math: Mensuration",
-        title: "Mensuration 2D & 3D: Complete with Speed Hacks",
-        subtitle: "Areas, Volumes, The Rule of 11",
-        blocks: [
-            {
-                title: "1. THE RULE OF 11 - 3-Second Speed Hack!",
-                text: "When finding area/volume of circles, cylinders, cones, spheres - the answer has 22 (not π)!",
-                examples: [
-                    "Since π ≈ 22/7, final answers are multiples of 11 (because 22 is in numerator)",
-                    "Circle area π r² = (22/7) r² → numerator has 22, so answer divisible by 11",
-                    "Sphere volume (4/3)πr³ → contains 22, so divisible by 11"
-                ],
-                shortcut: "EXAM HACK: Don't calculate! Check which multiple-choice option is divisible by 11. Usually only one will be!"
-            },
-            {
-                title: "2. 2D Figures - Areas and Perimeters",
-                text: "Essential formulas for all 2D shapes.",
-                examples: [
-                    "Square: Area = a², Perimeter = 4a, Diagonal = a√2",
-                    "Rectangle: Area = l×b, Perimeter = 2(l+b), Diagonal = √(l²+b²)",
-                    "Triangle: Area = (1/2)×base×height",
-                    "Equilateral triangle: Area = (√3/4)a², Perimeter = 3a, Height = (√3/2)a",
-                    "Circle: Area = πr², Circumference = 2πr, Sector area = (θ/360)×πr²",
-                    "Semicircle: Area = (1/2)πr², Perimeter = πr + 2r"
-                ],
-                shortcut: "Heron's formula for any triangle: Area = √[s(s-a)(s-b)(s-c)], where s = (a+b+c)/2"
-            },
-            {
                 title: "3. 3D Figures - Volumes and Surface Areas",
                 text: "Complete formulas for all 3D shapes.",
                 examples: [
@@ -524,35 +495,6 @@ const mathData = {
                     "Special case √(12 + √(12 + ...)): 12 = 3×4, so answer = 4"
                 ],
                 shortcut: "SPEED TRICK: Find two consecutive integers whose product is A. Larger integer is answer."
-            }
-        ]
-    },
-
-    math_ratio_proportion: {
-        category: "Math: Ratio & Proportion",
-        title: "Ratio, Proportion & Partnerships: Massive Deep Dive",
-        subtitle: "Comparative Relations, Distributions, Profit Sharing",
-        blocks: [
-            {
-                title: "1. Compound Ratios and Multiple Comparisons",
-                text: "When comparing three or more quantities.",
-                examples: [
-                    "If A:B = 2:3, B:C = 4:5, find A:B:C. LCM(3,4)=12. A:B = 8:12, B:C = 12:15. So A:B:C = 8:12:15",
-                    "Continued ratio: (A:B) × (C:D) = (A×C):(B×D)",
-                    "Inverse ratio: If A:B = m:n, then 1/A : 1/B = n:m"
-                ],
-                shortcut: "Always align the common term by finding LCM"
-            },
-            {
-                title: "2. Partnership - Profit Distribution",
-                text: "How to divide profits based on capital and time.",
-                examples: [
-                    "Equal time, different capital: Profit ratio = Capital ratio",
-                    "Equal capital, different time: Profit ratio = Time ratio",
-                    "Both different: Profit ratio = (Capital₁ × Time₁) : (Capital₂ × Time₂)",
-                    "Example: A invested 5000 for 12 months, B invested 6000 for 8 months. Ratio = (5000×12):(6000×8) = 60000:48000 = 5:4"
-                ],
-                shortcut: "ALWAYS multiply capital with time for each partner"
             }
         ]
     },
@@ -966,6 +908,183 @@ const mathData = {
                 miniQuiz: [
                     { q: "Circular arrangements of 5 persons?", answer: "24", explanation: "(5-1)! = 4!" },
                     { q: "Method for 'not together' cases?", answer: "Total - together cases", explanation: "Complement counting." }
+                ]
+            }
+        ]
+    },
+
+    math_ratio_proportion: {
+        category: "Math: Arithmetic",
+        title: "Ratio, Proportion, and Partnership",
+        subtitle: "Direct variation, inverse variation, and business-style mix problems",
+        blocks: [
+            {
+                title: "1. Ratio and Proportion Core",
+                text: "Ratio compares quantities; proportion says two ratios are equal.",
+                examples: [
+                    "If a:b = 2:3 and b:c = 4:5, first make b common before combining.",
+                    "Direct proportion: if x increases, y increases in same ratio.",
+                    "Inverse proportion: if x increases, y decreases so product stays constant."
+                ],
+                shortcut: "Always reduce ratios to simplest form before combining them.",
+                practiceProblems: [
+                    "If 3 pens cost 18, what is cost of 7 pens?",
+                    "Find x if 4:x = 8:20"
+                ],
+                miniQuiz: [
+                    { q: "Direct proportion means product stays?", answer: "Not constant; ratio stays constant", explanation: "Variables change together proportionally." },
+                    { q: "Inverse proportion product is?", answer: "Constant", explanation: "x*y remains unchanged." }
+                ]
+            },
+            {
+                title: "2. Partnership Problems",
+                text: "Partnership divides profit according to capital and time invested.",
+                examples: [
+                    "Profit share = capital x time contribution",
+                    "If A invests more money for less time, compare effective contribution using product",
+                    "Silent partner still gets share by agreement"
+                ],
+                shortcut: "Use capital-time product as the common basis for distribution.",
+                practiceProblems: [
+                    "A invests 10,000 for 12 months and B invests 15,000 for 8 months. Find ratio.",
+                    "If profit is 45,000, distribute using ratio 2:3."
+                ],
+                miniQuiz: [
+                    { q: "Partnership profit depends on what two factors?", answer: "Capital and time", explanation: "Effective contribution = money x duration." },
+                    { q: "If ratio is 2:3 and profit is 5000, first share?", answer: "2000", explanation: "2/5 of 5000." }
+                ]
+            }
+        ]
+    },
+
+    math_average_mixture: {
+        category: "Math: Arithmetic",
+        title: "Average, Mixture, and Alligation",
+        subtitle: "Weighted average logic for fast SSC solving",
+        blocks: [
+            {
+                title: "1. Average Fundamentals",
+                text: "Average = total sum divided by count; weighted average uses contribution weights.",
+                examples: [
+                    "Average of 5 numbers = sum/5",
+                    "Weighted average is essential when values are added in different quantities",
+                    "If average increases after adding a new number, new number must be above old average"
+                ],
+                shortcut: "Averages move toward the new value, so compare against old average for quick reasoning.",
+                practiceProblems: [
+                    "Find average of 12, 15, 18, 21",
+                    "If average of 6 numbers is 14, find total sum"
+                ],
+                miniQuiz: [
+                    { q: "If average of 4 numbers is 20, sum is?", answer: "80", explanation: "Average times count." },
+                    { q: "Adding a number higher than average makes average?", answer: "Increase", explanation: "Average shifts upward." }
+                ]
+            },
+            {
+                title: "2. Alligation and Mixture",
+                text: "Alligation finds proportion of ingredients to obtain desired mean value.",
+                examples: [
+                    "Cheaper item and costlier item mixed to reach target price",
+                    "Quantity ratio is inverse of deviations from mean",
+                    "Useful in milk-water and salary-type mixture questions"
+                ],
+                shortcut: "Cross-subtract the mean from the two values to get mixing ratio.",
+                practiceProblems: [
+                    "Mix rice worth 20 and 30 to get mean 24. Find ratio.",
+                    "If 10L milk is diluted to make price lower, estimate mixing logic."
+                ],
+                miniQuiz: [
+                    { q: "Alligation uses which kind of ratio?", answer: "Inverse of deviations", explanation: "Difference from mean determines amount ratio." },
+                    { q: "Mean price in mixture is also called?", answer: "Average cost", explanation: "Weighted average of components." }
+                ]
+            }
+        ]
+    },
+
+    math_simplification_speed: {
+        category: "Math: Number System",
+        title: "Simplification and Approximation Speed",
+        subtitle: "Fractions, surds, BODMAS, and approximation control",
+        blocks: [
+            {
+                title: "1. BODMAS and Order of Operations",
+                text: "Correct order of operations prevents most calculation mistakes.",
+                examples: [
+                    "Brackets first, then orders, then division/multiplication, then addition/subtraction",
+                    "In chained operations, process left to right for same priority",
+                    "Square roots and powers are handled before multiplication"
+                ],
+                shortcut: "Write each step neatly instead of doing mental jumps in long expressions.",
+                practiceProblems: [
+                    "Simplify 24 / 3 x 2 + 5",
+                    "Evaluate (18 - 6) / 3 + 4^2"
+                ],
+                miniQuiz: [
+                    { q: "BODMAS 'D' stands for?", answer: "Division", explanation: "Division and multiplication share priority." },
+                    { q: "Left to right applies to?", answer: "Same priority operations", explanation: "For multiplication/division and addition/subtraction chains." }
+                ]
+            },
+            {
+                title: "2. Approximation and Surds",
+                text: "Approximation can save time in options where exact value is not necessary.",
+                examples: [
+                    "sqrt(50) is near 7.07",
+                    "1/3 is approximately 0.333",
+                    "sqrt(2) ≈ 1.414, sqrt(3) ≈ 1.732"
+                ],
+                shortcut: "Use nearest square roots and fraction benchmarks to compare options quickly.",
+                practiceProblems: [
+                    "Approximate value of sqrt(72)",
+                    "Compare 7/11 and 2/3 by approximation"
+                ],
+                miniQuiz: [
+                    { q: "sqrt(49) equals?", answer: "7", explanation: "Perfect square." },
+                    { q: "1/8 in decimal is about?", answer: "0.125", explanation: "Useful benchmark fraction." }
+                ]
+            }
+        ]
+    },
+
+    math_indices_logarithms: {
+        category: "Math: Algebra",
+        title: "Indices, Powers, and Logarithm Basics",
+        subtitle: "Exponent rules and log simplification for competitive exams",
+        blocks: [
+            {
+                title: "1. Indices Rules",
+                text: "Exponent laws simplify repeated multiplication patterns.",
+                examples: [
+                    "a^m x a^n = a^(m+n)",
+                    "a^m / a^n = a^(m-n)",
+                    "(a^m)^n = a^(mn)",
+                    "a^0 = 1, a^-n = 1/a^n"
+                ],
+                shortcut: "When bases are same, add or subtract powers instead of multiplying values directly.",
+                practiceProblems: [
+                    "Simplify 2^3 x 2^5",
+                    "Evaluate 5^0 and 3^-2"
+                ],
+                miniQuiz: [
+                    { q: "a^0 equals?", answer: "1", explanation: "For non-zero a." },
+                    { q: "(x^2)^3 equals?", answer: "x^6", explanation: "Multiply powers." }
+                ]
+            },
+            {
+                title: "2. Logarithm Basics",
+                text: "Logs are inverse operations of exponentiation.",
+                examples: [
+                    "If a^b = c, then log_a(c) = b",
+                    "log_a(mn) = log_a(m) + log_a(n)",
+                    "log_a(m/n) = log_a(m) - log_a(n)"
+                ],
+                shortcut: "Convert log questions to exponent form before solving.",
+                practiceProblems: [
+                    "If 2^5 = 32, what is log2 32?",
+                    "Simplify log10(1000)"
+                ],
+                miniQuiz: [
+                    { q: "log10(100) equals?", answer: "2", explanation: "10^2 = 100." },
+                    { q: "log_a(a) equals?", answer: "1", explanation: "a^1 = a." }
                 ]
             }
         ]

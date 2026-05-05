@@ -776,5 +776,180 @@ const englishData = {
                 ]
             }
         ]
+    },
+
+    english_articles_determiners: {
+        category: "English: Grammar Core",
+        title: "Articles, Determiners, and Quantifiers",
+        subtitle: "A/An/The usage, zero article, and exam traps",
+        blocks: [
+            {
+                title: "1. Article Basics",
+                text: "Articles help identify specificity, uniqueness, and first mention versus later mention.",
+                examples: [
+                    "A/an for non-specific singular nouns",
+                    "The for specific or already known nouns",
+                    "Zero article for plural generalization and many proper nouns"
+                ],
+                shortcut: "Use 'an' based on sound, not spelling (an honest man, a university).",
+                practiceProblems: [
+                    "Choose article: ___ hour",
+                    "Choose article: ___ university"
+                ],
+                miniQuiz: [
+                    { q: "Why is 'an umbrella' correct?", answer: "Because umbrella begins with a vowel sound", explanation: "Sound matters more than spelling." },
+                    { q: "'The Sun' uses which article?", answer: "The", explanation: "Unique celestial body in standard usage." }
+                ]
+            },
+            {
+                title: "2. Determiners and Quantifiers",
+                text: "Determiners specify amount, possession, and definiteness.",
+                examples: [
+                    "Some, any, many, much, few, little, each, every",
+                    "This/that/these/those for distance and number",
+                    "Possessives like my, your, his, her, their"
+                ],
+                shortcut: "Countable nouns take many/few; uncountable nouns take much/little.",
+                practiceProblems: [
+                    "Choose correct: much/many information",
+                    "Choose correct: few/little students"
+                ],
+                miniQuiz: [
+                    { q: "'Few' is used with?", answer: "Countable plural nouns", explanation: "Few is a quantifier for countable nouns." },
+                    { q: "'Little' is used with?", answer: "Uncountable nouns", explanation: "Little pairs with mass nouns." }
+                ]
+            }
+        ]
+    },
+
+    english_voice_narration: {
+        category: "English: Grammar",
+        title: "Narration and Reported Speech",
+        subtitle: "Direct-to-indirect conversion, tense shifts, and pronoun changes",
+        blocks: [
+            {
+                title: "1. Statement Conversion Rules",
+                text: "Reported speech changes pronouns, tense, and time expressions when reporting past statements.",
+                examples: [
+                    "He said, 'I am tired.' -> He said that he was tired.",
+                    "Now -> then, today -> that day, tomorrow -> the next day",
+                    "Pronouns shift according to the speaker and listener"
+                ],
+                shortcut: "Backshift tense only when reporting past speech; universal truths may remain unchanged.",
+                practiceProblems: [
+                    "Convert direct speech to indirect speech for a simple statement.",
+                    "Change time expressions in reported sentence."
+                ],
+                miniQuiz: [
+                    { q: "'Now' becomes in indirect speech?", answer: "Then", explanation: "Time reference shifts backward." },
+                    { q: "He said, 'I am busy' ->?", answer: "He said that he was busy", explanation: "Pronoun and tense shift." }
+                ]
+            },
+            {
+                title: "2. Questions and Commands",
+                text: "Interrogative and imperative sentences follow different reporting patterns.",
+                examples: [
+                    "WH questions retain question word and use statement order",
+                    "Yes/No questions use if/whether",
+                    "Commands use told/asked + object + to-infinitive"
+                ],
+                shortcut: "In reported questions, remove question mark and restore statement order.",
+                practiceProblems: [
+                    "Convert a wh-question into reported speech.",
+                    "Convert a command into indirect speech."
+                ],
+                miniQuiz: [
+                    { q: "Yes/No question uses which linker?", answer: "If or whether", explanation: "Standard reporting connector." },
+                    { q: "Command reporting uses verb form?", answer: "To-infinitive", explanation: "Example: told him to sit." }
+                ]
+            }
+        ]
+    },
+
+    english_fillers_connector_drill: {
+        category: "English: Practice",
+        title: "Fillers and Connector Drill",
+        subtitle: "Sentence completion, transition words, and cohesion tests",
+        blocks: [
+            {
+                title: "1. Blank Filling Strategy",
+                text: "Use surrounding context to choose article, preposition, or connector that best fits meaning.",
+                examples: [
+                    "Use nearby clue words to infer tense",
+                    "Match contrast words after negative clauses",
+                    "Prefer simple connectors if the logic is direct"
+                ],
+                shortcut: "Read entire sentence before choosing; the blank often depends on later phrase.",
+                practiceProblems: [
+                    "Fill connector after a cause statement.",
+                    "Choose a linking word after contrast."
+                ],
+                miniQuiz: [
+                    { q: "Connector for addition?", answer: "Moreover", explanation: "Adds extra information." },
+                    { q: "Connector for contrast?", answer: "However", explanation: "Introduces opposition." }
+                ]
+            },
+            {
+                title: "2. Preposition and Collocation Drill",
+                text: "Fixed collocations are best learned as whole phrases.",
+                examples: [
+                    "Interested in, dependent on, good at, prefer to",
+                    "Capable of, responsible for, afraid of, insist on"
+                ],
+                shortcut: "Preposition accuracy often beats fancy vocabulary in SSC English.",
+                practiceProblems: [
+                    "Fill: interested ___ science",
+                    "Fill: responsible ___ the loss"
+                ],
+                miniQuiz: [
+                    { q: "'capable' takes which preposition?", answer: "of", explanation: "Capable of doing something." },
+                    { q: "'depend' takes which preposition?", answer: "on", explanation: "Depend on someone/something." }
+                ]
+            }
+        ]
+    },
+
+    english_vocabulary_revision: {
+        category: "English: Tier 2 Vocabulary",
+        title: "Vocabulary Revision and Synonym Clusters",
+        subtitle: "Synonyms, antonyms, and contextual usage",
+        blocks: [
+            {
+                title: "1. Synonym Clusters",
+                text: "SSC vocabulary questions often ask you to choose the nearest meaning in context.",
+                examples: [
+                    "Happy: joyful, cheerful, delighted",
+                    "Rapid: swift, quick, speedy",
+                    "Brave: courageous, valiant, bold"
+                ],
+                shortcut: "Choose synonym that matches intensity and tone, not just dictionary meaning.",
+                practiceProblems: [
+                    "Pick best synonym for 'abundant'.",
+                    "Choose best synonym for 'ancient'."
+                ],
+                miniQuiz: [
+                    { q: "Synonym of rapid?", answer: "Swift", explanation: "Common exact synonym cluster." },
+                    { q: "Antonym of expand?", answer: "Contract", explanation: "Direct opposite in common usage." }
+                ]
+            },
+            {
+                title: "2. Contextual Vocabulary",
+                text: "A word can be positive in one sentence and neutral in another; context matters.",
+                examples: [
+                    "Light can mean not heavy or illumination",
+                    "Sharp can mean pointed, intelligent, or severe",
+                    "Run can mean move fast, operate, or manage"
+                ],
+                shortcut: "If a word has multiple senses, pick the sense supported by surrounding sentence.",
+                practiceProblems: [
+                    "Select meaning of 'light' in a sentence about weight.",
+                    "Select meaning of 'run' in a sentence about a company."
+                ],
+                miniQuiz: [
+                    { q: "Context decides what in vocabulary?", answer: "Meaning", explanation: "Polysemous words rely on context." },
+                    { q: "'Severe' may mean?", answer: "Very harsh or intense", explanation: "Depends on usage." }
+                ]
+            }
+        ]
     }
 };
