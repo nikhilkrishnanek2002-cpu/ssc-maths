@@ -62,6 +62,12 @@
                     <i class="fas fa-play"></i> Start Quiz
                 </button>
             </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                <button class="level-btn nav-btn active" onclick="filterByLevel('all', this)">All Levels</button>
+                <button class="level-btn nav-btn" onclick="filterByLevel('foundation', this)">Foundation</button>
+                <button class="level-btn nav-btn" onclick="filterByLevel('exam', this)">Exam</button>
+                <button class="level-btn nav-btn" onclick="filterByLevel('advanced', this)">Advanced</button>
+            </div>
             <div id="active-filters" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
         </div>
 
@@ -221,7 +227,222 @@
             return false;
         }
 
+        function getLevel(key, topic, subject) {
+            const text = `${topic.title || ''} ${topic.subtitle || ''} ${topic.category || ''}`.toLowerCase();
+            if (text.includes('foundation') || text.includes('basics') || text.includes('introduction') || text.includes('core')) return 'foundation';
+            if (isTier2Topic(key, topic, subject) || text.includes('advanced') || text.includes('practice') || text.includes('deep dive') || text.includes('revision')) return 'advanced';
+            return 'exam';
+        }
+
+        function getTopicReliability(topic) {
+            const blocks = Array.isArray(topic.blocks) ? topic.blocks : [];
+            let score = 0;
+
+            score += Math.min(blocks.length, 4);
+            score += blocks.reduce((total, block) => total + (Array.isArray(block.examples) ? Math.min(block.examples.length, 3) * 0.5 : 0), 0);
+            score += blocks.reduce((total, block) => total + (block.shortcut ? 1 : 0), 0);
+            score += blocks.reduce((total, block) => total + (Array.isArray(block.practiceProblems) ? 0.75 : 0), 0);
+            score += blocks.reduce((total, block) => total + (Array.isArray(block.miniQuiz) ? 0.75 : 0), 0);
+
+            return Math.max(1, Math.min(10, Math.round(score)));
+        }
+
+        function getReliabilityLabel(score) {
+            if (score >= 8) return { label: 'High', color: 'green' };
+            if (score >= 5) return { label: 'Medium', color: 'blue' };
+            return { label: 'Needs Work', color: 'red' };
+        }
+
+        function buildDeepNotes(topic, subject, level) {
+            const text = `${topic.title || ''} ${topic.subtitle || ''} ${topic.category || ''}`.toLowerCase();
+            const notes = [];
+
+            const add = (title, items) => {
+                if (!items || items.length === 0) return;
+                notes.push({ title, items });
+            };
+
+            const generic = [
+                `Read this topic as a question-answer set, not as a paragraph to memorize.`,
+                `In SSC, this topic usually appears as direct fact recall, option elimination, or one-step concept application.`,
+                `Your goal is to know the definition, one core rule/formula, one typical trap, and one fast elimination clue.`,
+                `If the topic looks short, rely on the deeper examples, shortcut, and related subjects around it.`
+            ];
+
+            if (subject === 'math') {
+                add('Core Study Notes', [
+                    'Start from the formula or rule. If a topic has a direct formula, write it first before attempting examples.',
+                    'Check whether the question is asking for exact value, ratio, comparison, or approximation.',
+                    'For arithmetic topics, convert wording into equations, ratios, or fractions.',
+                    'For geometry and mensuration, draw the figure and mark known values immediately.'
+                ]);
+                if (text.includes('probability')) add('Probability Focus', ['List total outcomes first.', 'Use complement when the phrase says at least one or none.', 'For multi-step draws, update the denominator if there is no replacement.']);
+                if (text.includes('ratio') || text.includes('proportion') || text.includes('partnership')) add('Ratio Focus', ['Use a common unit before comparing quantities.', 'In partnership, contribution = capital × time.', 'Reduce the final ratio before answering.']);
+                if (text.includes('average') || text.includes('mixture') || text.includes('alligation')) add('Average and Mixture Focus', ['Weighted average is the base idea.', 'If average increases, the new value is above the old average.', 'For alligation, use deviation from mean to get mixing ratio.']);
+                if (text.includes('geometry') || text.includes('mensuration') || text.includes('trigonometry') || text.includes('coordinate')) add('Geometry Focus', ['Draw a clean diagram.', 'Write the standard formula on the side.', 'Look for a right triangle, symmetry, or a standard shape before calculating.']);
+                if (text.includes('permutation') || text.includes('combination')) add('Counting Focus', ['If order matters, use permutation.', 'If selection matters, use combination.', 'When restrictions appear, solve total minus forbidden cases.']);
+                if (text.includes('logarithm') || text.includes('indices') || text.includes('surd')) add('Algebraic Power Focus', ['Convert logs to powers when possible.', 'Use exponent laws to compress expressions.', 'Rationalize surds only after simplifying common factors.']);
+                add('Common SSC Traps', [
+                    'Misreading “at least” as a single-case question.',
+                    'Forgetting units in mensuration and speed questions.',
+                    'Applying formula before identifying whether the problem is direct, inverse, or mixed.'
+                ]);
+            } else if (subject === 'english') {
+                add('Core Study Notes', [
+                    'English questions usually test grammar first and meaning second.',
+                    'Always scan for subject-verb agreement, tense consistency, and preposition control.',
+                    'If two answers seem close, the better one usually fits context, tone, and idiomatic usage more cleanly.',
+                    'Read the whole sentence before selecting the blank or correction.'
+                ]);
+                if (text.includes('noun') || text.includes('pronoun')) add('Noun and Pronoun Focus', ['Check countability and plurality.', 'Use objective pronouns after prepositions and verbs like let.', 'Keep pronoun reference clear.']);
+                if (text.includes('verb') || text.includes('tense') || text.includes('voice') || text.includes('narration')) add('Verb System Focus', ['Do not change tense randomly.', 'In passive voice, preserve the tense structure with be + V3.', 'In narration, shift pronouns and time words carefully.']);
+                if (text.includes('article') || text.includes('determiner') || text.includes('quantifier')) add('Article Focus', ['Use article by sound, not spelling.', 'A/an for nonspecific singular nouns.', 'The for known, unique, or already mentioned items.']);
+                if (text.includes('cloze') || text.includes('para') || text.includes('completion') || text.includes('editing')) add('Reading and Editing Focus', ['Check logic flow from sentence to sentence.', 'Use transition words to identify contrast or continuation.', 'Omission questions often hide articles, auxiliaries, or prepositions.']);
+                if (text.includes('vocabulary') || text.includes('word power') || text.includes('synonym') || text.includes('antonym')) add('Vocabulary Focus', ['Choose the meaning that matches the sentence context.', 'Learn pairs that are often confused.', 'Use root-word memory for one-word substitutions.']);
+                add('Common SSC Traps', [
+                    'Grammatically correct but contextually wrong options.',
+                    'Overlooking preposition collocations.',
+                    'Choosing a synonym that is too strong or too weak for the sentence tone.'
+                ]);
+            } else if (subject === 'reasoning') {
+                add('Core Study Notes', [
+                    'Reasoning works best when you convert text into symbols, arrows, tables, or diagrams.',
+                    'Lock fixed clues first and then derive the rest.',
+                    'For every question, decide whether it is about sequence, relation, arrangement, or logic.',
+                    'If a question looks long, split it into smaller clue groups before solving.'
+                ]);
+                if (text.includes('sequence') || text.includes('series')) add('Series Focus', ['Check differences, ratios, and alternating patterns.', 'Look at position-based patterns if the sequence is mixed.', 'Do not assume a pattern too early.']);
+                if (text.includes('seating') || text.includes('ranking') || text.includes('arrangement')) add('Arrangement Focus', ['Fix one reference point first.', 'Use row or circle orientation carefully.', 'Draw slots and place absolute clues before relative clues.']);
+                if (text.includes('syllogism') || text.includes('statement') || text.includes('assumption') || text.includes('conclusion')) add('Logic Focus', ['Do not reverse a statement unless the rule permits it.', 'Check whether the conclusion is too strong.', 'Use the negation test for assumption-style questions.']);
+                if (text.includes('direction') || text.includes('clock') || text.includes('calendar')) add('Spatial and Time Focus', ['Track movement step by step.', 'Separate facing direction from displacement.', 'Use formula-based solving for clock and date questions.']);
+                if (text.includes('coding') || text.includes('decoding')) add('Coding Focus', ['Look for shifts, reversals, and alphabet mapping.', 'Try one known example first.', 'Track position-based changes separately if the pattern is mixed.']);
+                add('Common SSC Traps', [
+                    'Confusing “nearest” and “farthest” in relations.',
+                    'Missing an odd/even position rule in series.',
+                    'Using memory instead of a quick rough diagram.'
+                ]);
+            } else if (subject === 'gk') {
+                add('Core Study Notes', [
+                    'GK is mostly retention plus elimination.',
+                    'One topic can hide a direct factual question, a matching question, or a current-affairs link.',
+                    'Make one-line anchors: who, what, when, where, why.',
+                    'Revise GK in short cycles; repetition matters more than long reading.'
+                ]);
+                if (text.includes('history')) add('History Focus', ['Link event with year and personality.', 'Learn the sequence of dynasties, movements, and reforms.', 'Separate ancient, medieval, and modern facts clearly.']);
+                if (text.includes('geography')) add('Geography Focus', ['Visualize on a map when possible.', 'Connect river-source-mouth, mountain-pass-state, and capital-state pairs.', 'Remember world geography with location pairs.']);
+                if (text.includes('science')) add('Science Focus', ['Pair organ-function, law-definition, and unit-concept facts.', 'Revise vitamins, hormones, and common physics units.', 'Prefer one fact per line, not long paragraphs.']);
+                if (text.includes('polity') || text.includes('economy')) add('Polity and Economy Focus', ['Separate constitutional facts from policy terms.', 'Know article numbers, office holders, and financial terms as quick anchors.', 'Treat direct tax, indirect tax, fiscal policy, and monetary policy as different buckets.']);
+                if (text.includes('sports')) add('Sports Focus', ['Anchor one player with one sport and one achievement.', 'Know major tournament hosts and winners.', 'Use recent-event revision for current affairs questions.']);
+                add('Common SSC Traps', [
+                    'Confusing similar-sounding places, people, or years.',
+                    'Mixing statutory and constitutional bodies.',
+                    'Forgetting one key exception that changes the whole option.'
+                ]);
+            } else if (subject === 'computer') {
+                add('Core Study Notes', [
+                    'Computer topics are easiest when you map each term to its exact function.',
+                    'Know the difference between hardware, software, network, storage, and security terms.',
+                    'For practical-style questions, recall the keyboard shortcut or process flow.',
+                    'If the topic has a protocol or tool, memorize what it does and where it is used.'
+                ]);
+                if (text.includes('network') || text.includes('protocol')) add('Networking Focus', ['Protocol means rule set for communication.', 'Know device roles: router, switch, hub.', 'Map services to ports and layer behavior.']);
+                if (text.includes('database') || text.includes('sql') || text.includes('dbms')) add('DBMS Focus', ['Primary key is unique and not null.', 'Know the core SQL commands and join types.', 'Normalization reduces redundancy and inconsistency.']);
+                if (text.includes('excel') || text.includes('spreadsheet')) add('Spreadsheet Focus', ['Formula syntax is basic but must be exact.', 'Absolute references use $ signs.', 'Lookup and filter questions test workflow knowledge.']);
+                if (text.includes('security') || text.includes('cyber')) add('Security Focus', ['Separate authentication, authorization, and encryption.', 'Know the common attack names and defenses.', 'Always identify whether a question is about identity, access, or protection.']);
+                if (text.includes('ai') || text.includes('ml') || text.includes('emerging')) add('Emerging Tech Focus', ['AI is broad, ML is data-based, deep learning is neural-network based.', 'Cloud, IoT, blockchain, and cybersecurity are recurring themes.', 'Be ready to classify examples by the right technology bucket.']);
+                add('Common SSC Traps', [
+                    'Mixing up input and output devices.',
+                    'Confusing protocol names with device names.',
+                    'Forgetting the exact function of a command or software tool.'
+                ]);
+            }
+
+            notes.push({ title: 'Exam Pattern Note', items: [
+                `This topic is currently tagged as ${level.toUpperCase()} level, so the exam usually asks it in ${level === 'foundation' ? 'definition and direct-fact form' : level === 'advanced' ? 'multi-step or trap-based form' : 'balanced concept-check form'}.`,
+                `Use the examples, shortcuts, and mini quiz as your first revision layer before moving to full practice questions.`
+            ]});
+
+            notes.push({ title: 'Quick Revision Sheet', items: generic });
+
+            return `
+                <div class="card blue" style="margin-top:18px; border-left:4px solid var(--accent2);">
+                    <h3 style="margin-top:0;">Deep Study Notes</h3>
+                    ${notes.map(section => `
+                        <div style="margin-top:14px;">
+                            <h4 style="margin:0 0 8px; color:var(--text);">${section.title}</h4>
+                            <ul style="margin:0; padding-left:20px; color:var(--text);">
+                                ${section.items.map(item => `<li style="margin-bottom:6px;">${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>`;
+        }
+
+        function buildExamLens(topic, subject, level) {
+            const keyText = `${topic.title || ''} ${topic.subtitle || ''} ${topic.category || ''}`.toLowerCase();
+            const subjectHints = {
+                math: [
+                    'Write the formula first before solving.',
+                    'Check units, signs, and approximation if options are close.',
+                    'Use elimination on answer choices when exact calculation is long.'
+                ],
+                english: [
+                    'Check grammar before meaning.',
+                    'If two options seem correct, prefer the one matching tone and context.',
+                    'Look for article, tense, preposition, and pronoun traps.'
+                ],
+                reasoning: [
+                    'Convert clues into symbols or arrows on paper.',
+                    'Check direction, sequence, and negation carefully.',
+                    'Use elimination after locking one fixed clue.'
+                ],
+                gk: [
+                    'Memorize one anchor fact, one date, and one elimination clue.',
+                    'Prefer the option most consistent with standard SSC facts.',
+                    'Avoid overthinking when the question is a direct one-liner.'
+                ],
+                computer: [
+                    'Match the term with its function, layer, or device role.',
+                    'Use a process-of-elimination approach for protocol and command questions.',
+                    'Remember standard definitions and keyboard shortcuts.'
+                ]
+            };
+
+            const extraHints = [];
+            if (keyText.includes('probability') || keyText.includes('ratio') || keyText.includes('average') || keyText.includes('alligation')) {
+                extraHints.push('Translate the question into a ratio, table, or fraction first.');
+            }
+            if (keyText.includes('geometry') || keyText.includes('mensuration') || keyText.includes('trigonometry') || keyText.includes('coordinate')) {
+                extraHints.push('Draw a diagram and label known values before calculations.');
+            }
+            if (keyText.includes('cloze') || keyText.includes('editing') || keyText.includes('narration') || keyText.includes('para')) {
+                extraHints.push('Read one sentence before and after the target line before selecting an answer.');
+            }
+            if (keyText.includes('seating') || keyText.includes('ranking') || keyText.includes('clock') || keyText.includes('calendar')) {
+                extraHints.push('Use a rough diagram or timeline rather than mental tracking only.');
+            }
+            if (keyText.includes('dbms') || keyText.includes('sql') || keyText.includes('network') || keyText.includes('cyber')) {
+                extraHints.push('Map the term to its exact job: store, connect, send, secure, or query.');
+            }
+            if (keyText.includes('budget') || keyText.includes('policy') || keyText.includes('economy') || keyText.includes('inflation')) {
+                extraHints.push('Separate definition questions from current-affairs questions before answering.');
+            }
+
+            const hints = [...subjectHints[subject] || [], ...extraHints].slice(0, 4);
+            const supportLevel = level === 'foundation' ? 'build the base definition first' : level === 'advanced' ? 'focus on exam shortcuts and trap avoidance' : 'balance concept and question practice';
+
+            return `
+                <div class="card blue" style="margin-top:18px; border-left:4px solid var(--accent2);">
+                    <h3 style="margin-top:0;">Exam Lens</h3>
+                    <p style="margin-bottom:12px; color:var(--muted);">This topic is best used to ${supportLevel}.</p>
+                    <ul style="margin:0; padding-left:20px;">
+                        ${hints.map(hint => `<li>${hint}</li>`).join('')}
+                    </ul>
+                </div>`;
+        }
+
         let currentFilter = 'all';
+        let currentLevelFilter = 'all';
         let currentSearch = '';
         let currentTopic  = null;
 
@@ -243,6 +464,19 @@
             window.scrollTo(0, 0);
         }
 
+        function filterByLevel(level, btn) {
+            currentLevelFilter = level;
+            currentSearch = '';
+            document.getElementById('search-bar').value = '';
+            document.getElementById('topics-grid').style.display = 'grid';
+            document.getElementById('topic-detail').style.display = 'none';
+            currentTopic = null;
+            document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            displayTopics();
+            window.scrollTo(0, 0);
+        }
+
         function searchTopics(query) {
             currentSearch = query.toLowerCase();
             displayTopics();
@@ -252,6 +486,22 @@
             const grid = document.getElementById('topics-grid');
             grid.innerHTML = '';
             let count = 0;
+            const subjectOrder = ['math', 'english', 'reasoning', 'gk', 'computer', 'pyq'];
+            const subjectLabels = {
+                math: 'Math',
+                english: 'English',
+                reasoning: 'Reasoning',
+                gk: 'GK',
+                computer: 'Computer',
+                pyq: 'PYQ Vault'
+            };
+            const levelOrder = ['foundation', 'exam', 'advanced'];
+            const levelLabels = {
+                foundation: 'Foundation',
+                exam: 'Exam',
+                advanced: 'Advanced'
+            };
+            const buckets = {};
 
             for (const [key, topic] of Object.entries(allStudyData)) {
                 // Guard: skip non-objects and entries without a title (e.g. stray keys)
@@ -272,6 +522,10 @@
                     matches = (subject === currentFilter);
                 }
 
+                if (matches && currentLevelFilter !== 'all') {
+                    matches = getLevel(key, topic, subject) === currentLevelFilter;
+                }
+
                 // ── search filter ────────────────────────────────────────────
                 const searchMatch = !currentSearch
                     || topic.title.toLowerCase().includes(currentSearch)
@@ -280,29 +534,69 @@
 
                 if (!matches || !searchMatch) continue;
 
-                const colors = ['gold', 'blue', 'green', 'red', 'purple'];
-                const icons  = { gold: '⭐', blue: '📘', green: '✨', red: '🚀', purple: '💡' };
-                const color  = colors[count % 5];
+                const level = getLevel(key, topic, subject);
+                if (!buckets[subject]) buckets[subject] = {};
+                if (!buckets[subject][level]) buckets[subject][level] = [];
+                buckets[subject][level].push({ key, topic });
+                count++;
+            }
+
+            const renderTopicCard = (key, topic, color) => {
                 const hasExamples = topic.blocks && topic.blocks.some(b => b.examples && b.examples.length > 0);
                 const hasHacks    = topic.blocks && topic.blocks.some(b => b.shortcut);
+                const level = getLevel(key, topic, getSubject(key));
 
-                const card = document.createElement('div');
-                card.className = `card ${color}`;
-                card.innerHTML = `
-                    <div class="card-title">
-                        <span class="icon">${icons[color]}</span>
-                        <span>${topic.title}</span>
-                    </div>
-                    <div style="color:var(--muted);font-size:12px;margin-bottom:12px;">${topic.subtitle || topic.category || ''}</div>
-                    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
-                        <span class="tag tag-${color}">${topic.blocks ? topic.blocks.length : 0} blocks</span>
-                        ${hasExamples ? `<span class="tag tag-${color}">Examples</span>` : ''}
-                        ${hasHacks    ? `<span class="tag tag-${color}">⚡ Hacks</span>`  : ''}
-                    </div>
-                    <button class="btn" style="width:100%;" onclick="viewTopic('${key}')">View Details</button>
-                `;
-                grid.appendChild(card);
-                count++;
+                return `
+                    <div class="card ${color}">
+                        <div class="card-title">
+                            <span class="icon">${{ gold: '⭐', blue: '📘', green: '✨', red: '🚀', purple: '💡' }[color]}</span>
+                            <span>${topic.title}</span>
+                        </div>
+                        <div style="color:var(--muted);font-size:12px;margin-bottom:8px;">${topic.subtitle || topic.category || ''}</div>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+                            <span class="tag tag-${color}">${topic.blocks ? topic.blocks.length : 0} blocks</span>
+                            <span class="tag tag-${color}">${level.charAt(0).toUpperCase() + level.slice(1)}</span>
+                            ${hasExamples ? `<span class="tag tag-${color}">Examples</span>` : ''}
+                            ${hasHacks    ? `<span class="tag tag-${color}">⚡ Hacks</span>`  : ''}
+                        </div>
+                        <button class="btn" style="width:100%;" onclick="viewTopic('${key}')">View Details</button>
+                    </div>`;
+            };
+
+            const subjectSections = subjectOrder.filter(subject => buckets[subject]);
+
+            if (subjectSections.length > 0) {
+                let colorIndex = 0;
+                grid.style.display = 'grid';
+                grid.innerHTML = '';
+
+                subjectSections.forEach(subject => {
+                    grid.innerHTML += `
+                        <div style="grid-column:1/-1;margin:8px 0 4px;">
+                            <h2 style="font-family:'Playfair Display',serif;font-size:24px;margin:0 0 6px;color:var(--text);">${subjectLabels[subject] || subject}</h2>
+                            <div style="height:1px;background:var(--border);opacity:.7;"></div>
+                        </div>`;
+
+                    levelOrder.forEach(level => {
+                        const topics = buckets[subject][level] || [];
+                        if (topics.length === 0) return;
+
+                        grid.innerHTML += `
+                            <div style="grid-column:1/-1;margin:10px 0 0;">
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                                    <span class="tag tag-gold">${levelLabels[level]}</span>
+                                    <span style="color:var(--muted);font-size:13px;">${topics.length} topic${topics.length === 1 ? '' : 's'}</span>
+                                </div>
+                            </div>`;
+
+                        topics.forEach(({ key, topic }) => {
+                            const colors = ['gold', 'blue', 'green', 'red', 'purple'];
+                            const color = colors[colorIndex % 5];
+                            grid.insertAdjacentHTML('beforeend', renderTopicCard(key, topic, color));
+                            colorIndex++;
+                        });
+                    });
+                });
             }
 
             if (count === 0) {
@@ -319,6 +613,10 @@
             const topic = allStudyData[key];
             if (!topic) return;
             currentTopic = key;
+            const subject = getSubject(key);
+            const level = getLevel(key, topic, subject);
+            const reliability = getTopicReliability(topic);
+            const reliabilityInfo = getReliabilityLabel(reliability);
 
             document.getElementById('topics-grid').style.display  = 'none';
             document.getElementById('topic-detail').style.display = 'block';
@@ -326,9 +624,26 @@
             let content = `
                 <h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:8px;">${topic.title}</h2>
                 <p style="color:var(--muted);font-size:15px;margin-bottom:24px;">${topic.subtitle || topic.category || ''}</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;">
+                    <span class="tag tag-${reliabilityInfo.color}">Reliability: ${reliabilityInfo.label} (${reliability}/10)</span>
+                    <span class="tag tag-gold">${level.charAt(0).toUpperCase() + level.slice(1)} Level</span>
+                    <span class="tag tag-blue">${subjectLabels(subject)}</span>
+                </div>
                 <div class="divider"></div>`;
 
+            function subjectLabels(subjectId) {
+                return {
+                    math: 'Math',
+                    english: 'English',
+                    reasoning: 'Reasoning',
+                    gk: 'GK',
+                    computer: 'Computer',
+                    pyq: 'PYQ Vault'
+                }[subjectId] || subjectId;
+            }
+
             if (topic.blocks && Array.isArray(topic.blocks)) {
+                content += buildDeepNotes(topic, subject, level);
                 topic.blocks.forEach((block, idx) => {
                     const colors = ['gold','blue','green','red','purple'];
                     const color  = colors[idx % 5];
@@ -382,6 +697,16 @@
 
                     if (blockHasQuiz) {
                         content += `<div class="tag tag-${color}" style="margin-top:10px;display:inline-block;">Quiz Ready</div>`;
+                    }
+
+                    if (idx === 0) {
+                        content += buildExamLens(topic, subject, level);
+                        if (reliability <= 4) {
+                            content += `<div class="card red" style="margin-top:18px;border-left:4px solid #dc3545;">
+                                <h3 style="margin-top:0;">Content Warning</h3>
+                                <p style="margin-bottom:0;">This topic is still thin for exam use. Treat it as a starter and rely on the exam lens plus source-level question practice.</p>
+                            </div>`;
+                        }
                     }
 
                     content += `</div>`;
