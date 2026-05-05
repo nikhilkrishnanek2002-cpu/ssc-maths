@@ -165,6 +165,24 @@ const gkData = {
                 ],
                 shortcut: "Link states to unique features: Floating = Manipur. Lion = Gujarat. Rhino = Assam."
             }
+            ,
+            {
+                title: "Auto-draft: Indian Geography Facts: Deep Dive & Memory Hacks - Core Examples",
+                text: "Auto-generated draft for Indian Geography Facts: Deep Dive & Memory Hacks. Please review.",
+                examples: [
+                    "Core definition and use-case for Indian Geography Facts: Deep Dive & Memory Hacks.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Indian Geography Facts: Deep Dive & Memory Hacks."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Indian Geography Facts: Deep Dive & Memory Hacks.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Indian Geography Facts: Deep Dive & Memory Hacks?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
+            }
         ]
     },
     // CATEGORY: SCIENCE
@@ -184,6 +202,24 @@ const gkData = {
                     "Vitamin K (Phylloquinone): Non-clotting of blood."
                 ],
                 shortcut: "Fat Soluble Vitamins: A, D, E, K (Trick: KEDA is fat). Water Soluble: B, C."
+            }
+            ,
+            {
+                title: "Auto-draft: Biology & Diseases: Deep Dive & Memory Hacks - Core Examples",
+                text: "Auto-generated draft for Biology & Diseases: Deep Dive & Memory Hacks. Please review.",
+                examples: [
+                    "Core definition and use-case for Biology & Diseases: Deep Dive & Memory Hacks.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Biology & Diseases: Deep Dive & Memory Hacks."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Biology & Diseases: Deep Dive & Memory Hacks.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Biology & Diseases: Deep Dive & Memory Hacks?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
             }
         ]
     },
@@ -246,6 +282,24 @@ const gkData = {
                 ],
                 shortcut: "Trick for Subatomic particles: 'PEN-RTC' (Proton-Rutherford, Electron-Thomson, Neutron-Chadwick)."
             }
+            ,
+            {
+                title: "Auto-draft: Important Inventions: Deep Dive & Memory Hacks - Core Examples",
+                text: "Auto-generated draft for Important Inventions: Deep Dive & Memory Hacks. Please review.",
+                examples: [
+                    "Core definition and use-case for Important Inventions: Deep Dive & Memory Hacks.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Important Inventions: Deep Dive & Memory Hacks."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Important Inventions: Deep Dive & Memory Hacks.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Important Inventions: Deep Dive & Memory Hacks?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
+            }
         ]
     },
     // CATEGORY: CURRENT AFFAIRS
@@ -262,6 +316,24 @@ const gkData = {
                     "Key areas to cover: Awards & Honours, Sports (Olympics/World Cups), Appointments, Indices & Rankings, and Military Exercises."
                 ],
                 shortcut: "Don't read daily newspapers for hours. Use monthly compilation PDFs (like Speedy or Spardha Prakashan) to cover everything quickly in bullet points."
+            }
+            ,
+            {
+                title: "Auto-draft: Current Events Strategy: Deep Dive & Memory Hacks - Core Examples",
+                text: "Auto-generated draft for Current Events Strategy: Deep Dive & Memory Hacks. Please review.",
+                examples: [
+                    "Core definition and use-case for Current Events Strategy: Deep Dive & Memory Hacks.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Current Events Strategy: Deep Dive & Memory Hacks."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Current Events Strategy: Deep Dive & Memory Hacks.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Current Events Strategy: Deep Dive & Memory Hacks?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
             }
         ]
     },
@@ -345,6 +417,24 @@ const gkData = {
                     "Ayushman Bharat (2018): Health coverage of 5 lakhs/family."
                 ],
                 shortcut: "Always note the nodal ministry for schemes (e.g., MGNREGA is under Ministry of Rural Development)."
+            }
+            ,
+            {
+                title: "Auto-draft: General Policy & Governance: Deep Dive & Memory Hacks - Core Examples",
+                text: "Auto-generated draft for General Policy & Governance: Deep Dive & Memory Hacks. Please review.",
+                examples: [
+                    "Core definition and use-case for General Policy & Governance: Deep Dive & Memory Hacks.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in General Policy & Governance: Deep Dive & Memory Hacks."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of General Policy & Governance: Deep Dive & Memory Hacks.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about General Policy & Governance: Deep Dive & Memory Hacks?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
             }
         ]
     }

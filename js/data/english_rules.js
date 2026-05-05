@@ -440,6 +440,24 @@ const englishData = {
                 ],
                 shortcut: "EXAM HACK: Most errors are one of these 10 types. Train yourself to spot them instantly in 5 seconds per sentence."
             }
+            ,
+            {
+                title: "Auto-draft: Error Spotting - Complete Strategy & Common Errors - Core Examples",
+                text: "Auto-generated draft for Error Spotting - Complete Strategy & Common Errors. Please review.",
+                examples: [
+                    "Core definition and use-case for Error Spotting - Complete Strategy & Common Errors.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Error Spotting - Complete Strategy & Common Errors."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Error Spotting - Complete Strategy & Common Errors.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Error Spotting - Complete Strategy & Common Errors?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
+            }
         ]
     },
 

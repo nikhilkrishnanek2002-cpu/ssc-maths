@@ -160,6 +160,24 @@ const statisticsData = {
                 ],
                 shortcut: "Fisher's index is called 'Ideal' because it satisfies both the Time Reversal Test and the Factor Reversal Test."
             }
+            ,
+            {
+                title: "Auto-draft: Index Numbers & Time Series: Massive Deep Dive - Core Examples",
+                text: "Auto-generated draft for Index Numbers & Time Series: Massive Deep Dive. Please review.",
+                examples: [
+                    "Core definition and use-case for Index Numbers & Time Series: Massive Deep Dive.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Index Numbers & Time Series: Massive Deep Dive."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Index Numbers & Time Series: Massive Deep Dive.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Index Numbers & Time Series: Massive Deep Dive?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
+            }
         ]
     }
 };

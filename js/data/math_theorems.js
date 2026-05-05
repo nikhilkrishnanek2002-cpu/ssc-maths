@@ -399,6 +399,24 @@ const mathData = {
                 ],
                 shortcut: "When a 3D shape is melted and recast: VOLUMES ARE EQUAL! Use this principle for transformation problems."
             }
+            ,
+            {
+                title: "Auto-draft: Surface Area and Volume Master Sheet - Core Examples",
+                text: "Auto-generated draft for Surface Area and Volume Master Sheet. Please review.",
+                examples: [
+                    "Core definition and use-case for Surface Area and Volume Master Sheet.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Surface Area and Volume Master Sheet."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Surface Area and Volume Master Sheet.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Surface Area and Volume Master Sheet?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
+            }
         ]
     },
 

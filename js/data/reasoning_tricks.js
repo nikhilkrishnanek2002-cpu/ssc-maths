@@ -220,6 +220,24 @@ const reasoningData = {
                 ],
                 shortcut: "EXAM TRICK: Find what FOUR things have in common. The fifth is the odd one out."
             }
+            ,
+            {
+                title: "Auto-draft: Classification & Odd One Out - Complete Guide - Core Examples",
+                text: "Auto-generated draft for Classification & Odd One Out - Complete Guide. Please review.",
+                examples: [
+                    "Core definition and use-case for Classification & Odd One Out - Complete Guide.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Classification & Odd One Out - Complete Guide."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Classification & Odd One Out - Complete Guide.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Classification & Odd One Out - Complete Guide?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
+            }
         ]
     },
 
@@ -238,6 +256,24 @@ const reasoningData = {
                     "Transformation pattern: Each cell transforms the previous (rotation, reflection, color change)"
                 ],
                 shortcut: "Check ROWS first. If row pattern is unclear, check COLUMNS. Finally, check DIAGONALS."
+            }
+            ,
+            {
+                title: "Auto-draft: Matrix Reasoning - Image Pattern Recognition - Core Examples",
+                text: "Auto-generated draft for Matrix Reasoning - Image Pattern Recognition. Please review.",
+                examples: [
+                    "Core definition and use-case for Matrix Reasoning - Image Pattern Recognition.",
+                    "Worked example: a short solved problem using the core idea.",
+                    "Common trap to watch out for in Matrix Reasoning - Image Pattern Recognition."
+                ],
+                shortcut: "Quick trick: reduce to a 1-line rule.",
+                practiceProblems: [
+                    "Short practice: apply the core rule of Matrix Reasoning - Image Pattern Recognition.",
+                    "Variant: twist that tests the trap awareness."
+                ],
+                miniQuiz: [
+                    { q: "What is the main fact about Matrix Reasoning - Image Pattern Recognition?", answer: "Core definition", explanation: "One-line anchor." }
+                ]
             }
         ]
     },

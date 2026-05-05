@@ -1,0 +1,8 @@
+{
+  "name": "ssc-maths-study",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test:data": "node ./scripts/validate_data.js"
+  }
+}
